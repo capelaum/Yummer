@@ -24,7 +24,6 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#263143" />
           <meta name="theme-color" content="#ffffff" />
           <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-          <title>Yummer</title>
         </Head>
         <body>
           <Main />

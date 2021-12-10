@@ -1,7 +1,9 @@
 .shape_left {
   border: 1px solid red;
   position: absolute;
-  left: -3.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
   width: 35vw;
   z-index: -1;
 }
@@ -9,11 +11,21 @@
 .shape_right {
   border: 1px solid red;
   position: absolute;
-  top: 10rem;
-  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0rem;
   width: 35vw;
 
   z-index: -1;
+}
+
+.shape {
+  width: 100vw;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .banner {
@@ -34,6 +46,8 @@
     margin: 2.5rem 0;
     text-align: center;
     font-size: 1.2rem;
+    padding: 0 1rem;
+    max-width: 600px;
   }
 
   button {
@@ -49,23 +63,29 @@
     transition: all 0.3s;
 
     &:hover {
-      color: var(--color-secondary);
+      // color: var(--color-secondary);
+
+      box-shadow: rgba(234, 91, 19, 0.4) 5px 5px, rgba(234, 91, 19, 0.3) 10px 10px, rgba(234, 91, 19, 0.2) 15px 15px,
+        rgba(234, 91, 19, 0.1) 20px 20px, rgba(234, 91, 19, 0.05) 25px 25px;
     }
+  }
+
+  .main_cookies_mobile {
+    display: none;
   }
 }
 
-@media (min-width: 1200px) {
-}
-
-@media (max-width: 678px) {
+@media (min-width: 1920px) {
   .shape_left {
-    top: 15rem;
+    width: 680px;
   }
 
   .shape_right {
-    top: 25rem;
+    width: 730px;
   }
+}
 
+@media (max-width: 678px) {
   .banner {
     margin-top: 2rem;
 
@@ -73,8 +93,22 @@
       width: 300px;
     }
 
+    p {
+      font-size: 1.2rem;
+      padding: 0 1rem;
+    }
+
     button {
       font-size: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .main_cookies {
+      display: none;
+    }
+
+    .main_cookies_mobile {
+      display: block;
     }
   }
 }
