@@ -1,23 +1,15 @@
 import Head from "next/head";
 import { Banner } from "../components/Banner";
 
-import { cookies } from "./api/database";
-
 import styles from "../styles/Home.module.scss";
 import { GetStaticProps } from "next";
+import { Cookies, cookieType } from "../components/Cookies";
 
-type cookieType = {
-  name: string;
-  size: number;
-  description: string;
-  price: number;
-};
+interface Menu {
+  cookies: cookieType[];
+}
 
-export default function Home({ cookies }) {
-  function renderCookies(cookies: cookieType[]) {
-    return cookies.map(({ name, size }) => <li key={`${name}-${size}`}>{name}</li>);
-  }
-
+export default function Home({ cookies }: Menu) {
   return (
     <>
       <Head>
@@ -32,7 +24,7 @@ export default function Home({ cookies }) {
           <button className={styles.menuNavButton}>Sucos</button>
         </nav>
         <section className={styles.menu}>
-          <div className={styles.cookies}>{renderCookies(cookies)}</div>
+          <Cookies cookies={cookies} />
         </section>
       </div>
     </>
@@ -40,12 +32,14 @@ export default function Home({ cookies }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/cookies`);
-  const cookies: cookieType[] = await res.json();
+  const res = await fetch(`${process.env.API_URL}/api/menu`);
+  const { cookies, toasts, juices } = await res.json();
 
   return {
     props: {
       cookies,
+      toasts,
+      juices,
     },
   };
 };
