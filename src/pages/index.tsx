@@ -11,13 +11,13 @@ export default function Home() {
       </Head>
       <div className={styles.container}>
         <Banner />
-        <section className={styles.menu}>
-          <nav className={styles.menuNav}>
-            <button className={styles.menuNavButton}>Cookies</button>
-            <button className={styles.menuNavButton}>Rabanadas</button>
-            <button className={styles.menuNavButton}>Sucos</button>
-          </nav>
-        </section>
+
+        <nav className={styles.menuNav}>
+          <button className={styles.menuNavButton}>Cookies</button>
+          <button className={styles.menuNavButton}>Rabanadas</button>
+          <button className={styles.menuNavButton}>Sucos</button>
+        </nav>
+        <section className={styles.menu}></section>
       </div>
     </>
   );
