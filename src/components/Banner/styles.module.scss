@@ -1,0 +1,56 @@
+.banner {
+  max-width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.shape_left {
+  position: absolute;
+  top: 6.25rem;
+  left: -3.75rem;
+  width: 80vh;
+  z-index: -1;
+}
+
+.shape_right {
+  position: absolute;
+  top: 18rem;
+  right: -20px;
+  width: 70vh;
+
+  z-index: -1;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-top: 6.25rem;
+
+  p {
+    color: var(--color-primary);
+    margin: 2.5rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  button {
+    margin: 0rem auto 8.75rem;
+    padding: 1rem 3.5rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 500;
+    border: none;
+    font-size: 1.1rem;
+
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+}
