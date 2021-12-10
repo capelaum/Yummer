@@ -1,6 +1,6 @@
-# Yummer
+# Yummer :cookie:
 
-Site de pedidos de cookies
+Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!
 
 ### Tech
 
