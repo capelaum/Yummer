@@ -1,9 +1,12 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
-import { Banner } from "../components/Banner";
 
 import styles from "../styles/Home.module.scss";
-import { GetStaticProps } from "next";
-import { Cookies, cookieType } from "../components/Cookies";
+
+import { cookieType } from "../utils/types";
+
+import { Banner } from "../components/Banner";
+import { Cookies } from "../components/Cookies";
 
 interface Menu {
   cookies: cookieType[];

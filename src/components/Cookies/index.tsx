@@ -1,18 +1,9 @@
+import { cookieType } from "../../utils/types";
 import styles from "./styles.module.scss";
 
 interface CookiesProps {
   cookies: cookieType[];
 }
-
-export type cookieType = {
-  name: string;
-  size: number;
-  description: string;
-  price: string | number;
-};
-
-export type toastType = Omit<cookieType, "size">;
-export type juiceType = Omit<cookieType, "size">;
 
 export function Cookies({ cookies }: CookiesProps) {
   function renderCookies(cookies: cookieType[]) {

@@ -1,4 +1,4 @@
-import { cookieType, juiceType, toastType } from "../components/Cookies";
+import { cookieType, juiceType, toastType } from "./types";
 
 export function formatPrice(price: number): string {
   return new Intl.NumberFormat("pt-br", {
