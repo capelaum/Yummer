@@ -13,9 +13,9 @@ export default function Home() {
         <Banner />
         <section className={styles.menu}>
           <nav className={styles.menuNav}>
-            <button>Cookies</button>
-            <button>Rabanadas</button>
-            <button>Sucos</button>
+            <button className={styles.menuNavButton}>Cookies</button>
+            <button className={styles.menuNavButton}>Rabanadas</button>
+            <button className={styles.menuNavButton}>Sucos</button>
           </nav>
         </section>
       </div>
