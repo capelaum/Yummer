@@ -1,37 +1,6 @@
-.shape_left {
-  border: 1px solid red;
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  // bottom: 0;
-  left: 0;
+import styled from "styled-components";
 
-  width: 35vw;
-  z-index: -1;
-}
-
-.shape_right {
-  border: 1px solid red;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  // bottom: 0;
-  right: 0rem;
-  width: 35vw;
-
-  z-index: -1;
-}
-
-.shape {
-  width: 100vw;
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.banner {
+export const BannerContainer = styled.div`
   margin-top: 6.25rem;
   position: relative;
   border: 1px solid red;
@@ -76,20 +45,8 @@
   .main_cookies_mobile {
     display: none;
   }
-}
 
-@media (min-width: 1920px) {
-  .shape_left {
-    width: 680px;
-  }
-
-  .shape_right {
-    width: 730px;
-  }
-}
-
-@media (max-width: 678px) {
-  .banner {
+  @media (max-width: 678px) {
     margin-top: 2rem;
 
     .yummer_logo {
@@ -114,4 +71,49 @@
       display: block;
     }
   }
-}
+`;
+
+export const ShapeLeft = styled.div`
+  border: 1px solid red;
+  position: absolute;
+
+  top: 40%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 35vw;
+
+  z-index: -1;
+
+  @media (min-width: 1920px) {
+    .shape_left {
+      width: 680px;
+    }
+  }
+`;
+
+export const ShapeRight = styled.div`
+  border: 1px solid red;
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0rem;
+  width: 35vw;
+
+  z-index: -1;
+
+  @media (min-width: 1920px) {
+    .shape_right {
+      width: 730px;
+    }
+  }
+`;
+
+export const Shape = styled.div`
+  width: 100vw;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;

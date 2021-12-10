@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
-import styles from "../styles/Home.module.scss";
-
 import { cookieType } from "../utils/types";
 
 import { Banner } from "../components/Banner";
 import { Cookies } from "../components/Cookies";
+
+import { Container, Menu, MenuNav, MenuNavButton } from "../styles/home";
 
 interface Menu {
   cookies: cookieType[];
@@ -18,18 +18,18 @@ export default function Home({ cookies }: Menu) {
       <Head>
         <title>Yummer</title>
       </Head>
-      <div className={styles.container}>
+      <Container>
         <Banner />
 
-        <nav className={styles.menuNav}>
-          <button className={styles.menuNavButton}>Cookies</button>
-          <button className={styles.menuNavButton}>Rabanadas</button>
-          <button className={styles.menuNavButton}>Sucos</button>
-        </nav>
-        <section className={styles.menu}>
+        <MenuNav>
+          <MenuNavButton>Cookies</MenuNavButton>
+          <MenuNavButton>Rabanadas</MenuNavButton>
+          <MenuNavButton>Sucos</MenuNavButton>
+        </MenuNav>
+        <Menu>
           <Cookies cookies={cookies} />
-        </section>
-      </div>
+        </Menu>
+      </Container>
     </>
   );
 }

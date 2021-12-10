@@ -1,5 +1,6 @@
-@import "./colors.module";
+import { createGlobalStyle } from "styled-components";
 
+export const GlobalStyle = createGlobalStyle`
 *,
 *::after,
 *::before {
@@ -53,3 +54,4 @@ button {
   opacity: 0.6;
   cursor: not-allowed;
 }
+`;
