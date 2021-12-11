@@ -54,6 +54,10 @@ export const Switcher = styled.label`
   input:checked + .size-100 {
     color: #fff;
   }
+
+  @media (min-width: 1080px) {
+    width: 122px;
+  }
 `;
 
 interface SizesProps {

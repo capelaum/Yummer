@@ -1,5 +1,5 @@
-import { GetStaticProps } from "next";
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 import { cookieType } from "../utils/types";
 

@@ -2,6 +2,8 @@ import Image from "next/image";
 
 import { CookieItem } from "./styles";
 
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+
 interface CookieProps {
   name: string;
   description: string;
@@ -29,6 +31,8 @@ export function Cookie({ name, price, description, imageName }: CookieProps) {
         </header>
         <p>{description}</p>
       </div>
+
+      <div></div>
     </CookieItem>
   );
 }

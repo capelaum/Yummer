@@ -9,7 +9,7 @@ export function formatPrice(price: number): string {
 
 type dataType = cookieType | toastType | juiceType;
 
-export function formatObjArray(data: dataType[]): dataType[] {
+export function formatPrices(data: dataType[]): dataType[] {
   const dataFormat = data.map((item: dataType) => {
     return {
       ...item,

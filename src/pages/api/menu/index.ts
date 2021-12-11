@@ -1,13 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { formatObjArray, formatPrice } from "../../../utils/format";
+
 import { menu } from "../database";
+
+import { formatPrices } from "../../../utils/format";
 
 export default function getCookies(req: NextApiRequest, res: NextApiResponse) {
   const { cookies, toasts, juices } = menu;
 
-  const cookiesFormat = formatObjArray(cookies);
-  const toastsFormat = formatObjArray(toasts);
-  const juicesFormat = formatObjArray(juices);
+  const cookiesFormat = formatPrices(cookies);
+  const toastsFormat = formatPrices(toasts);
+  const juicesFormat = formatPrices(juices);
 
   res.status(200).json({
     cookies: cookiesFormat,
