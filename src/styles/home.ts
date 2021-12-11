@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const MenuNav = styled.nav`
-  margin: 10rem 1.25rem 0;
+  margin: 20vw 1.25rem 0;
 
   display: flex;
   justify-content: space-between;
@@ -18,6 +18,10 @@ export const MenuNav = styled.nav`
   max-width: 1200px;
   padding: 0 1.25rem 1rem;
   border-bottom: 1px solid var(--color-gray-200);
+
+  @media (min-width: 1920px) {
+    margin: 25rem 1.25rem 0;
+  }
 `;
 
 export const MenuNavButton = styled.button`

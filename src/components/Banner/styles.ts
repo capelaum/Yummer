@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const BannerContainer = styled.div`
   margin-top: 3rem;
-  position: relative;
   border: 1px solid red;
 
   display: flex;
@@ -25,8 +24,10 @@ export const BannerContainer = styled.div`
   button {
     margin: 0rem auto 8.75rem;
     padding: 1rem 4.5rem;
+
     background-color: var(--color-primary);
     color: #fff;
+
     border-radius: 50px;
     font-weight: 500;
     border: none;
@@ -37,13 +38,10 @@ export const BannerContainer = styled.div`
     &:hover {
       // color: var(--color-secondary);
 
-      box-shadow: rgba(234, 91, 19, 0.4) 5px 5px, rgba(234, 91, 19, 0.3) 10px 10px, rgba(234, 91, 19, 0.2) 15px 15px,
+      box-shadow: rgba(234, 91, 19, 0.4) 5px 5px,
+        rgba(234, 91, 19, 0.3) 10px 10px, rgba(234, 91, 19, 0.2) 15px 15px,
         rgba(234, 91, 19, 0.1) 20px 20px, rgba(234, 91, 19, 0.05) 25px 25px;
     }
-  }
-
-  .main_cookies_mobile {
-    display: none;
   }
 
   @media (max-width: 678px) {
@@ -60,9 +58,56 @@ export const BannerContainer = styled.div`
 
     button {
       font-size: 1.5rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
+    }
+  }
+`;
+
+export const Shape = styled.div`
+  width: 100vw;
+  /* height: ; */
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  div:nth-child(1),
+  div:nth-child(2) {
+    border: 1px solid red;
+    position: absolute;
+
+    width: 35vw;
+
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
+  .shape_left {
+    left: 0;
+    top: 40%;
+  }
+
+  .shape_right {
+    right: 0;
+    top: 50%;
+  }
+
+  .main_cookies_mobile {
+    display: none;
+  }
+
+  @media (min-width: 1920px) {
+    div:nth-child(1) {
+      width: 680px;
     }
 
+    div:nth-child(2) {
+      width: 730px;
+    }
+  }
+
+  @media (max-width: 678px) {
     .main_cookies {
       display: none;
     }
@@ -71,45 +116,4 @@ export const BannerContainer = styled.div`
       display: block;
     }
   }
-`;
-
-export const ShapeLeft = styled.div`
-  border: 1px solid red;
-  position: absolute;
-
-  top: 40%;
-  transform: translateY(-50%);
-  left: 0;
-  width: 35vw;
-
-  z-index: -1;
-
-  @media (min-width: 1920px) {
-    width: 680px;
-  }
-`;
-
-export const ShapeRight = styled.div`
-  border: 1px solid red;
-  position: absolute;
-
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0rem;
-  width: 35vw;
-
-  z-index: -1;
-
-  @media (min-width: 1920px) {
-    width: 730px;
-  }
-`;
-
-export const Shape = styled.div`
-  width: 100vw;
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 `;

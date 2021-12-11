@@ -6,7 +6,7 @@ import shape_right from "../../../public/Banner/shape_right.svg";
 import main_cookies from "../../../public/Banner/main_cookies.png";
 import main_cookies_mobile from "../../../public/Banner/mobile/main_cookies_mobile.png";
 
-import { BannerContainer, Shape, ShapeLeft, ShapeRight } from "./styles";
+import { BannerContainer, Shape } from "./styles";
 
 export function Banner() {
   return (
@@ -22,12 +22,12 @@ export function Banner() {
       <button>Faça seu pedido</button>
 
       <Shape>
-        <ShapeLeft>
+        <div className="shape_left">
           <Image src={shape_left} alt="shape left" layout="responsive" />
-        </ShapeLeft>
-        <ShapeRight>
+        </div>
+        <div className="shape_right">
           <Image src={shape_right} alt="shape right" layout="responsive" />
-        </ShapeRight>
+        </div>
         <div className="main_cookies">
           <Image src={main_cookies} alt="Yummer Cookies" />
         </div>
