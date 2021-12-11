@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const SwitchContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  margin-bottom: 3rem;
 `;
 
 export const Switcher = styled.label`

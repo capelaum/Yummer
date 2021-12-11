@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { CookieItem } from "./styles";
 
-import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { AddCartButton } from "../AddCartButton";
 
 interface CookieProps {
   name: string;
@@ -32,7 +32,7 @@ export function Cookie({ name, price, description, imageName }: CookieProps) {
         <p>{description}</p>
       </div>
 
-      <div></div>
+      <AddCartButton />
     </CookieItem>
   );
 }

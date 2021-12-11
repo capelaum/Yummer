@@ -12,7 +12,7 @@ export const MenuNav = styled.nav`
   margin: 20vw 1.25rem 0;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 
   width: 90%;
   max-width: 1200px;

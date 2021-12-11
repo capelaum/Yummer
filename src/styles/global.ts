@@ -48,6 +48,8 @@ strong {
 
 button {
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 [disabled] {

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const BannerContainer = styled.div`
   margin-top: 3rem;
-  border: 1px solid red;
 
   display: flex;
   align-items: center;
@@ -30,7 +29,6 @@ export const BannerContainer = styled.div`
 
     border-radius: 50px;
     font-weight: 500;
-    border: none;
     font-size: 1.1rem;
 
     transition: all 0.3s;
@@ -74,7 +72,6 @@ export const Shape = styled.div`
 
   div:nth-child(1),
   div:nth-child(2) {
-    border: 1px solid red;
     position: absolute;
 
     width: 35vw;
