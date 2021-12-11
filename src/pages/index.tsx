@@ -1,14 +1,13 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import { cookieType } from "../utils/types";
+import { cookieType } from "utils/types";
 
-import { Banner } from "../components/Banner";
-import { Cookies } from "../components/Cookies";
-import { MenuNav } from "../components/MenuNav";
+import { Menu } from "components/Menu";
+import { Banner } from "components/Banner";
+import { MenuNav } from "components/MenuNav";
 
-import { Container } from "../styles/home";
-import { Menu } from "../components/Menu";
+import { Container } from "styles/home";
 
 interface Menu {
   cookies: cookieType[];

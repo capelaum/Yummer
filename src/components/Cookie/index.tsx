@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { CookieItem } from "./styles";
 
-import { AddCartButton } from "../AddCartButton";
+import { AddCartButton } from "components/AddCartButton";
 
 interface CookieProps {
   name: string;

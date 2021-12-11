@@ -1,9 +1,9 @@
+import { Cookie } from "components/Cookie";
+
+import { Switch } from "components/Switch";
 import { useState } from "react";
 
-import { cookieType } from "../../utils/types";
-import { Cookie } from "../Cookie";
-
-import { Switch } from "../Switch";
+import { cookieType } from "utils/types";
 
 import { CookiesContainer } from "./styles";
 
