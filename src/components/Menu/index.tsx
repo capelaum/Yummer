@@ -3,9 +3,9 @@ import { useState } from "react";
 import { menuItemType } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
+import { Switch } from "components/Switch";
 
 import { MenuContainer, MenuItemContainer } from "./styles";
-import { Switch } from "components/Switch";
 
 interface MenuProps {
   cookies: menuItemType[];

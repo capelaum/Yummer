@@ -5,6 +5,7 @@ export const MenuNavContainer = styled.nav`
 
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   width: 90%;
   max-width: 1200px;
@@ -17,6 +18,10 @@ export const MenuNavContainer = styled.nav`
 `;
 
 export const MenuNavButton = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   background: none;
   border: none;
   font-size: 2.25rem;
@@ -24,6 +29,10 @@ export const MenuNavButton = styled.button`
   color: var(--color-primary);
 
   & + & {
+    padding-left: 1rem;
+  }
+
+  span {
     padding-left: 1rem;
   }
 `;

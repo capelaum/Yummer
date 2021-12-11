@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import yummer_logo from "../../../public/Logos/yummer_logo.svg";
-import shape_left from "../../../public/Banner/shape_left.svg";
-import shape_right from "../../../public/Banner/shape_right.svg";
-import main_cookies from "../../../public/Banner/main_cookies.png";
-import main_cookies_mobile from "../../../public/Banner/mobile/main_cookies_mobile.png";
+import yummer_logo from "@public/Logos/yummer_logo.svg";
+import shape_left from "@public/Banner/shape_left.svg";
+import shape_right from "@public/Banner/shape_right.svg";
+import main_cookies from "@public/Banner/main_cookies.png";
+import main_cookies_mobile from "@public/Banner/mobile/main_cookies_mobile.png";
 
 import { BannerContainer, Shape } from "./styles";
 
