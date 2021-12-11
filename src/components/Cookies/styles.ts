@@ -10,7 +10,9 @@ export const CookiesContainer = styled.div`
   color: #fff;
   max-width: 1200px;
   border-radius: 20px;
+`;
 
+export const CookieItem = styled.div`
   header {
     display: flex;
     align-items: flex-end;
@@ -33,11 +35,9 @@ export const CookiesContainer = styled.div`
     }
   }
 
-  .cookieItem {
-    padding-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
 
-    p {
-      font-size: 1.25rem;
-    }
+  p {
+    font-size: 1.25rem;
   }
 `;

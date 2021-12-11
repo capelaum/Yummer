@@ -1,24 +1,39 @@
-import { cookieType } from "../../utils/types";
-import { CookiesContainer } from "./styles";
+import { useState } from "react";
 
-import styles from "./styles.module.scss";
+import { cookieType } from "../../utils/types";
+import { Switch } from "../Switch";
+
+import { CookieItem, CookiesContainer } from "./styles";
 
 interface CookiesProps {
   cookies: cookieType[];
 }
 
 export function Cookies({ cookies }: CookiesProps) {
-  function renderCookies(cookies: cookieType[]) {
-    return cookies.map(({ name, size, price, description }) => (
-      <div className="cookieItem" key={`${name}-${size}`}>
+  const [size, setSize] = useState<100 | 45>(100);
+
+  function toggleSize() {
+    setSize(size === 100 ? 45 : 100);
+  }
+
+  function renderCookies(cookies: cookieType[], size: number) {
+    const filteredCookies = cookies.filter((cookie) => cookie.size === size);
+
+    return filteredCookies.map(({ name, size, price, description }) => (
+      <CookieItem key={`${name}-${size}`}>
         <header>
           <h2>{name}</h2>
           <span>{price}</span>
         </header>
         <p>{description}</p>
-      </div>
+      </CookieItem>
     ));
   }
 
-  return <CookiesContainer>{renderCookies(cookies)}</CookiesContainer>;
+  return (
+    <CookiesContainer>
+      <Switch size={size} toggleSize={toggleSize} />
+      {renderCookies(cookies, size)}
+    </CookiesContainer>
+  );
 }

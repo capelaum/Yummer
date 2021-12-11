@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.div`
-  margin-top: 6.25rem;
+  margin-top: 3rem;
   position: relative;
   border: 1px solid red;
 
@@ -85,9 +85,7 @@ export const ShapeLeft = styled.div`
   z-index: -1;
 
   @media (min-width: 1920px) {
-    .shape_left {
-      width: 680px;
-    }
+    width: 680px;
   }
 `;
 
@@ -103,9 +101,7 @@ export const ShapeRight = styled.div`
   z-index: -1;
 
   @media (min-width: 1920px) {
-    .shape_right {
-      width: 730px;
-    }
+    width: 730px;
   }
 `;
 
