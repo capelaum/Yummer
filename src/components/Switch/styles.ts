@@ -77,12 +77,12 @@ export const Sizes = styled.span<SizesProps>`
   }
 
   #size-100 {
-    color: ${(props) => (props.isChecked ? "fff" : "var(--color-primary)")};
+    color: ${({ isChecked }) => (isChecked ? "fff" : "var(--color-primary)")};
     left: 16px;
   }
 
   #size-45 {
-    color: ${(props) => (props.isChecked ? "var(--color-primary)" : "fff")};
+    color: ${({ isChecked }) => (isChecked ? "var(--color-primary)" : "fff")};
     left: 80px;
   }
 `;

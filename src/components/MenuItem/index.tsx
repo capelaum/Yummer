@@ -26,7 +26,7 @@ export function MenuItem({
   isOrange,
 }: CookieProps) {
   return (
-    <MenuItemContent>
+    <MenuItemContent isOrange={isOrange}>
       <Content>
         <div className="menu_item_image">
           <Image

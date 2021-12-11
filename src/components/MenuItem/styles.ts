@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const MenuItemContent = styled.div`
+interface MenuItemContentProps {
+  isOrange?: boolean;
+}
+
+export const MenuItemContent = styled.div<MenuItemContentProps>`
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
 
   width: 100%;
@@ -17,7 +21,8 @@ export const MenuItemContent = styled.div`
     padding-bottom: 0.75rem;
 
     h2 {
-      color: var(--color-secondary);
+      color: ${({ isOrange }) =>
+        isOrange ? "var(--color-primary)" : "var(--color-secondary)"};
       font-weight: 800;
       font-size: 2rem;
       padding: 0;
@@ -29,7 +34,7 @@ export const MenuItemContent = styled.div`
       font-weight: 500;
       font-size: 1.25rem;
 
-      color: var(--color-gray-400);
+      color: ${({ isOrange }) => (isOrange ? "#fff" : "var(--color-gray-400)")};
     }
   }
 

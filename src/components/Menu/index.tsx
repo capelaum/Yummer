@@ -30,9 +30,9 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
     );
 
     const imageWidth =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 70;
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 80;
     const imageHeight =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 100;
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 120;
 
     return filteredMenuItems.map(
       ({ name, price, description, imageName }, index) => (
@@ -57,7 +57,9 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
         <Switch size={size} toggleSize={toggleSize} />
         {renderMenuItems(cookies, "Cookies", size)}
       </MenuItemContainer>
-      <MenuItemContainer>{renderMenuItems(toasts, "Toasts")}</MenuItemContainer>
+      <MenuItemContainer isOrange>
+        {renderMenuItems(toasts, "Toasts")}
+      </MenuItemContainer>
       <MenuItemContainer>{renderMenuItems(juices, "Juices")}</MenuItemContainer>
     </MenuContainer>
   );

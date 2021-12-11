@@ -11,12 +11,17 @@ export const MenuContainer = styled.section`
   background-size: 300px;
 `;
 
-export const MenuItemContainer = styled.div`
+interface MenuItemContainerProps {
+  isOrange?: boolean;
+}
+
+export const MenuItemContainer = styled.div<MenuItemContainerProps>`
   margin: 3rem 1.25rem;
   padding: 2.5rem;
   width: 90%;
 
-  background: var(--color-primary);
+  background-color: ${({ isOrange }) =>
+    isOrange ? "var(--color-secondary)" : "var(--color-primary)"};
   color: #fff;
   max-width: 1200px;
   border-radius: 20px;

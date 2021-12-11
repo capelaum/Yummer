@@ -34,11 +34,7 @@ export const BannerContainer = styled.div`
     transition: all 0.3s;
 
     &:hover {
-      // color: var(--color-secondary);
-
-      box-shadow: rgba(234, 91, 19, 0.4) 5px 5px,
-        rgba(234, 91, 19, 0.3) 10px 10px, rgba(234, 91, 19, 0.2) 15px 15px,
-        rgba(234, 91, 19, 0.1) 20px 20px, rgba(234, 91, 19, 0.05) 25px 25px;
+      background-color: var(--color-secondary);
     }
   }
 
