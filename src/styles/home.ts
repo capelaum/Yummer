@@ -38,7 +38,7 @@ export const Menu = styled.section`
   align-items: center;
   flex-direction: column;
 
-  background-image: url("./bg_menu.png");
+  background-image: url("./Menu/bg_menu.png");
   background-repeat: repeat;
   background-size: 300px;
 `;

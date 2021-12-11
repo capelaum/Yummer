@@ -1,9 +1,11 @@
 import { useState } from "react";
 
 import { cookieType } from "../../utils/types";
+import { Cookie } from "../Cookie";
+
 import { Switch } from "../Switch";
 
-import { CookieItem, CookiesContainer } from "./styles";
+import { CookiesContainer } from "./styles";
 
 interface CookiesProps {
   cookies: cookieType[];
@@ -19,15 +21,17 @@ export function Cookies({ cookies }: CookiesProps) {
   function renderCookies(cookies: cookieType[], size: number) {
     const filteredCookies = cookies.filter((cookie) => cookie.size === size);
 
-    return filteredCookies.map(({ name, size, price, description }) => (
-      <CookieItem key={`${name}-${size}`}>
-        <header>
-          <h2>{name}</h2>
-          <span>{price}</span>
-        </header>
-        <p>{description}</p>
-      </CookieItem>
-    ));
+    return filteredCookies.map(
+      ({ name, size, price, description, imageName }) => (
+        <Cookie
+          key={`${name}-${size}`}
+          name={name}
+          price={price}
+          description={description}
+          imageName={imageName}
+        />
+      ),
+    );
   }
 
   return (

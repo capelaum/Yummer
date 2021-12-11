@@ -35,7 +35,7 @@ export default function Home({ cookies }: Menu) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.API_URL}/api/menu`);
+  const res = await fetch(`${process.env.URL_LOCAL}/api/menu`);
   const { cookies, toasts, juices } = await res.json();
 
   return {

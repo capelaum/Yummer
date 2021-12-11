@@ -6,6 +6,7 @@ export const menu = {
         "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
       price: 8,
       size: 100,
+      imageName: "old.png",
     },
     {
       name: "Coffee Lover",
@@ -13,6 +14,7 @@ export const menu = {
         "Massa de caafé com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
       price: 8,
       size: 100,
+      imageName: "coffee.png",
     },
     {
       name: "Double Trouble",
@@ -20,6 +22,7 @@ export const menu = {
         "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
       price: 8,
       size: 100,
+      imageName: "double.png",
     },
     {
       name: "Lemon Dream",
@@ -27,6 +30,7 @@ export const menu = {
         "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
       price: 8,
       size: 100,
+      imageName: "lemon.png",
     },
     {
       name: "Old School",
@@ -34,6 +38,7 @@ export const menu = {
         "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
       price: 4,
       size: 45,
+      imageName: "old.png",
     },
     {
       name: "Coffee Lover",
@@ -41,6 +46,7 @@ export const menu = {
         "Massa de caafé com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
       price: 4,
       size: 45,
+      imageName: "coffee.png",
     },
     {
       name: "Double Trouble",
@@ -48,6 +54,7 @@ export const menu = {
         "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
       price: 4,
       size: 45,
+      imageName: "double.png",
     },
     {
       name: "Lemon Dream",
@@ -55,17 +62,20 @@ export const menu = {
         "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
       price: 4,
       size: 45,
+      imageName: "lemon.png",
     },
   ],
   toasts: [
     {
       name: "Piloto",
-      description: "A melhor rabanada tradicional, com açúcar e canela por fora.",
+      description:
+        "A melhor rabanada tradicional, com açúcar e canela por fora.",
       price: 6,
     },
     {
       name: "Dona Avelina",
-      description: "Recheada com muito doce de leite mineiro, com açúcar e canela por fora.",
+      description:
+        "Recheada com muito doce de leite mineiro, com açúcar e canela por fora.",
       price: 6,
     },
     {
@@ -77,12 +87,14 @@ export const menu = {
   juices: [
     {
       name: "Pink Lemonade",
-      description: "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
+      description:
+        "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
       price: 5,
     },
     {
       name: "Amora com Limão",
-      description: "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
+      description:
+        "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
       price: 5,
     },
     {
@@ -92,7 +104,8 @@ export const menu = {
     },
     {
       name: "Black Tea",
-      description: "A intensidade de sabor do chá preto, feito do jeitinho Yummer.",
+      description:
+        "A intensidade de sabor do chá preto, feito do jeitinho Yummer.",
       price: 5,
     },
   ],

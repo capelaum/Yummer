@@ -3,7 +3,8 @@ export type cookieType = {
   size: number;
   description: string;
   price: string | number;
+  imageName: string;
 };
 
-export type toastType = Omit<cookieType, "size">;
-export type juiceType = Omit<cookieType, "size">;
+export type toastType = Omit<cookieType, "size" | "imageName">;
+export type juiceType = Omit<cookieType, "size" | "imageName">;
