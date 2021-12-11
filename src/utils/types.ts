@@ -1,6 +1,6 @@
 export type cookieType = {
   name: string;
-  size: number;
+  size: 100 | 45;
   description: string;
   price: string | number;
   imageName: string;

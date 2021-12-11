@@ -5,8 +5,10 @@ import { cookieType } from "../utils/types";
 
 import { Banner } from "../components/Banner";
 import { Cookies } from "../components/Cookies";
+import { MenuNav } from "../components/MenuNav";
 
-import { Container, Menu, MenuNav, MenuNavButton } from "../styles/home";
+import { Container } from "../styles/home";
+import { Menu } from "../components/Menu";
 
 interface Menu {
   cookies: cookieType[];
@@ -21,14 +23,9 @@ export default function Home({ cookies }: Menu) {
       <Container>
         <Banner />
 
-        <MenuNav>
-          <MenuNavButton>Cookies</MenuNavButton>
-          <MenuNavButton>Rabanadas</MenuNavButton>
-          <MenuNavButton>Sucos</MenuNavButton>
-        </MenuNav>
-        <Menu>
-          <Cookies cookies={cookies} />
-        </Menu>
+        <MenuNav />
+
+        <Menu cookies={cookies} />
       </Container>
     </>
   );

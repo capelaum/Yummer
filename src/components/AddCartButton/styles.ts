@@ -25,11 +25,25 @@ export const AddCartBtn = styled.button`
 
   &:focus {
     span {
-      color: var(--color-secondary);
+      animation: button_focus 3s;
     }
   }
 
   &:hover {
     filter: brightness(0.9);
+  }
+
+  @media (max-width: 1080px) {
+    margin: 0 1.3rem 0 5rem;
+  }
+
+  @keyframes button_focus {
+    0% {
+      color: var(--color-secondary);
+    }
+
+    100% {
+      color: var(--color-primary);
+    }
   }
 `;
