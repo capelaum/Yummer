@@ -5,7 +5,7 @@ export const AddCartBtn = styled.button`
   align-items: center;
   justify-content: space-around;
 
-  margin: 0 1rem 0 5rem;
+  margin: 0 1rem 0 4rem;
 
   background-color: #fff;
   padding: 0.75rem 1rem;
@@ -34,7 +34,7 @@ export const AddCartBtn = styled.button`
   }
 
   @media (max-width: 1080px) {
-    margin: 0 1.3rem 0 5rem;
+    margin: 0 1.3rem 0 4rem;
   }
 
   @keyframes button_focus {

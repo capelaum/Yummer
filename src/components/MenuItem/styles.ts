@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
-export const CookieItem = styled.div`
+export const MenuItemContent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 
-  .cookie_image {
+  width: 100%;
+  border: 1px solid red;
+
+  .menu_item_image {
     margin-right: 1.25rem;
   }
 
@@ -36,4 +39,9 @@ export const CookieItem = styled.div`
   p {
     font-size: 1.25rem;
   }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
 `;

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import { cookieType } from "utils/types";
+import { menuItemType } from "utils/types";
 
 import { Menu } from "components/Menu";
 import { Banner } from "components/Banner";
@@ -10,10 +10,12 @@ import { MenuNav } from "components/MenuNav";
 import { Container } from "styles/home";
 
 interface Menu {
-  cookies: cookieType[];
+  cookies: menuItemType[];
+  toasts: menuItemType[];
+  juices: menuItemType[];
 }
 
-export default function Home({ cookies }: Menu) {
+export default function Home({ cookies, toasts, juices }: Menu) {
   return (
     <>
       <Head>
@@ -24,7 +26,7 @@ export default function Home({ cookies }: Menu) {
 
         <MenuNav />
 
-        <Menu cookies={cookies} />
+        <Menu cookies={cookies} toasts={toasts} juices={juices} />
       </Container>
     </>
   );

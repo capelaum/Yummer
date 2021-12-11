@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { menu } from "../database";
 
-import { formatPrices } from "../../../utils/format";
+import { formatPrices } from "utils/format";
 
 export default function getCookies(req: NextApiRequest, res: NextApiResponse) {
   const { cookies, toasts, juices } = menu;

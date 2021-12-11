@@ -1,4 +1,4 @@
-import { cookieType, juiceType, toastType } from "./types";
+import { menuItemType } from "./types";
 
 export function formatPrice(price: number): string {
   return new Intl.NumberFormat("pt-br", {
@@ -7,10 +7,8 @@ export function formatPrice(price: number): string {
   }).format(price);
 }
 
-type dataType = cookieType | toastType | juiceType;
-
-export function formatPrices(data: dataType[]): dataType[] {
-  const dataFormat = data.map((item: dataType) => {
+export function formatPrices(data: menuItemType[]): menuItemType[] {
+  const dataFormat = data.map((item: menuItemType) => {
     return {
       ...item,
       price: formatPrice(Number(item.price)),

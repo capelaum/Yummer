@@ -1,17 +1,64 @@
-import { cookieType } from "utils/types";
+import { useState } from "react";
 
-import { Cookies } from "components/Cookies";
+import { menuItemType } from "utils/types";
 
-import { MenuContainer } from "./styles";
+import { MenuItem } from "components/MenuItem";
+
+import { MenuContainer, MenuItemContainer } from "./styles";
+import { Switch } from "components/Switch";
 
 interface MenuProps {
-  cookies: cookieType[];
+  cookies: menuItemType[];
+  toasts: menuItemType[];
+  juices: menuItemType[];
 }
 
-export function Menu({ cookies }: MenuProps) {
+export function Menu({ cookies, toasts, juices }: MenuProps) {
+  const [size, setSize] = useState<100 | 45>(100);
+
+  function toggleSize() {
+    setSize(size === 100 ? 45 : 100);
+  }
+
+  function renderMenuItems(
+    menuItems: menuItemType[],
+    itemType: string,
+    size?: number,
+  ) {
+    const filteredMenuItems = menuItems.filter(
+      (menuItem) => menuItem?.size === size,
+    );
+
+    const imageWidth =
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 180 : 90;
+    const imageHeight =
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 100 : 120;
+
+    return filteredMenuItems.map(
+      ({ name, price, description, imageName }, index) => (
+        <MenuItem
+          key={`${name}-${index}`}
+          name={name}
+          price={price}
+          description={description}
+          imageName={imageName}
+          itemType={itemType}
+          imageWidth={imageWidth}
+          imageHeight={imageHeight}
+          isOrange={itemType === "Toasts"}
+        />
+      ),
+    );
+  }
+
   return (
     <MenuContainer>
-      <Cookies cookies={cookies} />
+      <MenuItemContainer>
+        <Switch size={size} toggleSize={toggleSize} />
+        {renderMenuItems(cookies, "Cookies", size)}
+      </MenuItemContainer>
+      <MenuItemContainer>{renderMenuItems(toasts, "Toasts")}</MenuItemContainer>
+      <MenuItemContainer>{renderMenuItems(juices, "Juices")}</MenuItemContainer>
     </MenuContainer>
   );
 }

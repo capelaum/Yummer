@@ -10,3 +10,16 @@ export const MenuContainer = styled.section`
   background-repeat: repeat;
   background-size: 300px;
 `;
+
+export const MenuItemContainer = styled.div`
+  margin: 3rem 1.25rem;
+  padding: 2.5rem;
+  width: 90%;
+
+  border: 1px solid red;
+
+  background: var(--color-primary);
+  color: #fff;
+  max-width: 1200px;
+  border-radius: 20px;
+`;

@@ -19,7 +19,8 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "paths": {
-    "@Components/*": ["components/*"],
-    "@utils/*": ["utils/*"]
+    "@components/*": ["components/*"],
+    "@utils/*": ["utils/*"],
+    "@styles/*": ["styles/*"]
   }
 }

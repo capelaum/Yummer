@@ -1,4 +1,12 @@
-export const menu = {
+import { menuItemType } from "utils/types";
+
+interface MenuType {
+  cookies: menuItemType[];
+  toasts: menuItemType[];
+  juices: menuItemType[];
+}
+
+export const menu: MenuType = {
   cookies: [
     {
       name: "Old School",
@@ -68,20 +76,22 @@ export const menu = {
   toasts: [
     {
       name: "Piloto",
-      description:
-        "A melhor rabanada tradicional, com açúcar e canela por fora.",
+      description: "A melhor rabanada tradicional, açúcar e canela por fora.",
       price: 6,
+      imageName: "piloto.png",
     },
     {
       name: "Dona Avelina",
       description:
-        "Recheada com muito doce de leite mineiro, com açúcar e canela por fora.",
+        "Recheada com muito doce de leite mineiro, açúcar e canela por fora.",
       price: 6,
+      imageName: "dona_avelina.png",
     },
     {
       name: "Doce Imperador",
-      description: "Recheada com muita Nutella, com açúcar e canela por fora.",
+      description: "Recheada com muita Nutella, açúcar e canela por fora.",
       price: 6,
+      imageName: "doce_imperador.png",
     },
   ],
   juices: [
@@ -90,23 +100,27 @@ export const menu = {
       description:
         "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
       price: 5,
+      imageName: "pink_lemonade.png",
     },
     {
       name: "Amora com Limão",
       description:
         "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
       price: 5,
+      imageName: "amora_limao.png",
     },
     {
       name: "Laranja com Acerola",
       description: "Delicioso suco de laranja com Acerola, na medida ideal.",
       price: 5,
+      imageName: "laranja_acerola.png",
     },
     {
       name: "Black Tea",
       description:
         "A intensidade de sabor do chá preto, feito do jeitinho Yummer.",
       price: 5,
+      imageName: "black_tea.png",
     },
   ],
 };
