@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const MenuItemContent = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 
   width: 100%;
-  border: 1px solid red;
 
   .menu_item_image {
     margin-right: 1.25rem;
@@ -20,7 +19,7 @@ export const MenuItemContent = styled.div`
     h2 {
       color: var(--color-secondary);
       font-weight: 800;
-      font-size: 2.25rem;
+      font-size: 2rem;
       padding: 0;
     }
 

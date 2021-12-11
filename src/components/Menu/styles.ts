@@ -16,8 +16,6 @@ export const MenuItemContainer = styled.div`
   padding: 2.5rem;
   width: 90%;
 
-  border: 1px solid red;
-
   background: var(--color-primary);
   color: #fff;
   max-width: 1200px;

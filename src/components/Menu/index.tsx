@@ -30,9 +30,9 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
     );
 
     const imageWidth =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 180 : 90;
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 70;
     const imageHeight =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 100 : 120;
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 100;
 
     return filteredMenuItems.map(
       ({ name, price, description, imageName }, index) => (
