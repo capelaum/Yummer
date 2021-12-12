@@ -7,3 +7,9 @@ export type menuItemType = {
 };
 
 export type itemType = "cookies" | "toasts" | "juices";
+
+export interface Information {
+  title: string;
+  text: string;
+  list: string[];
+}

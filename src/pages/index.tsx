@@ -1,21 +1,27 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import { menuItemType } from "utils/types";
+import { Information, menuItemType } from "utils/types";
 
 import { Menu } from "components/Menu";
 import { Banner } from "components/Banner";
-import { MenuNav } from "components/MenuNav";
 
-import { Container, InfoContainer } from "styles/home";
+import { Container } from "styles/home";
+import { Informations } from "components/Informations";
 
 interface MenuProps {
   cookies: menuItemType[];
   toasts: menuItemType[];
   juices: menuItemType[];
+  informations: Information[];
 }
 
-export default function Home({ cookies, toasts, juices }: MenuProps) {
+export default function Home({
+  cookies,
+  toasts,
+  juices,
+  informations,
+}: MenuProps) {
   return (
     <>
       <Head>
@@ -26,24 +32,27 @@ export default function Home({ cookies, toasts, juices }: MenuProps) {
 
         <Menu cookies={cookies} toasts={toasts} juices={juices} />
 
-        <InfoContainer>
-          <h2>Como Funciona</h2>
-          <h1>Informações</h1>
-        </InfoContainer>
+        <Informations informations={informations} />
       </Container>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.URL_LOCAL}/api/menu`);
-  const { cookies, toasts, juices } = await res.json();
+  const menu = await fetch(`${process.env.URL_LOCAL}/api/menu`);
+  const { cookies, toasts, juices } = await menu.json();
+
+  const informationsData = await fetch(
+    `${process.env.URL_LOCAL}/api/informations`,
+  );
+  const informations = await informationsData.json();
 
   return {
     props: {
       cookies,
       toasts,
       juices,
+      informations,
     },
   };
 };
