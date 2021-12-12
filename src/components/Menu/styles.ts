@@ -6,6 +6,20 @@ export const MenuContainer = styled.section`
   align-items: center;
   flex-direction: column;
 
+  margin-top: 20vw;
+
+  @media (max-width: 1080px) {
+    margin-top: 10rem;
+  }
+`;
+
+export const MenuItemsContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   background-image: url("./Menu/bg_menu.png");
   background-repeat: repeat;
   background-size: 300px;
@@ -21,7 +35,7 @@ interface MenuItemContainerProps {
 }
 
 export const MenuItemContainer = styled.div<MenuItemContainerProps>`
-  margin: 3rem 1.25rem;
+  margin: 3rem 0;
   padding: 2.5rem;
   width: 90%;
   max-width: 1200px;

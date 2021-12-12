@@ -5,7 +5,7 @@ import { itemType, menuItemType } from "utils/types";
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
 
-import { MenuContainer, MenuItemContainer } from "./styles";
+import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 import { MenuNav } from "components/MenuNav";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
@@ -75,13 +75,13 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
   }
 
   return (
-    <>
+    <MenuContainer id="menu">
       <MenuNav
         handleSetActiveItem={handleSetActiveItem}
         activeItem={activeItem}
       />
 
-      <MenuContainer id="menu">
+      <MenuItemsContainer>
         <MenuItemContainer isActive={activeItem === "cookies"}>
           <Switch size={size} toggleSize={toggleSize} />
           {renderMenuItems(cookies, "Cookies", size)}
@@ -94,7 +94,7 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
         <MenuItemContainer isActive={activeItem === "juices"}>
           {renderMenuItems(juices, "Juices")}
         </MenuItemContainer>
-      </MenuContainer>
-    </>
+      </MenuItemsContainer>
+    </MenuContainer>
   );
 }

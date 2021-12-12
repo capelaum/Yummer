@@ -7,7 +7,7 @@ import { Menu } from "components/Menu";
 import { Banner } from "components/Banner";
 import { MenuNav } from "components/MenuNav";
 
-import { Container } from "styles/home";
+import { Container, InfoContainer } from "styles/home";
 
 interface MenuProps {
   cookies: menuItemType[];
@@ -25,6 +25,11 @@ export default function Home({ cookies, toasts, juices }: MenuProps) {
         <Banner />
 
         <Menu cookies={cookies} toasts={toasts} juices={juices} />
+
+        <InfoContainer>
+          <h2>Como Funciona</h2>
+          <h1>Informações</h1>
+        </InfoContainer>
       </Container>
     </>
   );
