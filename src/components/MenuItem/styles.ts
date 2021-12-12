@@ -38,7 +38,9 @@ export const MenuItemContent = styled.div<MenuItemContentProps>`
     }
   }
 
-  padding-bottom: 2.5rem;
+  & + & {
+    padding-top: 2.5rem;
+  }
 
   p {
     font-size: 1.25rem;

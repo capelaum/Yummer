@@ -5,3 +5,5 @@ export type menuItemType = {
   price: string | number;
   imageName: string;
 };
+
+export type itemType = "cookies" | "toasts" | "juices";

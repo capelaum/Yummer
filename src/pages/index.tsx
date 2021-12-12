@@ -9,13 +9,13 @@ import { MenuNav } from "components/MenuNav";
 
 import { Container } from "styles/home";
 
-interface Menu {
+interface MenuProps {
   cookies: menuItemType[];
   toasts: menuItemType[];
   juices: menuItemType[];
 }
 
-export default function Home({ cookies, toasts, juices }: Menu) {
+export default function Home({ cookies, toasts, juices }: MenuProps) {
   return (
     <>
       <Head>
@@ -23,8 +23,6 @@ export default function Home({ cookies, toasts, juices }: Menu) {
       </Head>
       <Container>
         <Banner />
-
-        <MenuNav />
 
         <Menu cookies={cookies} toasts={toasts} juices={juices} />
       </Container>

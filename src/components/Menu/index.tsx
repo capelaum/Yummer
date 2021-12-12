@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-import { menuItemType } from "utils/types";
+import { itemType, menuItemType } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
 
 import { MenuContainer, MenuItemContainer } from "./styles";
+import { MenuNav } from "components/MenuNav";
 
 interface MenuProps {
   cookies: menuItemType[];
@@ -14,10 +15,15 @@ interface MenuProps {
 }
 
 export function Menu({ cookies, toasts, juices }: MenuProps) {
+  const [activeItem, setActiveItem] = useState<itemType>("cookies");
   const [size, setSize] = useState<100 | 45>(100);
 
   function toggleSize() {
     setSize(size === 100 ? 45 : 100);
+  }
+
+  function handleSetActiveItem(item: itemType) {
+    setActiveItem(item);
   }
 
   function renderMenuItems(
@@ -52,15 +58,32 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
   }
 
   return (
-    <MenuContainer>
-      <MenuItemContainer>
-        <Switch size={size} toggleSize={toggleSize} />
-        {renderMenuItems(cookies, "Cookies", size)}
-      </MenuItemContainer>
-      <MenuItemContainer isOrange>
-        {renderMenuItems(toasts, "Toasts")}
-      </MenuItemContainer>
-      <MenuItemContainer>{renderMenuItems(juices, "Juices")}</MenuItemContainer>
-    </MenuContainer>
+    <>
+      <MenuNav
+        handleSetActiveItem={handleSetActiveItem}
+        activeItem={activeItem}
+      />
+
+      <MenuContainer>
+        {activeItem === "cookies" && (
+          <MenuItemContainer>
+            <Switch size={size} toggleSize={toggleSize} />
+            {renderMenuItems(cookies, "Cookies", size)}
+          </MenuItemContainer>
+        )}
+
+        {activeItem === "toasts" && (
+          <MenuItemContainer isOrange>
+            {renderMenuItems(toasts, "Toasts")}
+          </MenuItemContainer>
+        )}
+
+        {activeItem === "juices" && (
+          <MenuItemContainer>
+            {renderMenuItems(juices, "Juices")}
+          </MenuItemContainer>
+        )}
+      </MenuContainer>
+    </>
   );
 }
