@@ -7,6 +7,7 @@ import { Switch } from "components/Switch";
 
 import { MenuContainer, MenuItemContainer } from "./styles";
 import { MenuNav } from "components/MenuNav";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 interface MenuProps {
   cookies: menuItemType[];
@@ -17,6 +18,7 @@ interface MenuProps {
 export function Menu({ cookies, toasts, juices }: MenuProps) {
   const [activeItem, setActiveItem] = useState<itemType>("cookies");
   const [size, setSize] = useState<100 | 45>(100);
+  const { width } = useWindowDimensions();
 
   function toggleSize() {
     setSize(size === 100 ? 45 : 100);
@@ -24,6 +26,24 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
 
   function handleSetActiveItem(item: itemType) {
     setActiveItem(item);
+  }
+
+  function getImageSize(itemType: string) {
+    let imageWidth: number, imageHeight: number;
+
+    if (width >= 768) {
+      imageWidth =
+        itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 75;
+      imageHeight =
+        itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 120;
+    } else {
+      imageWidth =
+        itemType === "Cookies" ? 150 : itemType === "Toasts" ? 220 : 90;
+      imageHeight =
+        itemType === "Cookies" ? 150 : itemType === "Toasts" ? 130 : 150;
+    }
+
+    return { imageWidth, imageHeight };
   }
 
   function renderMenuItems(
@@ -35,10 +55,7 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
       (menuItem) => menuItem?.size === size,
     );
 
-    const imageWidth =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 75;
-    const imageHeight =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 120;
+    const { imageWidth, imageHeight } = getImageSize(itemType);
 
     return filteredMenuItems.map(
       ({ name, price, description, imageName }, index) => (

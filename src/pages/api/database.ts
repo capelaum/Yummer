@@ -14,7 +14,7 @@ export const menu: MenuType = {
         "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
       price: 8,
       size: 100,
-      imageName: "old.png",
+      imageName: "old.svg",
     },
     {
       name: "Coffee Lover",
@@ -22,7 +22,7 @@ export const menu: MenuType = {
         "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
       price: 8,
       size: 100,
-      imageName: "coffee.png",
+      imageName: "coffee.svg",
     },
     {
       name: "Double Trouble",
@@ -30,7 +30,7 @@ export const menu: MenuType = {
         "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
       price: 8,
       size: 100,
-      imageName: "double.png",
+      imageName: "double.svg",
     },
     {
       name: "Lemon Dream",
@@ -38,7 +38,7 @@ export const menu: MenuType = {
         "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
       price: 8,
       size: 100,
-      imageName: "lemon.png",
+      imageName: "lemon.svg",
     },
     {
       name: "Old School",
@@ -46,7 +46,7 @@ export const menu: MenuType = {
         "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
       price: 4,
       size: 45,
-      imageName: "old.png",
+      imageName: "old.svg",
     },
     {
       name: "Coffee Lover",
@@ -54,7 +54,7 @@ export const menu: MenuType = {
         "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
       price: 4,
       size: 45,
-      imageName: "coffee.png",
+      imageName: "coffee.svg",
     },
     {
       name: "Double Trouble",
@@ -62,7 +62,7 @@ export const menu: MenuType = {
         "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
       price: 4,
       size: 45,
-      imageName: "double.png",
+      imageName: "double.svg",
     },
     {
       name: "Lemon Dream",
@@ -70,7 +70,7 @@ export const menu: MenuType = {
         "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
       price: 4,
       size: 45,
-      imageName: "lemon.png",
+      imageName: "lemon.svg",
     },
   ],
   toasts: [
@@ -78,20 +78,20 @@ export const menu: MenuType = {
       name: "Piloto",
       description: "A melhor rabanada tradicional, açúcar e canela por fora.",
       price: 6,
-      imageName: "piloto.png",
+      imageName: "piloto.svg",
     },
     {
       name: "Dona Avelina",
       description:
         "Recheada com muito doce de leite mineiro, açúcar e canela por fora.",
       price: 6,
-      imageName: "dona_avelina.png",
+      imageName: "dona_avelina.svg",
     },
     {
       name: "Doce Imperador",
       description: "Recheada com muita Nutella, açúcar e canela por fora.",
       price: 6,
-      imageName: "doce_imperador.png",
+      imageName: "doce_imperador.svg",
     },
   ],
   juices: [
@@ -100,27 +100,27 @@ export const menu: MenuType = {
       description:
         "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
       price: 5,
-      imageName: "pink_lemonade.png",
+      imageName: "pink_lemonade.svg",
     },
     {
       name: "Amora com Limão",
       description:
         "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
       price: 5,
-      imageName: "amora_limao.png",
+      imageName: "amora_limao.svg",
     },
     {
       name: "Laranja com Acerola",
       description: "Delicioso suco de laranja com Acerola, na medida ideal.",
       price: 5,
-      imageName: "laranja_acerola.png",
+      imageName: "laranja_acerola.svg",
     },
     {
       name: "Black Tea",
       description:
         "A intensidade de sabor do chá preto, feito do jeitinho Yummer.",
       price: 5,
-      imageName: "black_tea.png",
+      imageName: "black_tea.svg",
     },
   ],
 };

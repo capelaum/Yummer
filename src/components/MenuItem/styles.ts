@@ -62,8 +62,6 @@ export const MenuItemContent = styled.div<MenuItemContentProps>`
       align-items: flex-start;
       width: 100%;
 
-      /* border: 1px solid red; */
-
       .item_title {
         display: flex;
         justify-content: space-between;
@@ -94,7 +92,17 @@ export const MenuItemContent = styled.div<MenuItemContentProps>`
     header {
       .item_title {
         h2 {
-          font-size: 1.2rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    header {
+      .item_title {
+        h2 {
+          font-size: 1.1rem;
         }
       }
     }
