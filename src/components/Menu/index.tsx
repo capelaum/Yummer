@@ -36,7 +36,7 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
     );
 
     const imageWidth =
-      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 80;
+      itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 75;
     const imageHeight =
       itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 120;
 
@@ -64,25 +64,19 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
         activeItem={activeItem}
       />
 
-      <MenuContainer>
-        {activeItem === "cookies" && (
-          <MenuItemContainer>
-            <Switch size={size} toggleSize={toggleSize} />
-            {renderMenuItems(cookies, "Cookies", size)}
-          </MenuItemContainer>
-        )}
+      <MenuContainer id="menu">
+        <MenuItemContainer isActive={activeItem === "cookies"}>
+          <Switch size={size} toggleSize={toggleSize} />
+          {renderMenuItems(cookies, "Cookies", size)}
+        </MenuItemContainer>
 
-        {activeItem === "toasts" && (
-          <MenuItemContainer isOrange>
-            {renderMenuItems(toasts, "Toasts")}
-          </MenuItemContainer>
-        )}
+        <MenuItemContainer isOrange isActive={activeItem === "toasts"}>
+          {renderMenuItems(toasts, "Toasts")}
+        </MenuItemContainer>
 
-        {activeItem === "juices" && (
-          <MenuItemContainer>
-            {renderMenuItems(juices, "Juices")}
-          </MenuItemContainer>
-        )}
+        <MenuItemContainer isActive={activeItem === "juices"}>
+          {renderMenuItems(juices, "Juices")}
+        </MenuItemContainer>
       </MenuContainer>
     </>
   );

@@ -7,6 +7,7 @@ import main_cookies from "@public/Banner/main_cookies.png";
 import main_cookies_mobile from "@public/Banner/mobile/main_cookies_mobile.png";
 
 import { BannerContainer, Shape } from "./styles";
+import Link from "next/link";
 
 export function Banner() {
   return (
@@ -19,7 +20,9 @@ export function Banner() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero sit
         aliquam leo ullamcorper nisl.
       </p>
-      <button>Faça seu pedido</button>
+      <Link href="#menu">
+        <button>Faça seu pedido</button>
+      </Link>
 
       <Shape>
         <div className="shape_left">
