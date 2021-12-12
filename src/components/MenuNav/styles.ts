@@ -14,8 +14,6 @@ export const MenuNavContainer = styled.nav`
     background-color: var(--color-primary);
     justify-content: space-around;
 
-    padding: 0;
-
     border-bottom: none;
     border-radius: 50px;
   }
