@@ -8,8 +8,8 @@ export const MenuNavContainer = styled.nav`
   align-items: center;
 
   width: 90%;
+
   max-width: 1200px;
-  padding: 0 1.25rem;
   border-bottom: 1px solid var(--color-gray-200);
 
   @media (min-width: 1920px) {
@@ -20,6 +20,9 @@ export const MenuNavContainer = styled.nav`
     background-color: var(--color-primary);
     justify-content: space-around;
 
+    padding: 0;
+
+    border-bottom: none;
     border-radius: 50px;
   }
 `;
@@ -43,8 +46,7 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
 
   background: none;
 
-  padding: 0 2rem;
-  /* padding-bottom: 1rem; */
+  padding: 0 2.5rem;
 
   span {
     padding-left: 0.7rem;
@@ -80,6 +82,9 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
     padding: 0;
     height: 50px;
 
+    box-shadow: none;
+    background: none;
+
     .MenuNavButtonIcon {
       display: none;
     }
@@ -92,6 +97,18 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
 
       font-size: 1.5rem;
       color: #fff;
+
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    span {
+      font-size: 1.2rem;
     }
   }
 `;

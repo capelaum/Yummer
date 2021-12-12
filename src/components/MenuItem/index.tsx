@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Content, MenuItemContent } from "./styles";
 
 import { AddCartButton } from "components/AddCartButton";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 interface CookieProps {
   name: string;
@@ -25,6 +26,8 @@ export function MenuItem({
   imageHeight,
   isOrange,
 }: CookieProps) {
+  const { width } = useWindowDimensions();
+
   return (
     <MenuItemContent isOrange={isOrange}>
       <Content>
@@ -38,16 +41,20 @@ export function MenuItem({
           />
         </div>
 
-        <div>
+        <div className="content_container">
           <header>
-            <h2>{name}</h2>
+            <div className="item_title">
+              <h2>{name}</h2>
+              <AddCartButton show={width > 768} />
+            </div>
+
             <span>{price}</span>
           </header>
           <p>{description}</p>
         </div>
       </Content>
 
-      <AddCartButton />
+      <AddCartButton show={width <= 768} />
     </MenuItemContent>
   );
 }

@@ -9,6 +9,10 @@ export const MenuContainer = styled.section`
   background-image: url("./Menu/bg_menu.png");
   background-repeat: repeat;
   background-size: 300px;
+
+  @media (max-width: 768px) {
+    background-size: 100px;
+  }
 `;
 
 interface MenuItemContainerProps {
@@ -20,15 +24,15 @@ export const MenuItemContainer = styled.div<MenuItemContainerProps>`
   margin: 3rem 1.25rem;
   padding: 2.5rem;
   width: 90%;
+  max-width: 1200px;
+  border-radius: 20px;
+  color: #fff;
 
   opacity: ${(props) => (props.isActive ? 1 : 0)};
   display: ${(props) => (props.isActive ? "block" : "none")};
 
   background-color: ${({ isOrange }) =>
     isOrange ? "var(--color-secondary)" : "var(--color-primary)"};
-  color: #fff;
-  max-width: 1200px;
-  border-radius: 20px;
 
   /* animation: slide-in 0.7s both; */
   animation: opacity 0.6s both;
@@ -49,6 +53,14 @@ export const MenuItemContainer = styled.div<MenuItemContainerProps>`
 
     100% {
       opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1.25rem;
+
+    .menu_item_image {
+      margin-right: 0;
     }
   }
 `;

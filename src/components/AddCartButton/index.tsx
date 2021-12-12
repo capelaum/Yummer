@@ -2,9 +2,13 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 import { AddCartBtn } from "./styles";
 
-export function AddCartButton() {
+interface AddCartBtn {
+  show: boolean;
+}
+
+export function AddCartButton({ show }) {
   return (
-    <AddCartBtn>
+    <AddCartBtn show={show}>
       <MdOutlineAddShoppingCart className="addCartIcon" />
       <span>0</span>
     </AddCartBtn>

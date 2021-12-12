@@ -19,7 +19,7 @@ export const menu: MenuType = {
     {
       name: "Coffee Lover",
       description:
-        "Massa de caafé com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
+        "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
       price: 8,
       size: 100,
       imageName: "coffee.png",
@@ -51,7 +51,7 @@ export const menu: MenuType = {
     {
       name: "Coffee Lover",
       description:
-        "Massa de caafé com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
+        "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
       price: 4,
       size: 45,
       imageName: "coffee.png",

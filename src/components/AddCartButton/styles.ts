@@ -1,23 +1,31 @@
 import styled from "styled-components";
 
-export const AddCartBtn = styled.button`
+interface AddCartBtnProps {
+  show?: boolean;
+}
+
+export const AddCartBtn = styled.button<AddCartBtnProps>`
   display: flex;
   align-items: center;
   justify-content: space-around;
 
-  margin: 0 1rem 0 4rem;
-
   background-color: #fff;
-  padding: 0.75rem 1rem;
   border-radius: 10px;
+
+  margin: 0 1rem 0 4rem;
+  padding: 0.75rem 1rem;
+
+  display: ${({ show }) => (show ? "none" : "flex")};
 
   transition: all 0.3s;
 
   .addCartIcon {
+    color: var(--color-primary);
     font-size: 1.5rem;
   }
 
   span {
+    color: var(--color-primary) !important;
     padding-left: 0.75rem;
     font-size: 1.2rem;
     font-weight: 600;
@@ -45,5 +53,11 @@ export const AddCartBtn = styled.button`
     100% {
       color: var(--color-primary);
     }
+  }
+
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0 5px 5px 0;
   }
 `;
