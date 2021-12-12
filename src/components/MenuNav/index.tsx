@@ -9,16 +9,28 @@ import { MenuNavButton, MenuNavContainer } from "./styles";
 export function MenuNav() {
   return (
     <MenuNavContainer>
-      <MenuNavButton>
-        <Image src={cookies_icon} alt="Cookies icon" />
+      <MenuNavButton isActive>
+        <Image
+          src={cookies_icon}
+          alt="Cookies icon"
+          className="MenuNavButtonIcon"
+        />
         <span>Cookies</span>
       </MenuNavButton>
       <MenuNavButton>
-        <Image src={toasts_icon} alt="Rabanadas icon" />
+        <Image
+          src={toasts_icon}
+          alt="Rabanadas icon"
+          className="MenuNavButtonIcon"
+        />
         <span>Rabanadas</span>
       </MenuNavButton>
       <MenuNavButton>
-        <Image src={juice_icon} alt="Sucos icon" />
+        <Image
+          src={juice_icon}
+          alt="Sucos icon"
+          className="MenuNavButtonIcon"
+        />
         <span>Sucos</span>
       </MenuNavButton>
     </MenuNavContainer>

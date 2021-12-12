@@ -4,12 +4,12 @@ export const MenuNavContainer = styled.nav`
   margin: 20vw 1.25rem 0;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   width: 90%;
   max-width: 1200px;
-  padding: 0 1.25rem 1rem;
+  padding: 0 1.25rem;
   border-bottom: 1px solid var(--color-gray-200);
 
   @media (min-width: 1920px) {
@@ -17,22 +17,54 @@ export const MenuNavContainer = styled.nav`
   }
 `;
 
-export const MenuNavButton = styled.button`
+interface MenuNavButtonProps {
+  isActive?: boolean;
+}
+
+const colors = {
+  primary: "var(--color-primary)",
+  primaryTransparent: "rgba(38, 49, 67, 0.7)",
+};
+
+export const MenuNavButton = styled.button<MenuNavButtonProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  height: 100px;
+  color: var(--color-primary);
 
   background: none;
   border: none;
   font-size: 2.25rem;
   font-weight: 500;
-  color: var(--color-primary);
 
-  & + & {
-    padding-left: 1rem;
-  }
+  padding: 0 2rem;
+  /* padding-bottom: 1rem; */
 
   span {
-    padding-left: 1rem;
+    padding-left: 0.7rem;
+  }
+
+  transition: 0.5s;
+
+  .MenuNavButtonIcon {
+    filter: ${({ isActive }) => (isActive ? "none" : "brightness(1.8)")};
+  }
+
+  box-shadow: ${({ isActive }) =>
+    isActive ? "0 -3px var(--color-primary) inset" : "none"};
+
+  background: ${({ isActive }) =>
+    isActive
+      ? "none"
+      : "linear-gradient(var(--color-primary) 0 0px) bottom / var(--d, 0) 3px no-repeat"};
+
+  &:hover {
+    --d: 100%;
+
+    .MenuNavButtonIcon {
+      filter: none;
+    }
   }
 `;
