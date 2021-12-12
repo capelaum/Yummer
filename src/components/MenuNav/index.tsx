@@ -21,33 +21,27 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
         isActive={activeItem === "cookies"}
         onClick={() => handleSetActiveItem("cookies")}
       >
-        <Image
-          src={cookies_icon}
-          alt="Cookies icon"
-          className="MenuNavButtonIcon"
-        />
+        <div className="MenuNavButtonIcon">
+          <Image src={cookies_icon} alt="Cookies icon" />
+        </div>
         <span>Cookies</span>
       </MenuNavButton>
       <MenuNavButton
         isActive={activeItem === "toasts"}
         onClick={() => handleSetActiveItem("toasts")}
       >
-        <Image
-          src={toasts_icon}
-          alt="Rabanadas icon"
-          className="MenuNavButtonIcon"
-        />
+        <div className="MenuNavButtonIcon">
+          <Image src={toasts_icon} alt="Rabanadas icon" />
+        </div>
         <span>Rabanadas</span>
       </MenuNavButton>
       <MenuNavButton
         isActive={activeItem === "juices"}
         onClick={() => handleSetActiveItem("juices")}
       >
-        <Image
-          src={juice_icon}
-          alt="Sucos icon"
-          className="MenuNavButtonIcon"
-        />
+        <div className="MenuNavButtonIcon">
+          <Image src={juice_icon} alt="Sucos icon" />
+        </div>
         <span>Sucos</span>
       </MenuNavButton>
     </MenuNavContainer>

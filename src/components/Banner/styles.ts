@@ -38,7 +38,7 @@ export const BannerContainer = styled.div`
     }
   }
 
-  @media (max-width: 678px) {
+  @media (max-width: 768px) {
     margin-top: 2rem;
 
     .yummer_logo {
@@ -100,7 +100,7 @@ export const Shape = styled.div`
     }
   }
 
-  @media (max-width: 678px) {
+  @media (max-width: 768px) {
     .main_cookies {
       display: none;
     }

@@ -15,6 +15,13 @@ export const MenuNavContainer = styled.nav`
   @media (min-width: 1920px) {
     margin: 25rem 1.25rem 0;
   }
+
+  @media (max-width: 768px) {
+    background-color: var(--color-primary);
+    justify-content: space-around;
+
+    border-radius: 50px;
+  }
 `;
 
 interface MenuNavButtonProps {
@@ -35,15 +42,15 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
   color: var(--color-primary);
 
   background: none;
-  border: none;
-  font-size: 2.25rem;
-  font-weight: 500;
 
   padding: 0 2rem;
   /* padding-bottom: 1rem; */
 
   span {
     padding-left: 0.7rem;
+
+    font-size: 2.25rem;
+    font-weight: 500;
   }
 
   transition: all 0.5s;
@@ -66,6 +73,25 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
 
     .MenuNavButtonIcon {
       filter: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+    height: 50px;
+
+    .MenuNavButtonIcon {
+      display: none;
+    }
+
+    span {
+      padding-left: 0rem;
+
+      color: ${({ isActive }) =>
+        isActive ? "var(--color-secondary) !important" : "#fff"};
+
+      font-size: 1.5rem;
+      color: #fff;
     }
   }
 `;
