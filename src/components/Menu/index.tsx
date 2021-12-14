@@ -8,6 +8,7 @@ import { Switch } from "components/Switch";
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 import { MenuNav } from "components/MenuNav";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import { CartButton } from "components/CartButton";
 
 interface MenuProps {
   cookies: menuItemType[];
@@ -80,6 +81,8 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
         handleSetActiveItem={handleSetActiveItem}
         activeItem={activeItem}
       />
+
+      <CartButton />
 
       <MenuItemsContainer>
         <MenuItemContainer isActive={activeItem === "cookies"}>

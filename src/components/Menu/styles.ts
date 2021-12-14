@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const MenuContainer = styled.section`
+  position: relative;
+
   display: flex;
   align-items: center;
   flex-direction: column;
