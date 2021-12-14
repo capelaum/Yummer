@@ -51,7 +51,7 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
 
   .MenuNavButtonIcon {
     transition: all 0.5s;
-    filter: ${({ isActive }) => (isActive ? "none" : "brightness(2)")};
+    /* filter: ${({ isActive }) => (isActive ? "none" : "brightness(2)")}; */
   }
 
   box-shadow: ${({ isActive }) =>

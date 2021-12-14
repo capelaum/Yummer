@@ -11,6 +11,11 @@ export const InfoContainer = styled.section`
 
   width: 100%;
 
+  background-image: url("./bg_pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 2000px;
+  background-position: center;
+
   h1 {
     color: #fff;
     font-size: 2.25rem;
@@ -26,7 +31,6 @@ export const InfoContainer = styled.section`
 `;
 
 export const Details = styled.details`
-  cursor: pointer;
   width: 100%;
   max-width: 1200px;
 
@@ -56,9 +60,12 @@ export const Details = styled.details`
 
   li {
     margin-left: 3rem;
+    font-weight: 500;
   }
 
   summary {
+    cursor: pointer;
+
     color: var(--color-secondary);
 
     font-size: 1.875rem;
