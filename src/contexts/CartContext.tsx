@@ -42,8 +42,25 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
       if (!productExists) {
+        const product: CartProduct = await fetch(
+          `${process.env.URL_LOCAL}/api/menu/${productId}`,
+        ).then((response) => response.json());
+
+        console.log("🚀 ~ product", product);
+
+        const newProduct: CartProduct = {
+          ...product,
+          amount: 1,
+        };
+
+        updatedCart.push(newProduct);
       }
-    } catch (error) {}
+
+      setCart(updatedCart);
+      localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
+    } catch (error) {
+      console.error("🚀 ~ error", error.message);
+    }
   };
 
   const removeProduct = (productId: number) => {
