@@ -8,6 +8,10 @@ import {
 
 import { Product } from "utils/types";
 
+interface CartItemsAmount {
+  [key: number]: number;
+}
+
 interface CartProviderProps {
   children: ReactNode;
 }
@@ -18,6 +22,8 @@ interface CartProduct extends Product {
 
 interface CartContextData {
   cart: CartProduct[];
+  cartSize: number;
+  cartItemsAmount: { [key: number]: number };
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
 }
@@ -25,6 +31,8 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps) {
+  const [cart, setCart] = useState<CartProduct[]>([]);
+
   useEffect(() => {
     const storagedCart = localStorage.getItem("@Yummer:cart");
 
@@ -33,7 +41,13 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }, []);
 
-  const [cart, setCart] = useState<CartProduct[]>([]);
+  const cartSize = cart.reduce((sum, product) => sum + product.amount, 0);
+
+  const cartItemsAmount = cart.reduce((sumAmount, product) => {
+    sumAmount[product.id] = product.amount;
+
+    return sumAmount;
+  }, {} as CartItemsAmount);
 
   const addProduct = async (productId: number) => {
     try {
@@ -51,8 +65,6 @@ export function CartProvider({ children }: CartProviderProps) {
         const product: CartProduct = await fetch(`api/menu/${productId}`).then(
           (response) => response.json(),
         );
-
-        console.log("🚀 ~ product", product);
 
         const newProduct: CartProduct = {
           ...product,
@@ -75,7 +87,9 @@ export function CartProvider({ children }: CartProviderProps) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addProduct, removeProduct }}>
+    <CartContext.Provider
+      value={{ cart, cartItemsAmount, cartSize, addProduct, removeProduct }}
+    >
       {children}
     </CartContext.Provider>
   );

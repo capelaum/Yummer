@@ -4,13 +4,13 @@ import { useCart } from "contexts/CartContext";
 
 import { AddCartBtn } from "./styles";
 
-interface AddCartBtn {
+interface AddCartButtonProps {
   productId: number;
   show: boolean;
 }
 
-export function AddCartButton({ productId, show }) {
-  const { addProduct, cart } = useCart();
+export function AddCartButton({ productId, show }: AddCartButtonProps) {
+  const { addProduct, cartItemsAmount } = useCart();
 
   function handleAddProduct(id: number) {
     addProduct(id);
@@ -19,7 +19,7 @@ export function AddCartButton({ productId, show }) {
   return (
     <AddCartBtn show={show} onClick={() => handleAddProduct(productId)}>
       <MdOutlineAddShoppingCart className="addCartIcon" />
-      <span>0</span>
+      <span>{cartItemsAmount[productId] || 0}</span>
     </AddCartBtn>
   );
 }
