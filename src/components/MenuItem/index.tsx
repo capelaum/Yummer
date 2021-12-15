@@ -5,10 +5,10 @@ import { Content, MenuItemContent } from "./styles";
 import { AddCartButton } from "components/AddCartButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-interface CookieProps {
+interface MenuItemProps {
   name: string;
   description: string;
-  price: string | number;
+  priceFormated: string;
   imageName: string;
   itemType: string;
   imageWidth: number;
@@ -16,16 +16,20 @@ interface CookieProps {
   isOrange: boolean;
 }
 
+interface CartItemsAmount {
+  [key: number]: number;
+}
+
 export function MenuItem({
   name,
-  price,
+  priceFormated,
   description,
   imageName,
   itemType,
   imageWidth,
   imageHeight,
   isOrange,
-}: CookieProps) {
+}: MenuItemProps) {
   const { width } = useWindowDimensions();
 
   return (
@@ -48,7 +52,7 @@ export function MenuItem({
               <AddCartButton show={width > 768} />
             </div>
 
-            <span>{price}</span>
+            <span>{priceFormated}</span>
           </header>
           <p>{description}</p>
         </div>

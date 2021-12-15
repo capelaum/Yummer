@@ -1,4 +1,4 @@
-import { menuItemType } from "./types";
+import { Product } from "./types";
 
 export function formatPrice(price: number): string {
   return new Intl.NumberFormat("pt-br", {
@@ -7,13 +7,13 @@ export function formatPrice(price: number): string {
   }).format(price);
 }
 
-export function formatPrices(data: menuItemType[]): menuItemType[] {
-  const dataFormat = data.map((item: menuItemType) => {
+export function formatPrices(data: Product[]): Product[] {
+  const dataFormated = data.map((item: Product) => {
     return {
       ...item,
-      price: formatPrice(Number(item.price)),
+      priceFormated: formatPrice(item.price),
     };
   });
 
-  return dataFormat;
+  return dataFormated;
 }

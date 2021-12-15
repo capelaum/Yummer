@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
-import { Information, menuItemType } from "utils/types";
+import { Information, Product } from "utils/types";
 
 import { Menu } from "components/Menu";
 import { Banner } from "components/Banner";
@@ -10,9 +10,9 @@ import { Container } from "styles/home";
 import { Informations } from "components/Informations";
 
 interface MenuProps {
-  cookies: menuItemType[];
-  toasts: menuItemType[];
-  juices: menuItemType[];
+  cookies: Product[];
+  toasts: Product[];
+  juices: Product[];
   informations: Information[];
 }
 

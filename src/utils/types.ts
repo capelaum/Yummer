@@ -1,12 +1,14 @@
-export type menuItemType = {
+export type Product = {
+  id: number;
   name: string;
   size?: 100 | 45;
   description: string;
-  price: string | number;
+  price: number;
+  priceFormated?: string;
   imageName: string;
 };
 
-export type itemType = "cookies" | "toasts" | "juices";
+export type ProductType = "cookies" | "toasts" | "juices";
 
 export interface Information {
   title: string;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { itemType, menuItemType } from "utils/types";
+import { ProductType, Product } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
@@ -11,13 +11,13 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import { CartButton } from "components/CartButton";
 
 interface MenuProps {
-  cookies: menuItemType[];
-  toasts: menuItemType[];
-  juices: menuItemType[];
+  cookies: Product[];
+  toasts: Product[];
+  juices: Product[];
 }
 
 export function Menu({ cookies, toasts, juices }: MenuProps) {
-  const [activeItem, setActiveItem] = useState<itemType>("cookies");
+  const [activeItem, setActiveItem] = useState<ProductType>("cookies");
   const [size, setSize] = useState<100 | 45>(100);
   const { width } = useWindowDimensions();
 
@@ -25,7 +25,7 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
     setSize(size === 100 ? 45 : 100);
   }
 
-  function handleSetActiveItem(item: itemType) {
+  function handleSetActiveItem(item: ProductType) {
     setActiveItem(item);
   }
 
@@ -48,7 +48,7 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
   }
 
   function renderMenuItems(
-    menuItems: menuItemType[],
+    menuItems: Product[],
     itemType: string,
     size?: number,
   ) {
@@ -59,11 +59,11 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
     const { imageWidth, imageHeight } = getImageSize(itemType);
 
     return filteredMenuItems.map(
-      ({ name, price, description, imageName }, index) => (
+      ({ name, priceFormated, description, imageName }, index) => (
         <MenuItem
           key={`${name}-${index}`}
           name={name}
-          price={price}
+          priceFormated={priceFormated}
           description={description}
           imageName={imageName}
           itemType={itemType}
