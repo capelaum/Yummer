@@ -6,12 +6,13 @@ import { MdDelete } from "react-icons/md";
 import yummer_logo from "@public/Logos/yummer_logo.svg";
 
 import { formatPrice } from "utils/format";
-import { useCart } from "contexts/CartContext";
+import { CartProduct, useCart } from "contexts/CartContext";
 
 import {
   CartPageContainer,
   Checkout,
   CheckoutContainer,
+  CheckoutEnd,
   CheckoutItem,
 } from "styles/cart";
 
@@ -21,6 +22,12 @@ export default function Cart() {
 
   function calculateSubTotal(amount: number, price: number): string {
     return formatPrice(amount * price);
+  }
+
+  function calculateCartTotal(cart: CartProduct[]): string {
+    return formatPrice(
+      cart.reduce((acc, curr) => acc + curr.amount * curr.price, 0),
+    );
   }
 
   return (
@@ -41,7 +48,16 @@ export default function Cart() {
             </div>
           </header>
           {cart.map(
-            ({ id, name, type, imageName, price, priceFormated, amount }) => (
+            ({
+              id,
+              name,
+              type,
+              imageName,
+              price,
+              priceFormated,
+              amount,
+              size,
+            }) => (
               <CheckoutItem key={id}>
                 <div className="item_description">
                   <div className="item_image">
@@ -54,7 +70,7 @@ export default function Cart() {
                     />
                   </div>
                   <div className="item_header">
-                    <h1>{name}</h1>
+                    <h1>{`${name} ${size ? `(${size}g)` : ""}`}</h1>
                     <span>{priceFormated}</span>
                   </div>
                 </div>
@@ -64,11 +80,19 @@ export default function Cart() {
                   <span className="item_subtotal">
                     {calculateSubTotal(amount, price)}
                   </span>
-                  <MdDelete size={20} color={"var(--color-secondary)"} />
+                  <MdDelete size={22} color={"var(--color-secondary)"} />
                 </div>
               </CheckoutItem>
             ),
           )}
+
+          <CheckoutEnd>
+            <button>FINALIZAR PEDIDO</button>
+            <div>
+              <span>TOTAL</span>
+              <span className="checkout_total">{calculateCartTotal(cart)}</span>
+            </div>
+          </CheckoutEnd>
         </CheckoutContainer>
       </Checkout>
     </CartPageContainer>

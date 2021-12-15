@@ -113,3 +113,45 @@ export const CheckoutItem = styled.div`
     }
   }
 `;
+
+export const CheckoutEnd = styled.div`
+  width: 100%;
+
+  padding-top: 3rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  button {
+    padding: 1rem 4rem;
+    border-radius: 50px;
+
+    text-transform: uppercase;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    color: white;
+    background-color: var(--color-secondary);
+
+    transition: all 0.3s;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  span {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    font-weight: 500;
+  }
+
+  .checkout_total {
+    padding-left: 0.5rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 500;
+  }
+`;

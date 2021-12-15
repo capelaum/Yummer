@@ -16,7 +16,7 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-interface CartProduct extends Product {
+export interface CartProduct extends Product {
   amount: number;
 }
 
