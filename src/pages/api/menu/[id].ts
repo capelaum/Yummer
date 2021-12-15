@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { menu } from "../database";
 
+import { formatPrice } from "utils/format";
+
 export default function getProduct(req: NextApiRequest, res: NextApiResponse) {
   const productId = +req.query.id;
 
@@ -13,6 +15,8 @@ export default function getProduct(req: NextApiRequest, res: NextApiResponse) {
       message: "Product not found",
     });
   }
+
+  product.priceFormated = formatPrice(product.price);
 
   return res.status(200).json(product);
 }

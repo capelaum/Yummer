@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 import { CartButtonContainer } from "./styles";
@@ -8,9 +9,11 @@ interface CartButtonProps {
 
 export function CartButton({ cartSize }: CartButtonProps) {
   return (
-    <CartButtonContainer>
-      <MdOutlineShoppingCart />
-      <span>{cartSize}</span>
-    </CartButtonContainer>
+    <Link href="/cart" passHref>
+      <CartButtonContainer>
+        <MdOutlineShoppingCart />
+        <span>{cartSize}</span>
+      </CartButtonContainer>
+    </Link>
   );
 }

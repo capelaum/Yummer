@@ -20,7 +20,7 @@ export function Banner() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero sit
         aliquam leo ullamcorper nisl.
       </p>
-      <Link href="#menu">
+      <Link href="#menu" passHref>
         <button>Faça seu pedido</button>
       </Link>
 
