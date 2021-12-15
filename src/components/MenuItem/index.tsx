@@ -6,7 +6,6 @@ import { AddCartButton } from "components/AddCartButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { Product } from "utils/types";
-import { useCart } from "contexts/CartContext";
 
 interface MenuItemProps {
   product: Product;

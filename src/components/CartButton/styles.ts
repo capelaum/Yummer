@@ -46,7 +46,7 @@ export const CartButtonContainer = styled.button`
     right: -5px;
     bottom: -0.5rem;
 
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
 
     z-index: 2;

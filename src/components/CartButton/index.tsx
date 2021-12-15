@@ -1,11 +1,12 @@
-import { useCart } from "contexts/CartContext";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 import { CartButtonContainer } from "./styles";
 
-export function CartButton() {
-  const { cartSize } = useCart();
+interface CartButtonProps {
+  cartSize: number;
+}
 
+export function CartButton({ cartSize }: CartButtonProps) {
   return (
     <CartButtonContainer>
       <MdOutlineShoppingCart />

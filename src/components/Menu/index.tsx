@@ -4,11 +4,13 @@ import { Product, ProductTypes } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
+import { MenuNav } from "components/MenuNav";
+import { CartButton } from "components/CartButton";
+
+import { useCart } from "contexts/CartContext";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
-import { MenuNav } from "components/MenuNav";
-import useWindowDimensions from "hooks/useWindowDimensions";
-import { CartButton } from "components/CartButton";
 
 interface MenuProps {
   menu: Product[];
@@ -18,6 +20,7 @@ export function Menu({ menu }: MenuProps) {
   const [activeItem, setActiveItem] = useState<ProductTypes>("cookie");
   const [size, setSize] = useState<100 | 45>(100);
   const { width } = useWindowDimensions();
+  const { cartSize } = useCart();
 
   function toggleSize() {
     setSize(size === 100 ? 45 : 100);
@@ -68,7 +71,7 @@ export function Menu({ menu }: MenuProps) {
         activeItem={activeItem}
       />
 
-      <CartButton />
+      {cartSize > 0 && <CartButton cartSize={cartSize} />}
 
       <MenuItemsContainer>
         <MenuItemContainer isActive={activeItem === "cookie"}>
