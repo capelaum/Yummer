@@ -5,12 +5,10 @@ import { Content, MenuItemContent } from "./styles";
 import { AddCartButton } from "components/AddCartButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
+import { Product } from "utils/types";
+
 interface MenuItemProps {
-  name: string;
-  description: string;
-  priceFormated: string;
-  imageName: string;
-  itemType: string;
+  product: Product;
   imageWidth: number;
   imageHeight: number;
   isOrange: boolean;
@@ -21,23 +19,20 @@ interface CartItemsAmount {
 }
 
 export function MenuItem({
-  name,
-  priceFormated,
-  description,
-  imageName,
-  itemType,
+  product,
   imageWidth,
   imageHeight,
   isOrange,
 }: MenuItemProps) {
   const { width } = useWindowDimensions();
+  const { id, type, name, description, priceFormated, imageName } = product;
 
   return (
     <MenuItemContent isOrange={isOrange}>
       <Content>
         <div className="menu_item_image">
           <Image
-            src={`${process.env.url_local}/${itemType}/${imageName}`}
+            src={`${process.env.url_local}/${type}/${imageName}`}
             alt={name}
             width={imageWidth}
             height={imageHeight}

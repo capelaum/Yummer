@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ProductType, Product } from "utils/types";
+import { Product, ProductTypes } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
@@ -11,13 +11,11 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import { CartButton } from "components/CartButton";
 
 interface MenuProps {
-  cookies: Product[];
-  toasts: Product[];
-  juices: Product[];
+  menu: Product[];
 }
 
-export function Menu({ cookies, toasts, juices }: MenuProps) {
-  const [activeItem, setActiveItem] = useState<ProductType>("cookies");
+export function Menu({ menu }: MenuProps) {
+  const [activeItem, setActiveItem] = useState<ProductTypes>("cookie");
   const [size, setSize] = useState<100 | 45>(100);
   const { width } = useWindowDimensions();
 
@@ -25,54 +23,42 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
     setSize(size === 100 ? 45 : 100);
   }
 
-  function handleSetActiveItem(item: ProductType) {
+  function handleSetActiveItem(item: ProductTypes) {
     setActiveItem(item);
   }
 
-  function getImageSize(itemType: string) {
+  function getImageSize(type: string) {
     let imageWidth: number, imageHeight: number;
 
     if (width >= 768) {
-      imageWidth =
-        itemType === "Cookies" ? 100 : itemType === "Toasts" ? 150 : 75;
-      imageHeight =
-        itemType === "Cookies" ? 100 : itemType === "Toasts" ? 80 : 120;
+      imageWidth = type === "cookie" ? 100 : type === "toast" ? 150 : 75;
+      imageHeight = type === "cookie" ? 100 : type === "toast" ? 80 : 120;
     } else {
-      imageWidth =
-        itemType === "Cookies" ? 150 : itemType === "Toasts" ? 220 : 90;
-      imageHeight =
-        itemType === "Cookies" ? 150 : itemType === "Toasts" ? 130 : 150;
+      imageWidth = type === "cookie" ? 150 : type === "toast" ? 220 : 90;
+      imageHeight = type === "cookie" ? 150 : type === "toast" ? 130 : 150;
     }
 
     return { imageWidth, imageHeight };
   }
 
-  function renderMenuItems(
-    menuItems: Product[],
-    itemType: string,
-    size?: number,
-  ) {
-    const filteredMenuItems = menuItems.filter(
-      (menuItem) => menuItem?.size === size,
+  function renderMenu(products: Product[], filterType: string, size?: number) {
+    const filteredProducts = products.filter(
+      (product) => product.type === filterType && product?.size === size,
     );
 
-    const { imageWidth, imageHeight } = getImageSize(itemType);
+    return filteredProducts.map((product) => {
+      const { imageWidth, imageHeight } = getImageSize(product.type);
 
-    return filteredMenuItems.map(
-      ({ name, priceFormated, description, imageName }, index) => (
+      return (
         <MenuItem
-          key={`${name}-${index}`}
-          name={name}
-          priceFormated={priceFormated}
-          description={description}
-          imageName={imageName}
-          itemType={itemType}
+          key={product.id}
+          product={product}
           imageWidth={imageWidth}
           imageHeight={imageHeight}
-          isOrange={itemType === "Toasts"}
+          isOrange={product.type === "toast"}
         />
-      ),
-    );
+      );
+    });
   }
 
   return (
@@ -85,17 +71,17 @@ export function Menu({ cookies, toasts, juices }: MenuProps) {
       <CartButton />
 
       <MenuItemsContainer>
-        <MenuItemContainer isActive={activeItem === "cookies"}>
+        <MenuItemContainer isActive={activeItem === "cookie"}>
           <Switch size={size} toggleSize={toggleSize} />
-          {renderMenuItems(cookies, "Cookies", size)}
+          {renderMenu(menu, "cookie", size)}
         </MenuItemContainer>
 
-        <MenuItemContainer isOrange isActive={activeItem === "toasts"}>
-          {renderMenuItems(toasts, "Toasts")}
+        <MenuItemContainer isOrange isActive={activeItem === "toast"}>
+          {renderMenu(menu, "toast")}
         </MenuItemContainer>
 
-        <MenuItemContainer isActive={activeItem === "juices"}>
-          {renderMenuItems(juices, "Juices")}
+        <MenuItemContainer isActive={activeItem === "juice"}>
+          {renderMenu(menu, "juice")}
         </MenuItemContainer>
       </MenuItemsContainer>
     </MenuContainer>

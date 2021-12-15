@@ -43,8 +43,8 @@ export const MenuItemContainer = styled.div<MenuItemContainerProps>`
   border-radius: 20px;
   color: #fff;
 
-  opacity: ${(props) => (props.isActive ? 1 : 0)};
-  display: ${(props) => (props.isActive ? "block" : "none")};
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  display: ${({ isActive }) => (isActive ? "block" : "none")};
 
   background-color: ${({ isOrange }) =>
     isOrange ? "var(--color-secondary)" : "var(--color-primary)"};

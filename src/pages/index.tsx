@@ -10,18 +10,11 @@ import { Container } from "styles/home";
 import { Informations } from "components/Informations";
 
 interface MenuProps {
-  cookies: Product[];
-  toasts: Product[];
-  juices: Product[];
+  menu: Product[];
   informations: Information[];
 }
 
-export default function Home({
-  cookies,
-  toasts,
-  juices,
-  informations,
-}: MenuProps) {
+export default function Home({ menu, informations }: MenuProps) {
   return (
     <>
       <Head>
@@ -30,7 +23,7 @@ export default function Home({
       <Container>
         <Banner />
 
-        <Menu cookies={cookies} toasts={toasts} juices={juices} />
+        <Menu menu={menu} />
 
         <Informations informations={informations} />
       </Container>
@@ -39,8 +32,9 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const menu = await fetch(`${process.env.URL_LOCAL}/api/menu`);
-  const { cookies, toasts, juices } = await menu.json();
+  const menuData = await fetch(`${process.env.URL_LOCAL}/api/menu`);
+  const menu = await menuData.json();
+  console.log("🚀 ~ menu", menu);
 
   const informationsData = await fetch(
     `${process.env.URL_LOCAL}/api/informations`,
@@ -49,9 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      cookies,
-      toasts,
-      juices,
+      menu,
       informations,
     },
   };

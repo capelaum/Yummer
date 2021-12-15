@@ -5,21 +5,21 @@ import cookies_icon from "@public/Menu/Icons/cookies_icon.svg";
 import toasts_icon from "@public/Menu/Icons/toasts_icon.svg";
 import juice_icon from "@public/Menu/Icons/juice_icon.svg";
 
-import { itemType } from "utils/types";
+import { ProductTypes } from "utils/types";
 
 import { MenuNavButton, MenuNavContainer } from "./styles";
 
 interface MenuNavProps {
-  handleSetActiveItem: (item: itemType) => void;
-  activeItem: itemType;
+  handleSetActiveItem: (item: ProductTypes) => void;
+  activeItem: ProductTypes;
 }
 
 export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
   return (
     <MenuNavContainer>
       <MenuNavButton
-        isActive={activeItem === "cookies"}
-        onClick={() => handleSetActiveItem("cookies")}
+        isActive={activeItem === "cookie"}
+        onClick={() => handleSetActiveItem("cookie")}
       >
         <div className="MenuNavButtonIcon">
           <Image src={cookies_icon} alt="Cookies icon" />
@@ -27,8 +27,8 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
         <span>Cookies</span>
       </MenuNavButton>
       <MenuNavButton
-        isActive={activeItem === "toasts"}
-        onClick={() => handleSetActiveItem("toasts")}
+        isActive={activeItem === "toast"}
+        onClick={() => handleSetActiveItem("toast")}
       >
         <div className="MenuNavButtonIcon">
           <Image src={toasts_icon} alt="Rabanadas icon" />
@@ -36,8 +36,8 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
         <span>Rabanadas</span>
       </MenuNavButton>
       <MenuNavButton
-        isActive={activeItem === "juices"}
-        onClick={() => handleSetActiveItem("juices")}
+        isActive={activeItem === "juice"}
+        onClick={() => handleSetActiveItem("juice")}
       >
         <div className="MenuNavButtonIcon">
           <Image src={juice_icon} alt="Sucos icon" />

@@ -2,18 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { menu } from "../database";
 
-import { formatPrices } from "utils/format";
+import { formatPrice } from "utils/format";
 
 export default function getMenu(req: NextApiRequest, res: NextApiResponse) {
-  const { cookies, toasts, juices } = menu;
+  const menuFormated = menu.map((product) => ({
+    ...product,
+    priceFormated: formatPrice(product.price),
+  }));
 
-  const cookiesFormat = formatPrices(cookies);
-  const toastsFormat = formatPrices(toasts);
-  const juicesFormat = formatPrices(juices);
-
-  res.status(200).json({
-    cookies: cookiesFormat,
-    toasts: toastsFormat,
-    juices: juicesFormat,
-  });
+  res.status(200).json(menuFormated);
 }
