@@ -17,7 +17,7 @@ export const CartButtonContainer = styled.button`
   justify-content: center;
   align-items: center;
 
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 
   position: fixed;
   z-index: 2;
@@ -46,7 +46,7 @@ export const CartButtonContainer = styled.button`
     right: -5px;
     bottom: -0.5rem;
 
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
 
     z-index: 2;

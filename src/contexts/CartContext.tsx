@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 import { Product } from "utils/types";
 
@@ -19,15 +25,15 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<CartProduct[]>(() => {
+  useEffect(() => {
     const storagedCart = localStorage.getItem("@Yummer:cart");
 
     if (storagedCart) {
-      return JSON.parse(storagedCart);
+      setCart(JSON.parse(storagedCart));
     }
+  }, []);
 
-    return [];
-  });
+  const [cart, setCart] = useState<CartProduct[]>([]);
 
   const addProduct = async (productId: number) => {
     try {
@@ -42,9 +48,9 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
       if (!productExists) {
-        const product: CartProduct = await fetch(
-          `${process.env.URL_LOCAL}/api/menu/${productId}`,
-        ).then((response) => response.json());
+        const product: CartProduct = await fetch(`api/menu/${productId}`).then(
+          (response) => response.json(),
+        );
 
         console.log("🚀 ~ product", product);
 

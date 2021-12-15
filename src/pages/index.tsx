@@ -34,7 +34,6 @@ export default function Home({ menu, informations }: MenuProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const menuData = await fetch(`${process.env.URL_LOCAL}/api/menu`);
   const menu = await menuData.json();
-  console.log("🚀 ~ menu", menu);
 
   const informationsData = await fetch(
     `${process.env.URL_LOCAL}/api/informations`,
