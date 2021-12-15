@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Image from "next/image";
 
 import cookies_icon from "@public/Menu/Icons/cookies_icon.svg";
@@ -15,35 +14,35 @@ interface MenuNavProps {
 }
 
 export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
+  function renderMenuNavButton(type: ProductTypes) {
+    const icon =
+      type === "cookie"
+        ? cookies_icon
+        : type === "toast"
+        ? toasts_icon
+        : juice_icon;
+
+    const name =
+      type === "cookie" ? "Cookies" : type === "toast" ? "Rabanadas" : "Sucos";
+
+    return (
+      <MenuNavButton
+        isActive={activeItem === type}
+        onClick={() => handleSetActiveItem(type)}
+      >
+        <div className="MenuNavButtonIcon">
+          <Image src={icon} alt={`${name} icon`} />
+        </div>
+        <span>{name}</span>
+      </MenuNavButton>
+    );
+  }
+
   return (
     <MenuNavContainer>
-      <MenuNavButton
-        isActive={activeItem === "cookie"}
-        onClick={() => handleSetActiveItem("cookie")}
-      >
-        <div className="MenuNavButtonIcon">
-          <Image src={cookies_icon} alt="Cookies icon" />
-        </div>
-        <span>Cookies</span>
-      </MenuNavButton>
-      <MenuNavButton
-        isActive={activeItem === "toast"}
-        onClick={() => handleSetActiveItem("toast")}
-      >
-        <div className="MenuNavButtonIcon">
-          <Image src={toasts_icon} alt="Rabanadas icon" />
-        </div>
-        <span>Rabanadas</span>
-      </MenuNavButton>
-      <MenuNavButton
-        isActive={activeItem === "juice"}
-        onClick={() => handleSetActiveItem("juice")}
-      >
-        <div className="MenuNavButtonIcon">
-          <Image src={juice_icon} alt="Sucos icon" />
-        </div>
-        <span>Sucos</span>
-      </MenuNavButton>
+      {renderMenuNavButton("cookie")}
+      {renderMenuNavButton("toast")}
+      {renderMenuNavButton("juice")}
     </MenuNavContainer>
   );
 }
