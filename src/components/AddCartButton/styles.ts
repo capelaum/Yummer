@@ -7,7 +7,6 @@ interface AddCartBtnProps {
 export const AddCartBtn = styled.button<AddCartBtnProps>`
   display: flex;
   align-items: center;
-  justify-content: space-around;
 
   background-color: #fff;
   border-radius: 10px;
@@ -20,15 +19,14 @@ export const AddCartBtn = styled.button<AddCartBtnProps>`
   transition: all 0.3s;
 
   .addCartIcon {
-    color: var(--color-primary);
-    font-size: 1.5rem;
+    margin-right: 0.5rem;
   }
 
   span {
     color: var(--color-primary) !important;
-    padding-left: 0.75rem;
     font-size: 1.2rem;
     font-weight: 600;
+    width: 1.5rem;
   }
 
   &:focus {

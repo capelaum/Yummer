@@ -18,7 +18,11 @@ export function AddCartButton({ productId, show }: AddCartButtonProps) {
 
   return (
     <AddCartBtn show={show} onClick={() => handleAddProduct(productId)}>
-      <MdOutlineAddShoppingCart className="addCartIcon" />
+      <MdOutlineAddShoppingCart
+        className="addCartIcon"
+        size={24}
+        color={"var(--color-primary)"}
+      />
       <span>{cartItemsAmount[productId] || 0}</span>
     </AddCartBtn>
   );

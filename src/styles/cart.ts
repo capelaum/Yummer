@@ -81,7 +81,7 @@ export const ProductTable = styled.table`
       color: var(--color-secondary);
       text-align: left;
       font-size: 1.125rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 0.75rem;
     }
 
@@ -149,7 +149,7 @@ export const Total = styled.div`
   span {
     font-size: 1rem;
     color: var(--color-secondary);
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0.2rem;
   }
 
