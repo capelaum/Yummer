@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 import Modal from "react-modal";
 
@@ -11,16 +12,20 @@ import { useCart } from "contexts/CartContext";
 
 import { CartDesktop } from "components/CartProductTable";
 import { CartMobile } from "components/CartMobile";
+import { CartFooter } from "components/CartFooter";
+
+import { CheckoutModal } from "components/CheckoutModal";
+import { PixModal } from "components/PixModal";
 
 import { CartContainer, CartPageContainer, Checkout } from "styles/cart";
-import { CartFooter } from "components/CartFooter";
-import { useEffect, useState } from "react";
-import { CheckoutModal } from "components/CheckoutModal";
 
 Modal.setAppElement("#__next");
 
 export default function Cart() {
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+  const [isPixModalOpen, setIsPixModalOpen] = useState(false);
+  const [customerName, setCustomerName] = useState("");
+
   const { cartSize } = useCart();
   const router = useRouter();
 
@@ -42,6 +47,18 @@ export default function Cart() {
     setIsCheckoutModalOpen(false);
   }
 
+  function handleOpenPixModal() {
+    setIsPixModalOpen(true);
+  }
+
+  function handleClosePixModal() {
+    setIsPixModalOpen(false);
+  }
+
+  function handleSetCustomerName(customerName: string) {
+    setCustomerName(customerName);
+  }
+
   return (
     <>
       <Head>
@@ -49,14 +66,22 @@ export default function Cart() {
       </Head>
       <CartPageContainer>
         <Link href="/#menu" passHref>
-          <div className="yummer_logo">
+          <a className="yummer_logo" title="Home">
             <Image src={yummer_logo} alt="Yummer Logo" layout="responsive" />
-          </div>
+          </a>
         </Link>
 
         <CheckoutModal
           isOpen={isCheckoutModalOpen}
           onRequestClose={handleCloseCheckoutModal}
+          openPixModal={handleOpenPixModal}
+          setCustomerName={handleSetCustomerName}
+        />
+
+        <PixModal
+          isOpen={isPixModalOpen}
+          onRequestClose={handleClosePixModal}
+          customerName={customerName}
         />
 
         <Checkout>

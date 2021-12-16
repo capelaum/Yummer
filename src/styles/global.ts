@@ -99,10 +99,22 @@ button {
     border-radius: 20px;
   }
 
+  .react-modal-pix {
+    width: 100%;
+    max-width: 400px;
+
+    background: #fff;
+    color: #000;
+    padding: 3rem;
+    margin: 1.25rem;
+    position: relative;
+    border-radius: 20px;
+  }
+
   .react-modal-close {
     position: absolute;
-    right: 1.25rem;
-    top: 1.25rem;
+    right: 1rem;
+    top: 1rem;
     border: 0;
     background: transparent;
 
@@ -119,17 +131,5 @@ button {
       margin: 1rem;
     }
 
-    .react-modal-close {
-      right: 0.8rem;
-      top: 0.8rem;
-      border: 0;
-      background: transparent;
-
-      transition: filter 0.2s;
-
-      &:hover {
-        filter: brightness(0.85);
-      }
-    }
   }
 `;

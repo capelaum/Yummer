@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CartPageContainer = styled.div`
+export const CartPageContainer = styled.section`
   margin-top: 3rem;
 
   display: flex;

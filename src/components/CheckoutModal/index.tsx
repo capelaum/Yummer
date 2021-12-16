@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Modal from "react-modal";
 
 import { MdClose } from "react-icons/md";
@@ -9,11 +9,30 @@ import { Container } from "./styles";
 interface CheckoutModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
+  openPixModal: () => void;
+  setCustomerName: (customerName: string) => void;
 }
 
-export function CheckoutModal({ isOpen, onRequestClose }: CheckoutModalProps) {
+export function CheckoutModal({
+  isOpen,
+  onRequestClose,
+  openPixModal,
+  setCustomerName,
+}: CheckoutModalProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
+
+  function handleCheckout(e: FormEvent) {
+    e.preventDefault();
+
+    setCustomerName(name);
+
+    setName("");
+    setDeliveryAddress("");
+
+    onRequestClose();
+    openPixModal();
+  }
 
   return (
     <Modal
@@ -29,7 +48,7 @@ export function CheckoutModal({ isOpen, onRequestClose }: CheckoutModalProps) {
       >
         <MdClose size={24} color={"#fff"} />
       </button>
-      <Container>
+      <Container onSubmit={handleCheckout}>
         <h2>Informe seu nome e o local de entrega</h2>
 
         <input
