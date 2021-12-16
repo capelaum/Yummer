@@ -33,7 +33,7 @@ export default function Cart() {
     if (cartSize <= 0) {
       router.push("/");
     }
-  }, []);
+  }, [cartSize]);
 
   function renderProductName(name: string, size: number): string {
     return size ? `${name} (${size}g)` : name;
