@@ -12,13 +12,13 @@ import {
   CartPageContainer,
   Checkout,
   CheckoutContainer,
-  CheckoutEnd,
-  CheckoutItem,
+  ProductTable,
+  Total,
 } from "styles/cart";
 import { ItemAmount } from "components/ItemAmount";
 
 export default function Cart() {
-  const { cart } = useCart();
+  const { cart, removeProduct } = useCart();
   console.log("🚀 ~ cart", cart);
 
   function calculateSubTotal(amount: number, price: number): string {
@@ -31,6 +31,10 @@ export default function Cart() {
     );
   }
 
+  function handleRemoveProduct(productId: number) {
+    removeProduct(productId);
+  }
+
   return (
     <CartPageContainer>
       <Link href="/#menu" passHref>
@@ -41,59 +45,73 @@ export default function Cart() {
 
       <Checkout>
         <CheckoutContainer>
-          <header>
-            <span>ITEM</span>
-            <div className="header_qtd_subtotal">
-              <span>QTD</span>
-              <span>SUBTOTAL</span>
-            </div>
-          </header>
-          {cart.map(
-            ({
-              id,
-              name,
-              type,
-              imageName,
-              price,
-              priceFormated,
-              amount,
-              size,
-            }) => (
-              <CheckoutItem key={id}>
-                <div className="item_description">
-                  <div className="item_image">
-                    <Image
-                      src={`${process.env.url_local}/${type}/${imageName}`}
-                      alt={name}
-                      width={100}
-                      height={100}
-                      layout="fixed"
-                    />
-                  </div>
-                  <div className="item_header">
-                    <h1>{`${name} ${size ? `(${size}g)` : ""}`}</h1>
-                    <span>{priceFormated}</span>
-                  </div>
-                </div>
+          <ProductTable>
+            <thead>
+              <th aria-label="product image" />
+              <th>PRODUTO</th>
+              <th className="header_qtd">QTD</th>
+              <th className="header_center">SUBTOTAL</th>
+              <th aria-label="delete icon" />
+            </thead>
+            <tbody>
+              {cart.map(
+                ({
+                  id,
+                  name,
+                  type,
+                  imageName,
+                  price,
+                  priceFormated,
+                  amount,
+                  size,
+                }) => (
+                  <tr key={id}>
+                    <td className="item_image">
+                      <Image
+                        src={`${process.env.url_local}/${type}/${imageName}`}
+                        alt={name}
+                        width={100}
+                        height={100}
+                        layout="fixed"
+                      />
+                    </td>
+                    <td>
+                      <strong className="item_name">{name}</strong>
+                      <span className="item_price">{priceFormated}</span>
+                    </td>
+                    <td className="td_center">
+                      <ItemAmount amount={amount} />
+                    </td>
+                    <td className="td_center">
+                      <strong className="item_subtotal">
+                        {calculateSubTotal(amount, price)}
+                      </strong>
+                    </td>
+                    <td>
+                      <button
+                        className="item_delete"
+                        type="button"
+                        onClick={() => handleRemoveProduct(id)}
+                      >
+                        <MdDelete size={20} color={"var(--color-secondary)"} />
+                      </button>
+                    </td>
+                  </tr>
+                ),
+              )}
+            </tbody>
+          </ProductTable>
 
-                <div className="item_amount">
-                  <ItemAmount amount={amount} />
-                  <span className="item_subtotal">
-                    {calculateSubTotal(amount, price)}
-                  </span>
-                  <MdDelete size={20} color={"var(--color-secondary)"} />
-                </div>
-              </CheckoutItem>
-            ),
-          )}
+          <footer>
+            <button type="button">FINALIZAR PEDIDO</button>
 
-          <CheckoutEnd>
-            <button>FINALIZAR PEDIDO</button>
-            <div>
+            <Total>
               <span>TOTAL</span>
-              <span className="checkout_total">{calculateCartTotal(cart)}</span>
-            </div>
-          </CheckoutEnd>
+              <strong className="checkout_total">
+                {calculateCartTotal(cart)}
+              </strong>
+            </Total>
+          </footer>
         </CheckoutContainer>
       </Checkout>
     </CartPageContainer>

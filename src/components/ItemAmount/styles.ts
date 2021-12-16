@@ -13,8 +13,10 @@ export const ItemAmountButton = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  font-size: 1.125rem;
-  font-weight: 600;
+  span {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
 
   .minus_btn,
   .plus_btn {
@@ -25,8 +27,8 @@ export const ItemAmountButton = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 
     border-radius: 50px;
 
