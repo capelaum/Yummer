@@ -24,6 +24,7 @@ interface CartContextData {
   cart: CartProduct[];
   sortedCart: CartProduct[];
   cartSize: number;
+  cartTotal: number;
   cartItemsAmount: { [key: number]: number };
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
@@ -44,6 +45,10 @@ export function CartProvider({ children }: CartProviderProps) {
   }, []);
 
   const cartSize = cart.reduce((sum, product) => sum + product.amount, 0);
+  const cartTotal = cart.reduce(
+    (sum, product) => sum + product.amount * product.price,
+    0,
+  );
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
     sumAmount[product.id] = product.amount;
@@ -140,8 +145,9 @@ export function CartProvider({ children }: CartProviderProps) {
       value={{
         cart,
         sortedCart,
-        cartItemsAmount,
         cartSize,
+        cartTotal,
+        cartItemsAmount,
         addProduct,
         removeProduct,
         updateProductAmount,
