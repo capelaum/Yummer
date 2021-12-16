@@ -26,6 +26,7 @@ interface CartContextData {
   cartItemsAmount: { [key: number]: number };
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
+  updateProductAmount: (productId: number, amount: number) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -81,14 +82,61 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   };
 
-  const removeProduct = (productId: number) => {
-    const newCart = cart.filter((product) => product.id !== productId);
-    setCart(newCart);
+  const removeProduct = async (productId: number) => {
+    try {
+      const updatedCart = cart.map((product) => ({ ...product }));
+      const productIndex = updatedCart.findIndex(
+        (product) => product.id === productId,
+      );
+
+      if (productIndex >= 0) {
+        updatedCart.splice(productIndex, 1);
+        setCart(updatedCart);
+        localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
+      } else {
+        throw Error();
+      }
+    } catch (error) {
+      console.error("🚀 ~ error", error.message);
+    }
+  };
+
+  const updateProductAmount = (productId: number, amount: number) => {
+    try {
+      if (amount <= 0) {
+        removeProduct(productId);
+        return;
+      }
+
+      const updatedCart = cart.map((product) => ({ ...product }));
+      const productExists = updatedCart.find(
+        (product) => product.id === productId,
+      );
+
+      if (!productExists) {
+        throw Error();
+      }
+
+      if (productExists) {
+        productExists.amount = amount;
+        setCart(updatedCart);
+        localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
+      }
+    } catch (error) {
+      console.error("🚀 ~ error", error.message);
+    }
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, cartItemsAmount, cartSize, addProduct, removeProduct }}
+      value={{
+        cart,
+        cartItemsAmount,
+        cartSize,
+        addProduct,
+        removeProduct,
+        updateProductAmount,
+      }}
     >
       {children}
     </CartContext.Provider>

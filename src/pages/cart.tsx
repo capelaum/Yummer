@@ -47,11 +47,13 @@ export default function Cart() {
         <CheckoutContainer>
           <ProductTable>
             <thead>
-              <th aria-label="product image" />
-              <th>PRODUTO</th>
-              <th className="header_qtd">QTD</th>
-              <th className="header_center">SUBTOTAL</th>
-              <th aria-label="delete icon" />
+              <tr>
+                <th aria-label="product image" />
+                <th>PRODUTO</th>
+                <th className="header_qtd">QTD</th>
+                <th className="header_center">SUBTOTAL</th>
+                <th aria-label="delete icon" />
+              </tr>
             </thead>
             <tbody>
               {cart.map(
@@ -80,7 +82,7 @@ export default function Cart() {
                       <span className="item_price">{priceFormated}</span>
                     </td>
                     <td className="td_center">
-                      <ItemAmount amount={amount} />
+                      <ItemAmount productId={id} amount={amount} />
                     </td>
                     <td className="td_center">
                       <strong className="item_subtotal">

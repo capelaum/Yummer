@@ -80,6 +80,7 @@ export const ProductTable = styled.table`
     th {
       color: var(--color-secondary);
       text-align: left;
+      font-size: 1.125rem;
       font-weight: 500;
       padding: 0.75rem;
     }
@@ -90,8 +91,7 @@ export const ProductTable = styled.table`
 
     .header_qtd {
       display: block;
-
-      margin-left: 1.125rem;
+      margin-left: 20px;
     }
   }
 
@@ -126,7 +126,7 @@ export const ProductTable = styled.table`
   }
 
   .item_subtotal {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 500;
   }
 
