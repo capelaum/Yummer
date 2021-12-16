@@ -15,6 +15,7 @@ export function DeleteButton({ productId, size }: DeleteButtonProps) {
       className="item_delete"
       type="button"
       onClick={() => removeProduct(productId)}
+      title="Remover"
     >
       <MdDelete size={size} color={"var(--color-secondary)"} />
     </DeleteBtn>

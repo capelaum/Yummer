@@ -62,6 +62,7 @@ export function PixModal({
           <a
             href={`https://api.whatsapp.com/send?phone=+5561${phoneNumber}`}
             target="_blank"
+            rel="noreferrer"
             title="Yummer Whatsapp"
           >
             {" "}
