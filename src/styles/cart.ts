@@ -87,8 +87,9 @@ export const CheckoutItem = styled.div`
       flex-direction: column;
 
       padding-left: 1.25rem;
+
       h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         font-weight: 700;
         padding-bottom: 0.5rem;
       }
@@ -108,7 +109,7 @@ export const CheckoutItem = styled.div`
     align-items: center;
 
     .item_subtotal {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 500;
     }
   }

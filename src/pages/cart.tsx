@@ -15,6 +15,7 @@ import {
   CheckoutEnd,
   CheckoutItem,
 } from "styles/cart";
+import { ItemAmount } from "components/ItemAmount";
 
 export default function Cart() {
   const { cart } = useCart();
@@ -76,11 +77,11 @@ export default function Cart() {
                 </div>
 
                 <div className="item_amount">
-                  <span>{amount}</span>
+                  <ItemAmount amount={amount} />
                   <span className="item_subtotal">
                     {calculateSubTotal(amount, price)}
                   </span>
-                  <MdDelete size={22} color={"var(--color-secondary)"} />
+                  <MdDelete size={20} color={"var(--color-secondary)"} />
                 </div>
               </CheckoutItem>
             ),
