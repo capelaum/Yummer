@@ -20,7 +20,7 @@ import {
 import { ItemAmount } from "components/ItemAmount";
 
 export default function Cart() {
-  const { cart, cartSize, removeProduct } = useCart();
+  const { sortedCart, cartSize, removeProduct } = useCart();
   const router = useRouter();
 
   if (cartSize <= 0) {
@@ -70,7 +70,7 @@ export default function Cart() {
                 </tr>
               </thead>
               <tbody>
-                {cart.map(
+                {sortedCart.map(
                   ({
                     id,
                     name,
@@ -129,7 +129,7 @@ export default function Cart() {
               <Total>
                 <span>TOTAL</span>
                 <strong className="checkout_total">
-                  {calculateCartTotal(cart)}
+                  {calculateCartTotal(sortedCart)}
                 </strong>
               </Total>
             </footer>

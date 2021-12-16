@@ -22,6 +22,7 @@ export interface CartProduct extends Product {
 
 interface CartContextData {
   cart: CartProduct[];
+  sortedCart: CartProduct[];
   cartSize: number;
   cartItemsAmount: { [key: number]: number };
   addProduct: (productId: number) => Promise<void>;
@@ -49,6 +50,13 @@ export function CartProvider({ children }: CartProviderProps) {
 
     return sumAmount;
   }, {} as CartItemsAmount);
+
+  const sortedCart = cart.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+
+    return 0;
+  });
 
   const addProduct = async (productId: number) => {
     try {
@@ -131,6 +139,7 @@ export function CartProvider({ children }: CartProviderProps) {
     <CartContext.Provider
       value={{
         cart,
+        sortedCart,
         cartItemsAmount,
         cartSize,
         addProduct,
