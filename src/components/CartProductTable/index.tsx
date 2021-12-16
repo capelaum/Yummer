@@ -10,12 +10,13 @@ import { useCart } from "contexts/CartContext";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ProductTable } from "./styles";
+import { generateShimmer } from "utils/shimmer";
 
-interface CartProductTableProps {
+interface CartDesktopProps {
   renderProductName: (name: string, size: number) => string;
 }
 
-export function CartProductTable({ renderProductName }: CartProductTableProps) {
+export function CartDesktop({ renderProductName }: CartDesktopProps) {
   const { sortedCart } = useCart();
   const { width } = useWindowDimensions();
 
@@ -45,11 +46,16 @@ export function CartProductTable({ renderProductName }: CartProductTableProps) {
             <tr key={id}>
               <td className="item_image">
                 <Image
-                  src={`${process.env.url_local}/${type}/${imageName}`}
+                  src={`/${type}/${imageName}`}
                   alt={name}
                   width={100}
                   height={100}
                   layout="fixed"
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
+                    100,
+                    100,
+                  )}`}
                 />
               </td>
               <td>

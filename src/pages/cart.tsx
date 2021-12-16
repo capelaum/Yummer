@@ -5,27 +5,24 @@ import { useRouter } from "next/router";
 
 import yummer_logo from "@public/Logos/yummer_logo.svg";
 
-import { formatPrice } from "utils/format";
-
 import { useCart } from "contexts/CartContext";
 
-import { CartProductTable } from "components/CartProductTable";
+import { CartDesktop } from "components/CartProductTable";
 import { CartMobile } from "components/CartMobile";
 
-import {
-  CartPageContainer,
-  Checkout,
-  CheckoutContainer,
-  Total,
-} from "styles/cart";
+import { CartContainer, CartPageContainer, Checkout } from "styles/cart";
+import { CartFooter } from "components/CartFooter";
+import { useEffect } from "react";
 
 export default function Cart() {
-  const { cartTotal, cartSize } = useCart();
+  const { cartSize } = useCart();
   const router = useRouter();
 
-  if (cartSize <= 0) {
-    router.push("/");
-  }
+  useEffect(() => {
+    if (cartSize <= 0) {
+      router.push("/");
+    }
+  }, []);
 
   function renderProductName(name: string, size: number): string {
     return size ? `${name} (${size}g)` : name;
@@ -44,22 +41,12 @@ export default function Cart() {
         </Link>
 
         <Checkout>
-          <CheckoutContainer>
-            <CartProductTable renderProductName={renderProductName} />
-
+          <CartContainer>
+            <CartDesktop renderProductName={renderProductName} />
             <CartMobile renderProductName={renderProductName} />
 
-            <footer>
-              <button type="button">FINALIZAR PEDIDO</button>
-
-              <Total>
-                <span>TOTAL</span>
-                <strong className="checkout_total">
-                  {formatPrice(cartTotal)}
-                </strong>
-              </Total>
-            </footer>
-          </CheckoutContainer>
+            <CartFooter />
+          </CartContainer>
         </Checkout>
       </CartPageContainer>
     </>

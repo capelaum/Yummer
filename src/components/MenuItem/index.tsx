@@ -6,6 +6,7 @@ import { AddCartButton } from "components/AddCartButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { Product } from "utils/types";
+import { generateShimmer } from "utils/shimmer";
 
 interface MenuItemProps {
   product: Product;
@@ -28,11 +29,16 @@ export function MenuItem({
       <Content>
         <div className="menu_item_image">
           <Image
-            src={`${process.env.url_local}/${type}/${imageName}`}
+            src={`/${type}/${imageName}`}
             alt={name}
             width={imageWidth}
             height={imageHeight}
             layout="fixed"
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
+              imageWidth,
+              imageHeight,
+            )}`}
           />
         </div>
 

@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "yummer"],
+    domains: ["localhost", "yummer.com.br"],
   },
   env: {
     url_local: "http://localhost:3000",

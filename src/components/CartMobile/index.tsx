@@ -18,6 +18,7 @@ import {
   ProductSubtotal,
   ProductTitle,
 } from "./styles";
+import { generateShimmer } from "utils/shimmer";
 
 interface CartMobileProps {
   renderProductName: (name: string, size: number) => string;
@@ -34,11 +35,16 @@ export function CartMobile({ renderProductName }: CartMobileProps) {
           <Product key={id}>
             <ProductHeader>
               <Image
-                src={`${process.env.url_local}/${type}/${imageName}`}
+                src={`/${type}/${imageName}`}
                 alt={name}
                 width={width >= 768 ? 100 : 60}
                 height={width >= 768 ? 100 : 60}
                 layout="fixed"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
+                  width >= 768 ? 100 : 60,
+                  width >= 768 ? 100 : 60,
+                )}`}
               />
               <ProductTitle>
                 <h1>{renderProductName(name, size)}</h1>
