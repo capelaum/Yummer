@@ -11,6 +11,19 @@ export const CartPageContainer = styled.div`
     width: 400px;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    .yummer_logo {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .yummer_logo {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
 `;
 
 export const Checkout = styled.section`

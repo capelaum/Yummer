@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import Modal from "react-modal";
+
 import yummer_logo from "@public/Logos/yummer_logo.svg";
 
 import { useCart } from "contexts/CartContext";
@@ -12,9 +14,13 @@ import { CartMobile } from "components/CartMobile";
 
 import { CartContainer, CartPageContainer, Checkout } from "styles/cart";
 import { CartFooter } from "components/CartFooter";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { CheckoutModal } from "components/CheckoutModal";
+
+Modal.setAppElement("#__next");
 
 export default function Cart() {
+  const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
   const { cartSize } = useCart();
   const router = useRouter();
 
@@ -26,6 +32,14 @@ export default function Cart() {
 
   function renderProductName(name: string, size: number): string {
     return size ? `${name} (${size}g)` : name;
+  }
+
+  function handleOpenCheckoutModal() {
+    setIsCheckoutModalOpen(true);
+  }
+
+  function handleCloseCheckoutModal() {
+    setIsCheckoutModalOpen(false);
   }
 
   return (
@@ -40,12 +54,17 @@ export default function Cart() {
           </div>
         </Link>
 
+        <CheckoutModal
+          isOpen={isCheckoutModalOpen}
+          onRequestClose={handleCloseCheckoutModal}
+        />
+
         <Checkout>
           <CartContainer>
             <CartDesktop renderProductName={renderProductName} />
             <CartMobile renderProductName={renderProductName} />
 
-            <CartFooter />
+            <CartFooter onOpenCheckoutModal={handleOpenCheckoutModal} />
           </CartContainer>
         </Checkout>
       </CartPageContainer>

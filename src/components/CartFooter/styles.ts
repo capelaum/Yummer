@@ -20,24 +20,22 @@ export const CartFooterContainer = styled.footer`
     color: white;
     background-color: var(--color-secondary);
 
-    transition: all 0.3s;
+    transition: filter 0.2s;
 
     &:hover {
-      scale: 1.05;
+      filter: brightness(0.85);
     }
   }
 
   @media (max-width: 768px) {
-    footer {
-      margin-top: 0;
-      flex-direction: column-reverse;
+    margin-top: 0;
+    flex-direction: column-reverse;
 
-      button {
-        padding: 1rem;
-        font-size: 1.25rem;
+    button {
+      padding: 1rem;
+      font-size: 1.25rem;
 
-        width: 100%;
-      }
+      width: 100%;
     }
   }
 `;
