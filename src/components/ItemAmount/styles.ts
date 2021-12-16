@@ -38,4 +38,13 @@ export const ItemAmountButton = styled.div`
       background-color: var(--color-gray-200);
     }
   }
+
+  @media (max-width: 480px) {
+    width: 72px;
+    height: 28px;
+
+    span {
+      font-size: 1rem;
+    }
+  }
 `;

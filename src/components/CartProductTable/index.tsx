@@ -1,22 +1,22 @@
 import Image from "next/image";
 
-import { MdDelete } from "react-icons/md";
-
 import { ItemAmount } from "components/ItemAmount";
+import { DeleteButton } from "components/DeleteButton";
+
+import { formatPrice } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ProductTable } from "./styles";
-import { formatPrice } from "utils/format";
 
 interface CartProductTableProps {
   renderProductName: (name: string, size: number) => string;
 }
 
 export function CartProductTable({ renderProductName }: CartProductTableProps) {
-  const { sortedCart, cartTotal, removeProduct } = useCart();
+  const { sortedCart } = useCart();
   const { width } = useWindowDimensions();
 
   return (
@@ -67,13 +67,7 @@ export function CartProductTable({ renderProductName }: CartProductTableProps) {
                 </strong>
               </td>
               <td>
-                <button
-                  className="item_delete"
-                  type="button"
-                  onClick={() => removeProduct(id)}
-                >
-                  <MdDelete size={20} color={"var(--color-secondary)"} />
-                </button>
+                <DeleteButton productId={id} size={22} />
               </td>
             </tr>
           ),

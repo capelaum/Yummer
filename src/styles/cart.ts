@@ -69,6 +69,22 @@ export const CheckoutContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    footer {
+      margin-top: 0;
+      flex-direction: column-reverse;
+
+      button {
+        padding: 1rem;
+        font-size: 1.25rem;
+
+        width: 100%;
+      }
+    }
+  }
 `;
 
 export const Total = styled.div`
@@ -87,5 +103,18 @@ export const Total = styled.div`
     font-size: 2rem;
     color: #fff;
     font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 1.5rem 0;
+
+    .checkout_total {
+      padding-left: 0;
+      font-size: 2rem;
+    }
   }
 `;

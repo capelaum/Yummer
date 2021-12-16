@@ -7,7 +7,10 @@ import yummer_logo from "@public/Logos/yummer_logo.svg";
 
 import { formatPrice } from "utils/format";
 
-import { CartProduct, useCart } from "contexts/CartContext";
+import { useCart } from "contexts/CartContext";
+
+import { CartProductTable } from "components/CartProductTable";
+import { CartMobile } from "components/CartMobile";
 
 import {
   CartPageContainer,
@@ -15,7 +18,6 @@ import {
   CheckoutContainer,
   Total,
 } from "styles/cart";
-import { CartProductTable } from "components/CartProductTable";
 
 export default function Cart() {
   const { cartTotal, cartSize } = useCart();
@@ -26,11 +28,7 @@ export default function Cart() {
   }
 
   function renderProductName(name: string, size: number): string {
-    if (size) {
-      return `${name} (${size}g)`;
-    }
-
-    return name;
+    return size ? `${name} (${size}g)` : name;
   }
 
   return (
@@ -48,6 +46,8 @@ export default function Cart() {
         <Checkout>
           <CheckoutContainer>
             <CartProductTable renderProductName={renderProductName} />
+
+            <CartMobile renderProductName={renderProductName} />
 
             <footer>
               <button type="button">FINALIZAR PEDIDO</button>
