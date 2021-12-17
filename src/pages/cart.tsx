@@ -76,6 +76,7 @@ export default function Cart() {
           onRequestClose={handleCloseCheckoutModal}
           openPixModal={handleOpenPixModal}
           setCustomerName={handleSetCustomerName}
+          renderProductName={renderProductName}
         />
 
         <PixModal

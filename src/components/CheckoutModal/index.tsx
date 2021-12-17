@@ -4,6 +4,10 @@ import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
+import { formatPrice } from "utils/format";
+
+import { CartProduct, useCart } from "contexts/CartContext";
+
 import { Container } from "./styles";
 
 interface CheckoutModalProps {
@@ -11,6 +15,7 @@ interface CheckoutModalProps {
   onRequestClose: () => void;
   openPixModal: () => void;
   setCustomerName: (customerName: string) => void;
+  renderProductName: (name: string, size: number) => string;
 }
 
 export function CheckoutModal({
@@ -18,14 +23,74 @@ export function CheckoutModal({
   onRequestClose,
   openPixModal,
   setCustomerName,
+  renderProductName,
 }: CheckoutModalProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
+  const { sortedCart, cartTotal } = useCart();
+
+  function setProductsOrder(products: CartProduct[], type: string): string {
+    if (products.length > 0) {
+      let message = "----------------------------------------------\n";
+
+      switch (type) {
+        case "cookie":
+          message += "*Cookies*";
+          break;
+        case "toast":
+          message += "*Rabanadas*";
+          break;
+        case "juice":
+          message += "*Sucos*";
+          break;
+      }
+
+      message += "\n\n";
+
+      products.forEach(({ name, type, amount, price, size }) => {
+        message += `*${renderProductName(name, size)}*: ${amount}`;
+        message += "\n";
+      });
+
+      return message;
+    }
+
+    return "";
+  }
+
+  function sendWppOrder() {
+    let message = `*******************************************************
+*Nome*: ${name}
+*Endereço de entrega*: ${deliveryAddress}
+*******************************************************
+*Pedido:*
+`;
+
+    const cookies = sortedCart.filter((p) => p.type === "cookie");
+    const toasts = sortedCart.filter((p) => p.type === "toast");
+    const juices = sortedCart.filter((p) => p.type === "juice");
+
+    message += setProductsOrder(cookies, "cookie");
+    message += setProductsOrder(toasts, "toast");
+    message += setProductsOrder(juices, "juice");
+
+    message += "----------------------------------------------\n";
+    message += "*Total*: " + formatPrice(cartTotal);
+
+    const phoneNumber = "994024994";
+    const whatsappLink = `https://api.whatsapp.com/send?phone=+5561${phoneNumber}&text=${encodeURIComponent(
+      message,
+    )}`;
+
+    window.open(whatsappLink, "_blank").focus();
+  }
 
   function handleCheckout(e: FormEvent) {
     e.preventDefault();
 
     setCustomerName(name);
+
+    sendWppOrder();
 
     setName("");
     setDeliveryAddress("");
