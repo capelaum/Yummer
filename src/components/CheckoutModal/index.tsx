@@ -39,14 +39,14 @@ export function CheckoutModal({
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       overlayClassName="react-modal-overlay"
-      className="react-modal-content"
+      className="react-modal-content react-modal-checkout"
     >
       <button
         type="button"
         onClick={onRequestClose}
         className="react-modal-close"
       >
-        <MdClose size={24} color={"#fff"} />
+        <MdClose size={24} className="react-modal-close-checkout" />
       </button>
       <Container onSubmit={handleCheckout}>
         <h2>Informe seu nome e o local de entrega</h2>

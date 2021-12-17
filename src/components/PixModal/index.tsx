@@ -29,14 +29,14 @@ export function PixModal({
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       overlayClassName="react-modal-overlay"
-      className="react-modal-pix"
+      className="react-modal-content react-modal-pix"
     >
       <button
         type="button"
         onClick={onRequestClose}
         className="react-modal-close"
       >
-        <MdClose size={24} color={"#000"} />
+        <MdClose size={24} className="react-modal-close-pix" />
       </button>
       <Container>
         <h1>

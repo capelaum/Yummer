@@ -35,6 +35,12 @@ export const Container = styled.div`
       color: var(--color-primary);
       text-decoration: none;
       font-weight: 700;
+
+      transition: all 0.3s;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;

@@ -73,7 +73,7 @@ button {
     opacity: 0;
 }
 
-.react-modal-overlay {
+  .react-modal-overlay {
     background: rgba(0, 0, 0, 0.7);
 
     position: fixed;
@@ -89,26 +89,25 @@ button {
 
   .react-modal-content {
     width: 100%;
-    max-width: 576px;
 
-    background: var(--color-primary);
-    color: #fff;
     padding: 3rem;
     margin: 1.25rem;
     position: relative;
     border-radius: 20px;
   }
 
+  .react-modal-checkout {
+    max-width: 576px;
+
+    background: var(--color-primary);
+    color: #fff;
+  }
+
   .react-modal-pix {
-    width: 100%;
-    max-width: 400px;
+    max-width: 480px;
 
     background: #fff;
     color: #000;
-    padding: 3rem;
-    margin: 1.25rem;
-    position: relative;
-    border-radius: 20px;
   }
 
   .react-modal-close {
@@ -118,10 +117,22 @@ button {
     border: 0;
     background: transparent;
 
-    transition: filter 0.2s;
+    .react-modal-close-checkout {
+      color: #fff;
+      transition: filter 0.3s;
 
-    &:hover {
-      filter: brightness(0.85);
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+
+    .react-modal-close-pix {
+      color: #000;
+      transition: filter 0.3s;
+
+      &:hover {
+        color: var(--color-secondary);
+      }
     }
   }
 
