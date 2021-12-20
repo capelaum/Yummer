@@ -11,6 +11,7 @@ import { Banner } from "components/Banner";
 import { Informations } from "components/Informations";
 import { Testimonials } from "components/Testimonials";
 import { InstaWidget } from "components/InstaWidget";
+import { VideoSection } from "components/VideoSection";
 
 // const InstaWidget = dynamic(() => import("components/InstaWidget"));
 
@@ -35,13 +36,13 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
       </Head>
       <Container>
         <Banner />
-s
         <Menu menu={menu} />
 
         <Informations informations={informations} observe={observe} />
 
         <InstaWidget />
         <Testimonials testimonials={testimonials} />
+        <VideoSection />
       </Container>
     </>
   );

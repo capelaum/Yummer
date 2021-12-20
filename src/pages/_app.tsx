@@ -1,11 +1,11 @@
 import { AppProps } from "next/app";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 import { CartProvider } from "contexts/CartContext";
 
-import "react-toastify/dist/ReactToastify.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import { GlobalStyle } from "../styles/global";
 

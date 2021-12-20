@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  isBlue: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h1 {
-    color: #fff;
+    color: ${({ isBlue }) => (isBlue ? "var(--color-primary)" : "#fff")};
     text-align: center;
-    font-size: 2.25rem;
+    font-size: 2rem;
     padding-bottom: 2.5rem;
   }
 
