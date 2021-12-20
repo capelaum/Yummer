@@ -73,7 +73,7 @@ export const Shape = styled.div`
     width: 35vw;
 
     transform: translateY(-50%);
-    z-index: -1;
+    /* z-index: -1; */
   }
 
   .shape_left {
