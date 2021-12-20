@@ -39,9 +39,11 @@ export const Item = styled.div`
 
   padding: 1.25rem;
 
+  /* min-height: 200px; */
+
   display: flex !important;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 
   border-radius: 20px;
 

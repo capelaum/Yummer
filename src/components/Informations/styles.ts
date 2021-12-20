@@ -15,6 +15,10 @@ export const InfoContainer = styled.section`
   background-repeat: no-repeat;
   background-size: 2000px;
   background-position: center;
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1rem;
+  }
 `;
 
 export const Details = styled.details`

@@ -49,6 +49,8 @@ interface TextContentProps {
 }
 
 export const TextContent = styled.div<TextContentProps>`
+  width: 100%;
+
   header {
     display: flex;
     align-items: flex-end;
