@@ -15,19 +15,6 @@ export const InfoContainer = styled.section`
   background-repeat: no-repeat;
   background-size: 2000px;
   background-position: center;
-
-  h1 {
-    color: #fff;
-    font-size: 2.25rem;
-    padding-bottom: 2.5rem;
-  }
-
-  h2 {
-    color: var(--color-secondary);
-    text-transform: uppercase;
-    font-size: 1rem;
-    padding-bottom: 0.5rem;
-  }
 `;
 
 export const Details = styled.details`

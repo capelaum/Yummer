@@ -1,3 +1,5 @@
+import { SectionTitle } from "components/SectionTitle";
+
 import { Information } from "utils/types";
 
 import { Details, InfoContainer } from "./styles";
@@ -24,8 +26,7 @@ export function Informations({ informations, observe }: InformationsProps) {
 
   return (
     <InfoContainer ref={observe}>
-      <h2>Como Funciona</h2>
-      <h1>Informações</h1>
+      <SectionTitle title="Informações" subtitle="Como Funciona" />
       {renderInformations(informations)}
     </InfoContainer>
   );
