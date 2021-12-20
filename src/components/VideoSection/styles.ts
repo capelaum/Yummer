@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 2rem 7rem 2rem;
 
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ export const VideoContent = styled.div`
   iframe {
     width: 1120px;
     height: 630px;
-    z-index: 5;
+    z-index: 1;
   }
 
   @media (max-width: 1200px) {

@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export function Banner() {
   return (
-    <BannerContainer>
+    <BannerContainer id="banner">
       <div className="yummer_logo">
         <Image src={yummer_logo} alt="Yummer Logo" layout="responsive" />
       </div>
