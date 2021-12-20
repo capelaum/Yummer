@@ -4,9 +4,10 @@ import { Details, InfoContainer } from "./styles";
 
 interface InformationsProps {
   informations: Information[];
+  observe?: (element: HTMLElement) => void;
 }
 
-export function Informations({ informations }: InformationsProps) {
+export function Informations({ informations, observe }: InformationsProps) {
   function renderInformations(informations: Information[]) {
     return informations.map(({ title, text, list }, index) => (
       <Details key={index}>
@@ -22,7 +23,7 @@ export function Informations({ informations }: InformationsProps) {
   }
 
   return (
-    <InfoContainer>
+    <InfoContainer ref={observe}>
       <h2>Como Funciona</h2>
       <h1>Informações</h1>
       {renderInformations(informations)}
