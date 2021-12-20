@@ -7,6 +7,7 @@ export const Container = styled.div`
 
   h1 {
     color: #fff;
+    text-align: center;
     font-size: 2.25rem;
     padding-bottom: 2.5rem;
   }

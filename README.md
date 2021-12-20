@@ -12,6 +12,7 @@ Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!
 - [react-loader-spinner][react_loader]
 - [react-toastify][react_toastify]
 - [react-cool-inview][react_cool_inview]
+- [react-slick][react_slick]
 
 [next]: https://nextjs.org
 [typescript]: https://www.typescriptlang.org
@@ -21,3 +22,4 @@ Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!
 [react_loader]: https://www.npmjs.com/package/react-loader-spinner
 [react_toastify]: https://fkhadra.github.io/react-toastify/introduction
 [react_cool_inview]: https://github.com/wellyshen/react-cool-inview
+[react_slick]: https://www.npmjs.com/package/react-slick

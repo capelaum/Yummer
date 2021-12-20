@@ -4,27 +4,29 @@ import { GetStaticProps } from "next";
 
 import useInView from "react-cool-inview";
 
-import { Information, Product } from "utils/types";
+import { Information, Product, Testimonial } from "utils/types";
 
 import { Menu } from "components/Menu";
 import { Banner } from "components/Banner";
 import { Informations } from "components/Informations";
+import { Testimonials } from "components/Testimonials";
+import { InstaWidget } from "components/InstaWidget";
 
-const InstaWidget = dynamic(() => import("components/InstaWidget"));
+// const InstaWidget = dynamic(() => import("components/InstaWidget"));
 
 import { Container } from "styles/home";
 
 interface MenuProps {
   menu: Product[];
   informations: Information[];
+  testimonials: Testimonial[];
 }
 
-export default function Home({ menu, informations }: MenuProps) {
+export default function Home({ menu, informations, testimonials }: MenuProps) {
   const { observe, unobserve, inView, scrollDirection, entry } = useInView({
-    onEnter: ({ unobserve }) => unobserve(),
+    unobserveOnEnter: true,
   });
-
-  console.log(inView);
+  console.log("🚀 ~ inView", inView);
 
   return (
     <>
@@ -33,30 +35,36 @@ export default function Home({ menu, informations }: MenuProps) {
       </Head>
       <Container>
         <Banner />
-
+s
         <Menu menu={menu} />
 
         <Informations informations={informations} observe={observe} />
 
-        {inView && <InstaWidget />}
+        <InstaWidget />
+        <Testimonials testimonials={testimonials} />
       </Container>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const menuData = await fetch(`${process.env.URL_LOCAL}/api/menu`);
-  const menu = await menuData.json();
-
-  const informationsData = await fetch(
-    `${process.env.URL_LOCAL}/api/informations`,
+  const menu = await fetch(`${process.env.URL_LOCAL}/api/menu`).then((res) =>
+    res.json(),
   );
-  const informations = await informationsData.json();
+
+  const informations = await fetch(
+    `${process.env.URL_LOCAL}/api/informations`,
+  ).then((res) => res.json());
+
+  const testimonials = await fetch(
+    `${process.env.URL_LOCAL}/api/testimonials`,
+  ).then((res) => res.json());
 
   return {
     props: {
       menu,
       informations,
+      testimonials,
     },
   };
 };

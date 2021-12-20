@@ -12,7 +12,6 @@ export function DeleteButton({ productId, size }: DeleteButtonProps) {
 
   return (
     <DeleteBtn
-      className="item_delete"
       type="button"
       onClick={() => removeProduct(productId)}
       title="Remover"

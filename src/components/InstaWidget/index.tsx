@@ -4,9 +4,9 @@ interface InstaWidgetProps {
   observe?: (element: HTMLElement) => void;
 }
 
-export default function InstaWidget({ observe }: InstaWidgetProps) {
+export function InstaWidget({ observe }: InstaWidgetProps) {
   return (
-    <Container ref={observe}>
+    <Container>
       <div data-mc-src="adc5162c-45c3-4966-862d-82a0f014ee08#instagram"></div>
 
       <script

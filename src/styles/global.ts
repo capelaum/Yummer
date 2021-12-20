@@ -60,6 +60,10 @@ button {
   cursor: not-allowed;
 }
 
+a {
+  text-decoration: none;
+}
+
 .ReactModal__Overlay {
     opacity: 0;
     transition: opacity 250ms ease-in-out;

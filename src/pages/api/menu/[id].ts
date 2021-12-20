@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { menu } from "../database";
+import { menu } from "data/menu";
 
 import { formatPrice } from "utils/format";
 
