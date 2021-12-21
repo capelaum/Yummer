@@ -58,16 +58,16 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const menu = await fetch(`${process.env.URL_LOCAL}/api/menu`).then((res) =>
+  const menu = await fetch(`${process.env.url_local}/api/menu`).then((res) =>
     res.json(),
   );
 
   const informations = await fetch(
-    `${process.env.URL_LOCAL}/api/informations`,
+    `${process.env.url_local}/api/informations`,
   ).then((res) => res.json());
 
   const testimonials = await fetch(
-    `${process.env.URL_LOCAL}/api/testimonials`,
+    `${process.env.url_local}/api/testimonials`,
   ).then((res) => res.json());
 
   return {
