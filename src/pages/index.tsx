@@ -47,7 +47,7 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
 
         <Informations informations={informations} observe={observe} />
 
-        {loadWidget && <InstaWidget />}
+        {inView && <InstaWidget />}
 
         <Testimonials testimonials={testimonials} />
         <VideoSection />

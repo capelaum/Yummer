@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  padding: 1rem 1rem 0.25rem 1.25rem;
-
   background-color: var(--color-primary);
 
   display: flex;
@@ -17,12 +15,19 @@ export const Content = styled.div`
   height: 100%;
   max-width: 1200px;
 
+  padding: 1rem 1rem 0.25rem 1.25rem;
+
   color: #fff;
 
   display: flex;
   justify-content: space-between;
 
-  border: 1px solid red;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1.25rem 1rem 0.25rem 1.25rem;
+  }
 `;
 
 export const ContentLeft = styled.div`
@@ -38,11 +43,27 @@ export const ContentLeft = styled.div`
     a {
       color: var(--color-secondary);
       padding-bottom: 0.25rem;
+      font-weight: 500;
 
       transition: all 0.3s;
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+
+    .info {
+      text-align: center;
+      margin-left: 0;
+      padding-top: 1.25rem;
+
+      span {
+        padding-top: 1rem;
       }
     }
   }
@@ -65,13 +86,8 @@ export const ContentCenter = styled.div`
     }
   }
 
-  .social_icons {
-    display: flex;
-    padding-top: 1.25rem;
-
-    a + a {
-      margin-left: 1rem;
-    }
+  @media (max-width: 768px) {
+    padding-top: 2rem;
   }
 `;
 
@@ -92,5 +108,10 @@ export const ContentRight = styled.div`
     &:hover {
       color: var(--color-secondary);
     }
+  }
+
+  @media (max-width: 768px) {
+    align-items: center;
+    padding-top: 2rem;
   }
 `;

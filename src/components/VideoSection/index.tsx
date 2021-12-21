@@ -13,12 +13,13 @@ export function VideoSection() {
 
       <VideoContent>
         <iframe
-          src="https://www.youtube.com/embed/58pJWTwQNWg"
+          src="https://www.youtube-nocookie.com/embed/58pJWTwQNWg"
           title="Yummer Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
+
         <div className="shapeLeft">
           <Image src={shapeLeft} alt="Forma Esquerda" />
         </div>
