@@ -59,21 +59,22 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Yummer - Somos especialistas em delícias culinárias 🧡"
+            content="Yummer - Somos especialistas em delícias culinárias: cookies, rabanadas e sucos 🧡. Brasília - DF"
           />
           <meta property="og:title" content="Yummer" />
           <meta property="og:site_name" content="Yummer"></meta>
           <meta property="og:type" content="website" />
           <meta
             property="og:description"
-            content="Yummer - Somos especialistas em delícias culinárias 🧡"
+            content="Yummer - Somos especialistas em delícias culinárias: cookies, rabanadas e sucos 🧡. Brasília - DF"
           />
           <meta property="og:url" content="https://yummer.vercel.app" />
+          <meta property="og:locale" content="pt_BR"></meta>
 
           <meta
             property="og:image"
             itemProp="image"
-            content="Logos/yummer_orange_icon.png"
+            content="https://yummer.vercel.app/Logos/yummer_orange_icon.png"
           />
           <meta property="og:image:type" content="image/png"></meta>
         </Head>
