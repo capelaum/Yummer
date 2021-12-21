@@ -64,14 +64,17 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab . Brasília - DF"
+            content="Somos a Yummer! Cookies, Rabanadas chás & sucos - Brasília, DF."
           />
-          <meta property="og:title" content="Yummer" />
+          <meta
+            property="og:title"
+            content="Somos a Yummer! Cookies, Rabanadas chás & sucos - Brasília, DF."
+          />
           <meta property="og:site_name" content="Yummer"></meta>
           <meta property="og:type" content="website" />
           <meta
             property="og:description"
-            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab . Brasília - DF"
+            content="Somos a Yummer! Cookies, Rabanadas chás & sucos - Brasília, DF."
           />
           <meta property="og:url" content="https://yummer.vercel.app" />
           <meta property="og:locale" content="pt_BR"></meta>
@@ -79,7 +82,7 @@ export default class MyDocument extends Document {
           <meta
             property="og:image"
             itemProp="image"
-            content="https://yummer.vercel.app/Logos/yummer_orange_icon.png"
+            content="https://yummer.vercel.app/Logos/yummer_logo.png"
           />
           <meta property="og:image:type" content="image/png"></meta>
 
@@ -89,11 +92,11 @@ export default class MyDocument extends Document {
           <meta name="twitter:title" content="Yummer" />
           <meta
             name="twitter:description"
-            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab . Brasília - DF"
+            content="Somos a YUMMER! Cookies, Rabanadas chás & sucos - Brasília, DF."
           />
           <meta
             name="twitter:image"
-            content="https://yummer.vercel.app/Logos/yummer_orange_icon.png"
+            content="https://yummer.vercel.app/Logos/yummer_logo.png"
           />
         </Head>
         <body>
