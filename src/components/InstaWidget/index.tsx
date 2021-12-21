@@ -15,6 +15,9 @@ export function InstaWidget({ observe }: InstaWidgetProps) {
         async
         data-usrc
         strategy="lazyOnload"
+        onError={(e) => {
+          console.error("Script failed to load", e);
+        }}
       ></Script>
     </Container>
   );

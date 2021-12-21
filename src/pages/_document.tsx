@@ -51,7 +51,31 @@ export default class MyDocument extends Document {
           />
           <meta name="msapplication-TileColor" content="#263143" />
           <meta name="theme-color" content="#ffffff" />
-          <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+          <link
+            rel="shortcut icon"
+            href="favicon/favicon.ico"
+            type="image/x-icon"
+          />
+
+          <meta
+            name="description"
+            content="Yummer - Somos especialistas em delícias culinárias 🧡"
+          />
+          <meta property="og:title" content="Yummer" />
+          <meta property="og:site_name" content="Yummer"></meta>
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:description"
+            content="Yummer - Somos especialistas em delícias culinárias 🧡"
+          />
+          <meta property="og:url" content="https://yummer.vercel.app" />
+
+          <meta
+            property="og:image"
+            itemProp="image"
+            content="Logos/yummer_orange_icon.png"
+          />
+          <meta property="og:image:type" content="image/png"></meta>
         </Head>
         <body>
           <Main />

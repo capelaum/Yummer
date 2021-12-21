@@ -10,7 +10,7 @@ import yummer_logo from "@public/Logos/yummer_logo.svg";
 
 import { useCart } from "contexts/CartContext";
 
-import { CartDesktop } from "components/CartProductTable";
+import { CartDesktop } from "components/CartDesktop";
 import { CartMobile } from "components/CartMobile";
 import { CartFooter } from "components/CartFooter";
 
