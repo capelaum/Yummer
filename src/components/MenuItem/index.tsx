@@ -1,67 +1,29 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
-
-import { Container, Content, TextContent } from "./styles";
+import { Product } from "utils/types";
 
 import { AddCartButton } from "components/AddCartButton";
+import { ProductImage } from "components/ProductImage";
+
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-import { Product } from "utils/types";
-import { generateShimmer } from "utils/shimmer";
-
+import { Container, Content, TextContent } from "./styles";
 interface MenuItemProps {
   product: Product;
   isOrange: boolean;
 }
 
 export function MenuItem({ product, isOrange }: MenuItemProps) {
-  const { id, type, name, description, priceFormated, imageName } = product;
+  const { id, type, name, description, priceFormated, imageSrc } = product;
   const { width } = useWindowDimensions();
-  const [imageWidth, setImageWidth] = useState(0);
-  const [imageHeight, setImageHeight] = useState(0);
-
-  useEffect(() => {
-    setImageSize(type);
-  });
-
-  function setImageSize(type: string) {
-    let imageWidth: number, imageHeight: number;
-
-    switch (type) {
-      case "cookie":
-        imageWidth = width > 768 ? 100 : 150;
-        imageHeight = width > 768 ? 100 : 150;
-        break;
-      case "toast":
-        imageWidth = width > 768 ? 150 : 220;
-        imageHeight = width > 768 ? 80 : 130;
-        break;
-      case "juice":
-        imageWidth = width > 768 ? 78 : 100;
-        imageHeight = width > 768 ? 120 : 150;
-        break;
-    }
-
-    setImageWidth(imageWidth);
-    setImageHeight(imageHeight);
-    return { imageWidth, imageHeight };
-  }
 
   return (
     <Container>
       <Content>
         <div className="menu_item_image">
-          <Image
-            src={`/${type}/${imageName}`}
-            alt={name}
-            width={imageWidth}
-            height={imageHeight}
-            layout="fixed"
-            placeholder="blur"
-            blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
-              imageWidth,
-              imageHeight,
-            )}`}
+          <ProductImage
+            name={name}
+            type={type}
+            imageSrc={imageSrc}
+            menuType="menu"
           />
         </div>
 

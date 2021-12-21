@@ -13,6 +13,7 @@ import { useCart } from "contexts/CartContext";
 import { CartDesktop } from "components/CartDesktop";
 import { CartMobile } from "components/CartMobile";
 import { CartFooter } from "components/CartFooter";
+import { Footer } from "components/Footer";
 
 import { CheckoutModal } from "components/CheckoutModal";
 import { PixModal } from "components/PixModal";
@@ -39,6 +40,10 @@ export default function Cart() {
     return size ? `${name} (${size}g)` : name;
   }
 
+  function handleSetCustomerName(customerName: string) {
+    setCustomerName(customerName);
+  }
+
   function handleOpenCheckoutModal() {
     setIsCheckoutModalOpen(true);
   }
@@ -53,10 +58,6 @@ export default function Cart() {
 
   function handleClosePixModal() {
     setIsPixModalOpen(false);
-  }
-
-  function handleSetCustomerName(customerName: string) {
-    setCustomerName(customerName);
   }
 
   return (
@@ -94,6 +95,7 @@ export default function Cart() {
           </CartContainer>
         </Checkout>
       </CartPageContainer>
+      <Footer />
     </>
   );
 }

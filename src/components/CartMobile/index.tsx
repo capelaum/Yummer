@@ -1,13 +1,11 @@
-import Image from "next/image";
+import { formatPrice } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
-
-import { formatPrice } from "utils/format";
 
 import { ItemAmount } from "components/ItemAmount";
 import { DeleteButton } from "components/DeleteButton";
+import { ProductImage } from "components/ProductImage";
 
 import {
   CartMobileContainer,
@@ -18,7 +16,6 @@ import {
   ProductSubtotal,
   ProductTitle,
 } from "./styles";
-import { generateShimmer } from "utils/shimmer";
 
 interface CartMobileProps {
   renderProductName: (name: string, size: number) => string;
@@ -31,17 +28,14 @@ export function CartMobile({ renderProductName }: CartMobileProps) {
   return (
     <CartMobileContainer show={width < 768}>
       {sortedCart.map(
-        ({ id, name, type, imageName, size, price, priceFormated, amount }) => (
+        ({ id, name, type, imageSrc, size, price, priceFormated, amount }) => (
           <Product key={id}>
             <ProductHeader>
-              <Image
-                src={`/${type}/${imageName}`}
-                alt={name}
-                width={width >= 768 ? 100 : 60}
-                height={width >= 768 ? 100 : 60}
-                layout="fixed"
-                placeholder="blur"
-                blurDataURL={`/${type}/${imageName}`}
+              <ProductImage
+                name={name}
+                type={type}
+                imageSrc={imageSrc}
+                menuType="cartMobile"
               />
               <ProductTitle>
                 <h1>{renderProductName(name, size)}</h1>

@@ -1,16 +1,13 @@
-import Image from "next/image";
+import { formatPrice } from "utils/format";
 
 import { ItemAmount } from "components/ItemAmount";
 import { DeleteButton } from "components/DeleteButton";
-
-import { formatPrice } from "utils/format";
+import { ProductImage } from "components/ProductImage";
 
 import { useCart } from "contexts/CartContext";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ProductTable } from "./styles";
-import { generateShimmer } from "utils/shimmer";
 
 interface CartDesktopProps {
   renderProductName: (name: string, size: number) => string;
@@ -37,7 +34,7 @@ export function CartDesktop({ renderProductName }: CartDesktopProps) {
             id,
             name,
             type,
-            imageName,
+            imageSrc,
             price,
             priceFormated,
             amount,
@@ -45,17 +42,11 @@ export function CartDesktop({ renderProductName }: CartDesktopProps) {
           }) => (
             <tr key={id}>
               <td className="item_image">
-                <Image
-                  src={`/${type}/${imageName}`}
-                  alt={name}
-                  width={100}
-                  height={100}
-                  layout="fixed"
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
-                    100,
-                    100,
-                  )}`}
+                <ProductImage
+                  name={name}
+                  type={type}
+                  imageSrc={imageSrc}
+                  menuType="cartDesktop"
                 />
               </td>
               <td>

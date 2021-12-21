@@ -1,3 +1,7 @@
+export type ProductTypes = "cookie" | "toast" | "juice";
+
+export type Size = 100 | 45;
+
 export interface Product {
   id: number;
   type: ProductTypes;
@@ -5,18 +9,16 @@ export interface Product {
   description: string;
   price: number;
   priceFormated?: string;
-  imageName: string;
-  size?: 100 | 45;
+  imageSrc: string;
+  size?: Size;
 }
-
-export type ProductTypes = "cookie" | "toast" | "juice";
 
 export interface Information {
   title: string;
   text: string;
   list: string[];
 }
-speechSynthesis;
+
 export interface Testimonial {
   text: string;
   author: string;
