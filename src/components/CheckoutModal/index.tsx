@@ -26,8 +26,13 @@ export function CheckoutModal({
 }: CheckoutModalProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const { sortedCart, cartTotal, renderProductName, filterCartByProductType } =
-    useCart();
+  const {
+    sortedCart,
+    cartTotal,
+    renderProductName,
+    filterCartByProductType,
+    emptyCart,
+  } = useCart();
 
   function sendWppOrder() {
     const message = createtMsgOrder();
@@ -42,7 +47,7 @@ export function CheckoutModal({
 
   function createtMsgOrder(): string {
     let message = `*Nome*: ${name}\n`;
-    message += `*Endereço de entrega*: ${deliveryAddress}\n\n↪ *PEDIDO*\n\n`;
+    message += `*Endereço de entrega*: ${deliveryAddress}\n\n➡️ *PEDIDO*\n\n`;
 
     const { cookies, toasts, juices } = filterCartByProductType(sortedCart);
 
@@ -91,6 +96,8 @@ export function CheckoutModal({
 
     setName("");
     setDeliveryAddress("");
+
+    emptyCart();
 
     onRequestClose();
     openPixModal();

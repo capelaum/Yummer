@@ -18,7 +18,12 @@ import { Footer } from "components/Footer";
 import { CheckoutModal } from "components/CheckoutModal";
 import { PixModal } from "components/PixModal";
 
-import { CartContainer, CartPageContainer, Checkout } from "styles/cart";
+import {
+  CartContainer,
+  CartPageContainer,
+  Checkout,
+  EmptyCart,
+} from "styles/cart";
 
 Modal.setAppElement("#__next");
 
@@ -31,10 +36,10 @@ export default function Cart() {
   const router = useRouter();
 
   useEffect(() => {
-    if (cartSize <= 0) {
+    if (cartSize <= 0 && !isPixModalOpen) {
       router.push("/");
     }
-  }, [cartSize, router]);
+  }, [cartSize, router, isPixModalOpen]);
 
   function handleSetCustomerName(customerName: string) {
     setCustomerName(customerName);
@@ -82,12 +87,18 @@ export default function Cart() {
         />
 
         <Checkout>
-          <CartContainer>
-            <CartDesktop />
-            <CartMobile />
+          {cartSize <= 0 ? (
+            <EmptyCart>
+              <h1>🛒 Seu carrinho está vazio..</h1>
+            </EmptyCart>
+          ) : (
+            <CartContainer>
+              <CartDesktop />
+              <CartMobile />
 
-            <CartFooter onOpenCheckoutModal={handleOpenCheckoutModal} />
-          </CartContainer>
+              <CartFooter onOpenCheckoutModal={handleOpenCheckoutModal} />
+            </CartContainer>
+          )}
         </Checkout>
       </CartPageContainer>
       <Footer />

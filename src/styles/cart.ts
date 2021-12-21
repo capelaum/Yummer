@@ -28,8 +28,9 @@ export const CartPageContainer = styled.section`
 
 export const Checkout = styled.section`
   width: 100%;
-  min-height: calc(100vh - 262px);
   margin-top: 4rem;
+
+  min-height: calc(100vh - 320px);
 
   display: flex;
   flex-direction: column;
@@ -57,5 +58,11 @@ export const CartContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 1rem;
+  }
+`;
+
+export const EmptyCart = styled(CartContainer)`
+  h1 {
+    text-align: center;
   }
 `;

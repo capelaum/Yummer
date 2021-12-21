@@ -27,6 +27,7 @@ interface CartContextData {
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
   updateProductAmount: (productId: number, amount: number) => void;
+  emptyCart: () => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -118,7 +119,7 @@ export function CartProvider({ children }: CartProviderProps) {
         setCart(updatedCart);
         localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
       } else {
-        throw Error();
+        throw Error("Product not found");
       }
     } catch (error) {
       console.error("🚀 ~ error", error.message);
@@ -151,6 +152,10 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   };
 
+  function emptyCart() {
+    setCart([]);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -164,6 +169,7 @@ export function CartProvider({ children }: CartProviderProps) {
         addProduct,
         removeProduct,
         updateProductAmount,
+        emptyCart,
       }}
     >
       {children}
