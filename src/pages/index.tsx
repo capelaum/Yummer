@@ -34,7 +34,6 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
     unobserveOnEnter: true,
   });
   const [loadWidget, setLoadWidget] = useState(false);
-  console.log("🚀 ~ inView", inView);
 
   useEffect(() => {
     setLoadWidget(true);
@@ -51,8 +50,7 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
 
         <Informations informations={informations} observe={observe} />
 
-        {inView && <InstaWidget />}
-
+        <InstaWidget />
         <Testimonials testimonials={testimonials} />
         <VideoSection />
         <Footer />

@@ -57,6 +57,7 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
             width={imageWidth}
             height={imageHeight}
             layout="fixed"
+            // loading="eager"
             // placeholder="blur"
             // blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
             //   imageWidth,
