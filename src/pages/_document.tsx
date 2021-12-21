@@ -64,17 +64,17 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Somos a Yummer! Cookies, Rabanadas chás & sucos - Brasília, DF."
+            content="Somos a Yummer! Cookies, Rabanadas Chás & Sucos. - Brasília, DF."
           />
           <meta
             property="og:title"
-            content="Somos a Yummer! Cookies, Rabanadas chás & sucos - Brasília, DF."
+            content="🧡 Yummer - Cookies, Rabanadas Chás & Sucos"
           />
           <meta property="og:site_name" content="Yummer"></meta>
           <meta property="og:type" content="website" />
           <meta
             property="og:description"
-            content="Somos a Yummer! Cookies, Rabanadas chás & sucos - Brasília, DF."
+            content="Somos a Yummer! Cookies, Rabanadas Chás & Sucos. - Brasília, DF."
           />
           <meta property="og:url" content="https://yummer.vercel.app" />
           <meta property="og:locale" content="pt_BR"></meta>
@@ -87,12 +87,12 @@ export default class MyDocument extends Document {
           <meta property="og:image:type" content="image/png"></meta>
 
           <meta name="twitter:url" content="https://yummer.vercel.app" />
-          <meta name="twitter:card" content="simmary_large_image" />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="@capellett" />
           <meta name="twitter:title" content="Yummer" />
           <meta
             name="twitter:description"
-            content="Somos a YUMMER! Cookies, Rabanadas chás & sucos - Brasília, DF."
+            content="Somos a YUMMER! Cookies, Rabanadas Chás & Sucos. - Brasília, DF."
           />
           <meta
             name="twitter:image"
