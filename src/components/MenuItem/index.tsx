@@ -54,9 +54,11 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
           <Image
             src={`/${type}/${imageName}`}
             alt={name}
-            width={imageWidth}
-            height={imageHeight}
+            width={width > 768 ? 100 : 150}
+            height={width > 768 ? 100 : 150}
             layout="fixed"
+            priority={true}
+
             // loading="eager"
             // placeholder="blur"
             // blurDataURL={`data:image/svg+xml;base64,${generateShimmer(

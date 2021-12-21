@@ -5,7 +5,7 @@ import { GetStaticProps } from "next";
 
 import useInView from "react-cool-inview";
 
-import { getMenu } from "./api/menu";
+import { getMenu, getProductsType } from "./api/menu";
 import { getInformations } from "./api/informations";
 import { getTestimonials } from "./api/testimonials";
 
@@ -24,7 +24,11 @@ import { Footer } from "components/Footer";
 import { Container } from "styles/home";
 
 interface MenuProps {
-  menu: Product[];
+  menu: {
+    cookies: Product[];
+    toasts: Product[];
+    juices: Product[];
+  };
   informations: Information[];
   testimonials: Testimonial[];
 }
@@ -60,9 +64,17 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
 }
 
 export const getStaticProps: GetStaticProps<MenuProps> = async (ctx) => {
-  const menu = await getMenu();
+  const cookiesData = await getProductsType("cookie");
+  const toastsData = await getProductsType("toast");
+  const juicesData = await getProductsType("juice");
   const informations = await getInformations();
   const testimonials = await getTestimonials();
+
+  const menu = {
+    cookies: cookiesData,
+    toasts: toastsData,
+    juices: juicesData,
+  };
 
   return {
     props: {

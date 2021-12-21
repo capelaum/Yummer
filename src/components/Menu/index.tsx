@@ -12,10 +12,15 @@ import { useCart } from "contexts/CartContext";
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
 interface MenuProps {
-  menu: Product[];
+  menu: {
+    cookies: Product[];
+    toasts: Product[];
+    juices: Product[];
+  };
 }
 
 export function Menu({ menu }: MenuProps) {
+  const { cookies, toasts, juices } = menu;
   const [activeItem, setActiveItem] = useState<ProductTypes>("cookie");
   const [size, setSize] = useState<100 | 45>(100);
   const { cartSize } = useCart();
@@ -28,12 +33,12 @@ export function Menu({ menu }: MenuProps) {
     setActiveItem(item);
   }
 
-  function renderMenu(products: Product[], productType: string, size?: number) {
+  function renderProducts(products: Product[], size?: number) {
     const filteredProducts = products.filter(
-      (product) => product.type === productType && product?.size === size,
+      (product) => product?.size === size,
     );
 
-    return filteredProducts.map((product) => {
+    return filteredProducts.map((product: Product) => {
       return (
         <MenuItem
           key={product.id}
@@ -56,15 +61,15 @@ export function Menu({ menu }: MenuProps) {
       <MenuItemsContainer>
         <MenuItemContainer isActive={activeItem === "cookie"}>
           <Switch size={size} toggleSize={toggleSize} />
-          {renderMenu(menu, "cookie", size)}
+          {renderProducts(cookies, size)}
         </MenuItemContainer>
 
         <MenuItemContainer isOrange isActive={activeItem === "toast"}>
-          {renderMenu(menu, "toast")}
+          {renderProducts(toasts)}
         </MenuItemContainer>
 
         <MenuItemContainer isActive={activeItem === "juice"}>
-          {renderMenu(menu, "juice")}
+          {renderProducts(juices)}
         </MenuItemContainer>
       </MenuItemsContainer>
     </MenuContainer>

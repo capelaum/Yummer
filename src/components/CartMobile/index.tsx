@@ -41,10 +41,7 @@ export function CartMobile({ renderProductName }: CartMobileProps) {
                 height={width >= 768 ? 100 : 60}
                 layout="fixed"
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
-                  width >= 768 ? 100 : 60,
-                  width >= 768 ? 100 : 60,
-                )}`}
+                blurDataURL={`/${type}/${imageName}`}
               />
               <ProductTitle>
                 <h1>{renderProductName(name, size)}</h1>
