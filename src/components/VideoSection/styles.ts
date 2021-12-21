@@ -3,101 +3,72 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  padding: 2.5rem 2rem 7rem 2rem;
+  padding: 3rem 2rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  border: 1px solid red;
+  position: relative;
+
+  /* background-image: url("./video/player_bg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; */
 `;
 
 export const VideoContent = styled.div`
-  width: 100%;
-  max-width: 1200px;
+  width: 90%;
+  max-width: 1120px;
+  height: 630px;
 
-  display: flex;
-  justify-content: center;
+  margin: 4rem 0;
+
+  border: 1px solid red;
+
   position: relative;
 
-  .shapeLeft {
+  .react-player {
     position: absolute;
+  }
 
-    left: -140px;
+  .shape_left {
+    position: absolute;
+    left: -120px;
     bottom: -20%;
+
+    width: 250px;
   }
 
-  .shapeRight {
+  .shape_right {
     position: absolute;
+    right: -100px;
+    top: -100px;
 
-    right: -200px;
-    top: -120px;
+    width: 200px;
   }
 
-  iframe {
-    width: 1120px;
-    height: 630px;
-    z-index: 1;
-  }
+  @media (max-width: 900px) {
+    height: 315px;
 
-  @media (max-width: 1200px) {
-    .shapeLeft {
-      width: 250px;
-
-      left: -20px;
+    .shape_left {
+      left: -60px;
       bottom: -20%;
-    }
 
-    .shapeRight {
-      width: 300px;
-
-      right: -20px;
-      top: -20%;
-    }
-
-    iframe {
-      width: 840px;
-      height: 472.5px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .shapeLeft {
       width: 150px;
-
-      left: -40px;
-      bottom: -20%;
     }
 
-    .shapeRight {
-      width: 130px;
+    .shape_right {
+      position: absolute;
+      right: -60px;
+      top: -60px;
 
-      right: -40px;
-      top: -20%;
-    }
-
-    iframe {
-      width: 560px;
-      height: 315px;
+      width: 150px;
     }
   }
 
   @media (max-width: 576px) {
-    .shapeLeft {
-      width: 150px;
-
-      left: -40px;
-      bottom: -20%;
-    }
-
-    .shapeRight {
-      width: 130px;
-
-      right: -40px;
-      top: -20%;
-    }
-
-    iframe {
-      width: 100%;
-      height: 240px;
-    }
+    height: 200px;
   }
 `;

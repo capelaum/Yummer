@@ -1,6 +1,9 @@
-# Yummer :cookie:
+<div align="center">
+  <h1>🧡Yummer🧡</h1>
+  <h2>Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!</h2>
+  <img src=".github/cover.png" />
 
-Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!
+</div>
 
 ## Tech
 
@@ -13,6 +16,7 @@ Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!
 - [react-toastify][react_toastify]
 - [react-cool-inview][react_cool_inview]
 - [react-slick][react_slick]
+- [react-player][react_player]
 
 [next]: https://nextjs.org
 [typescript]: https://www.typescriptlang.org
@@ -23,3 +27,4 @@ Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!
 [react_toastify]: https://fkhadra.github.io/react-toastify/introduction
 [react_cool_inview]: https://github.com/wellyshen/react-cool-inview
 [react_slick]: https://www.npmjs.com/package/react-slick
+[react_player]: https://www.npmjs.com/package/react-player
