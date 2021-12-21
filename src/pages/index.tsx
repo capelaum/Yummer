@@ -82,5 +82,6 @@ export const getStaticProps: GetStaticProps<MenuProps> = async (ctx) => {
       informations,
       testimonials,
     },
+    revalidate: 10, // 30 minutes
   };
 };
