@@ -13,12 +13,7 @@ export function Banner() {
   return (
     <BannerContainer id="banner">
       <div className="yummer_logo">
-        <Image
-          src={yummer_logo}
-          alt="Yummer Logo"
-          layout="responsive"
-          priority={true}
-        />
+        <Image src={yummer_logo} alt="Yummer Logo" layout="responsive" />
       </div>
 
       <p>
@@ -31,30 +26,16 @@ export function Banner() {
 
       <Shape>
         <div className="shape_left">
-          <Image
-            src={shape_left}
-            alt="shape left"
-            layout="responsive"
-            priority={true}
-          />
+          <Image src={shape_left} alt="shape left" layout="responsive" />
         </div>
         <div className="shape_right">
-          <Image
-            src={shape_right}
-            alt="shape right"
-            layout="responsive"
-            priority={true}
-          />
+          <Image src={shape_right} alt="shape right" layout="responsive" />
         </div>
         <div className="main_cookies">
-          <Image src={main_cookies} alt="Yummer Cookies" priority={true} />
+          <Image src={main_cookies} alt="Yummer Cookies" />
         </div>
         <div className="main_cookies_mobile">
-          <Image
-            src={main_cookies_mobile}
-            alt="Yummer Cookies Mobile"
-            priority={true}
-          />
+          <Image src={main_cookies_mobile} alt="Yummer Cookies Mobile" />
         </div>
       </Shape>
     </BannerContainer>

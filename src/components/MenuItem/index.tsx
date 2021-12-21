@@ -37,7 +37,7 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
         imageHeight = width > 768 ? 80 : 130;
         break;
       case "juice":
-        imageWidth = width > 768 ? 75 : 90;
+        imageWidth = width > 768 ? 78 : 100;
         imageHeight = width > 768 ? 120 : 150;
         break;
     }
@@ -54,17 +54,14 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
           <Image
             src={`/${type}/${imageName}`}
             alt={name}
-            width={width > 768 ? 100 : 150}
-            height={width > 768 ? 100 : 150}
+            width={imageWidth}
+            height={imageHeight}
             layout="fixed"
-            priority={true}
-
-            // loading="eager"
-            // placeholder="blur"
-            // blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
-            //   imageWidth,
-            //   imageHeight,
-            // )}`}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${generateShimmer(
+              imageWidth,
+              imageHeight,
+            )}`}
           />
         </div>
 
