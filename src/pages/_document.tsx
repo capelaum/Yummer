@@ -8,8 +8,13 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="pt-br">
+      <Html lang="pt-br" itemScope itemType="https://schema.org/WebSite">
         <Head>
+          <meta charSet="UTF-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -23,7 +28,7 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Yummer te entrega as melhores delícias gastronômicas como cookies, rabanadas e sucos"
+            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab "
           />
 
           <link
@@ -59,14 +64,14 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Yummer - Somos especialistas em delícias culinárias: cookies, rabanadas e sucos 🧡. Brasília - DF"
+            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab . Brasília - DF"
           />
           <meta property="og:title" content="Yummer" />
           <meta property="og:site_name" content="Yummer"></meta>
           <meta property="og:type" content="website" />
           <meta
             property="og:description"
-            content="Yummer - Somos especialistas em delícias culinárias: cookies, rabanadas e sucos 🧡. Brasília - DF"
+            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab . Brasília - DF"
           />
           <meta property="og:url" content="https://yummer.vercel.app" />
           <meta property="og:locale" content="pt_BR"></meta>
@@ -77,6 +82,19 @@ export default class MyDocument extends Document {
             content="https://yummer.vercel.app/Logos/yummer_orange_icon.png"
           />
           <meta property="og:image:type" content="image/png"></meta>
+
+          <meta name="twitter:url" content="https://yummer.vercel.app" />
+          <meta name="twitter:card" content="simmary_large_image" />
+          <meta name="twitter:creator" content="@capellett" />
+          <meta name="twitter:title" content="Yummer" />
+          <meta
+            name="twitter:description"
+            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab . Brasília - DF"
+          />
+          <meta
+            name="twitter:image"
+            content="https://yummer.vercel.app/Logos/yummer_orange_icon.png"
+          />
         </Head>
         <body>
           <Main />
