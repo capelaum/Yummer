@@ -5,7 +5,6 @@ import { SectionTitle } from "components/SectionTitle";
 
 import shapeLeft from "@public/video/shape_left.svg";
 import shapeRight from "@public/video/shape_right.svg";
-import video_bg from "@public/video/player_bg.png";
 
 import { Container, VideoContent } from "./styles";
 

@@ -9,13 +9,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
 
-  border: 1px solid red;
   position: relative;
-
-  /* background-image: url("./video/player_bg.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center; */
 `;
 
 export const VideoContent = styled.div`
@@ -24,8 +18,6 @@ export const VideoContent = styled.div`
   height: 630px;
 
   margin: 4rem 0;
-
-  border: 1px solid red;
 
   position: relative;
 
