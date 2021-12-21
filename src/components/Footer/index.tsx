@@ -49,7 +49,7 @@ export function Footer() {
         </ContentCenter>
 
         <ContentRight>
-          <span>Yummer © 2021.</span>
+          <span>Yummer © 2022</span>
           <span>
             Feito com 🧡 por
             <a

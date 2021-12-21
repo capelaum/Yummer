@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { GetStaticProps } from "next";
@@ -28,7 +29,12 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
   const { observe, unobserve, inView, scrollDirection, entry } = useInView({
     unobserveOnEnter: true,
   });
+  const [loadWidget, setLoadWidget] = useState(false);
   console.log("🚀 ~ inView", inView);
+
+  useEffect(() => {
+    setLoadWidget(true);
+  }, []);
 
   return (
     <>
@@ -41,7 +47,8 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
 
         <Informations informations={informations} observe={observe} />
 
-        <InstaWidget />
+        {loadWidget && <InstaWidget />}
+
         <Testimonials testimonials={testimonials} />
         <VideoSection />
         <Footer />
