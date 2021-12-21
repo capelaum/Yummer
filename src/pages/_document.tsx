@@ -64,17 +64,17 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="Somos a Yummer! Cookies, Rabanadas Chás & Sucos. - Brasília, DF."
+            content="Somos a Yummer! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
           />
           <meta
             property="og:title"
-            content="🧡 Yummer - Cookies, Rabanadas Chás & Sucos"
+            content="Yummer - Cookies, Rabanadas, Chás & Sucos 🧡"
           />
           <meta property="og:site_name" content="Yummer"></meta>
           <meta property="og:type" content="website" />
           <meta
             property="og:description"
-            content="Somos a Yummer! Cookies, Rabanadas Chás & Sucos. - Brasília, DF."
+            content="Somos a Yummer! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
           />
           <meta property="og:url" content="https://yummer.vercel.app" />
           <meta property="og:locale" content="pt_BR"></meta>
@@ -89,10 +89,13 @@ export default class MyDocument extends Document {
           <meta name="twitter:url" content="https://yummer.vercel.app" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="@capellett" />
-          <meta name="twitter:title" content="Yummer" />
+          <meta
+            name="twitter:title"
+            content="Yummer - Cookies, Rabanadas, Chás & Sucos 🧡"
+          />
           <meta
             name="twitter:description"
-            content="Somos a YUMMER! Cookies, Rabanadas Chás & Sucos. - Brasília, DF."
+            content="Somos a YUMMER! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
           />
           <meta
             name="twitter:image"
