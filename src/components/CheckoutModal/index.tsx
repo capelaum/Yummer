@@ -5,8 +5,9 @@ import { MdClose } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { formatPrice } from "utils/format";
+import { CartProduct } from "utils/types";
 
-import { CartProduct, useCart } from "contexts/CartContext";
+import { useCart } from "contexts/CartContext";
 
 import { Container } from "./styles";
 
@@ -14,68 +15,22 @@ interface CheckoutModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
   openPixModal: () => void;
-  setCustomerName: (customerName: string) => void;
-  renderProductName: (name: string, size: number) => string;
+  handleSetCustomerName: (customerName: string) => void;
 }
 
 export function CheckoutModal({
   isOpen,
   onRequestClose,
   openPixModal,
-  setCustomerName,
-  renderProductName,
+  handleSetCustomerName,
 }: CheckoutModalProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const { sortedCart, cartTotal } = useCart();
-
-  function setProductsOrder(products: CartProduct[], type: string): string {
-    if (products.length > 0) {
-      let message = "----------------------------------------------\n";
-
-      switch (type) {
-        case "cookie":
-          message += "*Cookies*";
-          break;
-        case "toast":
-          message += "*Rabanadas*";
-          break;
-        case "juice":
-          message += "*Sucos*";
-          break;
-      }
-
-      message += "\n\n";
-
-      products.forEach(({ name, type, amount, price, size }) => {
-        message += `*${renderProductName(name, size)}*: ${amount}`;
-        message += "\n";
-      });
-
-      return message;
-    }
-
-    return "";
-  }
+  const { sortedCart, cartTotal, renderProductName, filterCartByProductType } =
+    useCart();
 
   function sendWppOrder() {
-    let message = `*******************************************************
-*Nome*: ${name}
-*Endereço de entrega*: ${deliveryAddress}
-*******************************************************
-*Pedido:*
-`;
-
-    const cookies = sortedCart.filter((p) => p.type === "cookie");
-    const toasts = sortedCart.filter((p) => p.type === "toast");
-    const juices = sortedCart.filter((p) => p.type === "juice");
-
-    message += setProductsOrder(cookies, "cookie");
-    message += setProductsOrder(toasts, "toast");
-    message += setProductsOrder(juices, "juice");
-
-    message += "----------------------------------------------\n";
-    message += "*Total*: " + formatPrice(cartTotal);
+    const message = createtMsgOrder();
 
     const phoneNumber = "994024994";
     const whatsappLink = `https://api.whatsapp.com/send?phone=+5561${phoneNumber}&text=${encodeURIComponent(
@@ -85,10 +40,52 @@ export function CheckoutModal({
     window.open(whatsappLink, "_blank").focus();
   }
 
+  function createtMsgOrder(): string {
+    let message = `*Nome*: ${name}\n`;
+    message += `*Endereço de entrega*: ${deliveryAddress}\n\n↪ *PEDIDO*\n\n`;
+
+    const { cookies, toasts, juices } = filterCartByProductType(sortedCart);
+
+    if (cookies.length > 0) {
+      message += "🍪 *Cookies*\n\n";
+      message += formatProductsOrder(cookies);
+    }
+
+    if (toasts.length > 0) {
+      message += "🍞 *Rabanadas*\n\n";
+      message += formatProductsOrder(toasts);
+    }
+
+    if (juices.length > 0) {
+      message += "🍹 *Sucos*\n\n";
+      message += formatProductsOrder(juices);
+    }
+
+    message += "----------------------------------------------\n";
+    message += "✅ *Total*: " + formatPrice(cartTotal);
+
+    return message;
+  }
+
+  function formatProductsOrder(cartProducts: CartProduct[]): string {
+    const message = cartProducts.reduce(
+      (acc, { name, size, amount, price }) => {
+        acc += `→ *${renderProductName(name, size)}*\n`;
+        acc += `*Qtd*: ${amount}\n`;
+        acc += `*Subtotal*: ${formatPrice(amount * price)}`;
+        acc += "\n\n";
+        return acc;
+      },
+      "",
+    );
+
+    return message;
+  }
+
   function handleCheckout(e: FormEvent) {
     e.preventDefault();
 
-    setCustomerName(name);
+    handleSetCustomerName(name);
 
     sendWppOrder();
 

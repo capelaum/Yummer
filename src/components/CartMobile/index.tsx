@@ -17,12 +17,8 @@ import {
   ProductTitle,
 } from "./styles";
 
-interface CartMobileProps {
-  renderProductName: (name: string, size: number) => string;
-}
-
-export function CartMobile({ renderProductName }: CartMobileProps) {
-  const { sortedCart } = useCart();
+export function CartMobile() {
+  const { sortedCart, renderProductName } = useCart();
   const { width } = useWindowDimensions();
 
   return (

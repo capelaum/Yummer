@@ -36,10 +36,6 @@ export default function Cart() {
     }
   }, [cartSize, router]);
 
-  function renderProductName(name: string, size: number): string {
-    return size ? `${name} (${size}g)` : name;
-  }
-
   function handleSetCustomerName(customerName: string) {
     setCustomerName(customerName);
   }
@@ -76,8 +72,7 @@ export default function Cart() {
           isOpen={isCheckoutModalOpen}
           onRequestClose={handleCloseCheckoutModal}
           openPixModal={handleOpenPixModal}
-          setCustomerName={handleSetCustomerName}
-          renderProductName={renderProductName}
+          handleSetCustomerName={handleSetCustomerName}
         />
 
         <PixModal
@@ -88,8 +83,8 @@ export default function Cart() {
 
         <Checkout>
           <CartContainer>
-            <CartDesktop renderProductName={renderProductName} />
-            <CartMobile renderProductName={renderProductName} />
+            <CartDesktop />
+            <CartMobile />
 
             <CartFooter onOpenCheckoutModal={handleOpenCheckoutModal} />
           </CartContainer>

@@ -6,7 +6,7 @@ import {
   useEffect,
 } from "react";
 
-import { Product } from "utils/types";
+import { Cart, CartProduct } from "utils/types";
 
 interface CartItemsAmount {
   [key: number]: number;
@@ -16,16 +16,14 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-export interface CartProduct extends Product {
-  amount: number;
-}
-
 interface CartContextData {
   cart: CartProduct[];
   sortedCart: CartProduct[];
   cartSize: number;
   cartTotal: number;
   cartItemsAmount: { [key: number]: number };
+  renderProductName: (name: string, size: number) => string;
+  filterCartByProductType: (cart: CartProduct[]) => Cart;
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
   updateProductAmount: (productId: number, amount: number) => void;
@@ -45,6 +43,7 @@ export function CartProvider({ children }: CartProviderProps) {
   }, []);
 
   const cartSize = cart.reduce((sum, product) => sum + product.amount, 0);
+
   const cartTotal = cart.reduce(
     (sum, product) => sum + product.amount * product.price,
     0,
@@ -62,6 +61,18 @@ export function CartProvider({ children }: CartProviderProps) {
 
     return 0;
   });
+
+  function renderProductName(name: string, size: number): string {
+    return size ? `${name} (${size}g)` : name;
+  }
+
+  function filterCartByProductType(cart: CartProduct[]): Cart {
+    const cookies = cart.filter((p) => p.type === "cookie");
+    const toasts = cart.filter((p) => p.type === "toast");
+    const juices = cart.filter((p) => p.type === "juice");
+
+    return { cookies, toasts, juices };
+  }
 
   const addProduct = async (productId: number) => {
     try {
@@ -147,6 +158,8 @@ export function CartProvider({ children }: CartProviderProps) {
         sortedCart,
         cartSize,
         cartTotal,
+        renderProductName,
+        filterCartByProductType,
         cartItemsAmount,
         addProduct,
         removeProduct,

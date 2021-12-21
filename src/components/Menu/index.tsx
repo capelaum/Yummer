@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Product, ProductTypes, Size } from "utils/types";
+import { MenuType, Product, ProductTypes, Size } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
@@ -12,11 +12,7 @@ import { useCart } from "contexts/CartContext";
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
 interface MenuProps {
-  menu: {
-    cookies: Product[];
-    toasts: Product[];
-    juices: Product[];
-  };
+  menu: MenuType;
 }
 
 export function Menu({ menu }: MenuProps) {

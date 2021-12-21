@@ -9,7 +9,7 @@ import { getMenu, getProductsType } from "./api/menu";
 import { getInformations } from "./api/informations";
 import { getTestimonials } from "./api/testimonials";
 
-import { Information, Product, Testimonial } from "utils/types";
+import { Information, MenuType, Testimonial } from "utils/types";
 
 import { Menu } from "components/Menu";
 import { Banner } from "components/Banner";
@@ -24,11 +24,7 @@ import { Footer } from "components/Footer";
 import { Container } from "styles/home";
 
 interface MenuProps {
-  menu: {
-    cookies: Product[];
-    toasts: Product[];
-    juices: Product[];
-  };
+  menu: MenuType;
   informations: Information[];
   testimonials: Testimonial[];
 }

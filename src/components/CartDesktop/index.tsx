@@ -9,12 +9,8 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ProductTable } from "./styles";
 
-interface CartDesktopProps {
-  renderProductName: (name: string, size: number) => string;
-}
-
-export function CartDesktop({ renderProductName }: CartDesktopProps) {
-  const { sortedCart } = useCart();
+export function CartDesktop() {
+  const { sortedCart, renderProductName } = useCart();
   const { width } = useWindowDimensions();
 
   return (
