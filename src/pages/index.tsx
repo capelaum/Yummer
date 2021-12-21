@@ -5,6 +5,10 @@ import { GetStaticProps } from "next";
 
 import useInView from "react-cool-inview";
 
+import { getMenu } from "./api/menu";
+import { getInformations } from "./api/informations";
+import { getTestimonials } from "./api/testimonials";
+
 import { Information, Product, Testimonial } from "utils/types";
 
 import { Menu } from "components/Menu";
@@ -57,18 +61,10 @@ export default function Home({ menu, informations, testimonials }: MenuProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const menu = await fetch(`${process.env.url_local}/api/menu`).then((res) =>
-    res.json(),
-  );
-
-  const informations = await fetch(
-    `${process.env.url_local}/api/informations`,
-  ).then((res) => res.json());
-
-  const testimonials = await fetch(
-    `${process.env.url_local}/api/testimonials`,
-  ).then((res) => res.json());
+export const getStaticProps: GetStaticProps<MenuProps> = async (ctx) => {
+  const menu = await getMenu();
+  const informations = await getInformations();
+  const testimonials = await getTestimonials();
 
   return {
     props: {

@@ -4,11 +4,19 @@ import { menu } from "data/menu";
 
 import { formatPrice } from "utils/format";
 
-export default function getMenu(req: NextApiRequest, res: NextApiResponse) {
+export async function getMenu() {
   const menuFormated = menu.map((product) => ({
     ...product,
     priceFormated: formatPrice(product.price),
   }));
 
-  res.status(200).json(menuFormated);
+  return menuFormated;
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const menuData = await getMenu();
+  res.status(200).json(menuData);
 }
