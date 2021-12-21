@@ -9,7 +9,7 @@ export const menu: Product[] = [
       "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
     price: 8,
     size: 100,
-    imageSrc: "old.svg",
+    imageSrc: "old.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const menu: Product[] = [
       "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
     price: 8,
     size: 100,
-    imageSrc: "coffee.svg",
+    imageSrc: "coffee.png",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const menu: Product[] = [
       "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
     price: 8,
     size: 100,
-    imageSrc: "double.svg",
+    imageSrc: "double.png",
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const menu: Product[] = [
       "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
     price: 8,
     size: 100,
-    imageSrc: "lemon.svg",
+    imageSrc: "lemon.png",
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ export const menu: Product[] = [
       "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
     price: 4,
     size: 45,
-    imageSrc: "old.svg",
+    imageSrc: "old.png",
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ export const menu: Product[] = [
       "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
     price: 4,
     size: 45,
-    imageSrc: "coffee.svg",
+    imageSrc: "coffee.png",
   },
   {
     id: 7,
@@ -69,7 +69,7 @@ export const menu: Product[] = [
       "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
     price: 4,
     size: 45,
-    imageSrc: "double.svg",
+    imageSrc: "double.png",
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ export const menu: Product[] = [
       "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
     price: 4,
     size: 45,
-    imageSrc: "lemon.svg",
+    imageSrc: "lemon.png",
   },
   {
     id: 9,
@@ -87,7 +87,7 @@ export const menu: Product[] = [
     name: "Piloto",
     description: "A melhor rabanada tradicional, açúcar e canela por fora.",
     price: 6,
-    imageSrc: "piloto.svg",
+    imageSrc: "piloto.png",
   },
   {
     id: 10,
@@ -96,7 +96,7 @@ export const menu: Product[] = [
     description:
       "Recheada com muito doce de leite mineiro, açúcar e canela por fora.",
     price: 6,
-    imageSrc: "dona_avelina.svg",
+    imageSrc: "dona_avelina.png",
   },
   {
     id: 11,
@@ -104,7 +104,7 @@ export const menu: Product[] = [
     name: "Doce Imperador",
     description: "Recheada com muita Nutella, açúcar e canela por fora.",
     price: 6,
-    imageSrc: "doce_imperador.svg",
+    imageSrc: "doce_imperador.png",
   },
   {
     id: 12,
@@ -113,7 +113,7 @@ export const menu: Product[] = [
     description:
       "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
     price: 5,
-    imageSrc: "pink_lemonade.svg",
+    imageSrc: "pink_lemonade.png",
   },
   {
     id: 13,
@@ -122,7 +122,7 @@ export const menu: Product[] = [
     description:
       "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
     price: 5,
-    imageSrc: "amora_limao.svg",
+    imageSrc: "amora_limao.png",
   },
   {
     id: 14,
@@ -130,7 +130,7 @@ export const menu: Product[] = [
     name: "Laranja com Acerola",
     description: "Delicioso suco de laranja com Acerola, na medida ideal.",
     price: 5,
-    imageSrc: "laranja_acerola.svg",
+    imageSrc: "laranja_acerola.png",
   },
   {
     id: 15,
@@ -139,6 +139,6 @@ export const menu: Product[] = [
     description:
       "A intensidade de sabor do chá preto, feito do jeitinho Yummer.",
     price: 5,
-    imageSrc: "black_tea.svg",
+    imageSrc: "black_tea.png",
   },
 ];

@@ -68,6 +68,7 @@ export function ProductImage({
       alt={name}
       width={imageWidth}
       height={imageHeight}
+      title={name}
     />
   );
 }
