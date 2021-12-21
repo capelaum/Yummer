@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { Container } from "./styles";
 
 interface InstaWidgetProps {
@@ -9,11 +10,12 @@ export function InstaWidget({ observe }: InstaWidgetProps) {
     <Container>
       <div data-mc-src="adc5162c-45c3-4966-862d-82a0f014ee08#instagram"></div>
 
-      <script
+      <Script
         src="https://cdn2.woxo.tech/a.js#613117f8ed78380016017a38"
         async
         data-usrc
-      ></script>
+        strategy="lazyOnload"
+      ></Script>
     </Container>
   );
 }
