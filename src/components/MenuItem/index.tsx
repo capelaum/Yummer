@@ -12,8 +12,7 @@ interface MenuItemProps {
 }
 
 export function MenuItem({ product, isOrange }: MenuItemProps) {
-  const { id, type, name, description, priceFormated, imageSrc, amount } =
-    product;
+  const { id, type, name, description, priceFormated, imageSrc } = product;
   const { width } = useWindowDimensions();
 
   return (
@@ -32,11 +31,7 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
           <header>
             <div className="item_title">
               <h2>{name}</h2>
-              <AddCartButton
-                show={width > 768}
-                productId={id}
-                amount={amount}
-              />
+              <AddCartButton show={width > 768} productId={id} />
             </div>
 
             <span>{priceFormated}</span>
@@ -45,7 +40,7 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
         </TextContent>
       </Content>
 
-      <AddCartButton show={width <= 768} productId={id} amount={amount} />
+      <AddCartButton show={width <= 768} productId={id} />
     </Container>
   );
 }
