@@ -7,4 +7,6 @@ module.exports = {
   experimental: {
     styledComponents: true,
   },
+  swcMinify: true,
+  serverComponents: true,
 };

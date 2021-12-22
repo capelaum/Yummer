@@ -32,7 +32,7 @@ export default function Cart() {
   const [isPixModalOpen, setIsPixModalOpen] = useState(false);
   const [customerName, setCustomerName] = useState("");
 
-  const { cartSize } = useCart();
+  const { cartSize, emptyCart } = useCart();
   const router = useRouter();
 
   useEffect(() => {
@@ -59,6 +59,7 @@ export default function Cart() {
 
   function handleClosePixModal() {
     setIsPixModalOpen(false);
+    emptyCart();
   }
 
   return (

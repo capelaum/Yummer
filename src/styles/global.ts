@@ -29,6 +29,8 @@ html {
   --color-gray-400: #c1bccc;
   --color-gray-500: #a6adad;
   --color-gray-700: #999;
+
+  --toastify-color-info: var(--color-secondary);
 }
 
 body,

@@ -3,6 +3,7 @@ import { Product } from "utils/types";
 import { AddCartButton } from "components/AddCartButton";
 import { ProductImage } from "components/ProductImage";
 
+import { useCart } from "contexts/CartContext";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { Container, Content, TextContent } from "./styles";
@@ -12,7 +13,8 @@ interface MenuItemProps {
 }
 
 export function MenuItem({ product, isOrange }: MenuItemProps) {
-  const { id, type, name, description, priceFormated, imageSrc } = product;
+  const { id, type, name, description, priceFormated, imageSrc, amount } =
+    product;
   const { width } = useWindowDimensions();
 
   return (
@@ -31,7 +33,11 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
           <header>
             <div className="item_title">
               <h2>{name}</h2>
-              <AddCartButton show={width > 768} productId={id} />
+              <AddCartButton
+                show={width > 768}
+                productId={id}
+                amount={amount}
+              />
             </div>
 
             <span>{priceFormated}</span>
@@ -40,7 +46,7 @@ export function MenuItem({ product, isOrange }: MenuItemProps) {
         </TextContent>
       </Content>
 
-      <AddCartButton show={width <= 768} productId={id} />
+      <AddCartButton show={width <= 768} productId={id} amount={amount} />
     </Container>
   );
 }

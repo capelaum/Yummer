@@ -6,11 +6,12 @@ import { AddCartBtn } from "./styles";
 
 interface AddCartButtonProps {
   productId: number;
+  amount: number;
   show: boolean;
 }
 
-export function AddCartButton({ productId, show }: AddCartButtonProps) {
-  const { addProduct, cartItemsAmount } = useCart();
+export function AddCartButton({ productId, show, amount }: AddCartButtonProps) {
+  const { addProduct } = useCart();
 
   function handleAddProduct(id: number) {
     addProduct(id);
@@ -23,7 +24,7 @@ export function AddCartButton({ productId, show }: AddCartButtonProps) {
         size={24}
         color={"var(--color-primary)"}
       />
-      <span>{cartItemsAmount[productId] || 0}</span>
+      <span>{amount}</span>
     </AddCartBtn>
   );
 }

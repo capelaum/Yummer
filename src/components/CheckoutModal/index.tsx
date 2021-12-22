@@ -5,7 +5,7 @@ import { MdClose } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { formatPrice } from "utils/format";
-import { CartProduct } from "utils/types";
+import { Product } from "utils/types";
 
 import { useCart } from "contexts/CartContext";
 
@@ -26,13 +26,8 @@ export function CheckoutModal({
 }: CheckoutModalProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const {
-    sortedCart,
-    cartTotal,
-    renderProductName,
-    filterCartByProductType,
-    emptyCart,
-  } = useCart();
+  const { sortedCart, cartTotal, renderProductName, filterCartByProductType } =
+    useCart();
 
   function sendWppOrder() {
     const message = createtMsgOrder();
@@ -72,13 +67,14 @@ export function CheckoutModal({
     return message;
   }
 
-  function formatProductsOrder(cartProducts: CartProduct[]): string {
+  function formatProductsOrder(cartProducts: Product[]): string {
     const message = cartProducts.reduce(
       (acc, { name, size, amount, price }) => {
         acc += `→ *${renderProductName(name, size)}*\n`;
         acc += `*Qtd*: ${amount}\n`;
         acc += `*Subtotal*: ${formatPrice(amount * price)}`;
         acc += "\n\n";
+
         return acc;
       },
       "",
@@ -96,8 +92,6 @@ export function CheckoutModal({
 
     setName("");
     setDeliveryAddress("");
-
-    emptyCart();
 
     onRequestClose();
     openPixModal();

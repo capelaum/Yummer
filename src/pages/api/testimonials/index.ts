@@ -2,14 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { testimonials } from "data/testimonials";
 
-export async function getTestimonials() {
+export function getTestimonials() {
   return testimonials;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  const testimonials = await getTestimonials();
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json(testimonials);
 }

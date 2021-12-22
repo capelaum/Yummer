@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { MenuType, Product, ProductTypes, Size } from "utils/types";
+import { Product, ProductTypes, Size } from "utils/types";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
@@ -11,15 +11,12 @@ import { useCart } from "contexts/CartContext";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
-interface MenuProps {
-  menu: MenuType;
-}
+export function Menu() {
+  const { cart, cartSize, filterCartByProductType } = useCart();
+  const { cookies, toasts, juices } = filterCartByProductType(cart);
 
-export function Menu({ menu }: MenuProps) {
-  const { cookies, toasts, juices } = menu;
   const [activeItem, setActiveItem] = useState<ProductTypes>("cookie");
   const [size, setSize] = useState<Size>(100);
-  const { cartSize } = useCart();
 
   function toggleSize() {
     setSize(size === 100 ? 45 : 100);

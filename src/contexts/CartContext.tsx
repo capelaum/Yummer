@@ -1,3 +1,4 @@
+import { menu } from "data/menu";
 import {
   createContext,
   ReactNode,
@@ -6,24 +7,20 @@ import {
   useEffect,
 } from "react";
 
-import { Cart, CartProduct } from "utils/types";
-
-interface CartItemsAmount {
-  [key: number]: number;
-}
+import { showToastError, showToastInfo } from "utils/toasts";
+import { Cart, Product } from "utils/types";
 
 interface CartProviderProps {
   children: ReactNode;
 }
 
 interface CartContextData {
-  cart: CartProduct[];
-  sortedCart: CartProduct[];
+  cart: Product[];
+  sortedCart: Product[];
   cartSize: number;
   cartTotal: number;
-  cartItemsAmount: { [key: number]: number };
   renderProductName: (name: string, size: number) => string;
-  filterCartByProductType: (cart: CartProduct[]) => Cart;
+  filterCartByProductType: (cart: Product[]) => Cart;
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
   updateProductAmount: (productId: number, amount: number) => void;
@@ -33,7 +30,7 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<CartProduct[]>([]);
+  const [cart, setCart] = useState<Product[]>(menu);
 
   useEffect(() => {
     const storagedCart = localStorage.getItem("@Yummer:cart");
@@ -50,12 +47,6 @@ export function CartProvider({ children }: CartProviderProps) {
     0,
   );
 
-  const cartItemsAmount = cart.reduce((sumAmount, product) => {
-    sumAmount[product.id] = product.amount;
-
-    return sumAmount;
-  }, {} as CartItemsAmount);
-
   const sortedCart = cart.sort((a, b) => {
     if (a.id < b.id) return -1;
     if (a.id > b.id) return 1;
@@ -67,7 +58,7 @@ export function CartProvider({ children }: CartProviderProps) {
     return size ? `${name} (${size}g)` : name;
   }
 
-  function filterCartByProductType(cart: CartProduct[]): Cart {
+  function filterCartByProductType(cart: Product[]): Cart {
     const cookies = cart.filter((p) => p.type === "cookie");
     const toasts = cart.filter((p) => p.type === "toast");
     const juices = cart.filter((p) => p.type === "juice");
@@ -79,31 +70,27 @@ export function CartProvider({ children }: CartProviderProps) {
     try {
       const updatedCart = cart.map((product) => ({ ...product }));
 
-      const productExists = updatedCart.find(
-        (product) => product.id === productId,
-      );
+      const product = updatedCart.find((product) => product.id === productId);
 
-      if (productExists) {
-        productExists.amount += 1;
+      if (!product) {
+        throw Error("Produto não existe!");
       }
 
-      if (!productExists) {
-        const product: CartProduct = await fetch(`api/menu/${productId}`).then(
-          (response) => response.json(),
+      if (product.amount === 0) {
+        showToastInfo(
+          `${renderProductName(
+            product.name,
+            product?.size,
+          )} adicionado ao carrinho`,
         );
-
-        const newProduct: CartProduct = {
-          ...product,
-          amount: 1,
-        };
-
-        updatedCart.push(newProduct);
       }
+
+      product.amount += 1;
 
       setCart(updatedCart);
       localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
     } catch (error) {
-      console.error("🚀 ~ error", error.message);
+      showToastError(error.message);
     }
   };
 
@@ -122,7 +109,7 @@ export function CartProvider({ children }: CartProviderProps) {
         throw Error("Product not found");
       }
     } catch (error) {
-      console.error("🚀 ~ error", error.message);
+      showToastError(error.message);
     }
   };
 
@@ -148,7 +135,7 @@ export function CartProvider({ children }: CartProviderProps) {
         localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
       }
     } catch (error) {
-      console.error("🚀 ~ error", error.message);
+      showToastError(error.message);
     }
   };
 
@@ -165,7 +152,6 @@ export function CartProvider({ children }: CartProviderProps) {
         cartTotal,
         renderProductName,
         filterCartByProductType,
-        cartItemsAmount,
         addProduct,
         removeProduct,
         updateProductAmount,
