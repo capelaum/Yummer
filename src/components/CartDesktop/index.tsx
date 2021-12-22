@@ -1,4 +1,4 @@
-import { formatPrice } from "utils/format";
+import { formatPrice, renderProductName } from "utils/format";
 
 import { ItemAmount } from "components/ItemAmount";
 import { DeleteButton } from "components/DeleteButton";
@@ -10,7 +10,7 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import { ProductTable } from "./styles";
 
 export function CartDesktop() {
-  const { sortedCart, renderProductName } = useCart();
+  const { cartProducts } = useCart();
   const { width } = useWindowDimensions();
 
   return (
@@ -25,7 +25,7 @@ export function CartDesktop() {
         </tr>
       </thead>
       <tbody>
-        {sortedCart.map(
+        {cartProducts.map(
           ({
             id,
             name,

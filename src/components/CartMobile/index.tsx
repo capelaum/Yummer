@@ -1,4 +1,4 @@
-import { formatPrice } from "utils/format";
+import { formatPrice, renderProductName } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
 import useWindowDimensions from "hooks/useWindowDimensions";
@@ -18,12 +18,12 @@ import {
 } from "./styles";
 
 export function CartMobile() {
-  const { sortedCart, renderProductName } = useCart();
+  const { cartProducts } = useCart();
   const { width } = useWindowDimensions();
 
   return (
     <CartMobileContainer show={width < 768}>
-      {sortedCart.map(
+      {cartProducts.map(
         ({ id, name, type, imageSrc, size, price, priceFormated, amount }) => (
           <Product key={id}>
             <ProductHeader>

@@ -6,12 +6,11 @@ import useInView from "react-cool-inview";
 import { Banner } from "components/Banner";
 import { Menu } from "components/Menu";
 import { Informations } from "components/Informations";
-import { InstaWidget } from "components/InstaWidget";
 import { Testimonials } from "components/Testimonials";
 import { VideoSection } from "components/VideoSection";
 import { Footer } from "components/Footer";
 
-// const InstaWidget = dynamic(() => import("components/InstaWidget"));
+const InstaWidget = dynamic(() => import("components/InstaWidget"));
 
 import { Container } from "styles/home";
 
@@ -29,9 +28,9 @@ export default function Home() {
         <Banner />
         <Menu />
 
-        <Informations />
+        <Informations observe={observe} />
 
-        {/* <InstaWidget /> */}
+        {inView && <InstaWidget />}
         <Testimonials />
         <VideoSection />
         <Footer />

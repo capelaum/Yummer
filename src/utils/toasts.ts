@@ -6,9 +6,6 @@ export const showToastError = (message: string) => {
   toast.error(message, {
     position: "top-right",
     theme: "colored",
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
   });
 };
 

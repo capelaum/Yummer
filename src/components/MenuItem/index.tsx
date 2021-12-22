@@ -3,7 +3,6 @@ import { Product } from "utils/types";
 import { AddCartButton } from "components/AddCartButton";
 import { ProductImage } from "components/ProductImage";
 
-import { useCart } from "contexts/CartContext";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { Container, Content, TextContent } from "./styles";

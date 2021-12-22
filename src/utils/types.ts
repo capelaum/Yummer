@@ -2,7 +2,7 @@ export type ProductTypes = "cookie" | "toast" | "juice";
 
 export type Size = 100 | 45;
 
-export interface Cart {
+export interface MenuFormated {
   cookies: Product[];
   toasts: Product[];
   juices: Product[];

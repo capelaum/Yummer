@@ -4,8 +4,9 @@ import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
-import { formatPrice } from "utils/format";
 import { Product } from "utils/types";
+import { showToastSuccess } from "utils/toasts";
+import { formatPrice, getMenuFormated, renderProductName } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
 
@@ -26,8 +27,7 @@ export function CheckoutModal({
 }: CheckoutModalProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const { sortedCart, cartTotal, renderProductName, filterCartByProductType } =
-    useCart();
+  const { cartProducts, cartTotal } = useCart();
 
   function sendWppOrder() {
     const message = createtMsgOrder();
@@ -44,7 +44,7 @@ export function CheckoutModal({
     let message = `*Nome*: ${name}\n`;
     message += `*Endereço de entrega*: ${deliveryAddress}\n\n➡️ *PEDIDO*\n\n`;
 
-    const { cookies, toasts, juices } = filterCartByProductType(sortedCart);
+    const { cookies, toasts, juices } = getMenuFormated(cartProducts);
 
     if (cookies.length > 0) {
       message += "🍪 *Cookies*\n\n";
@@ -92,6 +92,8 @@ export function CheckoutModal({
 
     setName("");
     setDeliveryAddress("");
+
+    showToastSuccess("Pedido enviado com sucesso!");
 
     onRequestClose();
     openPixModal();

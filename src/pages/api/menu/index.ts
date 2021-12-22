@@ -4,7 +4,7 @@ import { menu } from "data/menu";
 
 import { formatPrice } from "utils/format";
 
-export function getMenuFormated() {
+export function getMenuWithPriceFormated() {
   const menuFormated = menu.map((product) => ({
     ...product,
     priceFormated: formatPrice(product.price),
@@ -13,13 +13,7 @@ export function getMenuFormated() {
   return menuFormated;
 }
 
-export function getProductsType(type: string) {
-  const menuFormated = getMenuFormated();
-
-  return menuFormated.filter((product) => product.type === type);
-}
-
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const menuData = getMenuFormated();
+  const menuData = getMenuWithPriceFormated();
   res.status(200).json(menuData);
 }

@@ -1,4 +1,3 @@
-import { menu } from "data/menu";
 import {
   createContext,
   ReactNode,
@@ -7,8 +6,11 @@ import {
   useEffect,
 } from "react";
 
+import { getMenuWithPriceFormated } from "pages/api/menu";
+
+import { renderProductName } from "utils/format";
+import { Product } from "utils/types";
 import { showToastError, showToastInfo } from "utils/toasts";
-import { Cart, Product } from "utils/types";
 
 interface CartProviderProps {
   children: ReactNode;
@@ -17,10 +19,9 @@ interface CartProviderProps {
 interface CartContextData {
   cart: Product[];
   sortedCart: Product[];
+  cartProducts: Product[];
   cartSize: number;
   cartTotal: number;
-  renderProductName: (name: string, size: number) => string;
-  filterCartByProductType: (cart: Product[]) => Cart;
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
   updateProductAmount: (productId: number, amount: number) => void;
@@ -30,7 +31,7 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<Product[]>(menu);
+  const [cart, setCart] = useState<Product[]>(getMenuWithPriceFormated());
 
   useEffect(() => {
     const storagedCart = localStorage.getItem("@Yummer:cart");
@@ -54,17 +55,7 @@ export function CartProvider({ children }: CartProviderProps) {
     return 0;
   });
 
-  function renderProductName(name: string, size: number): string {
-    return size ? `${name} (${size}g)` : name;
-  }
-
-  function filterCartByProductType(cart: Product[]): Cart {
-    const cookies = cart.filter((p) => p.type === "cookie");
-    const toasts = cart.filter((p) => p.type === "toast");
-    const juices = cart.filter((p) => p.type === "juice");
-
-    return { cookies, toasts, juices };
-  }
+  const cartProducts = sortedCart.filter((p) => p.amount > 0);
 
   const addProduct = async (productId: number) => {
     try {
@@ -140,7 +131,7 @@ export function CartProvider({ children }: CartProviderProps) {
   };
 
   function emptyCart() {
-    setCart([]);
+    setCart(getMenuWithPriceFormated());
   }
 
   return (
@@ -148,10 +139,9 @@ export function CartProvider({ children }: CartProviderProps) {
       value={{
         cart,
         sortedCart,
+        cartProducts,
         cartSize,
         cartTotal,
-        renderProductName,
-        filterCartByProductType,
         addProduct,
         removeProduct,
         updateProductAmount,
