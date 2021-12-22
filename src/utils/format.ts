@@ -1,11 +1,21 @@
-import { MenuFormated, Product } from "./types";
+import { CartFormated, CartProduct, MenuFormated, Product } from "./types";
 
 export const { format: formatPrice } = new Intl.NumberFormat("pt-br", {
   style: "currency",
   currency: "BRL",
 });
 
-export function getMenuFormated(menu: Product[]): MenuFormated {
+export function getMenuFormated(
+  menu: Product[] | CartProduct[],
+): MenuFormated | CartFormated {
+  const cookies = menu.filter((p) => p.type === "cookie");
+  const toasts = menu.filter((p) => p.type === "toast");
+  const juices = menu.filter((p) => p.type === "juice");
+
+  return { cookies, toasts, juices };
+}
+
+export function getCartFormated(menu: CartProduct[]): CartFormated {
   const cookies = menu.filter((p) => p.type === "cookie");
   const toasts = menu.filter((p) => p.type === "toast");
   const juices = menu.filter((p) => p.type === "juice");

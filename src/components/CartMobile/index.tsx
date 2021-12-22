@@ -18,12 +18,12 @@ import {
 } from "./styles";
 
 export function CartMobile() {
-  const { cartProducts } = useCart();
+  const { sortedCart } = useCart();
   const { width } = useWindowDimensions();
 
   return (
     <CartMobileContainer show={width < 768}>
-      {cartProducts.map(
+      {sortedCart.map(
         ({ id, name, type, imageSrc, size, price, priceFormated, amount }) => (
           <Product key={id}>
             <ProductHeader>

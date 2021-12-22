@@ -10,7 +10,7 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import { ProductTable } from "./styles";
 
 export function CartDesktop() {
-  const { cartProducts } = useCart();
+  const { sortedCart } = useCart();
   const { width } = useWindowDimensions();
 
   return (
@@ -25,7 +25,7 @@ export function CartDesktop() {
         </tr>
       </thead>
       <tbody>
-        {cartProducts.map(
+        {sortedCart.map(
           ({
             id,
             name,

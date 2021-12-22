@@ -17,7 +17,20 @@ export interface Product {
   priceFormated?: string;
   imageSrc: string;
   size?: Size;
+}
+
+export interface CartFormated {
+  cookies: CartProduct[];
+  toasts: CartProduct[];
+  juices: CartProduct[];
+}
+
+export interface CartProduct extends Product {
   amount: number;
+}
+
+export interface CartItemsAmount {
+  [key: number]: number;
 }
 
 export interface Information {

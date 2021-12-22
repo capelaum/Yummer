@@ -6,10 +6,10 @@ import {
   useEffect,
 } from "react";
 
-import { getMenuWithPriceFormated } from "pages/api/menu";
+import { menu } from "data/menu";
 
 import { renderProductName } from "utils/format";
-import { Product } from "utils/types";
+import { CartItemsAmount, CartProduct, Product } from "utils/types";
 import { showToastError, showToastInfo } from "utils/toasts";
 
 interface CartProviderProps {
@@ -17,11 +17,11 @@ interface CartProviderProps {
 }
 
 interface CartContextData {
-  cart: Product[];
-  sortedCart: Product[];
-  cartProducts: Product[];
+  cart: CartProduct[];
+  sortedCart: CartProduct[];
   cartSize: number;
   cartTotal: number;
+  cartItemsAmount: { [key: number]: number };
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
   updateProductAmount: (productId: number, amount: number) => void;
@@ -31,7 +31,7 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<Product[]>(getMenuWithPriceFormated());
+  const [cart, setCart] = useState<CartProduct[]>([]);
 
   useEffect(() => {
     const storagedCart = localStorage.getItem("@Yummer:cart");
@@ -55,28 +55,41 @@ export function CartProvider({ children }: CartProviderProps) {
     return 0;
   });
 
-  const cartProducts = sortedCart.filter((p) => p.amount > 0);
+  const cartItemsAmount = cart.reduce((sumAmount, product) => {
+    sumAmount[product.id] = product.amount;
+
+    return sumAmount;
+  }, {} as CartItemsAmount);
 
   const addProduct = async (productId: number) => {
     try {
       const updatedCart = cart.map((product) => ({ ...product }));
 
-      const product = updatedCart.find((product) => product.id === productId);
+      const productExists = updatedCart.find(
+        (product) => product.id === productId,
+      );
 
-      if (!product) {
-        throw Error("Produto não existe!");
+      if (productExists) {
+        productExists.amount += 1;
       }
 
-      if (product.amount === 0) {
+      if (!productExists) {
+        const product: Product = menu.find((p) => p.id === productId);
+
+        const newProduct: CartProduct = {
+          ...product,
+          amount: 1,
+        };
+
         showToastInfo(
           `${renderProductName(
             product.name,
             product?.size,
           )} adicionado ao carrinho`,
         );
-      }
 
-      product.amount += 1;
+        updatedCart.push(newProduct);
+      }
 
       setCart(updatedCart);
       localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
@@ -131,7 +144,8 @@ export function CartProvider({ children }: CartProviderProps) {
   };
 
   function emptyCart() {
-    setCart(getMenuWithPriceFormated());
+    setCart([]);
+    localStorage.setItem("@Yummer:cart", JSON.stringify([]));
   }
 
   return (
@@ -139,9 +153,9 @@ export function CartProvider({ children }: CartProviderProps) {
       value={{
         cart,
         sortedCart,
-        cartProducts,
         cartSize,
         cartTotal,
+        cartItemsAmount,
         addProduct,
         removeProduct,
         updateProductAmount,
