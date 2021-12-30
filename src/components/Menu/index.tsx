@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { menu } from "data/menu";
+import { getMenuWithPriceFormated } from "pages/api/menu";
 
 import { Product, ProductTypes, Size } from "utils/types";
 import { getMenuFormated } from "utils/format";
@@ -16,7 +16,9 @@ import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
 export function Menu() {
   const { cartSize } = useCart();
-  const { cookies, toasts, juices } = getMenuFormated(menu);
+  const { cookies, toasts, juices } = getMenuFormated(
+    getMenuWithPriceFormated(),
+  );
 
   const [activeItem, setActiveItem] = useState<ProductTypes>("cookie");
   const [size, setSize] = useState<Size>(100);

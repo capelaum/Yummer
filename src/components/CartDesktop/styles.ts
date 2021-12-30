@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-interface ProductTableProps {
-  show: boolean;
-}
-
-export const ProductTable = styled.table<ProductTableProps>`
+export const ProductTable = styled.table`
   width: 100%;
 
   border-collapse: collapse;
 
-  display: ${(props) => (props.show ? "table" : "none")};
+  display: table;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   thead {
     th {

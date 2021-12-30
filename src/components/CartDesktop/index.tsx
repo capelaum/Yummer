@@ -5,16 +5,14 @@ import { DeleteButton } from "components/DeleteButton";
 import { ProductImage } from "components/ProductImage";
 
 import { useCart } from "contexts/CartContext";
-import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ProductTable } from "./styles";
 
 export function CartDesktop() {
   const { sortedCart } = useCart();
-  const { width } = useWindowDimensions();
 
   return (
-    <ProductTable show={width >= 768}>
+    <ProductTable>
       <thead>
         <tr>
           <th aria-label="product image" />
