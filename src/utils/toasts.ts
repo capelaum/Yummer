@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 import { MdCancel, MdDelete } from "react-icons/md";
 
-export const showAddCartToast = (message: string) => {
+export const showToastSuccess = (message: string) => {
   toast.success(message, {
     position: "bottom-right",
     // theme: "colored",

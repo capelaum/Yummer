@@ -10,7 +10,7 @@ import { renderProductName } from "utils/format";
 import { CartItemsAmount, CartProduct, Product } from "utils/types";
 import {
   showToastError,
-  showAddCartToast,
+  showToastSuccess,
   showRemoveProductToast,
 } from "utils/toasts";
 import { getMenuWithPriceFormated } from "pages/api/menu";
@@ -86,7 +86,7 @@ export function CartProvider({ children }: CartProviderProps) {
           amount: 1,
         };
 
-        showAddCartToast(
+        showToastSuccess(
           `${renderProductName(
             product.name,
             product?.size,
