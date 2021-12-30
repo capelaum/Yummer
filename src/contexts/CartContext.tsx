@@ -6,11 +6,14 @@ import {
   useEffect,
 } from "react";
 
-import { Cart, CartProduct } from "utils/types";
-
-interface CartItemsAmount {
-  [key: number]: number;
-}
+import { renderProductName } from "utils/format";
+import { CartItemsAmount, CartProduct, Product } from "utils/types";
+import {
+  showToastError,
+  showToastSuccess,
+  showRemoveProductToast,
+} from "utils/toasts";
+import { getMenuWithPriceFormated } from "pages/api/menu";
 
 interface CartProviderProps {
   children: ReactNode;
@@ -22,8 +25,6 @@ interface CartContextData {
   cartSize: number;
   cartTotal: number;
   cartItemsAmount: { [key: number]: number };
-  renderProductName: (name: string, size: number) => string;
-  filterCartByProductType: (cart: CartProduct[]) => Cart;
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
   updateProductAmount: (productId: number, amount: number) => void;
@@ -50,12 +51,6 @@ export function CartProvider({ children }: CartProviderProps) {
     0,
   );
 
-  const cartItemsAmount = cart.reduce((sumAmount, product) => {
-    sumAmount[product.id] = product.amount;
-
-    return sumAmount;
-  }, {} as CartItemsAmount);
-
   const sortedCart = cart.sort((a, b) => {
     if (a.id < b.id) return -1;
     if (a.id > b.id) return 1;
@@ -63,17 +58,11 @@ export function CartProvider({ children }: CartProviderProps) {
     return 0;
   });
 
-  function renderProductName(name: string, size: number): string {
-    return size ? `${name} (${size}g)` : name;
-  }
+  const cartItemsAmount = cart.reduce((sumAmount, product) => {
+    sumAmount[product.id] = product.amount;
 
-  function filterCartByProductType(cart: CartProduct[]): Cart {
-    const cookies = cart.filter((p) => p.type === "cookie");
-    const toasts = cart.filter((p) => p.type === "toast");
-    const juices = cart.filter((p) => p.type === "juice");
-
-    return { cookies, toasts, juices };
-  }
+    return sumAmount;
+  }, {} as CartItemsAmount);
 
   const addProduct = async (productId: number) => {
     try {
@@ -88,8 +77,8 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
       if (!productExists) {
-        const product: CartProduct = await fetch(`api/menu/${productId}`).then(
-          (response) => response.json(),
+        const product: Product = getMenuWithPriceFormated().find(
+          (p) => p.id === productId,
         );
 
         const newProduct: CartProduct = {
@@ -97,13 +86,20 @@ export function CartProvider({ children }: CartProviderProps) {
           amount: 1,
         };
 
+        showToastSuccess(
+          `${renderProductName(
+            product.name,
+            product?.size,
+          )} adicionado ao carrinho`,
+        );
+
         updatedCart.push(newProduct);
       }
 
       setCart(updatedCart);
       localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
     } catch (error) {
-      console.error("🚀 ~ error", error.message);
+      showToastError(error.message);
     }
   };
 
@@ -115,14 +111,23 @@ export function CartProvider({ children }: CartProviderProps) {
       );
 
       if (productIndex >= 0) {
+        const product = cart.find((product) => product.id === productId);
+
+        showRemoveProductToast(
+          `${renderProductName(
+            product.name,
+            product?.size,
+          )} removido do carrinho`,
+        );
+
         updatedCart.splice(productIndex, 1);
         setCart(updatedCart);
         localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
       } else {
-        throw Error("Product not found");
+        throw Error("Produto não encontrado");
       }
     } catch (error) {
-      console.error("🚀 ~ error", error.message);
+      showToastError(error.message);
     }
   };
 
@@ -139,7 +144,7 @@ export function CartProvider({ children }: CartProviderProps) {
       );
 
       if (!productExists) {
-        throw Error();
+        throw Error("Produto não encontrado");
       }
 
       if (productExists) {
@@ -148,12 +153,13 @@ export function CartProvider({ children }: CartProviderProps) {
         localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
       }
     } catch (error) {
-      console.error("🚀 ~ error", error.message);
+      showToastError(error.message);
     }
   };
 
   function emptyCart() {
     setCart([]);
+    localStorage.setItem("@Yummer:cart", JSON.stringify([]));
   }
 
   return (
@@ -163,8 +169,6 @@ export function CartProvider({ children }: CartProviderProps) {
         sortedCart,
         cartSize,
         cartTotal,
-        renderProductName,
-        filterCartByProductType,
         cartItemsAmount,
         addProduct,
         removeProduct,

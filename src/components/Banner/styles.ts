@@ -59,12 +59,13 @@ export const BannerContainer = styled.div`
 
 export const Shape = styled.div`
   width: 100vw;
-  /* height: ; */
+  height: 300px;
   position: relative;
 
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 
   div:nth-child(1),
   div:nth-child(2) {
@@ -86,10 +87,6 @@ export const Shape = styled.div`
     top: 50%;
   }
 
-  .main_cookies_mobile {
-    display: none;
-  }
-
   @media (min-width: 1920px) {
     div:nth-child(1) {
       width: 680px;
@@ -99,14 +96,40 @@ export const Shape = styled.div`
       width: 730px;
     }
   }
+`;
+
+interface MainImageProps {
+  isActive: boolean;
+  isMobile?: boolean;
+}
+
+export const MainImage = styled.div<MainImageProps>`
+  margin: ${({ isMobile }) => (isMobile ? "0 2rem" : "0 4rem")};
+
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  display: ${({ isActive }) => (isActive ? "block" : "none")};
+
+  animation: opacity 0.8s both;
+
+  /* border: 1px solid red; */
+
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 
   @media (max-width: 768px) {
-    .main_cookies {
-      display: none;
-    }
+    display: ${({ isMobile, isActive }) =>
+      isMobile && isActive ? "block" : "none"};
+  }
 
-    .main_cookies_mobile {
-      display: block;
-    }
+  @media (min-width: 768px) {
+    display: ${({ isMobile, isActive }) =>
+      !isMobile && isActive ? "block" : "none"};
   }
 `;

@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 import { CartButtonContainer } from "./styles";

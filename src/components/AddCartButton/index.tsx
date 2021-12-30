@@ -12,12 +12,8 @@ interface AddCartButtonProps {
 export function AddCartButton({ productId, show }: AddCartButtonProps) {
   const { addProduct, cartItemsAmount } = useCart();
 
-  function handleAddProduct(id: number) {
-    addProduct(id);
-  }
-
   return (
-    <AddCartBtn show={show} onClick={() => handleAddProduct(productId)}>
+    <AddCartBtn show={show} onClick={() => addProduct(productId)}>
       <MdOutlineAddShoppingCart
         className="addCartIcon"
         size={24}

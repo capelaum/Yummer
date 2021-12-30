@@ -1,16 +1,13 @@
-import { formatPrice } from "utils/format";
+import { formatPrice, renderProductName } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
-import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ItemAmount } from "components/ItemAmount";
-import { DeleteButton } from "components/DeleteButton";
 import { ProductImage } from "components/ProductImage";
 
 import {
   CartMobileContainer,
   Product,
-  ProductAmount,
   ProductHeader,
   ProductInfo,
   ProductSubtotal,
@@ -18,11 +15,10 @@ import {
 } from "./styles";
 
 export function CartMobile() {
-  const { sortedCart, renderProductName } = useCart();
-  const { width } = useWindowDimensions();
+  const { sortedCart } = useCart();
 
   return (
-    <CartMobileContainer show={width < 768}>
+    <CartMobileContainer>
       {sortedCart.map(
         ({ id, name, type, imageSrc, size, price, priceFormated, amount }) => (
           <Product key={id}>
@@ -31,7 +27,7 @@ export function CartMobile() {
                 name={name}
                 type={type}
                 imageSrc={imageSrc}
-                menuType="cartMobile"
+                menuType="cart"
               />
               <ProductTitle>
                 <h1>{renderProductName(name, size)}</h1>
@@ -45,10 +41,7 @@ export function CartMobile() {
                 <span>{formatPrice(amount * price)}</span>
               </ProductSubtotal>
 
-              <ProductAmount>
-                <ItemAmount productId={id} amount={amount} />
-                <DeleteButton productId={id} size={20} />
-              </ProductAmount>
+              <ItemAmount productId={id} amount={amount} />
             </ProductInfo>
           </Product>
         ),

@@ -1,20 +1,19 @@
-import { formatPrice } from "utils/format";
+import { formatPrice, renderProductName } from "utils/format";
 
 import { ItemAmount } from "components/ItemAmount";
 import { DeleteButton } from "components/DeleteButton";
 import { ProductImage } from "components/ProductImage";
 
 import { useCart } from "contexts/CartContext";
-import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { ProductTable } from "./styles";
 
 export function CartDesktop() {
-  const { sortedCart, renderProductName } = useCart();
-  const { width } = useWindowDimensions();
+  const { sortedCart } = useCart();
+  console.log("🚀 ~ sortedCart", sortedCart);
 
   return (
-    <ProductTable show={width >= 768}>
+    <ProductTable>
       <thead>
         <tr>
           <th aria-label="product image" />
@@ -42,7 +41,7 @@ export function CartDesktop() {
                   name={name}
                   type={type}
                   imageSrc={imageSrc}
-                  menuType="cartDesktop"
+                  menuType="cart"
                 />
               </td>
               <td>

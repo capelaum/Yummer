@@ -1,6 +1,9 @@
 import { useState } from "react";
 
-import { MenuType, Product, ProductTypes, Size } from "utils/types";
+import { getMenuWithPriceFormated } from "pages/api/menu";
+
+import { Product, ProductTypes, Size } from "utils/types";
+import { getMenuFormated } from "utils/format";
 
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
@@ -11,15 +14,14 @@ import { useCart } from "contexts/CartContext";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
-interface MenuProps {
-  menu: MenuType;
-}
+export function Menu() {
+  const { cartSize } = useCart();
+  const { cookies, toasts, juices } = getMenuFormated(
+    getMenuWithPriceFormated(),
+  );
 
-export function Menu({ menu }: MenuProps) {
-  const { cookies, toasts, juices } = menu;
   const [activeItem, setActiveItem] = useState<ProductTypes>("cookie");
   const [size, setSize] = useState<Size>(100);
-  const { cartSize } = useCart();
 
   function toggleSize() {
     setSize(size === 100 ? 45 : 100);

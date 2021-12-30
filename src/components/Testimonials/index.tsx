@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Slider from "react-slick";
 
+import { testimonials } from "data/testimonials";
+
 import { SectionTitle } from "components/SectionTitle";
 
-import { Testimonial } from "utils/types";
 import { Slidersettings } from "utils/sliderSettings";
 
 import { Container, Item } from "./styles";
 
-interface TestimonialsProps {
-  testimonials: Testimonial[];
-}
+// interface TestimonialsProps {
+//   testimonials: Testimonial[];
+// }
 
-export function Testimonials({ testimonials }: TestimonialsProps) {
+export function Testimonials() {
   return (
     <Container>
       <SectionTitle title="Opinião de quem já provou" subtitle="depoimentos" />

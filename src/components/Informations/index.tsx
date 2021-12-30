@@ -1,15 +1,16 @@
 import { SectionTitle } from "components/SectionTitle";
 
+import { informations } from "data/informations";
+
 import { Information } from "utils/types";
 
 import { Details, InfoContainer } from "./styles";
 
 interface InformationsProps {
-  informations: Information[];
   observe?: (element: HTMLElement) => void;
 }
 
-export function Informations({ informations, observe }: InformationsProps) {
+export function Informations({ observe }: InformationsProps) {
   function renderInformations(informations: Information[]) {
     return informations.map(({ title, text, list }, index) => (
       <Details key={index}>

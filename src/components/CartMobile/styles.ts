@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-interface CartMobileContainerProps {
-  show: boolean;
-}
-
-export const CartMobileContainer = styled.div<CartMobileContainerProps>`
+export const CartMobileContainer = styled.div`
   width: 100%;
+  display: none;
 
-  display: ${(props) => (props.show ? "block" : "none")};
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 export const Product = styled.div`
@@ -52,6 +51,7 @@ export const ProductTitle = styled.div`
 `;
 
 export const ProductInfo = styled.div`
+  width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -82,16 +82,5 @@ export const ProductSubtotal = styled.div`
     span {
       font-size: 1rem;
     }
-  }
-`;
-
-export const ProductAmount = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 120px;
-
-  @media (max-width: 480px) {
-    width: 100px;
   }
 `;

@@ -32,7 +32,7 @@ export default function Cart() {
   const [isPixModalOpen, setIsPixModalOpen] = useState(false);
   const [customerName, setCustomerName] = useState("");
 
-  const { cartSize } = useCart();
+  const { cartSize, emptyCart } = useCart();
   const router = useRouter();
 
   useEffect(() => {
@@ -59,6 +59,7 @@ export default function Cart() {
 
   function handleClosePixModal() {
     setIsPixModalOpen(false);
+    emptyCart();
   }
 
   return (
@@ -69,7 +70,12 @@ export default function Cart() {
       <CartPageContainer>
         <Link href="/#menu" passHref>
           <a className="yummer_logo" title="Home">
-            <Image src={yummer_logo} alt="Yummer Logo" layout="responsive" />
+            <Image
+              src={yummer_logo}
+              alt="Yummer Logo"
+              layout="responsive"
+              priority
+            />
           </a>
         </Link>
 

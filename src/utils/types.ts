@@ -2,7 +2,7 @@ export type ProductTypes = "cookie" | "toast" | "juice";
 
 export type Size = 100 | 45;
 
-export interface MenuType {
+export interface MenuFormated {
   cookies: Product[];
   toasts: Product[];
   juices: Product[];
@@ -19,7 +19,7 @@ export interface Product {
   size?: Size;
 }
 
-export interface Cart {
+export interface CartFormated {
   cookies: CartProduct[];
   toasts: CartProduct[];
   juices: CartProduct[];
@@ -27,6 +27,10 @@ export interface Cart {
 
 export interface CartProduct extends Product {
   amount: number;
+}
+
+export interface CartItemsAmount {
+  [key: number]: number;
 }
 
 export interface Information {

@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { generateShimmer } from "utils/shimmer";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 interface ProductImageProps {
   name: string;
   type: string;
   imageSrc: string;
-  menuType: "menu" | "cartDesktop" | "cartMobile";
+  menuType: "menu" | "cart";
 }
 
 export function ProductImage({
@@ -23,10 +21,10 @@ export function ProductImage({
   const { width } = useWindowDimensions();
 
   useEffect(() => {
-    setImageSize(type);
+    setImageSize();
   });
 
-  function setImageSize(type: string) {
+  function setImageSize() {
     let imageWidth: number = 100,
       imageHeight: number = 100;
 
@@ -41,20 +39,27 @@ export function ProductImage({
           imageHeight = width > 768 ? 80 : 130;
           break;
         case "juice":
-          imageWidth = width > 768 ? 78 : 100;
-          imageHeight = width > 768 ? 120 : 150;
+          imageWidth = 150;
+          imageHeight = 150;
           break;
       }
     }
 
-    if (menuType === "cartDesktop") {
-      imageWidth = 100;
-      imageHeight = 100;
-    }
-
-    if (menuType === "cartMobile") {
-      imageWidth = 60;
-      imageHeight = 60;
+    if (menuType === "cart") {
+      switch (type) {
+        case "cookie":
+          imageWidth = 60;
+          imageHeight = 60;
+          break;
+        case "toast":
+          imageWidth = 80;
+          imageHeight = 50;
+          break;
+        case "juice":
+          imageWidth = 60;
+          imageHeight = 60;
+          break;
+      }
     }
 
     setImageWidth(imageWidth);
@@ -69,6 +74,8 @@ export function ProductImage({
       width={imageWidth}
       height={imageHeight}
       title={name}
+      placeholder="blur"
+      blurDataURL={`/${type}/${imageSrc}`}
     />
   );
 }
