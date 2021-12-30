@@ -9,7 +9,7 @@ export const testimonials: Testimonial[] = [
     link: "https://www.instagram.com/gabriel.antero",
   },
   {
-    text: "Mano, é muito bom! Apesar de nem poder comer.. Recomendo aa todos amantes da culinária de sobremesas, como o Vacaum.",
+    text: "Mano, é muito bom! Apesar de nem poder comer.. Recomendo a todos amantes da culinária de sobremesas, como o Vacaum.",
     author: "Hugo S Correia",
     imageSrc: "daya.jpg",
     nick: "h_correia",
@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
     link: "https://www.instagram.com/gabriel.antero",
   },
   {
-    text: "Mano, é muito bom! Apesar de nem poder comer.. Recomendo aa todos amantes da culinária de sobremesas, como o Vacaum.",
+    text: "Mano, é muito bom! Apesar de nem poder comer.. Recomendo a todos amantes da culinária de sobremesas, como o Vacaum.",
     author: "Hugo S Correia",
     imageSrc: "daya.jpg",
     nick: "h_correia",
