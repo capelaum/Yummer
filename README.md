@@ -8,7 +8,7 @@
 ## Imagens PNG
 
 - Cookies - 150x150
-- Rabanadas - 150x150
+- Rabanadas - 220x120
 - Sucos - 150x150
 
 ## Tecnologias

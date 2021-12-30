@@ -30,7 +30,13 @@ html {
   --color-gray-500: #a6adad;
   --color-gray-700: #999;
 
+  // Toastify
+  --toastify-font-family: "Montserrat", sans-serif;
+
   --toastify-color-info: var(--color-secondary);
+  --toastify-color-success: var(--color-secondary);
+  --toastify-color-warning: var(--color-secondary);
+
 }
 
 body,

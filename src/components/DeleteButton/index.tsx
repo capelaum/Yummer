@@ -1,5 +1,6 @@
 import { useCart } from "contexts/CartContext";
 import { MdDelete } from "react-icons/md";
+
 import { DeleteBtn } from "./styles";
 
 interface DeleteButtonProps {

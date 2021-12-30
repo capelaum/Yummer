@@ -8,7 +8,11 @@ import {
 
 import { renderProductName } from "utils/format";
 import { CartItemsAmount, CartProduct, Product } from "utils/types";
-import { showToastError, showToastInfo } from "utils/toasts";
+import {
+  showToastError,
+  showAddCartToast,
+  showRemoveProductToast,
+} from "utils/toasts";
 import { getMenuWithPriceFormated } from "pages/api/menu";
 
 interface CartProviderProps {
@@ -82,7 +86,7 @@ export function CartProvider({ children }: CartProviderProps) {
           amount: 1,
         };
 
-        showToastInfo(
+        showAddCartToast(
           `${renderProductName(
             product.name,
             product?.size,
@@ -107,11 +111,20 @@ export function CartProvider({ children }: CartProviderProps) {
       );
 
       if (productIndex >= 0) {
+        const product = cart.find((product) => product.id === productId);
+
+        showRemoveProductToast(
+          `${renderProductName(
+            product.name,
+            product?.size,
+          )} removido do carrinho`,
+        );
+
         updatedCart.splice(productIndex, 1);
         setCart(updatedCart);
         localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
       } else {
-        throw Error("Product not found");
+        throw Error("Produto não encontrado");
       }
     } catch (error) {
       showToastError(error.message);
@@ -131,7 +144,7 @@ export function CartProvider({ children }: CartProviderProps) {
       );
 
       if (!productExists) {
-        throw Error();
+        throw Error("Produto não encontrado");
       }
 
       if (productExists) {
