@@ -100,7 +100,7 @@ export function ProductImage({
 
   return (
     <Image
-      src={setImage()}
+      src={`/${type}/${imageSrc}`}
       alt={name}
       width={imageWidth}
       height={imageHeight}

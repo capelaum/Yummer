@@ -14,7 +14,7 @@ export function Banner() {
   return (
     <BannerContainer id="banner">
       <div className="yummer_logo">
-        <Image src={yummer_logo} alt="Yummer Logo" />
+        <Image src={yummer_logo} alt="Yummer Logo" priority />
       </div>
 
       <p>
@@ -33,10 +33,14 @@ export function Banner() {
           <Image src={shape_right} alt="shape right" layout="responsive" />
         </div>
         <div className="main_cookies">
-          <Image src={main_cookies} alt="Yummer Cookies" />
+          <Image src={main_cookies} alt="Yummer Cookies" priority />
         </div>
         <div className="main_cookies_mobile">
-          <Image src={main_cookies_mobile} alt="Yummer Cookies Mobile" />
+          <Image
+            src={main_cookies_mobile}
+            alt="Yummer Cookies Mobile"
+            priority
+          />
         </div>
       </Shape>
     </BannerContainer>

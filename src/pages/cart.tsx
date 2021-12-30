@@ -70,7 +70,12 @@ export default function Cart() {
       <CartPageContainer>
         <Link href="/#menu" passHref>
           <a className="yummer_logo" title="Home">
-            <Image src={yummer_logo} alt="Yummer Logo" layout="responsive" />
+            <Image
+              src={yummer_logo}
+              alt="Yummer Logo"
+              layout="responsive"
+              priority
+            />
           </a>
         </Link>
 
