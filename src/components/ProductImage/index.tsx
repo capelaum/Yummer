@@ -106,7 +106,6 @@ export function ProductImage({
       height={imageHeight}
       title={name}
       quality={50}
-      priority
     />
   );
 }
