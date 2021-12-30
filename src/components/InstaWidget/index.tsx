@@ -11,7 +11,7 @@ interface InstaWidgetProps {
 export default function InstaWidget({ observe }: InstaWidgetProps) {
   return (
     <Container>
-      <div data-mc-src="adc5162c-45c3-4966-862d-82a0f014ee08#instagram"></div>
+      <div data-mc-src="9a23f1b1-b499-4fab-9a26-ed97a16ba45a#instagram"></div>
 
       <Script
         src="https://cdn2.woxo.tech/a.js#613117f8ed78380016017a38"
