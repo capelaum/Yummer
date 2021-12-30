@@ -1,31 +1,24 @@
+import { ReactNode } from "react";
 import { toast } from "react-toastify";
 
-import { MdCancel, MdDelete } from "react-icons/md";
-
-export const showToastSuccess = (message: string) => {
+export const showToastSuccess = (message: string, icon?: ReactNode) => {
   toast.success(message, {
     position: "bottom-right",
-    // theme: "colored",
+    icon,
   });
 };
 
-export const showToastError = (message: string) => {
+export const showToastError = (message: string, icon?: ReactNode) => {
   toast.error(message, {
     position: "bottom-right",
     theme: "colored",
+    icon,
   });
 };
 
-export const showRemoveProductToast = (message: string) => {
+export const showToastWarn = (message: string, icon?: ReactNode) => {
   toast.warn(message, {
     position: "bottom-right",
-    // theme: "colored",
-  });
-};
-
-export const showToastWarn = (message: string) => {
-  toast.warn(message, {
-    position: "bottom-right",
-    theme: "colored",
+    icon,
   });
 };

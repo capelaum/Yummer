@@ -31,7 +31,6 @@ html {
   --color-gray-700: #999;
 
   // Toastify
-  --toastify-font-family: "Montserrat", sans-serif;
 
   --toastify-color-info: var(--color-secondary);
   --toastify-color-success: var(--color-secondary);
@@ -39,9 +38,19 @@ html {
 }
 
 .Toastify__toast-body {
-  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: var(--color-primary);
   font-weight: 700 !important;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: var(--color-secondary);
+}
+
+::selection {
+  color: #fff;
+  background: var(--color-secondary);
 }
 
 body,

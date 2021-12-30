@@ -1,13 +1,15 @@
+import Image from "next/image";
 import Modal from "react-modal";
 
-import { MdClose } from "react-icons/md";
+import { MdClose, MdOutlineContentCopy } from "react-icons/md";
 
 import { formatPrice } from "utils/format";
+import { showToastSuccess } from "utils/toasts";
 
 import { useCart } from "contexts/CartContext";
+import useCopyToClipboard from "hooks/useCopyToClipboard";
 
 import { Container } from "./styles";
-import Image from "next/image";
 
 interface PixModalProps {
   isOpen: boolean;
@@ -20,9 +22,19 @@ export function PixModal({
   customerName,
   onRequestClose,
 }: PixModalProps) {
+  const [value, copy] = useCopyToClipboard();
   const { cartTotal } = useCart();
 
   const phoneNumber = "994024994";
+
+  function handleCopyPixKey(key: string) {
+    copy(key);
+
+    showToastSuccess(
+      `Chave PIX ${key} copiada!`,
+      <MdOutlineContentCopy size={28} />,
+    );
+  }
 
   return (
     <Modal
@@ -45,7 +57,13 @@ export function PixModal({
         </h1>
         <strong>Pague com PIX</strong>
         <strong>Nome: Ana Clara Zayat</strong>
-        <strong>Chave PIX: xxxxxxxxxxxxxx</strong>
+        <button
+          onClick={() => handleCopyPixKey("xxxxxxxxxxxxxx")}
+          title="Copiar Chave PIX"
+        >
+          Chave PIX: xxxxxxxxxxxxxx
+          <MdOutlineContentCopy size={16} />
+        </button>
 
         <Image
           src="/PIX_QR_CODE.svg"
@@ -58,15 +76,14 @@ export function PixModal({
         <strong className="order_total">Total: {formatPrice(cartTotal)}</strong>
 
         <p>
-          Envie o comprovante ao nosso
+          Por favor, envie o comprovante ao nosso
           <a
             href={`https://api.whatsapp.com/send?phone=+5561${phoneNumber}`}
             target="_blank"
             rel="noreferrer"
             title="Yummer Whatsapp"
           >
-            {" "}
-            WhatsApp{" "}
+            WhatsApp
           </a>
           para confirmar o seu pedido!
         </p>

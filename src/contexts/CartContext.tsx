@@ -6,13 +6,12 @@ import {
   useEffect,
 } from "react";
 
+import { MdAddShoppingCart, MdOutlineRemoveShoppingCart } from "react-icons/md";
+
 import { renderProductName } from "utils/format";
 import { CartItemsAmount, CartProduct, Product } from "utils/types";
-import {
-  showToastError,
-  showToastSuccess,
-  showRemoveProductToast,
-} from "utils/toasts";
+import { showToastError, showToastWarn, showToastSuccess } from "utils/toasts";
+
 import { getMenuWithPriceFormated } from "pages/api/menu";
 
 interface CartProviderProps {
@@ -91,6 +90,7 @@ export function CartProvider({ children }: CartProviderProps) {
             product.name,
             product?.size,
           )} adicionado ao carrinho`,
+          <MdAddShoppingCart size={30} />,
         );
 
         updatedCart.push(newProduct);
@@ -113,11 +113,12 @@ export function CartProvider({ children }: CartProviderProps) {
       if (productIndex >= 0) {
         const product = cart.find((product) => product.id === productId);
 
-        showRemoveProductToast(
+        showToastWarn(
           `${renderProductName(
             product.name,
             product?.size,
           )} removido do carrinho`,
+          <MdOutlineRemoveShoppingCart size={28} />,
         );
 
         updatedCart.splice(productIndex, 1);
