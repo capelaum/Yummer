@@ -45,6 +45,7 @@ export const ProductTable = styled.table`
 
   .item_image {
     width: 100px;
+    text-align: center;
   }
 
   .item_name {

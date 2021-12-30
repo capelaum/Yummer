@@ -11,6 +11,7 @@ import { menu } from "data/menu";
 import { renderProductName } from "utils/format";
 import { CartItemsAmount, CartProduct, Product } from "utils/types";
 import { showToastError, showToastInfo } from "utils/toasts";
+import { getMenuWithPriceFormated } from "pages/api/menu";
 
 interface CartProviderProps {
   children: ReactNode;
@@ -74,7 +75,9 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
       if (!productExists) {
-        const product: Product = menu.find((p) => p.id === productId);
+        const product: Product = getMenuWithPriceFormated().find(
+          (p) => p.id === productId,
+        );
 
         const newProduct: CartProduct = {
           ...product,

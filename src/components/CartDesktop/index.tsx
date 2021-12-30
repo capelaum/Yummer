@@ -10,6 +10,7 @@ import { ProductTable } from "./styles";
 
 export function CartDesktop() {
   const { sortedCart } = useCart();
+  console.log("🚀 ~ sortedCart", sortedCart);
 
   return (
     <ProductTable>
@@ -40,7 +41,7 @@ export function CartDesktop() {
                   name={name}
                   type={type}
                   imageSrc={imageSrc}
-                  menuType="cartDesktop"
+                  menuType="cart"
                 />
               </td>
               <td>

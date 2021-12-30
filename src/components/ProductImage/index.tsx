@@ -23,7 +23,7 @@ interface ProductImageProps {
   name: string;
   type: string;
   imageSrc: string;
-  menuType: "menu" | "cartDesktop" | "cartMobile";
+  menuType: "menu" | "cart";
 }
 
 export function ProductImage({
@@ -55,20 +55,27 @@ export function ProductImage({
           imageHeight = width > 768 ? 80 : 130;
           break;
         case "juice":
-          imageWidth = width > 768 ? 78 : 100;
+          imageWidth = width > 768 ? 80 : 100;
           imageHeight = width > 768 ? 120 : 150;
           break;
       }
     }
 
-    if (menuType === "cartDesktop") {
-      imageWidth = 100;
-      imageHeight = 100;
-    }
-
-    if (menuType === "cartMobile") {
-      imageWidth = 60;
-      imageHeight = 60;
+    if (menuType === "cart") {
+      switch (type) {
+        case "cookie":
+          imageWidth = 60;
+          imageHeight = 60;
+          break;
+        case "toast":
+          imageWidth = 80;
+          imageHeight = 50;
+          break;
+        case "juice":
+          imageWidth = 40;
+          imageHeight = 60;
+          break;
+      }
     }
 
     setImageWidth(imageWidth);

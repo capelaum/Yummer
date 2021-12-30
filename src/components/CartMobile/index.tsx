@@ -27,7 +27,7 @@ export function CartMobile() {
                 name={name}
                 type={type}
                 imageSrc={imageSrc}
-                menuType="cartMobile"
+                menuType="cart"
               />
               <ProductTitle>
                 <h1>{renderProductName(name, size)}</h1>
