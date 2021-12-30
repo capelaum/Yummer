@@ -22,13 +22,12 @@ import { BannerContainer, MainImage, Shape } from "./styles";
 
 export function Banner() {
   const [active, setActive] = useState<ProductTypes>("cookie");
-  console.log("🚀 ~ active", active);
 
   useInterval(() => {
     setActive(
       active === "cookie" ? "toast" : active === "toast" ? "juice" : "cookie",
     );
-  }, 1000);
+  }, 1500);
 
   return (
     <BannerContainer id="banner">
