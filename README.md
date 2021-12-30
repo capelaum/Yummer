@@ -5,7 +5,13 @@
 
 </div>
 
-## Tech
+## Imagens PNG
+
+- Cookies - 150x150
+- Rabanadas - 150x150
+- Sucos - 150x150
+
+## Tecnologias
 
 - [Next.js][next]
 - [Typescript][typescript]

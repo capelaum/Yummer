@@ -6,8 +6,6 @@ import {
   useEffect,
 } from "react";
 
-import { menu } from "data/menu";
-
 import { renderProductName } from "utils/format";
 import { CartItemsAmount, CartProduct, Product } from "utils/types";
 import { showToastError, showToastInfo } from "utils/toasts";
