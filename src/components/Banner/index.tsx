@@ -11,6 +11,8 @@ import main_juices from "@public/Banner/main_juices.png";
 import main_toasts from "@public/Banner/main_toasts.png";
 
 import main_cookies_mobile from "@public/Banner/main_cookies_mobile.png";
+import main_juices_mobile from "@public/Banner/main_juices_mobile.png";
+import main_toasts_mobile from "@public/Banner/main_toasts_mobile.png";
 
 import { ProductTypes } from "utils/types";
 
@@ -20,6 +22,7 @@ import { BannerContainer, MainImage, Shape } from "./styles";
 
 export function Banner() {
   const [active, setActive] = useState<ProductTypes>("cookie");
+  console.log("🚀 ~ active", active);
 
   useInterval(() => {
     setActive(
@@ -59,13 +62,15 @@ export function Banner() {
           <Image src={main_juices} alt="Yummer Sucos" />
         </MainImage>
 
-        <div className="main_cookies_mobile">
-          <Image
-            src={main_cookies_mobile}
-            alt="Yummer Cookies Mobile"
-            priority
-          />
-        </div>
+        <MainImage isActive={active === "cookie"} isMobile>
+          <Image src={main_cookies_mobile} alt="Yummer Cookies " />
+        </MainImage>
+        <MainImage isActive={active === "juice"} isMobile>
+          <Image src={main_juices_mobile} alt="Yummer Sucos " />
+        </MainImage>
+        <MainImage isActive={active === "toast"} isMobile>
+          <Image src={main_toasts_mobile} alt="Yummer Rabanadas " />
+        </MainImage>
       </Shape>
     </BannerContainer>
   );

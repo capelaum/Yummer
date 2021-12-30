@@ -87,10 +87,6 @@ export const Shape = styled.div`
     top: 50%;
   }
 
-  .main_cookies_mobile {
-    display: none;
-  }
-
   @media (min-width: 1920px) {
     div:nth-child(1) {
       width: 680px;
@@ -100,29 +96,22 @@ export const Shape = styled.div`
       width: 730px;
     }
   }
-
-  @media (max-width: 768px) {
-    .main_cookies {
-      display: none;
-    }
-
-    .main_cookies_mobile {
-      display: block;
-    }
-  }
 `;
 
 interface MainImageProps {
   isActive: boolean;
+  isMobile?: boolean;
 }
 
 export const MainImage = styled.div<MainImageProps>`
-  padding: 0 1.25rem;
+  margin: ${({ isMobile }) => (isMobile ? "0 2rem" : "0 4rem")};
 
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   display: ${({ isActive }) => (isActive ? "block" : "none")};
 
   animation: opacity 0.8s both;
+
+  /* border: 1px solid red; */
 
   @keyframes opacity {
     0% {
@@ -135,6 +124,12 @@ export const MainImage = styled.div<MainImageProps>`
   }
 
   @media (max-width: 768px) {
-    display: none;
+    display: ${({ isMobile, isActive }) =>
+      isMobile && isActive ? "block" : "none"};
+  }
+
+  @media (min-width: 768px) {
+    display: ${({ isMobile, isActive }) =>
+      !isMobile && isActive ? "block" : "none"};
   }
 `;

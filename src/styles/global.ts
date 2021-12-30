@@ -36,7 +36,12 @@ html {
   --toastify-color-info: var(--color-secondary);
   --toastify-color-success: var(--color-secondary);
   --toastify-color-warning: var(--color-secondary);
+}
 
+.Toastify__toast-body {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  color: var(--color-primary);
+  font-weight: 700 !important;
 }
 
 body,
