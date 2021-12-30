@@ -59,12 +59,13 @@ export const BannerContainer = styled.div`
 
 export const Shape = styled.div`
   width: 100vw;
-  /* height: ; */
+  height: 300px;
   position: relative;
 
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 
   div:nth-child(1),
   div:nth-child(2) {
@@ -108,5 +109,32 @@ export const Shape = styled.div`
     .main_cookies_mobile {
       display: block;
     }
+  }
+`;
+
+interface MainImageProps {
+  isActive: boolean;
+}
+
+export const MainImage = styled.div<MainImageProps>`
+  padding: 0 1.25rem;
+
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  display: ${({ isActive }) => (isActive ? "block" : "none")};
+
+  animation: opacity 0.8s both;
+
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;

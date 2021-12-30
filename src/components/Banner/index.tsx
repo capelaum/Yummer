@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 import yummer_logo from "@public/Logos/yummer_logo.svg";
@@ -5,12 +7,26 @@ import shape_left from "@public/Banner/shape_left.svg";
 import shape_right from "@public/Banner/shape_right.svg";
 
 import main_cookies from "@public/Banner/main_cookies.png";
+import main_juices from "@public/Banner/main_juices.png";
+import main_toasts from "@public/Banner/main_toasts.png";
+
 import main_cookies_mobile from "@public/Banner/main_cookies_mobile.png";
 
-import { BannerContainer, Shape } from "./styles";
-import Link from "next/link";
+import { ProductTypes } from "utils/types";
+
+import useInterval from "hooks/useInterval";
+
+import { BannerContainer, MainImage, Shape } from "./styles";
 
 export function Banner() {
+  const [active, setActive] = useState<ProductTypes>("cookie");
+
+  useInterval(() => {
+    setActive(
+      active === "cookie" ? "toast" : active === "toast" ? "juice" : "cookie",
+    );
+  }, 1000);
+
   return (
     <BannerContainer id="banner">
       <div className="yummer_logo">
@@ -32,9 +48,17 @@ export function Banner() {
         <div className="shape_right">
           <Image src={shape_right} alt="shape right" layout="responsive" />
         </div>
-        <div className="main_cookies">
-          <Image src={main_cookies} alt="Yummer Cookies" priority />
-        </div>
+
+        <MainImage isActive={active === "cookie"}>
+          <Image src={main_cookies} alt="Yummer Cookies" />
+        </MainImage>
+        <MainImage isActive={active === "toast"}>
+          <Image src={main_toasts} alt="Yummer Rabanadas" />
+        </MainImage>
+        <MainImage isActive={active === "juice"}>
+          <Image src={main_juices} alt="Yummer Sucos" />
+        </MainImage>
+
         <div className="main_cookies_mobile">
           <Image
             src={main_cookies_mobile}
