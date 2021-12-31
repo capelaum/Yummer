@@ -16,7 +16,7 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { MainImage } from "./styles";
 
-const bannerMainImages = [
+const bannerImages = [
   {
     src: main_cookies,
     mobileSrc: main_cookies_mobile,
@@ -37,7 +37,7 @@ const bannerMainImages = [
   },
 ];
 
-export function BannerMainImages() {
+export function BannerImages() {
   const [active, setActive] = useState<ProductTypes>("cookie");
   const { width } = useWindowDimensions();
 
@@ -49,7 +49,7 @@ export function BannerMainImages() {
 
   return (
     <>
-      {bannerMainImages.map((mainImage, index) => (
+      {bannerImages.map((mainImage, index) => (
         <MainImage key={index} isActive={active === mainImage.type}>
           <Image
             src={width >= 768 ? mainImage.src : mainImage.mobileSrc}

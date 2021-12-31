@@ -29,7 +29,7 @@ export const BannerContainer = styled.div`
 
     border-radius: 50px;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.125rem;
 
     transition: all 0.3s;
 

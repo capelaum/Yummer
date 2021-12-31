@@ -5,7 +5,7 @@ import yummer_logo from "@public/Logos/yummer_logo.svg";
 import shape_left from "@public/Banner/shape_left.svg";
 import shape_right from "@public/Banner/shape_right.svg";
 
-import { BannerMainImages } from "components/BannerMainImages";
+import { BannerImages } from "components/BannerImages";
 
 import { BannerContainer, Shape } from "./styles";
 
@@ -32,7 +32,7 @@ export function Banner() {
           <Image src={shape_right} alt="shape right" layout="responsive" />
         </div>
 
-        <BannerMainImages />
+        <BannerImages />
       </Shape>
     </BannerContainer>
   );
