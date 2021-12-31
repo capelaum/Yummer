@@ -97,39 +97,3 @@ export const Shape = styled.div`
     }
   }
 `;
-
-interface MainImageProps {
-  isActive: boolean;
-  isMobile?: boolean;
-}
-
-export const MainImage = styled.div<MainImageProps>`
-  margin: ${({ isMobile }) => (isMobile ? "0 2rem" : "0 4rem")};
-
-  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-  display: ${({ isActive }) => (isActive ? "block" : "none")};
-
-  animation: opacity 0.8s both;
-
-  /* border: 1px solid red; */
-
-  @keyframes opacity {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @media (max-width: 768px) {
-    display: ${({ isMobile, isActive }) =>
-      isMobile && isActive ? "block" : "none"};
-  }
-
-  @media (min-width: 768px) {
-    display: ${({ isMobile, isActive }) =>
-      !isMobile && isActive ? "block" : "none"};
-  }
-`;
