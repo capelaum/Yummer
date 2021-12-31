@@ -29,6 +29,7 @@ html {
   --color-gray-400: #c1bccc;
   --color-gray-500: #a6adad;
   --color-gray-700: #999;
+  --color-gray-900: #333;
 
   // Toastify
 

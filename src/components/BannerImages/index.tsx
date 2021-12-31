@@ -18,18 +18,21 @@ import { MainImage } from "./styles";
 
 const bannerImages = [
   {
+    id: 1,
     src: main_cookies,
     mobileSrc: main_cookies_mobile,
     alt: "Cookies",
     type: "cookie",
   },
   {
+    id: 2,
     src: main_toasts,
     mobileSrc: main_toasts_mobile,
     alt: "Rabanadas",
     type: "toast",
   },
   {
+    id: 3,
     src: main_juices,
     mobileSrc: main_juices_mobile,
     alt: "Sucos",
@@ -49,12 +52,12 @@ export function BannerImages() {
 
   return (
     <>
-      {bannerImages.map((mainImage, index) => (
-        <MainImage key={index} isActive={active === mainImage.type}>
+      {bannerImages.map(({ id, src, mobileSrc, alt, type }) => (
+        <MainImage key={id} isActive={active === type}>
           <Image
-            src={width >= 768 ? mainImage.src : mainImage.mobileSrc}
-            alt={`Yummer ${mainImage.alt}`}
-            title={`Yummer ${mainImage.alt}`}
+            src={width >= 768 ? src : mobileSrc}
+            alt={`Yummer ${alt}`}
+            title={`Yummer ${alt}`}
           />
         </MainImage>
       ))}

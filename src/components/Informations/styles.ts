@@ -29,15 +29,19 @@ export const Details = styled.details`
   color: var(--color-primary);
 
   padding: 0.5rem 1.25rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 
-  border-radius: 5px;
+  border-radius: 20px;
   transition: all 0.3s;
 
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 
-  &:hover {
-    /* filter: brightness(0.9); */
+  &[open] {
+    summary {
+      svg {
+        transform: rotate(360deg);
+      }
+    }
   }
 
   p {
@@ -59,7 +63,18 @@ export const Details = styled.details`
 
     color: var(--color-secondary);
 
-    font-size: 1.875rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      height: 35px;
+      margin-right: 0.5rem;
+
+      transform: rotate(0deg);
+      transition: 0.5s transform ease;
+    }
   }
 `;

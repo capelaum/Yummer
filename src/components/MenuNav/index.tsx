@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 
 import cookies_icon from "@public/Menu/Icons/cookies_icon.svg";
@@ -15,18 +16,29 @@ interface MenuNavProps {
 
 export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
   function renderMenuNavButton(type: ProductTypes) {
-    const icon =
-      type === "cookie"
-        ? cookies_icon
-        : type === "toast"
-        ? toasts_icon
-        : juice_icon;
+    let icon: StaticImageData, name: string;
 
-    const name =
-      type === "cookie" ? "Cookies" : type === "toast" ? "Rabanadas" : "Sucos";
+    switch (type) {
+      case "cookie":
+        icon = cookies_icon;
+        name = "Cookies";
+        break;
+      case "toast":
+        icon = toasts_icon;
+        name = "Rabanadas";
+        break;
+      case "juice":
+        icon = juice_icon;
+        name = "Sucos";
+        break;
+
+      default:
+        break;
+    }
 
     return (
       <MenuNavButton
+        title={name}
         isActive={activeItem === type}
         onClick={() => handleSetActiveItem(type)}
       >

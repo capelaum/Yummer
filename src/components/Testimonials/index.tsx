@@ -18,8 +18,8 @@ export function Testimonials() {
     <Container>
       <SectionTitle title="Opinião de quem já provou" subtitle="depoimentos" />
       <Slider {...Slidersettings}>
-        {testimonials.map(({ text, author, imageSrc, nick, link }, index) => (
-          <Item key={index}>
+        {testimonials.map(({ text, author, imageSrc, nick, link }) => (
+          <Item key={nick}>
             <p>{text}</p>
             <div className="author">
               <div className="author_image">

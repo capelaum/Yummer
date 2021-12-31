@@ -33,25 +33,24 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
   justify-content: space-between;
   align-items: center;
 
-  height: 100px;
-  color: var(--color-primary);
+  height: 80px;
+  padding: 0 2.5rem;
 
   background: none;
 
-  padding: 0 2.5rem;
+  color: var(--color-primary);
+
+  transition: all 0.5s;
+
+  .MenuNavButtonIcon {
+    transition: all 0.5s;
+  }
 
   span {
     padding-left: 0.7rem;
 
     font-size: 2.25rem;
     font-weight: 500;
-  }
-
-  transition: all 0.5s;
-
-  .MenuNavButtonIcon {
-    transition: all 0.5s;
-    /* filter: ${({ isActive }) => (isActive ? "none" : "brightness(2)")}; */
   }
 
   box-shadow: ${({ isActive }) =>
@@ -64,6 +63,8 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
 
   &:hover {
     --d: 100%;
+
+    color: var(--color-primary);
 
     .MenuNavButtonIcon {
       filter: none;

@@ -17,11 +17,13 @@ export const Container = styled.section`
 
   .slick-slider {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
+
+    margin-bottom: 1rem;
   }
 
   .slick-slide > div {
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
 
   .slick-dots {
@@ -37,9 +39,9 @@ export const Item = styled.div`
   background: #fff;
   color: var(--color-primary);
 
-  padding: 1.25rem;
+  padding: 1rem;
 
-  /* min-height: 200px; */
+  /* min-height: 180px; */
 
   display: flex !important;
   flex-direction: column;
