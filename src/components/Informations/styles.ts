@@ -28,34 +28,40 @@ export const Details = styled.details`
   background-color: #fff;
   color: var(--color-primary);
 
-  padding: 0.5rem 1.25rem;
+  padding: 0.25rem 1.25rem;
   margin-bottom: 1.5rem;
 
-  border-radius: 20px;
-  transition: all 0.3s;
-
   font-size: 1.125rem;
+  font-weight: 500;
+
+  border-radius: 20px;
+
+  transition: all 0.3s;
 
   &[open] {
     summary {
+      background-color: #fff;
       svg {
-        transform: rotate(360deg);
+        transform: rotate(90deg);
       }
     }
   }
 
   p {
-    padding: 1rem 1.7rem;
+    padding: 1rem 1rem 0 1.85rem;
     line-height: 1.625rem;
   }
 
   ul {
-    padding-bottom: 1rem;
+    padding: 1rem 1rem 1rem 3rem;
   }
 
   li {
-    margin-left: 3rem;
-    font-weight: 500;
+    & + li {
+      padding-top: 0.5rem;
+    }
+
+    font-weight: 600;
   }
 
   summary {
@@ -71,7 +77,7 @@ export const Details = styled.details`
 
     svg {
       height: 35px;
-      margin-right: 0.5rem;
+      margin-right: 0.25rem;
 
       transform: rotate(0deg);
       transition: 0.5s transform ease;
