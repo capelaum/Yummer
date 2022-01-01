@@ -4,6 +4,8 @@ import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
 
 import { SocialIcons } from "components/SocialIcons";
 
+import useWindowDimensions from "hooks/useWindowDimensions";
+
 import {
   Container,
   Content,
@@ -13,11 +15,23 @@ import {
 } from "./styles";
 
 export function Footer() {
+  const { width } = useWindowDimensions();
+
   return (
     <Container>
       <Content>
+        {width < 768 && (
+          <ContentCenter>
+            <a href="#banner">Início</a>
+          </ContentCenter>
+        )}
+
         <ContentLeft>
-          <Image src={yummer_icon} alt="Yummer" title="Yummer" />
+          <div className="yummer_icon">
+            <Image src={yummer_icon} alt="Yummer" title="Yummer" />
+          </div>
+          {width < 768 && <SocialIcons />}
+
           <div className="info">
             <a href="mailto:contato.yummer@gmail.com">
               contato.yummer@gmail.com
@@ -26,10 +40,12 @@ export function Footer() {
           </div>
         </ContentLeft>
 
-        <ContentCenter>
-          <a href="#banner">Início</a>
-          <SocialIcons />
-        </ContentCenter>
+        {width >= 768 && (
+          <ContentCenter>
+            <a href="#banner">Início</a>
+            <SocialIcons />
+          </ContentCenter>
+        )}
 
         <ContentRight>
           <span>Yummer © 2022</span>

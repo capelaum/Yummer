@@ -5,6 +5,8 @@ export const Container = styled.section`
 
   background-color: var(--color-primary);
 
+  padding: 1rem 1.25rem 0.25rem 1.25rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,10 +14,7 @@ export const Container = styled.section`
 
 export const Content = styled.div`
   width: 100%;
-  height: 100%;
   max-width: 1200px;
-
-  padding: 1rem 1rem 0.25rem 1.25rem;
 
   color: #fff;
 
@@ -34,6 +33,10 @@ export const ContentLeft = styled.div`
   display: flex;
   align-items: center;
 
+  .yummer_icon {
+    padding: 0.5rem;
+  }
+
   .info {
     display: flex;
     flex-direction: column;
@@ -41,14 +44,14 @@ export const ContentLeft = styled.div`
     margin-left: 1rem;
 
     a {
-      color: var(--color-secondary);
+      color: #fff;
       padding-bottom: 0.25rem;
       font-weight: 500;
 
       transition: all 0.3s;
 
       &:hover {
-        text-decoration: underline;
+        color: var(--color-secondary);
       }
     }
   }
@@ -56,6 +59,10 @@ export const ContentLeft = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+
+    .yummer_icon {
+      padding: 0;
+    }
 
     .info {
       text-align: center;
@@ -73,6 +80,7 @@ export const ContentCenter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   a {
     color: #fff;
@@ -87,7 +95,7 @@ export const ContentCenter = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding-top: 2rem;
+    padding-bottom: 1.5rem;
   }
 `;
 
