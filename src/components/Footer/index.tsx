@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
 
@@ -16,13 +18,23 @@ import {
 
 export function Footer() {
   const { width } = useWindowDimensions();
+  const router = useRouter();
+
+  function setLinkText() {
+    return router.pathname === "/cart" ? "Home" : "Início";
+  }
 
   return (
     <Container>
       <Content>
         {width < 768 && (
           <ContentCenter>
-            <a href="#banner">Início</a>
+            <Link
+              href={router.pathname === "/cart" ? "/#menu" : "#banner"}
+              passHref
+            >
+              <a title={setLinkText()}>{setLinkText()}</a>
+            </Link>
           </ContentCenter>
         )}
 
@@ -33,7 +45,7 @@ export function Footer() {
           {width < 768 && <SocialIcons />}
 
           <div className="info">
-            <a href="mailto:contato.yummer@gmail.com">
+            <a href="mailto:contato.yummer@gmail.com" title="Yummer E-mail">
               contato.yummer@gmail.com
             </a>
             <span>Brasília - DF</span>
@@ -42,7 +54,9 @@ export function Footer() {
 
         {width >= 768 && (
           <ContentCenter>
-            <a href="#banner">Início</a>
+            <a href="#banner" title="Início">
+              Início
+            </a>
             <SocialIcons />
           </ContentCenter>
         )}
@@ -55,6 +69,7 @@ export function Footer() {
               href="https://github.com/capelaum"
               target="_blank"
               rel="noreferrer"
+              title="Github - Luís V. Capelletto"
             >
               Luís Vinicius Capelletto
             </a>
