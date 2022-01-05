@@ -16,7 +16,6 @@ export default function InstaWidget({ observe }: InstaWidgetProps) {
       <Script
         src="https://cdn2.woxo.tech/a.js#613117f8ed78380016017a38"
         data-usrc
-        async
         strategy="lazyOnload"
         onError={(e) => {
           console.error(e);

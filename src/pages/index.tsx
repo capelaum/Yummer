@@ -30,7 +30,7 @@ export default function Home() {
 
         <Informations observe={observe} />
 
-        {inView && <InstaWidget />}
+        <InstaWidget />
         <Testimonials />
         <VideoSection />
         <Footer />
@@ -38,26 +38,3 @@ export default function Home() {
     </>
   );
 }
-
-// export const getStaticProps: GetStaticProps<MenuProps> = () => {
-//   const cookiesData = getProductsType("cookie");
-//   const toastsData = getProductsType("toast");
-//   const juicesData = getProductsType("juice");
-//   const informations = getInformations();
-//   const testimonials = getTestimonials();
-
-//   const menu = {
-//     cookies: cookiesData,
-//     toasts: toastsData,
-//     juices: juicesData,
-//   };
-
-//   return {
-//     props: {
-//       menu,
-//       informations,
-//       testimonials,
-//     },
-//     revalidate: 30 * 60, // 30 minutes
-//   };
-// };

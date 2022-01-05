@@ -1,8 +1,3 @@
-/**
- * // useWindowDimension.ts
- * * This hook returns the viewport/window height and width
- */
-
 import { useEffect, useState } from "react";
 
 type WindowDimentions = {
