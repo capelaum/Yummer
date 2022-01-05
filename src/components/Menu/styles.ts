@@ -50,7 +50,7 @@ export const MenuItemContainer = styled.div<MenuItemContainerProps>`
     isOrange ? "var(--color-secondary)" : "var(--color-primary)"};
 
   /* animation: slide-in 0.7s both; */
-  animation: opacity 0.6s both;
+  animation: fade-in 0.6s both;
 
   @keyframes slide-in {
     0% {
@@ -61,7 +61,7 @@ export const MenuItemContainer = styled.div<MenuItemContainerProps>`
     }
   }
 
-  @keyframes opacity {
+  @keyframes fade-in {
     0% {
       opacity: 0;
     }
