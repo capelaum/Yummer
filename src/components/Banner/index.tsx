@@ -17,8 +17,7 @@ export function Banner() {
       </div>
 
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero sit
-        aliquam leo ullamcorper nisl.
+        Está preparado para compartilhar aquele momento yummer junto conosco?!?
       </p>
       <Link href="#menu" passHref>
         <button>Faça seu pedido</button>
