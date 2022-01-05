@@ -1,7 +1,7 @@
 <div align="center">
   <h1>🧡Yummer🧡</h1>
   <h2>Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!</h2>
-  <img src=".github/cover.png" />
+  <img src=".github/yummer-cover.png" />
 
 </div>
 

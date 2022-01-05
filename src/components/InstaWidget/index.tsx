@@ -17,10 +17,10 @@ export default function InstaWidget({ observe }: InstaWidgetProps) {
         src="https://cdn2.woxo.tech/a.js#613117f8ed78380016017a38"
         data-usrc
         async
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onError={(e) => {
           console.error(e);
-          showToastError("WOXO Script falhou ao carregar 😕");
+          showToastError("Instagram Widget falhou ao carregar 😕");
         }}
       ></Script>
     </Container>

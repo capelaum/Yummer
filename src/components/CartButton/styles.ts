@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const CartButtonContainer = styled.button`
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 1.25rem;
+  right: 1.25rem;
 
   background: var(--color-primary);
   color: #fff;
@@ -43,8 +43,8 @@ export const CartButtonContainer = styled.button`
     width: 24px;
     height: 24px;
 
-    right: -5px;
-    bottom: -0.5rem;
+    right: -0.5rem;
+    top: -0.5rem;
 
     font-size: 0.9rem;
     font-weight: 500;

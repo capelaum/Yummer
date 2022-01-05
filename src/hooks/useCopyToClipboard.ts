@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type CopiedValue = string | null;
-type CopyFn = (text: string) => Promise<boolean>; // Return success
+type CopyFn = (text: string) => Promise<boolean>;
 
 function useCopyToClipboard(): [CopiedValue, CopyFn] {
   const [copiedText, setCopiedText] = useState<CopiedValue>(null);
@@ -18,7 +18,7 @@ function useCopyToClipboard(): [CopiedValue, CopyFn] {
       setCopiedText(text);
       return true;
     } catch (error) {
-      console.warn("Copy failed", error);
+      console.error("Copy failed", error.message);
       setCopiedText(null);
       return false;
     }

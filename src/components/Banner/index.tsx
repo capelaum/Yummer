@@ -7,22 +7,24 @@ import shape_right from "@public/Banner/shape_right.svg";
 
 import { BannerImages } from "components/BannerImages";
 
-import { BannerContainer, Shape } from "./styles";
+import { BannerContainer, BannerHeader, Shape } from "./styles";
 
 export function Banner() {
   return (
     <BannerContainer id="banner">
-      <div className="yummer_logo">
-        <Image src={yummer_logo} alt="Yummer Logo" priority />
-      </div>
+      <BannerHeader>
+        <div className="yummer_logo">
+          <Image src={yummer_logo} alt="Yummer Logo" priority />
+        </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Libero sit
-        aliquam leo ullamcorper nisl.
-      </p>
-      <Link href="#menu" passHref>
-        <button>Faça seu pedido</button>
-      </Link>
+        <p>
+          Está preparado para compartilhar aquele momento yummer junto
+          conosco?!?
+        </p>
+        <Link href="#menu" passHref>
+          <button>Faça seu pedido</button>
+        </Link>
+      </BannerHeader>
 
       <Shape>
         <div className="shape_left">
