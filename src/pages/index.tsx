@@ -30,7 +30,7 @@ export default function Home() {
 
         <Informations observe={observe} />
 
-        <InstaWidget />
+        {inView && <InstaWidget />}
         <Testimonials />
         <VideoSection />
         <Footer />

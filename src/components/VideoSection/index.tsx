@@ -20,16 +20,18 @@ export function VideoSection() {
         <div className="shape_right">
           <Image src={shapeRight} alt="shape right" layout="responsive" />
         </div>
-        <ReactPlayer
-          className="react-player"
-          url="https://www.youtube.com/watch?v=58pJWTwQNWg&ab_channel=HaeeonEats%ED%95%B4%EC%96%B8"
-          light={true}
-          controls={true}
-          width="100%"
-          height="100%"
-          title="Yummer Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        />
+        <div className="player-wrapper">
+          <ReactPlayer
+            className="react-player"
+            url="https://www.youtube.com/watch?v=58pJWTwQNWg&ab_channel=HaeeonEats%ED%95%B4%EC%96%B8"
+            light={false}
+            controls={true}
+            width="100%"
+            height="100%"
+            title="Yummer Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />
+        </div>
       </VideoContent>
     </Container>
   );
