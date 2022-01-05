@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
-export const BannerContainer = styled.div`
+export const BannerContainer = styled.header`
   margin-top: 3rem;
 
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+`;
+
+export const BannerHeader = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  animation: fade-in 1s both;
 
   .yummer_logo {
     width: 400px;
@@ -39,8 +47,6 @@ export const BannerContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-top: 2rem;
-
     .yummer_logo {
       width: 300px;
     }
@@ -51,7 +57,7 @@ export const BannerContainer = styled.div`
     }
 
     button {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin-bottom: 4rem;
     }
   }
@@ -73,16 +79,18 @@ export const Shape = styled.div`
 
     width: 35vw;
 
-    transform: translateY(-50%);
-    /* z-index: -1; */
+    /* transform: translateX(0, -50%); */
   }
 
   .shape_left {
+    animation: slide-left 1s both;
     left: 0;
     top: 40%;
   }
 
   .shape_right {
+    animation: slide-rigth 1s both;
+
     right: 0;
     top: 50%;
   }
@@ -94,6 +102,34 @@ export const Shape = styled.div`
 
     div:nth-child(2) {
       width: 730px;
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translate(-1000px, -50%);
+    }
+    100% {
+      transform: translate(0, -50%);
+    }
+  }
+
+  @keyframes slide-rigth {
+    0% {
+      transform: translate(1000px, -50%);
+    }
+    100% {
+      transform: translate(0, -50%);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
     }
   }
 `;
