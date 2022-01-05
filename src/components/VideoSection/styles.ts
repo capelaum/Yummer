@@ -10,6 +10,10 @@ export const Container = styled.section`
   align-items: center;
 
   position: relative;
+
+  @media (max-width: 576px) {
+    padding: 2rem;
+  }
 `;
 
 export const VideoContent = styled.div`
@@ -48,6 +52,9 @@ export const VideoContent = styled.div`
   }
 
   @media (max-width: 768px) {
+    margin-top: 0;
+    margin-bottom: 2rem;
+
     .shape_left {
       left: -60px;
       width: 150px;
