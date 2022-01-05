@@ -24,17 +24,6 @@ export const VideoContent = styled.div`
 
   position: relative;
 
-  .player-wrapper {
-    position: relative;
-    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-  }
-
-  .react-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
   .shape_left {
     position: absolute;
     left: -80px;
@@ -75,6 +64,44 @@ export const VideoContent = styled.div`
 
     .shape_right {
       display: none;
+    }
+  }
+`;
+
+export const PlayerWrapper = styled.div`
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .react-player__play-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--color-primary);
+  }
+
+  .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg {
+    font-size: 7rem;
+  }
+
+  @media (max-width: 768px) {
+    svg {
+      font-size: 4rem;
     }
   }
 `;
