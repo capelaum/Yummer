@@ -26,13 +26,15 @@ export default function Home() {
       </Head>
       <Container>
         <Banner />
-        <Menu />
+        <main>
+          <Menu />
 
-        <Informations observe={observe} />
+          <Informations observe={observe} />
 
-        {inView && <InstaWidget />}
-        <Testimonials />
-        <VideoSection />
+          {inView && <InstaWidget />}
+          <Testimonials />
+          <VideoSection />
+        </main>
         <Footer />
       </Container>
     </>

@@ -1,32 +1,30 @@
 import styled from "styled-components";
 
-export const CartPageContainer = styled.section`
-  margin-top: 3rem;
-
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const Header = styled.header`
+  margin-top: 3rem;
+
+  width: 400px;
 
   .yummer_logo {
-    width: 400px;
     cursor: pointer;
   }
 
   @media (max-width: 768px) {
-    .yummer_logo {
-      width: 300px;
-    }
+    width: 300px;
   }
 
-  @media (max-width: 360px) {
-    .yummer_logo {
-      width: 100%;
-      padding: 0 1rem;
-    }
+  @media (max-width: 480px) {
+    width: 80%;
   }
 `;
 
-export const Checkout = styled.section`
+export const Checkout = styled.main`
   width: 100%;
   margin-top: 4rem;
 
@@ -62,7 +60,40 @@ export const CartContainer = styled.div`
 `;
 
 export const EmptyCart = styled(CartContainer)`
-  h1 {
-    text-align: center;
+  justify-content: center;
+  /* flex-direction: row; */
+  padding: 1rem;
+  width: auto;
+  margin-top: 4rem;
+  border: 2px solid var(--color-secondary);
+
+  .text {
+    display: flex;
+    justify-content: center;
+
+    span {
+      text-align: center;
+      margin-left: 0.5rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+  }
+
+  button {
+    color: #fff;
+    background-color: var(--color-secondary);
+
+    padding: 0.25rem 1rem;
+    margin-top: 1.25rem;
+
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.125rem;
+
+    transition: all 0.3s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
   }
 `;

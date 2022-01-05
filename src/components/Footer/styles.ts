@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
+export const Container = styled.footer`
   width: 100%;
 
   background-color: var(--color-primary);

@@ -23,16 +23,16 @@ export function Footer() {
   function setLinkText() {
     return router.pathname === "/cart" ? "Home" : "Início";
   }
+  function setLink() {
+    return router.pathname === "/cart" ? "/#menu" : "#banner";
+  }
 
   return (
     <Container>
       <Content>
         {width < 768 && (
           <ContentCenter>
-            <Link
-              href={router.pathname === "/cart" ? "/#menu" : "#banner"}
-              passHref
-            >
+            <Link href={setLink()} passHref>
               <a title={setLinkText()}>{setLinkText()}</a>
             </Link>
           </ContentCenter>
@@ -54,9 +54,9 @@ export function Footer() {
 
         {width >= 768 && (
           <ContentCenter>
-            <a href="#banner" title="Início">
-              Início
-            </a>
+            <Link href={setLink()} passHref>
+              <a title={setLinkText()}>{setLinkText()}</a>
+            </Link>
             <SocialIcons />
           </ContentCenter>
         )}
