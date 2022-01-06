@@ -10,7 +10,7 @@ import { MdAddShoppingCart, MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 import { renderProductName } from "utils/format";
 import { CartItemsAmount, CartProduct, Product } from "utils/types";
-import { showToastError, showToastWarn, showToastSuccess } from "utils/toasts";
+import { showToastError, showToast } from "utils/toasts";
 
 import { getMenuWithPriceFormated } from "pages/api/menu";
 
@@ -85,12 +85,12 @@ export function CartProvider({ children }: CartProviderProps) {
           amount: 1,
         };
 
-        showToastSuccess(
+        showToast(
           `${renderProductName(
             product.name,
             product?.size,
           )} adicionado ao carrinho`,
-          <MdAddShoppingCart size={30} />,
+          <MdAddShoppingCart size={30} color="var(--color-secondary)" />,
         );
 
         updatedCart.push(newProduct);
@@ -111,15 +111,7 @@ export function CartProvider({ children }: CartProviderProps) {
       );
 
       if (productIndex >= 0) {
-        const product = cart.find((product) => product.id === productId);
-
-        showToastWarn(
-          `${renderProductName(
-            product.name,
-            product?.size,
-          )} removido do carrinho`,
-          <MdOutlineRemoveShoppingCart size={28} />,
-        );
+        showRemoveToast(productId);
 
         updatedCart.splice(productIndex, 1);
         setCart(updatedCart);
@@ -131,6 +123,21 @@ export function CartProvider({ children }: CartProviderProps) {
       showToastError(error.message);
     }
   };
+
+  function showRemoveToast(productId: number) {
+    const product = cart.find((product) => product.id === productId);
+    const removedProductName = renderProductName(product.name, product?.size);
+
+    const removeProductMessage =
+      cart.length === 1
+        ? "Seu carrinho está vazio..."
+        : `${removedProductName} removido do carrinho`;
+
+    showToast(
+      `${removeProductMessage}`,
+      <MdOutlineRemoveShoppingCart size={28} color="var(--color-secondary)" />,
+    );
+  }
 
   const updateProductAmount = (productId: number, amount: number) => {
     try {

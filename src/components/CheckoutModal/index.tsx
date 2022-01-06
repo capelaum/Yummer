@@ -5,7 +5,7 @@ import { MdClose } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { CartProduct, Product } from "utils/types";
-import { showToastSuccess } from "utils/toasts";
+import { showToast } from "utils/toasts";
 import { formatPrice, getCartFormated, renderProductName } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
@@ -93,7 +93,7 @@ export function CheckoutModal({
     setName("");
     setDeliveryAddress("");
 
-    showToastSuccess("Pedido enviado com sucesso!");
+    showToast("Pedido enviado com sucesso!");
 
     onRequestClose();
     openPixModal();

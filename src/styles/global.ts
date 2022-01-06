@@ -85,6 +85,7 @@ button {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .ReactModal__Overlay {

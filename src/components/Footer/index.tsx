@@ -1,41 +1,29 @@
+import { RefObject } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
 
-import { SocialIcons } from "components/SocialIcons";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-import {
-  Container,
-  Content,
-  ContentCenter,
-  ContentLeft,
-  ContentRight,
-} from "./styles";
+import { SocialIcons } from "components/SocialIcons";
 
-export function Footer() {
+import { Container, Content, ContentLeft, ContentRight } from "./styles";
+import { FooterCenter } from "components/FooterCenter";
+
+interface FooterProps {
+  scrollToRef?: (ref: RefObject<HTMLElement>) => void;
+  bannerRef?: RefObject<HTMLElement>;
+}
+
+export function Footer({ scrollToRef, bannerRef }: FooterProps) {
   const { width } = useWindowDimensions();
-  const router = useRouter();
-
-  function setLinkText() {
-    return router.pathname === "/cart" ? "Home" : "Início";
-  }
-  function setLink() {
-    return router.pathname === "/cart" ? "/#menu" : "#banner";
-  }
 
   return (
     <Container>
       <Content>
         {width < 768 && (
-          <ContentCenter>
-            <Link href={setLink()} passHref>
-              <a title={setLinkText()}>{setLinkText()}</a>
-            </Link>
-          </ContentCenter>
+          <FooterCenter scrollToRef={scrollToRef} bannerRef={bannerRef} />
         )}
 
         <ContentLeft>
@@ -53,12 +41,11 @@ export function Footer() {
         </ContentLeft>
 
         {width >= 768 && (
-          <ContentCenter>
-            <Link href={setLink()} passHref>
-              <a title={setLinkText()}>{setLinkText()}</a>
-            </Link>
-            <SocialIcons />
-          </ContentCenter>
+          <>
+            <FooterCenter scrollToRef={scrollToRef} bannerRef={bannerRef}>
+              <SocialIcons />
+            </FooterCenter>
+          </>
         )}
 
         <ContentRight>

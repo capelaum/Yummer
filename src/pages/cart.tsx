@@ -7,8 +7,11 @@ import Image from "next/image";
 import Modal from "react-modal";
 
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+import { IoMdHeart } from "react-icons/io";
 
 import yummer_logo from "@public/Logos/yummer_logo.svg";
+
+import { showToast } from "utils/toasts";
 
 import { useCart } from "contexts/CartContext";
 
@@ -61,6 +64,10 @@ export default function Cart() {
 
   function handleClosePixModal() {
     setIsPixModalOpen(false);
+    showToast(
+      "Obrigado por comprar conosco!",
+      <IoMdHeart size={28} color="var(--color-secondary)" />,
+    );
     emptyCart();
   }
 
@@ -71,7 +78,7 @@ export default function Cart() {
       </Head>
       <Container>
         <Header>
-          <Link href="/#menu" passHref>
+          <Link href="/" passHref>
             <a className="yummer_logo" title="Home">
               <Image
                 src={yummer_logo}
