@@ -1,4 +1,4 @@
-import { createRef, RefObject, useRef } from "react";
+import { createRef, RefObject } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
@@ -17,7 +17,6 @@ const InstaWidget = dynamic<InstaWidgetProps>(
   async () => {
     return import("components/InstaWidget").then((mod) => mod.InstaWidget);
   },
-
   {
     loading: () => <span>Carregando...</span>,
     ssr: false,
@@ -27,7 +26,7 @@ const InstaWidget = dynamic<InstaWidgetProps>(
 import { Container } from "styles/home";
 
 export default function Home() {
-  const { observe, inView, scrollDirection, entry } = useInView({
+  const { observe, inView } = useInView({
     unobserveOnEnter: true,
   });
 

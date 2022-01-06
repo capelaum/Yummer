@@ -71,7 +71,7 @@ export default function Cart() {
       </Head>
       <Container>
         <Header>
-          <Link href="/#menu" passHref>
+          <Link href="/" passHref>
             <a className="yummer_logo" title="Home">
               <Image
                 src={yummer_logo}

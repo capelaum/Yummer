@@ -19,7 +19,6 @@ export function InstaWidget({ observe }: InstaWidgetProps) {
         async
         strategy="afterInteractive"
         data-mc-src="9a23f1b1-b499-4fab-9a26-ed97a16ba45a#instagram"
-        nonce="9a23f1b1-b499-4fab-9a26-ed97a16ba45a#instagram"
         onError={(e) => {
           console.error(e);
           showToastError("Instagram Widget falhou ao carregar 😕");

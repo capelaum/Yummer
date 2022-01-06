@@ -1,13 +1,12 @@
 import { RefObject } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
 
-import { SocialIcons } from "components/SocialIcons";
-
 import useWindowDimensions from "hooks/useWindowDimensions";
+
+import { SocialIcons } from "components/SocialIcons";
 
 import {
   Container,
@@ -18,9 +17,9 @@ import {
 } from "./styles";
 
 interface FooterProps {
-  scrollToRef: (ref: RefObject<HTMLElement>) => void;
-  menuRef: RefObject<HTMLElement>;
-  bannerRef: RefObject<HTMLElement>;
+  scrollToRef?: (ref: RefObject<HTMLElement>) => void;
+  menuRef?: RefObject<HTMLElement>;
+  bannerRef?: RefObject<HTMLElement>;
 }
 
 export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
@@ -31,7 +30,9 @@ export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
     return router.pathname === "/cart" ? "Home" : "Início";
   }
   function setLink() {
-    return router.pathname === "/cart" ? "/" : "#banner";
+    return router.pathname === "/cart"
+      ? router.push("/")
+      : scrollToRef(bannerRef);
   }
 
   return (
@@ -39,9 +40,9 @@ export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
       <Content>
         {width < 768 && (
           <ContentCenter>
-            <Link href={setLink()} passHref>
-              <a title={setLinkText()}>{setLinkText()}</a>
-            </Link>
+            <a title={setLinkText()} onClick={setLink}>
+              {setLinkText()}
+            </a>
           </ContentCenter>
         )}
 
@@ -61,7 +62,7 @@ export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
 
         {width >= 768 && (
           <ContentCenter>
-            <a title={setLinkText()} onClick={() => scrollToRef(bannerRef)}>
+            <a title={setLinkText()} onClick={setLink}>
               {setLinkText()}
             </a>
             <SocialIcons />

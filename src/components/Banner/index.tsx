@@ -1,5 +1,4 @@
 import { ForwardedRef, forwardRef, RefObject } from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 import yummer_logo from "@public/Logos/yummer_logo.svg";

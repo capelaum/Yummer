@@ -1,24 +1,16 @@
-import {
-  ForwardedRef,
-  forwardRef,
-  MutableRefObject,
-  ReactNode,
-  Ref,
-  useRef,
-  useState,
-} from "react";
+import { ForwardedRef, forwardRef, useState } from "react";
 
 import { getMenuWithPriceFormated } from "pages/api/menu";
 
 import { Product, ProductTypes, Size } from "utils/types";
 import { getMenuFormated } from "utils/format";
 
+import { useCart } from "contexts/CartContext";
+
 import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
 import { MenuNav } from "components/MenuNav";
 import { CartButton } from "components/CartButton";
-
-import { useCart } from "contexts/CartContext";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
