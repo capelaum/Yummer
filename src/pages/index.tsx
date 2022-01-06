@@ -1,5 +1,6 @@
-import { createRef, RefObject } from "react";
+import { createRef, RefObject, useCallback, useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 import useInView from "react-cool-inview";
@@ -30,11 +31,22 @@ export default function Home() {
     unobserveOnEnter: true,
   });
 
+  const router = useRouter();
+
   const menuRef = createRef<HTMLElement>();
   const bannerRef = createRef<HTMLElement>();
 
   const scrollToRef = (ref: RefObject<HTMLElement>) =>
     window.scrollTo(0, ref.current.offsetTop);
+
+  useEffect(() => {
+    const storage = globalThis?.sessionStorage;
+    if (!storage) return;
+
+    const prevPath = storage.getItem("prevPath");
+    storage.setItem("prevPath", null);
+    if (prevPath === "/cart") scrollToRef(menuRef);
+  });
 
   return (
     <>
