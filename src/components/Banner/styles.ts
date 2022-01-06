@@ -13,7 +13,7 @@ export const BannerHeader = styled.div`
   align-items: center;
   flex-direction: column;
 
-  animation: fade-in 1s both;
+  animation: fade-in 2s both;
 
   .yummer_logo {
     width: 400px;
@@ -59,6 +59,16 @@ export const BannerHeader = styled.div`
     button {
       font-size: 1.25rem;
       margin-bottom: 4rem;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
     }
   }
 `;
@@ -120,16 +130,6 @@ export const Shape = styled.div`
     }
     100% {
       transform: translate(0, -50%);
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
     }
   }
 `;
