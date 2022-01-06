@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -16,7 +17,13 @@ import {
   ContentRight,
 } from "./styles";
 
-export function Footer() {
+interface FooterProps {
+  scrollToRef: (ref: RefObject<HTMLElement>) => void;
+  menuRef: RefObject<HTMLElement>;
+  bannerRef: RefObject<HTMLElement>;
+}
+
+export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
   const { width } = useWindowDimensions();
   const router = useRouter();
 
@@ -24,7 +31,7 @@ export function Footer() {
     return router.pathname === "/cart" ? "Home" : "Início";
   }
   function setLink() {
-    return router.pathname === "/cart" ? "/#menu" : "#banner";
+    return router.pathname === "/cart" ? "/" : "#banner";
   }
 
   return (
@@ -54,9 +61,9 @@ export function Footer() {
 
         {width >= 768 && (
           <ContentCenter>
-            <Link href={setLink()} passHref>
-              <a title={setLinkText()}>{setLinkText()}</a>
-            </Link>
+            <a title={setLinkText()} onClick={() => scrollToRef(bannerRef)}>
+              {setLinkText()}
+            </a>
             <SocialIcons />
           </ContentCenter>
         )}

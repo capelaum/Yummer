@@ -1,4 +1,12 @@
-import { useState } from "react";
+import {
+  ForwardedRef,
+  forwardRef,
+  MutableRefObject,
+  ReactNode,
+  Ref,
+  useRef,
+  useState,
+} from "react";
 
 import { getMenuWithPriceFormated } from "pages/api/menu";
 
@@ -14,7 +22,7 @@ import { useCart } from "contexts/CartContext";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
-export function Menu() {
+export const Menu = forwardRef((_, ref: ForwardedRef<HTMLElement>) => {
   const { cartSize } = useCart();
   const { cookies, toasts, juices } = getMenuFormated(
     getMenuWithPriceFormated(),
@@ -48,7 +56,7 @@ export function Menu() {
   }
 
   return (
-    <MenuContainer id="menu">
+    <MenuContainer id="menu" ref={ref}>
       <MenuNav
         handleSetActiveItem={handleSetActiveItem}
         activeItem={activeItem}
@@ -72,4 +80,6 @@ export function Menu() {
       </MenuItemsContainer>
     </MenuContainer>
   );
-}
+});
+
+Menu.displayName = "Menu";
