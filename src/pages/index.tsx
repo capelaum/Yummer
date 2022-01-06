@@ -1,4 +1,4 @@
-import { createRef, RefObject, useCallback, useEffect } from "react";
+import { createRef, RefObject, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";

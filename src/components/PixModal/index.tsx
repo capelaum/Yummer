@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import { MdClose, MdOutlineContentCopy } from "react-icons/md";
 
 import { formatPrice } from "utils/format";
-import { showToastSuccess } from "utils/toasts";
+import { showToast } from "utils/toasts";
 
 import { useCart } from "contexts/CartContext";
 import useCopyToClipboard from "hooks/useCopyToClipboard";
@@ -30,9 +30,9 @@ export function PixModal({
   function handleCopyPixKey(key: string) {
     copy(key);
 
-    showToastSuccess(
+    showToast(
       `Chave PIX ${key} copiada!`,
-      <MdOutlineContentCopy size={28} />,
+      <MdOutlineContentCopy size={28} color="var(--color-secondary)" />,
     );
   }
 
