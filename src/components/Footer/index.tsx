@@ -8,42 +8,22 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { SocialIcons } from "components/SocialIcons";
 
-import {
-  Container,
-  Content,
-  ContentCenter,
-  ContentLeft,
-  ContentRight,
-} from "./styles";
+import { Container, Content, ContentLeft, ContentRight } from "./styles";
+import { FooterCenter } from "components/FooterCenter";
 
 interface FooterProps {
   scrollToRef?: (ref: RefObject<HTMLElement>) => void;
-  menuRef?: RefObject<HTMLElement>;
   bannerRef?: RefObject<HTMLElement>;
 }
 
-export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
+export function Footer({ scrollToRef, bannerRef }: FooterProps) {
   const { width } = useWindowDimensions();
-  const router = useRouter();
-
-  function setLinkText() {
-    return router.pathname === "/cart" ? "Home" : "Início";
-  }
-  function setLink() {
-    return router.pathname === "/cart"
-      ? router.push("/")
-      : scrollToRef(bannerRef);
-  }
 
   return (
     <Container>
       <Content>
         {width < 768 && (
-          <ContentCenter>
-            <a title={setLinkText()} onClick={setLink}>
-              {setLinkText()}
-            </a>
-          </ContentCenter>
+          <FooterCenter scrollToRef={scrollToRef} bannerRef={bannerRef} />
         )}
 
         <ContentLeft>
@@ -61,12 +41,11 @@ export function Footer({ scrollToRef, menuRef, bannerRef }: FooterProps) {
         </ContentLeft>
 
         {width >= 768 && (
-          <ContentCenter>
-            <a title={setLinkText()} onClick={setLink}>
-              {setLinkText()}
-            </a>
-            <SocialIcons />
-          </ContentCenter>
+          <>
+            <FooterCenter scrollToRef={scrollToRef} bannerRef={bannerRef}>
+              <SocialIcons />
+            </FooterCenter>
+          </>
         )}
 
         <ContentRight>

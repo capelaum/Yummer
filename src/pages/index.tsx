@@ -65,11 +65,7 @@ export default function Home() {
           <Testimonials />
           <VideoSection />
         </main>
-        <Footer
-          scrollToRef={scrollToRef}
-          menuRef={menuRef}
-          bannerRef={bannerRef}
-        />
+        <Footer scrollToRef={scrollToRef} bannerRef={bannerRef} />
       </Container>
     </>
   );
