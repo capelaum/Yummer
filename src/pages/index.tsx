@@ -18,10 +18,7 @@ const InstaWidget = dynamic<InstaWidgetProps>(
   async () => {
     return import("components/InstaWidget").then((mod) => mod.InstaWidget);
   },
-  {
-    loading: () => <span>Carregando...</span>,
-    ssr: false,
-  },
+  { loading: () => <span>Carregando...</span> },
 );
 
 import { Container } from "styles/home";
