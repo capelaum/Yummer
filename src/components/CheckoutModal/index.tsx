@@ -70,7 +70,7 @@ export function CheckoutModal({
   function formatProductsOrder(cartProducts: CartProduct[]): string {
     const message = cartProducts.reduce(
       (acc, { name, size, amount, price }) => {
-        acc += `→ *${renderProductName(name, size)}*\n`;
+        acc += `*${renderProductName(name, size)}*\n`;
         acc += `*Qtd*: ${amount}\n`;
         acc += `*Subtotal*: ${formatPrice(amount * price)}`;
         acc += "\n\n";

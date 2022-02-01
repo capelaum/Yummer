@@ -33,7 +33,7 @@ export function Footer({ scrollToRef, bannerRef }: FooterProps) {
           {width < 768 && <SocialIcons />}
 
           <div className="info">
-            <a href="mailto:contato.yummer@gmail.com" title="Yummer E-mail">
+            <a href="mailto:contatoyummer@gmail.com" title="Yummer E-mail">
               contato.yummer@gmail.com
             </a>
             <span>Brasília - DF</span>

@@ -20,7 +20,7 @@ export const informations: Information[] = [
     title: "Pagamento",
     text: "Pagar via PIX através da chave ou escaneando o QR Code PIX mostrado em tela após finalizar o pedido, alternativamente pode-se pedir as informações de pagamento pelo nosso Whatsapp.",
     list: [
-      "Qualquer reclamação, dúvida, sugestão ou suporte, contate-nos via Whatsapp, ou por email: yummer@gmail.com",
+      "Qualquer reclamação, dúvida, sugestão ou suporte, contate-nos via Whatsapp, ou por email: contatoyummer@gmail.com",
     ],
   },
   {

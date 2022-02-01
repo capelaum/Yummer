@@ -32,10 +32,20 @@ export const Banner = forwardRef(
 
         <Shape>
           <div className="shape_left">
-            <Image src={shape_left} alt="shape left" layout="responsive" />
+            <Image
+              src={shape_left}
+              alt="shape left"
+              layout="responsive"
+              priority
+            />
           </div>
           <div className="shape_right">
-            <Image src={shape_right} alt="shape right" layout="responsive" />
+            <Image
+              src={shape_right}
+              alt="shape right"
+              layout="responsive"
+              priority
+            />
           </div>
 
           <BannerImages />
