@@ -93,9 +93,11 @@ export function ProductImage({
   }
 
   function openOverlay() {
-    setIsOpen(true);
-    setImageSize(true);
-    document.body.style.overflow = "hidden";
+    if (width > 768) {
+      setIsOpen(true);
+      setImageSize(true);
+      document.body.style.overflow = "hidden";
+    }
   }
 
   function closeOverlay() {
