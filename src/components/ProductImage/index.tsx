@@ -77,8 +77,8 @@ export function ProductImage({
         width={imageWidth}
         height={imageHeight}
         title={name}
-        placeholder="blur"
-        blurDataURL={`/${type}/${imageSrc}`}
+        // placeholder="blur"
+        // blurDataURL={`/${type}/${imageSrc}`}
       />
     </ImageContainer>
   );
