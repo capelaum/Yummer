@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.header`
-  margin-top: 3rem;
+  padding-top: 3rem;
 
   @media (max-width: 768px) {
-    margin-top: 2rem;
+    padding-top: 2rem;
   }
 `;
 

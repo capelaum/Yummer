@@ -13,6 +13,18 @@ export const Switcher = styled.label`
   width: 117px;
   height: 34px;
 
+  .message {
+    position: absolute;
+    top: 38px;
+
+    color: var(--color-gray-400);
+
+    font-size: 0.75rem;
+    text-align: center;
+
+    padding: 0 0.1rem;
+  }
+
   & input {
     opacity: 0;
     width: 0;

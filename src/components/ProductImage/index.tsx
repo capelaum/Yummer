@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
+import { ImageContainer } from "./styles";
+
 interface ProductImageProps {
   name: string;
   type: string;
@@ -68,14 +70,16 @@ export function ProductImage({
   }
 
   return (
-    <Image
-      src={`/${type}/${imageSrc}`}
-      alt={name}
-      width={imageWidth}
-      height={imageHeight}
-      title={name}
-      placeholder="blur"
-      blurDataURL={`/${type}/${imageSrc}`}
-    />
+    <ImageContainer>
+      <Image
+        src={`/${type}/${imageSrc}`}
+        alt={name}
+        width={imageWidth}
+        height={imageHeight}
+        title={name}
+        placeholder="blur"
+        blurDataURL={`/${type}/${imageSrc}`}
+      />
+    </ImageContainer>
   );
 }

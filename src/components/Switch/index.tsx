@@ -15,6 +15,9 @@ export function Switch({ size, toggleSize }: SwitchProps) {
           <span id="size-100">100g</span>
           <span id="size-45">45g</span>
         </Sizes>
+        {size === 45 && (
+          <span className="message">*Pedido mínimo de 2 unidades</span>
+        )}
       </Switcher>
     </SwitchContainer>
   );
