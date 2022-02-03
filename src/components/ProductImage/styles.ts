@@ -5,19 +5,21 @@ export const ImageContainer = styled.div`
 
   cursor: pointer;
 
+  /* border: 1px solid red; */
+
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   .image-overlay {
   }
 `;
 
-interface ImageOVerlayProps {
+interface ImageOverlayProps {
   isOpen: boolean;
 }
 
-export const ImageOVerlay = styled.div<ImageOVerlayProps>`
+export const ImageOverlay = styled.div<ImageOverlayProps>`
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
 

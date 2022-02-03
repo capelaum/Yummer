@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-import { ImageContainer, ImageOVerlay } from "./styles";
+import { ImageContainer, ImageOverlay } from "./styles";
 
 interface ProductImageProps {
   name: string;
@@ -29,7 +29,7 @@ export function ProductImage({
     setImageSize();
   });
 
-  function setImageSize() {
+  function setImageSize(isOverlayOpen: boolean = false) {
     let imageWidth: number = 100,
       imageHeight: number = 100;
 
@@ -72,13 +72,37 @@ export function ProductImage({
     return { imageWidth, imageHeight };
   }
 
+  function setOverlayImageSize(isWidth: boolean = false) {
+    let imageWidth: number = 300,
+      imageHeight: number = 300;
+
+    switch (type) {
+      case "cookie":
+        imageWidth = 300;
+        imageHeight = 300;
+        break;
+      case "toast":
+        imageWidth = 300;
+        imageHeight = 170;
+        break;
+      case "juice":
+        imageWidth = 300;
+        imageHeight = 300;
+        break;
+    }
+
+    return isWidth ? imageWidth : imageHeight;
+  }
+
   function openOverlay() {
     setIsOpen(true);
+    setImageSize(true);
     document.body.style.overflow = "hidden";
   }
 
   function closeOverlay() {
     setIsOpen(false);
+    setImageSize(false);
     document.body.style.overflow = "visible";
   }
 
@@ -95,15 +119,16 @@ export function ProductImage({
           // blurDataURL={`/${type}/${imageSrc}`}
         />
       </ImageContainer>
-      <ImageOVerlay isOpen={isOpen} onClick={closeOverlay}>
+
+      <ImageOverlay isOpen={isOpen} onClick={closeOverlay}>
         <Image
-          src={`/${type}/${zoomImageSrc}`}
+          src={`/${type}/${imageSrc}`}
           alt={name}
-          width={300}
-          height={300}
+          width={setOverlayImageSize(true)}
+          height={setOverlayImageSize()}
           title={name}
         />
-      </ImageOVerlay>
+      </ImageOverlay>
     </>
   );
 }

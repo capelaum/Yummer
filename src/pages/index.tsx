@@ -39,9 +39,9 @@ export default function Home() {
 
           <Informations observe={observe} />
 
-          {inView && <InstaWidget />}
-
           <Testimonials />
+
+          {inView && <InstaWidget />}
         </main>
         <Footer />
       </Container>

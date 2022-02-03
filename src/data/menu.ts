@@ -53,7 +53,7 @@ export const menu: Product[] = [
       "Massa de baunilha, misturada com gotas de chocolate meio amargo e finalizada com gotas deliciosas de chocolate belga. Acompanha dip de Nutella à parte.",
     price: 4,
     size: 45,
-    imageSrc: "old.png",
+    imageSrc: "old_mini.png",
     zoomImageSrc: "old.svg",
   },
   {
@@ -64,7 +64,7 @@ export const menu: Product[] = [
       "Massa de café com cacau 100%, misturada com gotas de chocolate amargo e finalizada com gotas deliciosas de chocolate belga. Acompanha dip de intenso brigadeiro de café.",
     price: 4,
     size: 45,
-    imageSrc: "coffee.png",
+    imageSrc: "coffee_mini.png",
     zoomImageSrc: "coffee.svg",
   },
   {
@@ -75,7 +75,7 @@ export const menu: Product[] = [
       "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau.  Nelas são misturadas castanha de caju, chocolate meio amargo e chocolate branco, finalizado com gotas de chocolate branco e preto belgas. Acompanha dip de um maravilhoso brigadeiro 100% cacau.",
     price: 4,
     size: 45,
-    imageSrc: "double.png",
+    imageSrc: "double_mini.png",
     zoomImageSrc: "double.svg",
   },
   {
@@ -86,7 +86,7 @@ export const menu: Product[] = [
       "Massa feita com suco e raspas de limão tahiti e siciliano. Nela é misturado gotas de chocolate branco e macadâmias e finalizado com açúcar de confeiteiro. Acompanha dip de brigadeiro de limão.",
     price: 4,
     size: 45,
-    imageSrc: "lemon.png",
+    imageSrc: "lemon_mini.png",
     zoomImageSrc: "lemon.svg",
   },
   {
