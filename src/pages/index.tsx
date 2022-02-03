@@ -1,6 +1,4 @@
-import { createRef, RefObject, useEffect } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 import useInView from "react-cool-inview";
@@ -28,33 +26,16 @@ export default function Home() {
     unobserveOnEnter: true,
   });
 
-  const router = useRouter();
-
-  const menuRef = createRef<HTMLElement>();
-  const bannerRef = createRef<HTMLElement>();
-
-  const scrollToRef = (ref: RefObject<HTMLElement>) =>
-    window.scrollTo(0, ref.current.offsetTop);
-
-  useEffect(() => {
-    const storage = globalThis?.sessionStorage;
-    if (!storage) return;
-
-    const prevPath = storage.getItem("prevPath");
-    storage.setItem("prevPath", null);
-    if (prevPath === "/cart") scrollToRef(menuRef);
-  });
-
   return (
     <>
       <Head>
         <title>Yummer</title>
       </Head>
       <Container>
-        <Banner scrollToRef={scrollToRef} menuRef={menuRef} ref={bannerRef} />
+        <Banner />
         <main>
           <VideoSection />
-          <Menu ref={menuRef} />
+          <Menu />
 
           <Informations observe={observe} />
 
@@ -62,7 +43,7 @@ export default function Home() {
 
           <Testimonials />
         </main>
-        <Footer scrollToRef={scrollToRef} bannerRef={bannerRef} />
+        <Footer />
       </Container>
     </>
   );

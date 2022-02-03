@@ -14,7 +14,7 @@ import { CartButton } from "components/CartButton";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 
-export const Menu = forwardRef((_, ref: ForwardedRef<HTMLElement>) => {
+export function Menu() {
   const { cartSize } = useCart();
   const { cookies, toasts, juices } = getMenuFormated(
     getMenuWithPriceFormated(),
@@ -48,7 +48,7 @@ export const Menu = forwardRef((_, ref: ForwardedRef<HTMLElement>) => {
   }
 
   return (
-    <MenuContainer id="menu" ref={ref}>
+    <MenuContainer id="menu">
       <MenuNav
         handleSetActiveItem={handleSetActiveItem}
         activeItem={activeItem}
@@ -72,6 +72,4 @@ export const Menu = forwardRef((_, ref: ForwardedRef<HTMLElement>) => {
       </MenuItemsContainer>
     </MenuContainer>
   );
-});
-
-Menu.displayName = "Menu";
+}

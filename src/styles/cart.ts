@@ -65,7 +65,6 @@ export const EmptyCart = styled(CartContainer)`
   padding: 1rem;
   width: auto;
   margin-top: 4rem;
-  border: 2px solid var(--color-secondary);
 
   .text {
     display: flex;

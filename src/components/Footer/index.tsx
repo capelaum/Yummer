@@ -1,6 +1,4 @@
-import { RefObject } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
 
@@ -11,20 +9,13 @@ import { SocialIcons } from "components/SocialIcons";
 import { Container, Content, ContentLeft, ContentRight } from "./styles";
 import { FooterCenter } from "components/FooterCenter";
 
-interface FooterProps {
-  scrollToRef?: (ref: RefObject<HTMLElement>) => void;
-  bannerRef?: RefObject<HTMLElement>;
-}
-
-export function Footer({ scrollToRef, bannerRef }: FooterProps) {
+export function Footer() {
   const { width } = useWindowDimensions();
 
   return (
     <Container>
       <Content>
-        {width < 768 && (
-          <FooterCenter scrollToRef={scrollToRef} bannerRef={bannerRef} />
-        )}
+        {width < 768 && <FooterCenter />}
 
         <ContentLeft>
           <div className="yummer_icon">
@@ -42,7 +33,7 @@ export function Footer({ scrollToRef, bannerRef }: FooterProps) {
 
         {width >= 768 && (
           <>
-            <FooterCenter scrollToRef={scrollToRef} bannerRef={bannerRef}>
+            <FooterCenter>
               <SocialIcons />
             </FooterCenter>
           </>

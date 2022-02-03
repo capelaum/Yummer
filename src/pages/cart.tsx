@@ -110,7 +110,7 @@ export default function Cart() {
                 <MdOutlineRemoveShoppingCart size={24} />
                 <span>Seu carrinho está vazio...</span>
               </div>
-              <Link href="/#menu" passHref>
+              <Link href="/#menu" scroll={false} passHref>
                 <button title="Voltar para Home">Voltar</button>
               </Link>
             </EmptyCart>
