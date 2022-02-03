@@ -15,7 +15,8 @@ interface MenuItemProps {
 }
 
 export function MenuItemComponent({ product, isOrange }: MenuItemProps) {
-  const { id, type, name, description, priceFormated, imageSrc } = product;
+  const { id, type, name, description, priceFormated, imageSrc, zoomImageSrc } =
+    product;
   const { width } = useWindowDimensions();
 
   return (
@@ -26,6 +27,7 @@ export function MenuItemComponent({ product, isOrange }: MenuItemProps) {
             name={name}
             type={type}
             imageSrc={imageSrc}
+            zoomImageSrc={zoomImageSrc}
             menuType="menu"
           />
         </div>

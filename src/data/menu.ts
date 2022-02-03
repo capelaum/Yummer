@@ -10,6 +10,7 @@ export const menu: Product[] = [
     price: 8,
     size: 100,
     imageSrc: "old.png",
+    zoomImageSrc: "old.svg",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const menu: Product[] = [
     price: 8,
     size: 100,
     imageSrc: "coffee.png",
+    zoomImageSrc: "coffee.svg",
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ export const menu: Product[] = [
     price: 8,
     size: 100,
     imageSrc: "double.png",
+    zoomImageSrc: "double.svg",
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ export const menu: Product[] = [
     price: 8,
     size: 100,
     imageSrc: "lemon.png",
+    zoomImageSrc: "lemon.svg",
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ export const menu: Product[] = [
     price: 4,
     size: 45,
     imageSrc: "old.png",
+    zoomImageSrc: "old.svg",
   },
   {
     id: 6,
@@ -60,6 +65,7 @@ export const menu: Product[] = [
     price: 4,
     size: 45,
     imageSrc: "coffee.png",
+    zoomImageSrc: "coffee.svg",
   },
   {
     id: 7,
@@ -70,6 +76,7 @@ export const menu: Product[] = [
     price: 4,
     size: 45,
     imageSrc: "double.png",
+    zoomImageSrc: "double.svg",
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ export const menu: Product[] = [
     price: 4,
     size: 45,
     imageSrc: "lemon.png",
+    zoomImageSrc: "lemon.svg",
   },
   {
     id: 9,
@@ -88,6 +96,7 @@ export const menu: Product[] = [
     description: "A melhor rabanada tradicional, açúcar e canela por fora.",
     price: 6,
     imageSrc: "piloto.png",
+    zoomImageSrc: "piloto.svg",
   },
   {
     id: 10,
@@ -97,6 +106,7 @@ export const menu: Product[] = [
       "Recheada com muito doce de leite mineiro, açúcar e canela por fora.",
     price: 6,
     imageSrc: "dona_avelina.png",
+    zoomImageSrc: "dona_avelina.svg",
   },
   {
     id: 11,
@@ -105,6 +115,7 @@ export const menu: Product[] = [
     description: "Recheada com muita Nutella, açúcar e canela por fora.",
     price: 6,
     imageSrc: "doce_imperador.png",
+    zoomImageSrc: "doce_imperador.svg",
   },
   {
     id: 12,
@@ -114,6 +125,7 @@ export const menu: Product[] = [
       "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
     price: 5,
     imageSrc: "pink_lemonade.png",
+    zoomImageSrc: "pink_lemonade.svg",
   },
   {
     id: 13,
@@ -123,6 +135,7 @@ export const menu: Product[] = [
       "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
     price: 5,
     imageSrc: "amora_limao.png",
+    zoomImageSrc: "amora_limao.svg",
   },
   {
     id: 14,
@@ -131,6 +144,7 @@ export const menu: Product[] = [
     description: "Delicioso suco de laranja com Acerola, na medida ideal.",
     price: 5,
     imageSrc: "laranja_acerola.png",
+    zoomImageSrc: "laranja_acerola.svg",
   },
   {
     id: 15,
@@ -140,5 +154,6 @@ export const menu: Product[] = [
       "A intensidade de sabor do chá preto, feito do jeitinho Yummer.",
     price: 5,
     imageSrc: "black_tea.png",
+    zoomImageSrc: "black_tea.svg",
   },
 ];
