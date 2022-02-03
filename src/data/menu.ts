@@ -6,7 +6,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Old School",
     description:
-      "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
+      "Massa de baunilha, misturada com gotas de chocolate meio amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
     price: 8,
     size: 100,
     imageSrc: "old.png",
@@ -16,7 +16,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Coffee Lover",
     description:
-      "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
+      "Massa de café com cacau 100%, misturada com chocolate meio amargo em gotas. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
     price: 8,
     size: 100,
     imageSrc: "coffee.png",
@@ -26,7 +26,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Double Trouble",
     description:
-      "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
+      "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate meio amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate meio amargo e finalizado com gotas de chocolate branco e preto belgas.",
     price: 8,
     size: 100,
     imageSrc: "double.png",
@@ -46,7 +46,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Old School",
     description:
-      "Massa de baunilha, misturada com pedaços de chocolate amargo e um recheio exagerado de Nutella. Finalizado com gotas deliciosas de chocolate belga.",
+      "Massa de baunilha, misturada com gotas de chocolate meio amargo e finalizada com gotas deliciosas de chocolate belga. Acompanha dip de Nutella à parte.",
     price: 4,
     size: 45,
     imageSrc: "old.png",
@@ -56,7 +56,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Coffee Lover",
     description:
-      "Massa de café com cacau 100%, misturada com chocolate amargo em pedaços. Recheado com um intenso brigadeiro de café e finalizado com gotas de chocolate belga.",
+      "Massa de café com cacau 100%, misturada com gotas de chocolate amargo e finalizada com gotas deliciosas de chocolate belga. Acompanha dip de intenso brigadeiro de café.",
     price: 4,
     size: 45,
     imageSrc: "coffee.png",
@@ -66,7 +66,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Double Trouble",
     description:
-      "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau. Nelas são misturadas castanha de caju, chocolate amargo e chocolate branco. Seu recheio é de um maravilhoso brigadeiro de chocolate amargo e finalizado com gotas de chocolate branco e preto belgas.",
+      "Cookie com duas massas. Metade feita com massa de baunilha e metade massa de cacau.  Nelas são misturadas castanha de caju, chocolate meio amargo e chocolate branco, finalizado com gotas de chocolate branco e preto belgas. Acompanha dip de um maravilhoso brigadeiro 100% cacau.",
     price: 4,
     size: 45,
     imageSrc: "double.png",
@@ -76,7 +76,7 @@ export const menu: Product[] = [
     type: "cookie",
     name: "Lemon Dream",
     description:
-      "Base da massa feita com suco e raspas de limão taiti e siciliano. Nela é misturado chocolate branco e macadâmia, junto com um recheio exagerado de brigadeiro de limão. Finalizando com açúcar de confeiteiro e gotas de chocolate belga branco.",
+      "Massa feita com suco e raspas de limão tahiti e siciliano. Nela é misturado gotas de chocolate branco e macadâmias e finalizado com açúcar de confeiteiro. Acompanha dip de brigadeiro de limão.",
     price: 4,
     size: 45,
     imageSrc: "lemon.png",

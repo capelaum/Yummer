@@ -34,7 +34,7 @@ export function Footer({ scrollToRef, bannerRef }: FooterProps) {
 
           <div className="info">
             <a href="mailto:contatoyummer@gmail.com" title="Yummer E-mail">
-              contato.yummer@gmail.com
+              contatoyummer@gmail.com
             </a>
             <span>Brasília - DF</span>
           </div>

@@ -24,8 +24,8 @@ export const Banner = forwardRef(
           </div>
 
           <p>
-            Está preparado para compartilhar aquele momento yummer junto
-            conosco?!?
+            Viemos fazer com que você não consiga mais viver sem as nossas
+            delícias! Está preparado para compartilhar aquele #momentoyummer?!
           </p>
           <button onClick={() => scrollToRef(menuRef)}>Faça seu pedido</button>
         </BannerHeader>
