@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  padding: 4rem 2rem;
+  padding: 0 2rem;
+
+  margin-top: 18vw;
 
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@ export const Container = styled.section`
   position: relative;
 
   @media (max-width: 576px) {
-    padding: 2rem;
+    margin-top: 15vw;
   }
 `;
 

@@ -26,7 +26,11 @@ export function VideoSection() {
 
   return (
     <Container>
-      <SectionTitle title="Vídeo institucional" subtitle="Quem Somos" isBlue />
+      <SectionTitle
+        title="Conheça a Yummer"
+        subtitle="Vídeo institucional"
+        isBlue
+      />
 
       <VideoContent>
         {!loading && (

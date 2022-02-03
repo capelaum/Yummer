@@ -53,6 +53,7 @@ export default function Home() {
       <Container>
         <Banner scrollToRef={scrollToRef} menuRef={menuRef} ref={bannerRef} />
         <main>
+          <VideoSection />
           <Menu ref={menuRef} />
 
           <Informations observe={observe} />
@@ -60,7 +61,6 @@ export default function Home() {
           {inView && <InstaWidget />}
 
           <Testimonials />
-          <VideoSection />
         </main>
         <Footer scrollToRef={scrollToRef} bannerRef={bannerRef} />
       </Container>

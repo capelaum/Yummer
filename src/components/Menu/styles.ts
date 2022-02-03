@@ -7,10 +7,10 @@ export const MenuContainer = styled.section`
   align-items: center;
   flex-direction: column;
 
-  margin-top: 20vw;
+  margin-top: 10rem;
 
-  @media (max-width: 1080px) {
-    margin-top: 10rem;
+  @media (max-width: 576px) {
+    margin-top: 5rem;
   }
 `;
 
