@@ -14,16 +14,6 @@ import { SectionTitle } from "components/SectionTitle";
 import { Container, PlayerWrapper, VideoContent } from "./styles";
 
 export function VideoSection() {
-  const [loading, setLoading] = useState(false);
-
-  function handleLoading() {
-    setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }
-
   return (
     <Container>
       <SectionTitle
@@ -33,21 +23,16 @@ export function VideoSection() {
       />
 
       <VideoContent>
-        {!loading && (
-          <>
-            <div className="shape_left">
-              <Image src={shapeLeft} alt="shape left" layout="responsive" />
-            </div>
-            <div className="shape_right">
-              <Image src={shapeRight} alt="shape right" layout="responsive" />
-            </div>
-          </>
-        )}
+        <div className="shape_left">
+          <Image src={shapeLeft} alt="shape left" layout="responsive" />
+        </div>
+        <div className="shape_right">
+          <Image src={shapeRight} alt="shape right" layout="responsive" />
+        </div>
 
-        <PlayerWrapper onClick={handleLoading}>
+        <PlayerWrapper>
           <div className="loader">
             <Loader
-              visible={loading}
               type="Puff"
               color="var(--color-secondary)"
               height={80}
