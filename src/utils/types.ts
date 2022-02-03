@@ -16,7 +16,6 @@ export interface Product {
   price: number;
   priceFormated?: string;
   imageSrc: string;
-  zoomImageSrc: string;
   size?: Size;
 }
 

@@ -9,7 +9,6 @@ interface ProductImageProps {
   name: string;
   type: string;
   imageSrc: string;
-  zoomImageSrc: string;
   menuType: "menu" | "cart";
 }
 
@@ -17,7 +16,6 @@ export function ProductImage({
   name,
   type,
   imageSrc,
-  zoomImageSrc,
   menuType,
 }: ProductImageProps) {
   const [imageWidth, setImageWidth] = useState(0);
