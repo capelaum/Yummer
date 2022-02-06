@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  padding: 4rem 2rem;
+  background-color: var(--color-background);
+
+  padding: 0rem 2rem;
+
+  padding-bottom: 10rem;
 
   display: flex;
   flex-direction: column;
@@ -12,7 +16,11 @@ export const Container = styled.section`
   position: relative;
 
   @media (max-width: 576px) {
-    padding: 2rem;
+    padding-bottom: 7.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 5rem;
   }
 `;
 

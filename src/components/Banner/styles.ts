@@ -1,14 +1,30 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.header`
-  margin-top: 3rem;
+  padding-bottom: 20rem;
+
+  background-color: var(--color-background);
+
+  @media (max-width: 1200px) {
+    padding-bottom: 15rem;
+  }
 
   @media (max-width: 768px) {
-    margin-top: 2rem;
+    padding-bottom: 10rem;
+  }
+
+  @media (max-width: 576px) {
+    padding-bottom: 7.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 5rem;
   }
 `;
 
 export const BannerHeader = styled.div`
+  padding-top: 3rem;
+
   display: flex;
   align-items: center;
   flex-direction: column;

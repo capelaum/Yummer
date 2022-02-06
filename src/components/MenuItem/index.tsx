@@ -8,6 +8,7 @@ import { AddCartButton } from "components/AddCartButton";
 import { ProductImage } from "components/ProductImage";
 
 import { Container, Content, TextContent } from "./styles";
+
 interface MenuItemProps {
   product: Product;
   isOrange: boolean;

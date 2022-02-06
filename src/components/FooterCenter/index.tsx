@@ -1,34 +1,30 @@
-import { ReactNode, RefObject } from "react";
+import { ReactNode } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import { Container } from "./styles";
 
 interface FooterCenterProps {
-  scrollToRef: (ref: RefObject<HTMLElement>) => void;
-  bannerRef: RefObject<HTMLElement>;
   children?: ReactNode;
 }
 
-export function FooterCenter({
-  scrollToRef,
-  bannerRef,
-  children,
-}: FooterCenterProps) {
+export function FooterCenter({ children }: FooterCenterProps) {
   const router = useRouter();
 
   function setLinkText() {
     return router.pathname === "/cart" ? "Home" : "Início";
   }
+
   function setLink() {
-    return router.pathname === "/cart"
-      ? router.push("/")
-      : scrollToRef(bannerRef);
+    return router.pathname === "/cart" ? "/#menu" : "/#banner";
   }
   return (
     <Container>
-      <button title={setLinkText()} onClick={setLink}>
-        {setLinkText()}
-      </button>
+      <Link href={setLink()} passHref>
+        <button title={setLinkText()} onClick={setLink}>
+          {setLinkText()}
+        </button>
+      </Link>
       {children}
     </Container>
   );

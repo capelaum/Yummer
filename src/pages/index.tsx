@@ -1,6 +1,4 @@
-import { createRef, RefObject, useEffect } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 import useInView from "react-cool-inview";
@@ -13,15 +11,13 @@ import { Testimonials } from "components/Testimonials";
 import { VideoSection } from "components/VideoSection";
 import { Footer } from "components/Footer";
 import { InstaWidgetProps } from "components/InstaWidget";
+import { Parallax } from "components/Parallax";
 
 const InstaWidget = dynamic<InstaWidgetProps>(
   async () => {
     return import("components/InstaWidget").then((mod) => mod.InstaWidget);
   },
-  {
-    loading: () => <span>Carregando...</span>,
-    ssr: false,
-  },
+  { loading: () => <span>Carregando...</span> },
 );
 
 import { Container } from "styles/home";
@@ -31,41 +27,24 @@ export default function Home() {
     unobserveOnEnter: true,
   });
 
-  const router = useRouter();
-
-  const menuRef = createRef<HTMLElement>();
-  const bannerRef = createRef<HTMLElement>();
-
-  const scrollToRef = (ref: RefObject<HTMLElement>) =>
-    window.scrollTo(0, ref.current.offsetTop);
-
-  useEffect(() => {
-    const storage = globalThis?.sessionStorage;
-    if (!storage) return;
-
-    const prevPath = storage.getItem("prevPath");
-    storage.setItem("prevPath", null);
-    if (prevPath === "/cart") scrollToRef(menuRef);
-  });
-
   return (
     <>
       <Head>
         <title>Yummer</title>
       </Head>
       <Container>
-        <Banner scrollToRef={scrollToRef} menuRef={menuRef} ref={bannerRef} />
+        <Banner />
         <main>
-          <Menu ref={menuRef} />
+          <VideoSection />
+          <Menu />
 
           <Informations observe={observe} />
 
-          {inView && <InstaWidget />}
-
+          <Parallax />
           <Testimonials />
-          <VideoSection />
+          {inView && <InstaWidget />}
         </main>
-        <Footer scrollToRef={scrollToRef} bannerRef={bannerRef} />
+        <Footer />
       </Container>
     </>
   );

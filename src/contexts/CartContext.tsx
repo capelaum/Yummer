@@ -33,6 +33,7 @@ interface CartContextData {
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps) {
+  const [menu, setMenu] = useState<Product[]>(getMenuWithPriceFormated());
   const [cart, setCart] = useState<CartProduct[]>([]);
 
   useEffect(() => {
@@ -76,14 +77,20 @@ export function CartProvider({ children }: CartProviderProps) {
       }
 
       if (!productExists) {
-        const product: Product = getMenuWithPriceFormated().find(
-          (p) => p.id === productId,
-        );
+        const product: Product = menu.find((p) => p.id === productId);
+
+        if (!product) {
+          throw Error("Produto não encontrado");
+        }
 
         const newProduct: CartProduct = {
           ...product,
           amount: 1,
         };
+
+        if (product.size === 45) {
+          newProduct.amount = 2;
+        }
 
         showToast(
           `${renderProductName(
@@ -157,6 +164,12 @@ export function CartProvider({ children }: CartProviderProps) {
 
       if (productExists) {
         productExists.amount = amount;
+
+        if (productExists.size === 45 && productExists.amount < 2) {
+          removeProduct(productId);
+          return;
+        }
+
         setCart(updatedCart);
         localStorage.setItem("@Yummer:cart", JSON.stringify(updatedCart));
       }
