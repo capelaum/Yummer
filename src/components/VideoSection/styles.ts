@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  padding: 0 2rem;
+  background-color: var(--color-background);
 
-  margin-top: 18vw;
+  padding: 0rem 2rem;
+
+  padding-bottom: 10rem;
 
   display: flex;
   flex-direction: column;
@@ -14,7 +16,11 @@ export const Container = styled.section`
   position: relative;
 
   @media (max-width: 576px) {
-    margin-top: 15vw;
+    padding-bottom: 7.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-bottom: 5rem;
   }
 `;
 

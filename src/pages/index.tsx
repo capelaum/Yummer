@@ -11,6 +11,7 @@ import { Testimonials } from "components/Testimonials";
 import { VideoSection } from "components/VideoSection";
 import { Footer } from "components/Footer";
 import { InstaWidgetProps } from "components/InstaWidget";
+import { Parallax } from "components/Parallax";
 
 const InstaWidget = dynamic<InstaWidgetProps>(
   async () => {
@@ -39,8 +40,8 @@ export default function Home() {
 
           <Informations observe={observe} />
 
+          <Parallax />
           <Testimonials />
-
           {inView && <InstaWidget />}
         </main>
         <Footer />

@@ -3,15 +3,11 @@ import styled from "styled-components";
 export const MenuContainer = styled.section`
   position: relative;
 
+  background-color: var(--color-background);
+
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  margin-top: 10rem;
-
-  @media (max-width: 576px) {
-    margin-top: 5rem;
-  }
 `;
 
 export const MenuItemsContainer = styled.div`
