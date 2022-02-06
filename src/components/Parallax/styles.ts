@@ -51,7 +51,7 @@ export const Text = styled.h1`
   /* margin: 15rem 0; */
 
   span {
-    color: var(--color-secondary);
+    color: var(--color-background);
   }
 
   @media (max-width: 768px) {
