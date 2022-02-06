@@ -41,7 +41,7 @@ export const Item = styled.div`
 
   padding: 1rem;
 
-  /* min-height: 180px; */
+  min-height: 200px;
 
   display: flex !important;
   flex-direction: column;
