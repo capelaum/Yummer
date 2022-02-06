@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.header`
-  padding: 3rem 0 20rem 0;
+  padding-bottom: 20rem;
 
   background-color: var(--color-background);
 
@@ -23,6 +23,8 @@ export const BannerContainer = styled.header`
 `;
 
 export const BannerHeader = styled.div`
+  padding-top: 3rem;
+
   display: flex;
   align-items: center;
   flex-direction: column;
