@@ -41,7 +41,7 @@ export const Item = styled.div`
 
   padding: 1rem;
 
-  /* min-height: 180px; */
+  min-height: 200px;
 
   display: flex !important;
   flex-direction: column;
@@ -51,7 +51,7 @@ export const Item = styled.div`
 
   p {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .author {

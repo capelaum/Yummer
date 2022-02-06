@@ -9,10 +9,6 @@ import { Slidersettings } from "utils/sliderSettings";
 
 import { Container, Item } from "./styles";
 
-// interface TestimonialsProps {
-//   testimonials: Testimonial[];
-// }
-
 export function Testimonials() {
   return (
     <Container>

@@ -27,7 +27,7 @@ export function ProductImage({
     setImageSize();
   });
 
-  function setImageSize(isOverlayOpen: boolean = false) {
+  function setImageSize() {
     let imageWidth: number = 100,
       imageHeight: number = 100;
 
@@ -95,14 +95,12 @@ export function ProductImage({
   function openOverlay() {
     if (width > 768) {
       setIsOpen(true);
-      setImageSize(true);
       document.body.style.overflow = "hidden";
     }
   }
 
   function closeOverlay() {
     setIsOpen(false);
-    setImageSize(false);
     document.body.style.overflow = "visible";
   }
 
