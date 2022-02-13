@@ -59,8 +59,8 @@ export function ProductImage({
           imageHeight = 50;
           break;
         case "juice":
-          imageWidth = 60;
-          imageHeight = 60;
+          imageWidth = 80;
+          imageHeight = 80;
           break;
       }
     }

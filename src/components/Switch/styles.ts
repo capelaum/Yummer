@@ -10,7 +10,7 @@ export const SwitchContainer = styled.div`
 export const Switcher = styled.label`
   position: relative;
   display: inline-block;
-  width: 117px;
+  width: 115px;
   height: 34px;
 
   .message {
@@ -47,13 +47,13 @@ export const Switcher = styled.label`
       position: absolute;
       content: "";
       height: 24px;
-      width: 54px;
+      width: 3.75rem;
       left: 6px;
       bottom: 5px;
       background-color: white;
       -webkit-transition: 0.4s;
       transition: 0.4s;
-      border-radius: 1rem;
+      border-radius: 50px;
     }
   }
 

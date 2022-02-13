@@ -13,6 +13,7 @@ import { MenuNav } from "components/MenuNav";
 import { CartButton } from "components/CartButton";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
+import { JuiceSize } from "components/JuiceSize";
 
 export function Menu() {
   const { cartSize } = useCart();
@@ -67,6 +68,7 @@ export function Menu() {
         </MenuItemContainer>
 
         <MenuItemContainer isActive={activeItem === "juice"}>
+          <JuiceSize />
           {renderProducts(juices)}
         </MenuItemContainer>
       </MenuItemsContainer>

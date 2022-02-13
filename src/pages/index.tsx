@@ -40,9 +40,9 @@ export default function Home() {
 
           <Informations observe={observe} />
 
-          <Parallax />
-          <Testimonials />
           {inView && <InstaWidget />}
+          <Testimonials />
+          <Parallax />
         </main>
         <Footer />
       </Container>
