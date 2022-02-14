@@ -76,6 +76,42 @@ export const TextContent = styled.div<TextContentProps>`
     }
   }
 
+  details {
+    &[open] {
+      summary {
+        color: ${({ isOrange }) =>
+          isOrange ? "var(--color-primary)" : "var(--color-secondary)"};
+
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    summary {
+      cursor: pointer;
+
+      color: var(--color-background);
+
+      font-size: 1.25rem;
+      font-weight: 600;
+
+      display: flex;
+      align-items: center;
+
+      svg {
+        transform: rotate(0deg);
+        transition: 0.5s transform ease;
+      }
+    }
+
+    p {
+      padding-top: 0.5rem;
+      padding-left: 1.5rem;
+      line-height: 1.625rem;
+    }
+  }
+
   @media (max-width: 768px) {
     header {
       flex-direction: column-reverse;

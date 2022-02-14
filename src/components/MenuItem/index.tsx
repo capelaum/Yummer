@@ -8,6 +8,7 @@ import { AddCartButton } from "components/AddCartButton";
 import { ProductImage } from "components/ProductImage";
 
 import { Container, Content, TextContent } from "./styles";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 interface MenuItemProps {
   product: Product;
@@ -39,7 +40,18 @@ export function MenuItemComponent({ product, isOrange }: MenuItemProps) {
 
             <span>{priceFormated}</span>
           </header>
-          <p>{description}</p>
+
+          {width > 768 ? (
+            <p>{description}</p>
+          ) : (
+            <details>
+              <summary>
+                <MdKeyboardArrowRight size={20} />
+                Descrição
+              </summary>
+              <p>{description}</p>
+            </details>
+          )}
         </TextContent>
       </Content>
 
