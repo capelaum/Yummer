@@ -1,6 +1,6 @@
 import { formatPrice, renderProductName } from "utils/format";
 
-import { ItemAmount } from "components/ItemAmount";
+import { CartAmountButton } from "components/CartAmountButton";
 import { DeleteButton } from "components/DeleteButton";
 import { ProductImage } from "components/ProductImage";
 
@@ -50,7 +50,7 @@ export function CartDesktop() {
                 <span className="item_price">{priceFormated}</span>
               </td>
               <td className="td_center">
-                <ItemAmount productId={id} amount={amount} />
+                <CartAmountButton productId={id} amount={amount} />
               </td>
               <td className="td_center">
                 <strong className="item_subtotal">

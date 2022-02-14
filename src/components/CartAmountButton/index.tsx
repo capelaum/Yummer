@@ -1,19 +1,19 @@
-import { ItemAmountButton } from "./styles";
+import { CartAmountButtonContainer } from "./styles";
 
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 import { useCart } from "contexts/CartContext";
 
-interface ItemAmountProps {
+interface CartAmountButtonProps {
   amount: number;
   productId: number;
 }
 
-export function ItemAmount({ amount, productId }: ItemAmountProps) {
+export function CartAmountButton({ amount, productId }: CartAmountButtonProps) {
   const { updateProductAmount } = useCart();
 
   return (
-    <ItemAmountButton>
+    <CartAmountButtonContainer>
       <button
         className="minus_btn"
         onClick={() => updateProductAmount(productId, amount - 1)}
@@ -27,6 +27,6 @@ export function ItemAmount({ amount, productId }: ItemAmountProps) {
       >
         <FiPlus size={18} />
       </button>
-    </ItemAmountButton>
+    </CartAmountButtonContainer>
   );
 }

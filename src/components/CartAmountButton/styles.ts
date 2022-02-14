@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ItemAmountButton = styled.div`
+export const CartAmountButtonContainer = styled.div`
   background-color: var(--color-background);
   color: var(--color-primary);
 

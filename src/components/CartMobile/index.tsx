@@ -2,7 +2,7 @@ import { formatPrice, renderProductName } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
 
-import { ItemAmount } from "components/ItemAmount";
+import { CartAmountButton } from "components/CartAmountButton";
 import { ProductImage } from "components/ProductImage";
 
 import {
@@ -41,7 +41,7 @@ export function CartMobile() {
                 <span>{formatPrice(amount * price)}</span>
               </ProductSubtotal>
 
-              <ItemAmount productId={id} amount={amount} />
+              <CartAmountButton productId={id} amount={amount} />
             </ProductInfo>
           </Product>
         ),
