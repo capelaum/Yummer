@@ -20,7 +20,7 @@ const InstaWidget = dynamic<InstaWidgetProps>(
   { loading: () => <span>Carregando...</span> },
 );
 
-import { Container } from "styles/home";
+import { BgContainer, Container } from "styles/home";
 
 export default function Home() {
   const { observe, inView } = useInView({
@@ -35,8 +35,10 @@ export default function Home() {
       <Container>
         <Banner />
         <main>
-          <VideoSection />
-          <Menu />
+          <BgContainer>
+            <VideoSection />
+            <Menu />
+          </BgContainer>
 
           <Informations observe={observe} />
 

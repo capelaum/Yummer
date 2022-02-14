@@ -2,20 +2,30 @@ import styled from "styled-components";
 
 export const MenuNavContainer = styled.nav`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
   width: 90%;
-
   max-width: 1200px;
-  border-bottom: 1px solid var(--color-gray-200);
+
+  background-color: var(--color-primary);
+  border-radius: 50px;
+
+  button:nth-child(1) {
+    border-radius: 50px 0 0 50px;
+  }
+
+  button:nth-child(2) {
+    border-radius: 0;
+  }
+
+  button:nth-child(3) {
+    border-radius: 0 50px 50px 0;
+  }
 
   @media (max-width: 768px) {
     background-color: var(--color-primary);
-    justify-content: space-around;
-
     border-bottom: none;
-    border-radius: 50px;
   }
 `;
 
@@ -23,60 +33,38 @@ interface MenuNavButtonProps {
   isActive?: boolean;
 }
 
-const colors = {
-  primary: "var(--color-primary)",
-  primaryTransparent: "rgba(38, 49, 67, 0.7)",
-};
-
 export const MenuNavButton = styled.button<MenuNavButtonProps>`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  height: 80px;
+  flex: 33%;
+  border-radius: 50px;
+
+  height: 5rem;
   padding: 0 2.5rem;
 
-  background: none;
+  color: var(--color-background);
+  background-color: ${({ isActive }) =>
+    isActive ? "var(--color-secondary)" : "var(--color-primary)"};
 
-  color: var(--color-primary);
+  /* transition: all 0.3s; */
 
-  transition: all 0.5s;
-
-  .MenuNavButtonIcon {
-    transition: all 0.5s;
+  &:hover {
+    color: ${({ isActive }) =>
+      isActive ? "var(--color-background)" : "var(--color-secondary)"};
   }
 
   span {
     padding-left: 0.7rem;
 
     font-size: 2.25rem;
-    font-weight: 500;
-  }
-
-  box-shadow: ${({ isActive }) =>
-    isActive ? "0 -3px var(--color-primary) inset" : "none"};
-
-  background: ${({ isActive }) =>
-    isActive
-      ? "none"
-      : "linear-gradient(var(--color-primary) 0 0px) bottom / var(--d, 0) 3px no-repeat"};
-
-  &:hover {
-    --d: 100%;
-
-    color: var(--color-primary);
-
-    .MenuNavButtonIcon {
-      filter: none;
-    }
+    font-weight: 400;
   }
 
   @media (max-width: 768px) {
     padding: 0;
-    height: 50px;
-
-    box-shadow: none;
-    background: none;
+    height: 3rem;
 
     .MenuNavButtonIcon {
       display: none;
@@ -84,18 +72,7 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
 
     span {
       padding-left: 0rem;
-
-      color: ${({ isActive }) =>
-        isActive ? "var(--color-secondary) !important" : "#fff"};
-
       font-size: 1.5rem;
-      color: #fff;
-
-      transition: all 0.3s;
-
-      &:hover {
-        color: var(--color-secondary);
-      }
     }
   }
 

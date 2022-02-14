@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MenuContainer = styled.section`
   position: relative;
 
-  background-color: var(--color-background);
+  /* background-color: var(--color-background); */
 
   display: flex;
   align-items: center;
@@ -17,13 +17,13 @@ export const MenuItemsContainer = styled.div`
   align-items: center;
   flex-direction: column;
 
-  background-image: url("./Menu/bg_menu.png");
+  /* background-image: url("./Menu/bg_menu.png");
   background-repeat: repeat;
   background-size: 300px;
 
   @media (max-width: 768px) {
     background-size: 100px;
-  }
+  } */
 `;
 
 interface MenuItemContainerProps {

@@ -1,9 +1,13 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import cookies_icon from "@public/Menu/Icons/cookies_icon.svg";
-import toasts_icon from "@public/Menu/Icons/toasts_icon.svg";
-import juice_icon from "@public/Menu/Icons/juice_icon.svg";
+import cookies_icon from "@public/Menu/Icons/cookies_icon_white.svg";
+import toasts_icon from "@public/Menu/Icons/toasts_icon_white.svg";
+import juice_icon from "@public/Menu/Icons/juice_icon_white.svg";
+
+import cookies_icon_orange from "@public/Menu/Icons/cookies_icon_orange.svg";
+import toasts_icon_orange from "@public/Menu/Icons/toasts_icon_orange.svg";
+import juice_icon_orange from "@public/Menu/Icons/juice_icon_orange.svg";
 
 import { ProductTypes } from "utils/types";
 
@@ -15,20 +19,33 @@ interface MenuNavProps {
 }
 
 export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
+  const [isHovering, setIsHovering] = useState(false);
+  const [isHoveringType, setIsHoveringType] = useState<ProductTypes>("cookie");
+
   function renderMenuNavButton(type: ProductTypes) {
     let icon: StaticImageData, name: string;
 
+    const isNotActive = !(activeItem === type);
+    const isHoveringOnThisType = isHovering && isHoveringType === type;
+
     switch (type) {
       case "cookie":
-        icon = cookies_icon;
+        icon =
+          isHoveringOnThisType && isNotActive
+            ? cookies_icon_orange
+            : cookies_icon;
         name = "Cookies";
         break;
       case "toast":
-        icon = toasts_icon;
+        icon =
+          isHoveringOnThisType && isNotActive
+            ? toasts_icon_orange
+            : toasts_icon;
         name = "Rabanadas";
         break;
       case "juice":
-        icon = juice_icon;
+        icon =
+          isHoveringOnThisType && isNotActive ? juice_icon_orange : juice_icon;
         name = "Sucos";
         break;
 
@@ -41,10 +58,19 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
         title={name}
         isActive={activeItem === type}
         onClick={() => handleSetActiveItem(type)}
+        onMouseEnter={() => {
+          setIsHovering(true);
+          setIsHoveringType(type);
+        }}
+        onMouseLeave={() => {
+          setIsHovering(false);
+          setIsHoveringType(type);
+        }}
       >
         <div className="MenuNavButtonIcon">
-          <Image src={icon} alt={`${name} icon`} />
+          <Image src={icon} alt={`${name} icon`} className="icon" />
         </div>
+
         <span>{name}</span>
       </MenuNavButton>
     );
