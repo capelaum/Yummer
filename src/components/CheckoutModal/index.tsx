@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 
-import { CartProduct, Product } from "utils/types";
+import { CartProduct } from "utils/types";
 import { showToast } from "utils/toasts";
 import { formatPrice, getCartFormated, renderProductName } from "utils/format";
 
@@ -37,32 +37,36 @@ export function CheckoutModal({
       message,
     )}`;
 
-    window.open(whatsappLink, "_blank").focus();
+    window.open(whatsappLink, "_blank");
   }
 
   function createtMsgOrder(): string {
-    let message = `*Nome*: ${name}\n`;
-    message += `*Endereço de entrega*: ${deliveryAddress}\n\n➡️ *PEDIDO*\n\n`;
+    let message = `*Nome* \n${name}\n\n`;
+    message += `*Endereço de entrega* \n${deliveryAddress}\n\n➡️ *PEDIDO*\n\n`;
 
     const { cookies, toasts, juices } = getCartFormated(sortedCart);
 
     if (cookies.length > 0) {
+      message += "----------------------------------------------\n";
       message += "🍪 *Cookies*\n\n";
       message += formatProductsOrder(cookies);
     }
 
     if (toasts.length > 0) {
+      message += "----------------------------------------------\n";
       message += "🍞 *Rabanadas*\n\n";
       message += formatProductsOrder(toasts);
     }
 
     if (juices.length > 0) {
+      message += "----------------------------------------------\n";
       message += "🍹 *Sucos*\n\n";
       message += formatProductsOrder(juices);
     }
 
     message += "----------------------------------------------\n";
-    message += "✅ *Total*: " + formatPrice(cartTotal);
+    message += `✅ *Total*: ${formatPrice(cartTotal)}\n\n`;
+    message += "🔑 *CHAVE PIX CNPJ*: 45.069.279/0001-06";
 
     return message;
   }

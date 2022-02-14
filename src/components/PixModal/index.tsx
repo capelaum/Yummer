@@ -24,6 +24,7 @@ export function PixModal({
 }: PixModalProps) {
   const [copiedText, copy] = useCopyToClipboard();
   const { cartTotal } = useCart();
+  const pixKey = "45.069.279/0001-06";
 
   const phoneNumber = "994024994";
 
@@ -32,6 +33,7 @@ export function PixModal({
 
     showToast(
       `Chave PIX ${key} copiada!`,
+      "bottom-right",
       <MdOutlineContentCopy size={28} color="var(--color-secondary)" />,
     );
   }
@@ -69,10 +71,10 @@ export function PixModal({
 
         <h2>Chave CNPJ</h2>
         <button
-          onClick={() => handleCopyPixKey("45.069.279/0001-06")}
+          onClick={() => handleCopyPixKey(pixKey)}
           title="Copiar Chave PIX"
         >
-          45.069.279/0001-06
+          {pixKey}
           <MdOutlineContentCopy size={16} />
         </button>
 

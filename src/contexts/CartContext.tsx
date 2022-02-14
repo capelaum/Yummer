@@ -97,6 +97,7 @@ export function CartProvider({ children }: CartProviderProps) {
             product.name,
             product?.size,
           )} adicionado ao carrinho`,
+          "bottom-right",
           <MdAddShoppingCart size={30} color="var(--color-secondary)" />,
         );
 
@@ -142,6 +143,7 @@ export function CartProvider({ children }: CartProviderProps) {
 
     showToast(
       `${removeProductMessage}`,
+      "bottom-right",
       <MdOutlineRemoveShoppingCart size={28} color="var(--color-secondary)" />,
     );
   }

@@ -65,7 +65,8 @@ export default function Cart() {
   function handleClosePixModal() {
     setIsPixModalOpen(false);
     showToast(
-      "Obrigado por comprar conosco!",
+      "A Yummer agradece a preferência!",
+      "top-right",
       <IoMdHeart size={28} color="var(--color-secondary)" />,
     );
     emptyCart();
