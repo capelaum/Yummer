@@ -1,7 +1,16 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
+
+import { Favicon } from "components/Favicon";
+import { Seo } from "components/SEO";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -23,80 +32,12 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
 
-          <meta
-            name="description"
-            content="Somos a YUMMER! Cookies, Rabanadas chá & sucos Pedidos de Seg a Quin | Entregas Sex e Sab "
-          />
+          <Favicon />
 
-          <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="favicon/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="favicon/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="favicon/favicon-16x16.png"
-          />
-          <link rel="manifest" href="favicon/site.webmanifest" />
-          <link
-            rel="mask-icon"
-            href="favicon/safari-pinned-tab.svg"
-            color="#ea5b13"
-          />
-          <meta name="msapplication-TileColor" content="#263143" />
-          <meta name="theme-color" content="#ffffff" />
-          <link
-            rel="shortcut icon"
-            href="favicon/favicon.ico"
-            type="image/x-icon"
-          />
-
-          <meta
-            name="description"
-            content="Somos a Yummer! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
-          />
-          <meta
-            property="og:title"
-            content="Yummer - Cookies, Rabanadas, Chás & Sucos 🧡"
-          />
-          <meta property="og:site_name" content="Yummer"></meta>
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:description"
-            content="Somos a Yummer! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
-          />
-          <meta property="og:url" content="https://yummer.vercel.app" />
-          <meta property="og:locale" content="pt_BR"></meta>
-
-          <meta
-            property="og:image"
-            itemProp="image"
-            content="https://yummer.vercel.app/Logos/yummer_logo.png"
-          />
-          <meta property="og:image:type" content="image/png"></meta>
-
-          <meta name="twitter:url" content="https://yummer.vercel.app" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:creator" content="@capellett" />
-          <meta
-            name="twitter:title"
-            content="Yummer - Cookies, Rabanadas, Chás & Sucos 🧡"
-          />
-          <meta
-            name="twitter:description"
-            content="Somos a YUMMER! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
-          />
-          <meta
-            name="twitter:image"
-            content="https://yummer.vercel.app/Logos/yummer_logo.png"
+          <Seo
+            title="🧡 Yummer - Cookies, Rabanadas, Chás & Sucos"
+            description="Somos a Yummer! Cookies, Rabanadas, Chás & Sucos. Viemos fazer com que você NÃO consiga mais viver sem as nossas DELÍCIAS!! Está preparado para compartilhar aquele momento YUMMER junto conosco?!?"
+            url="https://yummer.vercel.app"
           />
         </Head>
         <body>

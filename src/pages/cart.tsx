@@ -75,7 +75,7 @@ export default function Cart() {
   return (
     <>
       <Head>
-        <title>Yummer | Checkout</title>
+        <title>Yummer | Carrinho</title>
       </Head>
       <Container>
         <Header>
