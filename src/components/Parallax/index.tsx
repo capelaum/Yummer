@@ -1,9 +1,8 @@
-import { Text, ParallaxImage, Container } from "./styles";
+import { Text, Container } from "./styles";
 
 export function Parallax() {
   return (
     <Container>
-      <ParallaxImage />
       <Text>
         <span>#</span>
         momento
