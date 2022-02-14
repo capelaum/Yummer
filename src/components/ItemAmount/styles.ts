@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ItemAmountButton = styled.div`
-  background-color: #fff;
+  background-color: var(--color-background);
   color: var(--color-primary);
 
   border-radius: 50px;
@@ -20,7 +20,7 @@ export const ItemAmountButton = styled.div`
 
   .minus_btn,
   .plus_btn {
-    background-color: #fff;
+    background-color: var(--color-background);
     color: var(--color-primary);
 
     display: flex;
@@ -40,11 +40,6 @@ export const ItemAmountButton = styled.div`
   }
 
   @media (max-width: 480px) {
-    width: 72px;
-    height: 28px;
-
-    span {
-      font-size: 1rem;
-    }
+    margin-right: 1rem;
   }
 `;
