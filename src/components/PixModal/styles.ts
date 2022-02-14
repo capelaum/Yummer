@@ -14,7 +14,13 @@ export const Container = styled.div`
     line-height: 2rem;
   }
 
-  strong {
+  h2 {
+    color: var(--color-secondary);
+    margin-top: 1rem;
+  }
+
+  strong,
+  h2 {
     font-size: 1.1rem;
     font-weight: 600;
     padding: 0.25rem 0;
@@ -28,6 +34,10 @@ export const Container = styled.div`
     border-radius: 50px;
     font-size: 1.125rem;
     font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transition: all 0.3s;
 

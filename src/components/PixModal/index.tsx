@@ -22,13 +22,13 @@ export function PixModal({
   customerName,
   onRequestClose,
 }: PixModalProps) {
-  const [value, copy] = useCopyToClipboard();
+  const [copiedText, copy] = useCopyToClipboard();
   const { cartTotal } = useCart();
 
   const phoneNumber = "994024994";
 
   function handleCopyPixKey(key: string) {
-    copy(key);
+    copy(key.replace(/\W/g, ""));
 
     showToast(
       `Chave PIX ${key} copiada!`,
@@ -55,25 +55,26 @@ export function PixModal({
           Confirme seu pedido <br />
           {customerName}
         </h1>
-        <strong>Pague com PIX</strong>
-        <strong>Nome: Ana Clara Zayat</strong>
-        <button
-          onClick={() => handleCopyPixKey("xxxxxxxxxxxxxx")}
-          title="Copiar Chave PIX"
-        >
-          Chave PIX: xxxxxxxxxxxxxx
-          <MdOutlineContentCopy size={16} />
-        </button>
+        <strong>Faça um PIX para</strong>
+        <strong>Ana Clara Nunes Zayat</strong>
 
         <Image
-          src="/PIX_QR_CODE.svg"
+          src="/PIX_QR_CODE_YUMMER.svg"
           alt="PIX - QR Code"
           width={200}
           height={200}
           layout="fixed"
         />
-
         <strong className="order_total">Total: {formatPrice(cartTotal)}</strong>
+
+        <h2>Chave CNPJ</h2>
+        <button
+          onClick={() => handleCopyPixKey("45.069.279/0001-06")}
+          title="Copiar Chave PIX"
+        >
+          45.069.279/0001-06
+          <MdOutlineContentCopy size={16} />
+        </button>
 
         <p>
           Por favor, envie o comprovante ao nosso
