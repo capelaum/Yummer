@@ -10,7 +10,7 @@ export const Container = styled.section`
   height: 500px;
   width: 100%;
 
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.25);
 
   @media (max-width: 768px) {
     height: 400px;
@@ -57,10 +57,10 @@ export const Text = styled.h1`
   }
 
   @media (max-width: 576px) {
-    margin: 7.5rem 0;
+    font-size: 2.5rem;
   }
 
-  @media (max-width: 480px) {
-    margin: 5rem 0;
+  @media (max-width: 360px) {
+    font-size: 2rem;
   }
 `;

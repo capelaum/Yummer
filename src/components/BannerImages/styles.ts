@@ -9,13 +9,6 @@ export const MainImage = styled.div<MainImageProps>`
   margin: 0 2rem;
   max-width: 1200px;
   width: 90%;
-  /* height: 100%; */
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-
-  /* border: 1px solid red; */
 
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   display: ${({ isActive }) => (isActive ? "block" : "none")};
