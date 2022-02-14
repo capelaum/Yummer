@@ -21,9 +21,7 @@ export const MainImage = styled.div<MainImageProps>`
   display: ${({ isActive }) => (isActive ? "block" : "none")};
 
   animation: ${({ isMobile }) =>
-    isMobile ? "opacity ease-in-out both 1s" : "slide linear 6s"};
-
-  /* animation: slide linear 6s; */
+    isMobile ? "opacity ease-in-out both 1s" : "slide linear 2s"};
 
   @keyframes opacity {
     0% {
@@ -38,7 +36,7 @@ export const MainImage = styled.div<MainImageProps>`
   @keyframes slide {
     0% {
       opacity: 0;
-      transform: translate(-2500px);
+      transform: translate(-2000px);
     }
 
     20% {
@@ -54,15 +52,6 @@ export const MainImage = styled.div<MainImageProps>`
     100% {
       opacity: 0;
       transform: translate(2000px);
-    }
-  }
-
-  @keyframes slide-rigth {
-    0% {
-      transform: translate(1000px, -50%);
-    }
-    100% {
-      transform: translate(0, -50%);
     }
   }
 

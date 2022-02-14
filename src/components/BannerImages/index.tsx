@@ -58,7 +58,7 @@ export function BannerImages() {
           break;
       }
     },
-    width < 768 ? 2000 : 6000,
+    width < 768 ? 2000 : 2000,
   );
 
   return (
