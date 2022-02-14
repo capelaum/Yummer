@@ -44,16 +44,27 @@ export function BannerImages() {
   const [active, setActive] = useState<ProductTypes>("cookie");
   const { width } = useWindowDimensions();
 
-  useInterval(() => {
-    setActive(
-      active === "cookie" ? "toast" : active === "toast" ? "juice" : "cookie",
-    );
-  }, 1500);
+  useInterval(
+    () => {
+      switch (active) {
+        case "cookie":
+          setActive("toast");
+          break;
+        case "toast":
+          setActive("juice");
+          break;
+        case "juice":
+          setActive("cookie");
+          break;
+      }
+    },
+    width < 768 ? 2000 : 6000,
+  );
 
   return (
     <>
       {bannerImages.map(({ id, src, mobileSrc, alt, type }) => (
-        <MainImage key={id} isActive={active === type}>
+        <MainImage key={id} isActive={active === type} isMobile={width < 768}>
           <Image
             src={width >= 768 ? src : mobileSrc}
             alt={`Yummer ${alt}`}

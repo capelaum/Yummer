@@ -17,7 +17,7 @@ export const Container = styled.section`
 
   .slick-slider {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
 
     margin-bottom: 1rem;
   }

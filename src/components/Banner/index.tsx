@@ -44,7 +44,6 @@ export function Banner() {
             priority
           />
         </div>
-
         <BannerImages />
       </Shape>
     </BannerContainer>
