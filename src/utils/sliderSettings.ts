@@ -1,8 +1,13 @@
-export const Slidersettings = {
+import { MdKeyboardArrowRight } from "react-icons/md";
+
+export const sliderSettings = {
   dots: true,
   arrows: true,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  cssEase: "linear",
   infinite: true,
-  speed: 500,
+  speed: 800,
   slidesToShow: 3,
   slidesToScroll: 3,
   initialSlide: 0,
