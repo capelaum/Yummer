@@ -13,7 +13,7 @@ export const Container = styled.section`
   background-attachment: fixed;
   background-image: url("/Parallax/parallax_5.jpg");
   background-size: cover;
-  background-position: top;
+  background-position: unset;
   background-repeat: no-repeat;
 
   &:before {
