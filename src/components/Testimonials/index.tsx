@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Slider from "react-slick";
+import Slider, { CustomArrowProps } from "react-slick";
 
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { RiDoubleQuotesL } from "react-icons/ri";
@@ -12,7 +12,7 @@ import { sliderSettings } from "utils/sliderSettings";
 
 import { Container, Item } from "./styles";
 
-function NextArrow(props) {
+function NextArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <div className="next-arrow" onClick={onClick}>
@@ -21,7 +21,7 @@ function NextArrow(props) {
   );
 }
 
-function PrevArrow(props) {
+function PrevArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <div className="prev-arrow" onClick={onClick}>
