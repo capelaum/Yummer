@@ -20,7 +20,7 @@ export const CartButtonContainer = styled.button`
   font-size: 2.2rem;
 
   position: fixed;
-  z-index: 2;
+  z-index: 10;
 
   transition: all 0.3s;
 

@@ -10,6 +10,8 @@ export const Container = styled.section`
   height: 500px;
   width: 100%;
 
+  overflow: hidden;
+
   background-attachment: fixed;
   background-image: url("/Parallax/parallax_5.jpg");
   background-size: cover;

@@ -86,7 +86,7 @@ export const menu: Product[] = [
     type: "toast",
     name: "Piloto",
     description: "A melhor rabanada tradicional, açúcar e canela por fora.",
-    price: 6,
+    price: 7,
     imageSrc: "piloto.png",
   },
   {
@@ -95,7 +95,7 @@ export const menu: Product[] = [
     name: "Dona Avelina",
     description:
       "Recheada com muito doce de leite mineiro, açúcar e canela por fora.",
-    price: 6,
+    price: 7,
     imageSrc: "dona_avelina.png",
   },
   {
@@ -103,29 +103,37 @@ export const menu: Product[] = [
     type: "toast",
     name: "Doce Imperador",
     description: "Recheada com muita Nutella, açúcar e canela por fora.",
-    price: 6,
+    price: 7,
     imageSrc: "doce_imperador.png",
   },
   {
     id: 12,
-    type: "juice",
-    name: "Pink Lemonade",
+    type: "toast",
+    name: "Crème Brûlée",
     description:
-      "Suco de limão taiti misturado com xarope groselha. Uma limonada cheia de cor e sabor.",
-    price: 5,
-    imageSrc: "pink_lemonade.png",
+      "Recheio de creme brûlée caseiro com o açúcar e canela maçaricado em nossa receita tradicional de rabanada.",
+    price: 7,
+    imageSrc: "doce_imperador.png",
   },
   {
     id: 13,
     type: "juice",
-    name: "Amora com Limão",
+    name: "Pink Lemonade",
     description:
-      "A perfeita combinação do suco de amora e limão taiti, com um leve toque de água de coco.",
+      "Suco de limão taiti misturado com um toque de suco de morango. Uma limonada cheia de cor e sabor.",
+    price: 5,
+    imageSrc: "pink_lemonade.png",
+  },
+  {
+    id: 14,
+    type: "juice",
+    name: "Amora com Limão",
+    description: "A perfeita combinação do suco de amora e limão taiti.",
     price: 5,
     imageSrc: "amora_limao.png",
   },
   {
-    id: 14,
+    id: 15,
     type: "juice",
     name: "Laranja com Acerola",
     description: "Delicioso suco de laranja com Acerola, na medida ideal.",
@@ -133,7 +141,7 @@ export const menu: Product[] = [
     imageSrc: "laranja_acerola.png",
   },
   {
-    id: 15,
+    id: 16,
     type: "juice",
     name: "Black Tea",
     description:

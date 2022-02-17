@@ -68,6 +68,10 @@ export const Item = styled.div<ItemProps>`
 
   min-height: 250px;
 
+  @media (max-width: 576px) {
+    min-height: 200px;
+  }
+
   display: flex !important;
   flex-direction: column;
   align-items: center;
