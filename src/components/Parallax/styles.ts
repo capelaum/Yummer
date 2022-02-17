@@ -10,21 +10,7 @@ export const Container = styled.section`
   height: 500px;
   width: 100%;
 
-  background-attachment: fixed;
-  background-image: url("/Parallax/parallax_5.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-  }
+  background: rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
     height: 400px;
@@ -37,6 +23,18 @@ export const Container = styled.section`
   @media (max-width: 480px) {
     height: 250px;
   }
+`;
+
+export const ParallaxImage = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("Parallax/parallax_5.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 `;
 
 export const Text = styled.h1`
