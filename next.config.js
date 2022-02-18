@@ -5,11 +5,10 @@ module.exports = {
     url_dev: "https://yummer.vercel.app",
     url_prod: "http://yummer.com.br",
   },
-  experimental: {
+  compiler: {
     styledComponents: true,
   },
   swcMinify: true,
-  serverComponents: true,
   images: {
     domains: ["yummer.vercel.app"],
   },
