@@ -1,5 +1,3 @@
-import { MdKeyboardArrowRight } from "react-icons/md";
-
 export const sliderSettings = {
   dots: true,
   arrows: true,

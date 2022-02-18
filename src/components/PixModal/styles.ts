@@ -16,7 +16,7 @@ export const Container = styled.div`
 
   h2 {
     color: var(--color-secondary);
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 
   strong,
@@ -50,8 +50,13 @@ export const Container = styled.div`
     }
   }
 
+  .qr_code {
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+  }
+
   .order_total {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
   }
 

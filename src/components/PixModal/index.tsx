@@ -60,13 +60,15 @@ export function PixModal({
         <strong>Faça um PIX para</strong>
         <strong>Ana Clara Nunes Zayat</strong>
 
-        <Image
-          src="/PIX_QR_CODE_YUMMER.svg"
-          alt="PIX - QR Code"
-          width={200}
-          height={200}
-          layout="fixed"
-        />
+        <div className="qr_code">
+          <Image
+            src="/PIX_QR_CODE_YUMMER.jpg"
+            alt="QR CODE do PIX da Yummer"
+            width={200}
+            height={200}
+            layout="fixed"
+          />
+        </div>
         <strong className="order_total">Total: {formatPrice(cartTotal)}</strong>
 
         <h2>Chave CNPJ</h2>

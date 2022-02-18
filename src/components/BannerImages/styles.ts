@@ -29,7 +29,7 @@ export const MainImage = styled.div<MainImageProps>`
   @keyframes slide {
     0% {
       opacity: 0;
-      transform: translate(-100%);
+      transform: translate(100%);
     }
 
     20% {
@@ -44,7 +44,7 @@ export const MainImage = styled.div<MainImageProps>`
 
     100% {
       opacity: 0;
-      transform: translate(100%);
+      transform: translate(-100%);
     }
   }
 
