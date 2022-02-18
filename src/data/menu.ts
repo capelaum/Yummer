@@ -113,7 +113,7 @@ export const menu: Product[] = [
     description:
       "Recheio de creme brûlée caseiro com o açúcar e canela maçaricado em nossa receita tradicional de rabanada.",
     price: 7,
-    imageSrc: "doce_imperador.png",
+    imageSrc: "creme_brulee.png",
   },
   {
     id: 13,

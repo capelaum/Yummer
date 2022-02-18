@@ -80,12 +80,12 @@ export function ProductImage({
         imageHeight = 300;
         break;
       case "toast":
-        imageWidth = 300;
-        imageHeight = 170;
+        imageWidth = 400;
+        imageHeight = 200;
         break;
       case "juice":
-        imageWidth = 300;
-        imageHeight = 300;
+        imageWidth = 400;
+        imageHeight = 400;
         break;
     }
 
