@@ -42,7 +42,7 @@ export function VideoSection() {
           </div>
           <ReactPlayer
             className="react-player"
-            url="https://www.youtube.com/watch?v=58pJWTwQNWg&ab_channel=HaeeonEats%ED%95%B4%EC%96%B8"
+            url="https://www.youtube.com/embed/e9njxWYHY_8"
             light={true}
             controls={true}
             playIcon={
@@ -50,7 +50,7 @@ export function VideoSection() {
             }
             width="100%"
             height="100%"
-            title="Yummer Video"
+            title="Vídeo de apresentação da Yummer"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           />
         </PlayerWrapper>

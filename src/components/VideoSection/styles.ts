@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  /* background-color: var(--color-background); */
-
   padding: 0rem 2rem;
 
   padding-bottom: 10rem;
@@ -83,6 +81,10 @@ export const PlayerWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border-radius: 20px;
+
+  overflow: hidden;
 
   .react-player {
     position: absolute;
