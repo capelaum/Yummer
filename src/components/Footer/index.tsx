@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
+import { images } from "constants/images";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
@@ -19,7 +19,7 @@ export function Footer() {
 
         <ContentLeft>
           <div className="yummer_icon">
-            <Image src={yummer_icon} alt="Yummer" title="Yummer" />
+            <Image src={images.yummer_icon} alt="Yummer" title="Yummer" />
           </div>
           {width < 768 && <SocialIcons />}
 

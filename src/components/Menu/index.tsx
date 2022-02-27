@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useState } from "react";
+import { useState } from "react";
 
 import { getMenuWithPriceFormated } from "pages/api/menu";
 
@@ -11,9 +11,9 @@ import { MenuItem } from "components/MenuItem";
 import { Switch } from "components/Switch";
 import { MenuNav } from "components/MenuNav";
 import { CartButton } from "components/CartButton";
+import { JuiceSize } from "components/JuiceSize";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
-import { JuiceSize } from "components/JuiceSize";
 
 export function Menu() {
   const { cartSize } = useCart();

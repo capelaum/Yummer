@@ -9,7 +9,7 @@ import Modal from "react-modal";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
 
-import yummer_logo from "@public/Logos/yummer_logo.svg";
+import { images } from "constants/images";
 
 import { showToast } from "utils/toasts";
 
@@ -82,7 +82,7 @@ export default function Cart() {
           <Link href="/" passHref>
             <a className="yummer_logo" title="Home">
               <Image
-                src={yummer_logo}
+                src={images.yummer_logo}
                 alt="Yummer Logo"
                 layout="responsive"
                 priority

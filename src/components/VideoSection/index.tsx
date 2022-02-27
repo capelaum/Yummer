@@ -1,13 +1,10 @@
-import { useState } from "react";
 import Image from "next/image";
 
 import ReactPlayer from "react-player/youtube";
-import Loader from "react-loader-spinner";
 
 import { MdOutlinePlayCircleOutline } from "react-icons/md";
 
-import shapeLeft from "@public/video/shape_left.svg";
-import shapeRight from "@public/video/shape_right.svg";
+import { images } from "constants/images";
 
 import { SectionTitle } from "components/SectionTitle";
 
@@ -24,22 +21,21 @@ export function VideoSection() {
 
       <VideoContent>
         <div className="shape_left">
-          <Image src={shapeLeft} alt="shape left" layout="responsive" />
+          <Image
+            src={images.shape_left_video}
+            alt="shape left"
+            layout="responsive"
+          />
         </div>
         <div className="shape_right">
-          <Image src={shapeRight} alt="shape right" layout="responsive" />
+          <Image
+            src={images.shape_right_video}
+            alt="shape right"
+            layout="responsive"
+          />
         </div>
 
         <PlayerWrapper>
-          <div className="loader">
-            <Loader
-              type="Puff"
-              color="var(--color-secondary)"
-              height={80}
-              width={80}
-              timeout={2000}
-            />
-          </div>
           <ReactPlayer
             className="react-player"
             url="https://www.youtube.com/embed/e9njxWYHY_8"

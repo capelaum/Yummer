@@ -1,13 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import cookies_icon from "@public/Menu/Icons/cookies_icon_white.svg";
-import toasts_icon from "@public/Menu/Icons/toasts_icon_white.svg";
-import juice_icon from "@public/Menu/Icons/juice_icon_white.svg";
-
-import cookies_icon_orange from "@public/Menu/Icons/cookies_icon_orange.svg";
-import toasts_icon_orange from "@public/Menu/Icons/toasts_icon_orange.svg";
-import juice_icon_orange from "@public/Menu/Icons/juice_icon_orange.svg";
+import { images } from "constants/images";
 
 import { ProductTypes } from "utils/types";
 
@@ -32,20 +26,22 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
       case "cookie":
         icon =
           isHoveringOnThisType && isNotActive
-            ? cookies_icon_orange
-            : cookies_icon;
+            ? images.cookies_icon_orange
+            : images.cookies_icon;
         name = "Cookies";
         break;
       case "toast":
         icon =
           isHoveringOnThisType && isNotActive
-            ? toasts_icon_orange
-            : toasts_icon;
+            ? images.toasts_icon_orange
+            : images.toasts_icon;
         name = "Rabanadas";
         break;
       case "juice":
         icon =
-          isHoveringOnThisType && isNotActive ? juice_icon_orange : juice_icon;
+          isHoveringOnThisType && isNotActive
+            ? images.juice_icon_orange
+            : images.juice_icon;
         name = "Sucos";
         break;
 
