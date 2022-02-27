@@ -12,19 +12,19 @@ import { useCart } from "contexts/CartContext";
 
 import { Container } from "./styles";
 
-interface CheckoutModalProps {
+interface ModalCheckoutProps {
   isOpen: boolean;
   onRequestClose: () => void;
   openPixModal: () => void;
   handleSetCustomerName: (customerName: string) => void;
 }
 
-export function CheckoutModal({
+export function ModalCheckout({
   isOpen,
   onRequestClose,
   openPixModal,
   handleSetCustomerName,
-}: CheckoutModalProps) {
+}: ModalCheckoutProps) {
   const [name, setName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const { sortedCart, cartTotal } = useCart();

@@ -11,17 +11,17 @@ import useCopyToClipboard from "hooks/useCopyToClipboard";
 
 import { Container } from "./styles";
 
-interface PixModalProps {
+interface ModalPixProps {
   isOpen: boolean;
   customerName: string;
   onRequestClose: () => void;
 }
 
-export function PixModal({
+export function ModalPix({
   isOpen,
   customerName,
   onRequestClose,
-}: PixModalProps) {
+}: ModalPixProps) {
   const [copiedText, copy] = useCopyToClipboard();
   const { cartTotal } = useCart();
   const pixKey = "45.069.279/0001-06";

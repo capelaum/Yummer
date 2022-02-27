@@ -19,8 +19,9 @@ import { CartDesktop } from "components/CartDesktop";
 import { CartMobile } from "components/CartMobile";
 import { CartFooter } from "components/CartFooter";
 import { Footer } from "components/Footer";
-import { CheckoutModal } from "components/CheckoutModal";
-import { PixModal } from "components/PixModal";
+
+import { ModalCheckout } from "components/Modals/ModalCheckout";
+import { ModalPix } from "components/Modals/ModalPix";
 
 import {
   CartContainer,
@@ -91,14 +92,14 @@ export default function Cart() {
           </Link>
         </Header>
 
-        <CheckoutModal
+        <ModalCheckout
           isOpen={isCheckoutModalOpen}
           onRequestClose={handleCloseCheckoutModal}
           openPixModal={handleOpenPixModal}
           handleSetCustomerName={handleSetCustomerName}
         />
 
-        <PixModal
+        <ModalPix
           isOpen={isPixModalOpen}
           onRequestClose={handleClosePixModal}
           customerName={customerName}
