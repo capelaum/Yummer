@@ -4,11 +4,11 @@ import Link from "next/link";
 
 import { Container } from "./styles";
 
-interface FooterCenterProps {
+interface CenterProps {
   children?: ReactNode;
 }
 
-export function FooterCenter({ children }: FooterCenterProps) {
+export function Center({ children }: CenterProps) {
   const router = useRouter();
 
   function setLinkText() {

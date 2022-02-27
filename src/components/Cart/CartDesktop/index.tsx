@@ -1,7 +1,7 @@
 import { formatPrice, renderProductName } from "utils/format";
 
-import { CartAmountButton } from "components/CartAmountButton";
-import { DeleteButton } from "components/DeleteButton";
+import { CartAmountButton } from "components/Cart/CartAmountButton";
+import { DeleteButton } from "components/Cart/DeleteButton";
 import { ProductImage } from "components/ProductImage";
 
 import { useCart } from "contexts/CartContext";

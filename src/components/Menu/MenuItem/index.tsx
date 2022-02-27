@@ -4,8 +4,8 @@ import { Product } from "utils/types";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-import { AddCartButton } from "components/AddCartButton";
 import { ProductImage } from "components/ProductImage";
+import { AddCartButton } from "components/Menu/AddCartButton";
 
 import { Container, Content, TextContent } from "./styles";
 import { MdKeyboardArrowRight } from "react-icons/md";

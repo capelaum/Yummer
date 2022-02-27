@@ -2,7 +2,7 @@ import { formatPrice, renderProductName } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
 
-import { CartAmountButton } from "components/CartAmountButton";
+import { CartAmountButton } from "components/Cart/CartAmountButton";
 import { ProductImage } from "components/ProductImage";
 
 import {

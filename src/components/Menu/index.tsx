@@ -7,11 +7,11 @@ import { getMenuFormated } from "utils/format";
 
 import { useCart } from "contexts/CartContext";
 
-import { MenuItem } from "components/MenuItem";
-import { Switch } from "components/Switch";
-import { MenuNav } from "components/MenuNav";
-import { CartButton } from "components/CartButton";
-import { JuiceSize } from "components/JuiceSize";
+import { Switch } from "components/Menu/Switch";
+import { MenuNav } from "components/Menu/MenuNav";
+import { MenuItem } from "components/Menu/MenuItem";
+import { CartButton } from "components/Cart/CartButton";
+import { JuiceSize } from "components/Menu/JuiceSize";
 
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
 

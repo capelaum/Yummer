@@ -15,9 +15,9 @@ import { showToast } from "utils/toasts";
 
 import { useCart } from "contexts/CartContext";
 
-import { CartDesktop } from "components/CartDesktop";
-import { CartMobile } from "components/CartMobile";
-import { CartFooter } from "components/CartFooter";
+import { CartDesktop } from "components/Cart/CartDesktop";
+import { CartMobile } from "components/Cart/CartMobile";
+import { CartFooter } from "components/Cart/CartFooter";
 import { Footer } from "components/Footer";
 
 import { ModalCheckout } from "components/Modals/ModalCheckout";
