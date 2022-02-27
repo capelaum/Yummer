@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { images } from "constants/images";
 
-import { BannerImages } from "components/BannerImages";
+import { BannerImages } from "./BannerImages";
 
 import { BannerContainer, BannerHeader, Shape } from "./styles";
 

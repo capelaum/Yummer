@@ -6,8 +6,8 @@ import Document, {
   DocumentContext,
 } from "next/document";
 
-import { Favicon } from "components/Favicon";
-import { Seo } from "components/SEO";
+import { Favicon } from "components/Head/Favicon";
+import { Seo } from "components/Head/SEO";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
