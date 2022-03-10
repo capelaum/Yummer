@@ -56,7 +56,7 @@ export function Testimonials() {
               </div>
               <strong>{author}</strong>
             </div>
-            <p>&quot;{text}&quot;</p>
+            <p>{text}</p>
           </Item>
         ))}
       </Slider>
