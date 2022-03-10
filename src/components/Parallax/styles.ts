@@ -10,7 +10,7 @@ export const Container = styled.section`
   height: 500px;
   width: 100%;
 
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
 
   @media (max-width: 768px) {
     height: 400px;
@@ -31,11 +31,9 @@ export const ParallaxImage = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-
-  background-image: url("parallax.png");
+  background-image: url("Parallax/parallax_5.jpg");
   background-size: cover;
   background-position: center;
-
   z-index: -1;
 `;
 
@@ -48,24 +46,21 @@ export const Text = styled.h1`
 
   text-align: center;
 
-  /* margin: 15rem 0; */
+  z-index: 3;
 
   span {
-    color: var(--color-background);
+    color: var(--color-secondary);
   }
 
   @media (max-width: 768px) {
     font-size: 3.5rem;
-    margin: 12.5rem 0;
   }
 
   @media (max-width: 576px) {
-    margin: 7.5rem 0;
     font-size: 2.5rem;
   }
 
-  @media (max-width: 480px) {
-    margin: 5rem 0;
+  @media (max-width: 360px) {
     font-size: 2rem;
   }
 `;

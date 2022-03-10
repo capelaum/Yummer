@@ -1,9 +1,13 @@
 import { ReactNode } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastPosition } from "react-toastify";
 
-export const showToast = (message: string, icon?: ReactNode) => {
+export const showToast = (
+  message: string,
+  position: ToastPosition = "bottom-right",
+  icon?: ReactNode,
+) => {
   toast.success(message, {
-    position: "bottom-right",
+    position,
     icon,
   });
 };

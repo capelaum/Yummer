@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-import yummer_icon from "@public/Logos/yummer_orange_icon.svg";
+import { images } from "constants/images";
 
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 import { SocialIcons } from "components/SocialIcons";
+import { Center } from "./Center";
 
 import { Container, Content, ContentLeft, ContentRight } from "./styles";
-import { FooterCenter } from "components/FooterCenter";
 
 export function Footer() {
   const { width } = useWindowDimensions();
@@ -15,11 +15,11 @@ export function Footer() {
   return (
     <Container>
       <Content>
-        {width < 768 && <FooterCenter />}
+        {width < 768 && <Center />}
 
         <ContentLeft>
           <div className="yummer_icon">
-            <Image src={yummer_icon} alt="Yummer" title="Yummer" />
+            <Image src={images.yummer_icon} alt="Yummer" title="Yummer" />
           </div>
           {width < 768 && <SocialIcons />}
 
@@ -33,9 +33,9 @@ export function Footer() {
 
         {width >= 768 && (
           <>
-            <FooterCenter>
+            <Center>
               <SocialIcons />
-            </FooterCenter>
+            </Center>
           </>
         )}
 

@@ -8,6 +8,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 3;
 
   h1 {
     color: ${({ isBlue }) => (isBlue ? "var(--color-primary)" : "#fff")};

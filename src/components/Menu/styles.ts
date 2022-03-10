@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const MenuContainer = styled.section`
   position: relative;
 
-  background-color: var(--color-background);
-
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -16,14 +14,6 @@ export const MenuItemsContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  background-image: url("./Menu/bg_menu.png");
-  background-repeat: repeat;
-  background-size: 300px;
-
-  @media (max-width: 768px) {
-    background-size: 100px;
-  }
 `;
 
 interface MenuItemContainerProps {
@@ -45,7 +35,6 @@ export const MenuItemContainer = styled.div<MenuItemContainerProps>`
   background-color: ${({ isOrange }) =>
     isOrange ? "var(--color-secondary)" : "var(--color-primary)"};
 
-  /* animation: slide-in 0.7s both; */
   animation: fade-in 0.6s both;
 
   @keyframes slide-in {

@@ -9,18 +9,19 @@ import Modal from "react-modal";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { IoMdHeart } from "react-icons/io";
 
-import yummer_logo from "@public/Logos/yummer_logo.svg";
+import { images } from "constants/images";
 
 import { showToast } from "utils/toasts";
 
 import { useCart } from "contexts/CartContext";
 
-import { CartDesktop } from "components/CartDesktop";
-import { CartMobile } from "components/CartMobile";
-import { CartFooter } from "components/CartFooter";
+import { CartDesktop } from "components/Cart/CartDesktop";
+import { CartMobile } from "components/Cart/CartMobile";
+import { CartFooter } from "components/Cart/CartFooter";
 import { Footer } from "components/Footer";
-import { CheckoutModal } from "components/CheckoutModal";
-import { PixModal } from "components/PixModal";
+
+import { ModalCheckout } from "components/Modals/ModalCheckout";
+import { ModalPix } from "components/Modals/ModalPix";
 
 import {
   CartContainer,
@@ -65,7 +66,8 @@ export default function Cart() {
   function handleClosePixModal() {
     setIsPixModalOpen(false);
     showToast(
-      "Obrigado por comprar conosco!",
+      "A Yummer agradece a preferência!",
+      "top-right",
       <IoMdHeart size={28} color="var(--color-secondary)" />,
     );
     emptyCart();
@@ -74,14 +76,14 @@ export default function Cart() {
   return (
     <>
       <Head>
-        <title>Yummer | Checkout</title>
+        <title>Yummer | Carrinho</title>
       </Head>
       <Container>
         <Header>
           <Link href="/" passHref>
             <a className="yummer_logo" title="Home">
               <Image
-                src={yummer_logo}
+                src={images.yummer_logo}
                 alt="Yummer Logo"
                 layout="responsive"
                 priority
@@ -90,14 +92,14 @@ export default function Cart() {
           </Link>
         </Header>
 
-        <CheckoutModal
+        <ModalCheckout
           isOpen={isCheckoutModalOpen}
           onRequestClose={handleCloseCheckoutModal}
           openPixModal={handleOpenPixModal}
           handleSetCustomerName={handleSetCustomerName}
         />
 
-        <PixModal
+        <ModalPix
           isOpen={isPixModalOpen}
           onRequestClose={handleClosePixModal}
           customerName={customerName}

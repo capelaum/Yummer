@@ -15,15 +15,33 @@ export const Container = styled.section`
   background-size: 2000px;
   background-position: center;
 
-  .slick-slider {
-    width: 100%;
-    max-width: 1100px;
+  .next-arrow,
+  .prev-arrow {
+    color: var(--color-background);
 
-    margin-bottom: 1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--color-secondary);
+    }
   }
 
-  .slick-slide > div {
-    margin: 0 0.5rem;
+  .slick-slider {
+    width: 100%;
+    max-width: 1200px;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    .slick-slide {
+      & > div {
+        border-radius: 20px;
+        margin: 0 0.5rem;
+      }
+    }
   }
 
   .slick-dots {
@@ -35,62 +53,80 @@ export const Container = styled.section`
   }
 `;
 
-export const Item = styled.div`
-  background: #fff;
-  color: var(--color-primary);
+interface ItemProps {
+  isOrange?: boolean;
+}
 
-  padding: 1rem;
+export const Item = styled.div<ItemProps>`
+  background: ${({ isOrange }) =>
+    isOrange ? "var(--color-secondary)" : "var(--color-background)"};
 
-  min-height: 200px;
+
+  color: ${({ isOrange }) =>
+    isOrange ? "var(--color-background)" : "var(--color-primary)"};
+
+  padding: 1.5rem;
+
+  min-height: 250px;
+
+  @media (max-width: 576px) {
+    min-height: 200px;
+  }
+
 
   display: flex !important;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 
   border-radius: 20px;
 
+  position: relative;
+
   p {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
+
+    text-align: center;
+  }
+
+  .quote_icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+
   }
 
   .author {
     display: flex;
     align-items: center;
-    padding-top: 1rem;
-  }
 
-  .author_image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-right: 1rem;
-
-    overflow: hidden;
-  }
-
-  .author_info {
-    display: flex;
     flex-direction: column;
+    padding-bottom: 1.5rem;
 
-    strong {
-      font-size: 0.9rem;
-      font-weight: 700;
+    &_image {
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      object-fit: cover;
+
+      border: ${({ isOrange }) =>
+        isOrange
+          ? "2px solid var(--color-primary)"
+          : "2px solid var(--color-secondary)"};
+
+      border-radius: 50px;
+
+      overflow: hidden;
+      margin-bottom: 1rem;
     }
 
-    a {
-      display: block;
-      color: var(--color-secondary);
-      padding-top: 0.25rem;
-
-      font-size: 0.75rem;
-      font-weight: 700;
-
-      transition: all 0.3s;
-
-      &:hover {
-        text-decoration: underline;
-      }
+    strong {
+      font-size: 0.8rem;
+      text-align: center;
     }
   }
 `;

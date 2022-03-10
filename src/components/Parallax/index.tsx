@@ -1,4 +1,4 @@
-import { Text, ParallaxImage, Container } from "./styles";
+import { Text, Container, ParallaxImage } from "./styles";
 
 export function Parallax() {
   return (

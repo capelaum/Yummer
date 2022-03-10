@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
 
-  background-color: var(--color-background);
-
   padding: 0rem 2rem;
 
   padding-bottom: 10rem;
@@ -84,6 +82,14 @@ export const PlayerWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  /* border: 2px solid var(--color-gray-500); */
+
+  background-color: rgba(234, 91, 19, 0.7);
+
   .react-player {
     position: absolute;
     top: 0;
@@ -94,13 +100,6 @@ export const PlayerWrapper = styled.div`
     width: 100px;
     height: 100px;
     background: var(--color-primary);
-  }
-
-  .loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
   }
 
   svg {
