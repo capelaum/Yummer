@@ -83,8 +83,11 @@ export const Item = styled.div<ItemProps>`
   p {
     font-size: 1rem;
     font-weight: 500;
+    line-height: 1.25;
 
-    text-align: center;
+    white-space: pre-line;
+
+    text-align: left;
   }
 
   .quote_icon {
@@ -118,7 +121,7 @@ export const Item = styled.div<ItemProps>`
       border-radius: 50px;
 
       overflow: hidden;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     strong {
