@@ -61,6 +61,7 @@ export const Item = styled.div<ItemProps>`
   background: ${({ isOrange }) =>
     isOrange ? "var(--color-secondary)" : "var(--color-background)"};
 
+
   color: ${({ isOrange }) =>
     isOrange ? "var(--color-background)" : "var(--color-primary)"};
 
@@ -71,6 +72,7 @@ export const Item = styled.div<ItemProps>`
   @media (max-width: 576px) {
     min-height: 200px;
   }
+
 
   display: flex !important;
   flex-direction: column;
@@ -91,6 +93,7 @@ export const Item = styled.div<ItemProps>`
     position: absolute;
     top: 1rem;
     left: 1rem;
+
   }
 
   .author {
