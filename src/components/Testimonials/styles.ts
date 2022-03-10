@@ -61,7 +61,6 @@ export const Item = styled.div<ItemProps>`
   background: ${({ isOrange }) =>
     isOrange ? "var(--color-secondary)" : "var(--color-background)"};
 
-
   color: ${({ isOrange }) =>
     isOrange ? "var(--color-background)" : "var(--color-primary)"};
 
@@ -73,7 +72,6 @@ export const Item = styled.div<ItemProps>`
     min-height: 200px;
   }
 
-
   display: flex !important;
   flex-direction: column;
   align-items: center;
@@ -84,7 +82,7 @@ export const Item = styled.div<ItemProps>`
 
   p {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
 
     text-align: center;
   }
@@ -93,7 +91,6 @@ export const Item = styled.div<ItemProps>`
     position: absolute;
     top: 1rem;
     left: 1rem;
-
   }
 
   .author {
