@@ -26,7 +26,7 @@ export function ModalPix({
   const { cartTotal } = useCart();
   const pixKey = "45.069.279/0001-06";
 
-  const phoneNumber = "994024994";
+  const phoneNumber = "81413648";
 
   function handleCopyPixKey(key: string) {
     copy(key.replace(/\W/g, ""));

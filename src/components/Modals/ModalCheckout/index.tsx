@@ -32,7 +32,7 @@ export function ModalCheckout({
   function sendWppOrder() {
     const message = createtMsgOrder();
 
-    const phoneNumber = "994024994";
+    const phoneNumber = "81413648";
     const whatsappLink = `https://api.whatsapp.com/send?phone=+5561${phoneNumber}&text=${encodeURIComponent(
       message,
     )}`;
