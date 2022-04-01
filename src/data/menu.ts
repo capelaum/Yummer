@@ -109,7 +109,7 @@ export const menu: Product[] = [
   {
     id: 12,
     type: "toast",
-    name: "Crème Brûlée",
+    name: "Creme Brûlée",
     description:
       "Recheio de creme brûlée caseiro com o açúcar e canela maçaricado em nossa receita tradicional de rabanada.",
     price: 7,

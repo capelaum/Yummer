@@ -1,15 +1,11 @@
-import { FormEvent, useState } from "react";
-import Modal from "react-modal";
-
-import { MdClose } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa";
-
-import { CartProduct } from "utils/types";
-import { showToast } from "utils/toasts";
-import { formatPrice, getCartFormated, renderProductName } from "utils/format";
-
 import { useCart } from "contexts/CartContext";
-
+import { FormEvent, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdClose } from "react-icons/md";
+import Modal from "react-modal";
+import { formatPrice, getCartFormated, renderProductName } from "utils/format";
+import { showToast } from "utils/toasts";
+import { CartProduct } from "utils/types";
 import { Container } from "./styles";
 
 interface ModalCheckoutProps {
@@ -32,7 +28,7 @@ export function ModalCheckout({
   function sendWppOrder() {
     const message = createtMsgOrder();
 
-    const phoneNumber = "81413648";
+    const phoneNumber = "994024994";
     const whatsappLink = `https://api.whatsapp.com/send?phone=+5561${phoneNumber}&text=${encodeURIComponent(
       message,
     )}`;

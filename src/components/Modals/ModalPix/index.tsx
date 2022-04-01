@@ -1,14 +1,10 @@
-import Image from "next/image";
-import Modal from "react-modal";
-
-import { MdClose, MdOutlineContentCopy } from "react-icons/md";
-
-import { formatPrice } from "utils/format";
-import { showToast } from "utils/toasts";
-
 import { useCart } from "contexts/CartContext";
 import useCopyToClipboard from "hooks/useCopyToClipboard";
-
+import Image from "next/image";
+import { MdClose, MdOutlineContentCopy } from "react-icons/md";
+import Modal from "react-modal";
+import { formatPrice } from "utils/format";
+import { showToast } from "utils/toasts";
 import { Container } from "./styles";
 
 interface ModalPixProps {
@@ -24,9 +20,9 @@ export function ModalPix({
 }: ModalPixProps) {
   const [copiedText, copy] = useCopyToClipboard();
   const { cartTotal } = useCart();
-  const pixKey = "45.069.279/0001-06";
+  const pixKey = "xx.xxx.xxx/xxxx-xx";
 
-  const phoneNumber = "81413648";
+  const phoneNumber = "994024994";
 
   function handleCopyPixKey(key: string) {
     copy(key.replace(/\W/g, ""));
@@ -58,11 +54,11 @@ export function ModalPix({
           {customerName}
         </h1>
         <strong>Faça um PIX para</strong>
-        <strong>Ana Clara Nunes Zayat</strong>
+        <strong>Luis Vinicius Capelletto</strong>
 
         <div className="qr_code">
           <Image
-            src="/PIX_QR_CODE_YUMMER.jpg"
+            src="/PIX_QR_CODE.svg"
             alt="QR CODE do PIX da Yummer"
             width={200}
             height={200}

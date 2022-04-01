@@ -1,7 +1,8 @@
+import { Size } from "utils/types";
 import { Sizes, SwitchContainer, Switcher } from "./styles";
 
 interface SwitchProps {
-  size: 100 | 45;
+  size: Size;
   toggleSize: () => void;
 }
 
