@@ -43,6 +43,6 @@ export interface Testimonial {
   text: string;
   author: string;
   imageSrc: string;
-  nick: string;
-  link: string;
+  nick?: string;
+  link?: string;
 }
