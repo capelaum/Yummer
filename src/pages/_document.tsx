@@ -1,20 +1,16 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from "next/document";
-
 import { Favicon } from "components/Head/Favicon";
 import { Seo } from "components/Head/SEO";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
   render() {
     return (
       <Html lang="pt-br" itemScope itemType="https://schema.org/WebSite">
@@ -46,5 +42,35 @@ export default class MyDocument extends Document {
         </body>
       </Html>
     );
+  }
+
+  static async getInitialProps(
+    ctx: DocumentContext,
+  ): Promise<DocumentInitialProps> {
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
+
+      const initialProps = await Document.getInitialProps(ctx);
+
+      initialProps.styles = (
+        <>
+          {initialProps.styles}
+          {sheet.getStyleElement()}
+        </>
+      );
+
+      return {
+        ...initialProps,
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 }
