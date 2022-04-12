@@ -1,19 +1,14 @@
-import { useState } from "react";
-
-import { getMenuWithPriceFormated } from "pages/api/menu";
-
-import { Product, ProductTypes, Size } from "utils/types";
-import { getMenuFormated } from "utils/format";
-
-import { useCart } from "contexts/CartContext";
-
-import { Switch } from "components/Menu/Switch";
-import { MenuNav } from "components/Menu/MenuNav";
-import { MenuItem } from "components/Menu/MenuItem";
 import { CartButton } from "components/Cart/CartButton";
-import { JuiceSize } from "components/Menu/JuiceSize";
-
+import { useCart } from "contexts/CartContext";
+import { getMenuWithPriceFormated } from "pages/api/menu";
+import { useState } from "react";
+import { getMenuFormated } from "utils/format";
+import { Product, ProductTypes, Size } from "utils/types";
+import { JuiceSize } from "./JuiceSize";
+import { MenuItem } from "./MenuItem";
+import { MenuNav } from "./MenuNav";
 import { MenuContainer, MenuItemContainer, MenuItemsContainer } from "./styles";
+import { Switch } from "./Switch";
 
 export function Menu() {
   const { cartSize } = useCart();

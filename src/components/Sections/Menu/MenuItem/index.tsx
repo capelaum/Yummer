@@ -1,14 +1,10 @@
-import { memo } from "react";
-
-import { Product } from "utils/types";
-
-import useWindowDimensions from "hooks/useWindowDimensions";
-
 import { ProductImage } from "components/ProductImage";
-import { AddCartButton } from "components/Menu/AddCartButton";
-
-import { Container, Content, TextContent } from "./styles";
+import { AddCartButton } from "components/Sections/Menu/AddCartButton";
+import useWindowDimensions from "hooks/useWindowDimensions";
+import { memo } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Product } from "utils/types";
+import { Container, Content, TextContent } from "./styles";
 
 interface MenuItemProps {
   product: Product;

@@ -46,6 +46,8 @@ export const Text = styled.h1`
 
   text-align: center;
 
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
   z-index: 3;
 
   span {

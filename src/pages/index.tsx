@@ -1,26 +1,24 @@
-import Head from "next/head";
-import dynamic from "next/dynamic";
-
-import useInView from "react-cool-inview";
-
-import { Banner } from "components/Banner";
-import { Menu } from "components/Menu";
-import { Informations } from "components/Informations";
-import { Testimonials } from "components/Testimonials";
-// import { InstaWidget } from "components/InstaWidget";
-import { VideoSection } from "components/VideoSection";
 import { Footer } from "components/Footer";
-import { InstaWidgetProps } from "components/InstaWidget";
-import { Parallax } from "components/Parallax";
+import { Banner } from "components/Sections/Banner";
+import { Informations } from "components/Sections/Informations";
+import { InstaWidgetProps } from "components/Sections/InstaWidget";
+import { Menu } from "components/Sections/Menu";
+import { Parallax } from "components/Sections/Parallax";
+import { Testimonials } from "components/Sections/Testimonials";
+import { VideoSection } from "components/Sections/VideoSection";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import useInView from "react-cool-inview";
+import { BgContainer, Container } from "styles/home";
 
 const InstaWidget = dynamic<InstaWidgetProps>(
   async () => {
-    return import("components/InstaWidget").then((mod) => mod.InstaWidget);
+    return import("components/Sections/InstaWidget").then(
+      (mod) => mod.InstaWidget,
+    );
   },
   { loading: () => <span>Carregando...</span> },
 );
-
-import { BgContainer, Container } from "styles/home";
 
 export default function Home() {
   const { observe, inView } = useInView({
