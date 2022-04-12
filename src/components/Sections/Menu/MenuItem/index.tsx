@@ -1,5 +1,5 @@
+import { AddCartButton } from "@sections/Menu/AddCartButton";
 import { ProductImage } from "components/ProductImage";
-import { AddCartButton } from "components/Sections/Menu/AddCartButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { memo } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";

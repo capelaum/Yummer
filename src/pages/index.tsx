@@ -1,11 +1,11 @@
+import { Banner } from "@sections/Banner";
+import { Informations } from "@sections/Informations";
+import { InstaWidgetProps } from "@sections/InstaWidget";
+import { Menu } from "@sections/Menu";
+import { Parallax } from "@sections/Parallax";
+import { Testimonials } from "@sections/Testimonials";
+import { VideoSection } from "@sections/VideoSection";
 import { Footer } from "components/Footer";
-import { Banner } from "components/Sections/Banner";
-import { Informations } from "components/Sections/Informations";
-import { InstaWidgetProps } from "components/Sections/InstaWidget";
-import { Menu } from "components/Sections/Menu";
-import { Parallax } from "components/Sections/Parallax";
-import { Testimonials } from "components/Sections/Testimonials";
-import { VideoSection } from "components/Sections/VideoSection";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import useInView from "react-cool-inview";
