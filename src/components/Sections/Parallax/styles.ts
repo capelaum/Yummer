@@ -10,7 +10,20 @@ export const Container = styled.section`
   height: 500px;
   width: 100%;
 
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-attachment: fixed;
+    background-image: url("Parallax/parallax_5.jpg");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
 
   @media (max-width: 768px) {
     height: 400px;
@@ -25,28 +38,23 @@ export const Container = styled.section`
   }
 `;
 
-export const ParallaxImage = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: url("Parallax/parallax_5.jpg");
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-`;
-
 export const Text = styled.h1`
   font-size: 5rem;
   font-weight: 700;
-  color: var(--color-background);
+  color: var(--color-primary);
 
   background: transparent;
 
   text-align: center;
 
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  text-shadow: 2px 0 0 var(--color-white), -2px 0 0 var(--color-white),
+    0 2px 0 var(--color-white), 0 -2px 0 var(--color-white),
+    1px 1px var(--color-white), -1px -1px 0 var(--color-white),
+    1px -1px 0 var(--color-white), -1px 1px 0 var(--color-white);
+
+  border-radius: 20px;
 
   z-index: 3;
 
