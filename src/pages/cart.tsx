@@ -21,7 +21,7 @@ import {
   Container,
   EmptyCart,
   Header,
-} from "./styles";
+} from "../styles/cart";
 
 Modal.setAppElement("#__next");
 
