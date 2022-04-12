@@ -31,7 +31,7 @@ export function MenuItemComponent({ product, isOrange }: MenuItemProps) {
           <header>
             <div className="item_title">
               <h2>{name}</h2>
-              <AddCartButton show={width > 768} productId={id} />
+              <AddCartButton show={width > 768} product={product} />
             </div>
 
             <span>{priceFormated}</span>
@@ -51,7 +51,7 @@ export function MenuItemComponent({ product, isOrange }: MenuItemProps) {
         </TextContent>
       </Content>
 
-      <AddCartButton show={width <= 768} productId={id} />
+      <AddCartButton show={width <= 768} product={product} />
     </Container>
   );
 }

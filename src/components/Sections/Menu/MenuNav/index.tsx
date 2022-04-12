@@ -1,10 +1,7 @@
-import { useState } from "react";
-import Image from "next/image";
-
 import { images } from "constants/images";
-
+import Image from "next/image";
+import { useState } from "react";
 import { ProductTypes } from "utils/types";
-
 import { MenuNavButton, MenuNavContainer } from "./styles";
 
 interface MenuNavProps {
@@ -74,8 +71,8 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
 
   return (
     <MenuNavContainer>
-      {renderMenuNavButton("cookie")}
       {renderMenuNavButton("toast")}
+      {renderMenuNavButton("cookie")}
       {renderMenuNavButton("juice")}
     </MenuNavContainer>
   );

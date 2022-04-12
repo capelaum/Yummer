@@ -27,10 +27,14 @@ export function Menu() {
     setActiveItem(item);
   }
 
-  function renderProducts(products: Product[], size?: number) {
-    const filteredProducts = products.filter(
-      (product) => product?.size === size,
+  function getFilteredProductsBySize(products: Product[]) {
+    return products.filter((product) =>
+      product.type === "cookie" ? product.size === size : product,
     );
+  }
+
+  function renderProducts(products: Product[]) {
+    const filteredProducts = getFilteredProductsBySize(products);
 
     return filteredProducts.map((product: Product) => {
       return (
@@ -43,6 +47,10 @@ export function Menu() {
     });
   }
 
+  function renderCartButtonIfCartSizeIsGreaterThanZero() {
+    if (cartSize > 0) return <CartButton />;
+  }
+
   return (
     <MenuContainer id="menu">
       <MenuNav
@@ -50,16 +58,16 @@ export function Menu() {
         activeItem={activeItem}
       />
 
-      {cartSize > 0 && <CartButton cartSize={cartSize} />}
+      {renderCartButtonIfCartSizeIsGreaterThanZero()}
 
       <MenuItemsContainer>
-        <MenuItemContainer isActive={activeItem === "cookie"}>
-          <Switch size={size} toggleSize={toggleSize} />
-          {renderProducts(cookies, size)}
-        </MenuItemContainer>
-
         <MenuItemContainer isOrange isActive={activeItem === "toast"}>
           {renderProducts(toasts)}
+        </MenuItemContainer>
+
+        <MenuItemContainer isActive={activeItem === "cookie"}>
+          <Switch size={size} toggleSize={toggleSize} />
+          {renderProducts(cookies)}
         </MenuItemContainer>
 
         <MenuItemContainer isActive={activeItem === "juice"}>
