@@ -7,6 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
@@ -21,24 +25,50 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    --font-family: "Montserrat", sans-serif;
+
     --color-primary: #263143;
     --color-secondary: #ea5b13;
 
     --color-background: #f5f5f5;
+
+    --color-white: #fff;
+
     --color-gray-200: #c1c8cc;
     --color-gray-400: #c1bccc;
     --color-gray-500: #a6adad;
     --color-gray-700: #999;
     --color-gray-900: #333;
 
-    // Toastify
+    --full-rounded: 100%;
+    --medium-rounded: 20px;
+
+    --container-max-width: 1200px;
+    --grid-gutter: 1200px;
+
+    --font-size-xxsmall: 0.9rem;
+    --font-size-xsmall: 1rem;
+    --font-size-small: 1.125rem;
+    --font-size-medium: 1.25rem;
+    --font-size-large: 2rem;
+    --font-size-xlarge: 3rem;
+    --font-size-xxlarge: 4rem;
+
+    --spacing-xxsmall: 0.5rem;
+    --spacing-xsmall: 1rem;
+    --spacing-small: 1.25rem;
+    --spacing-medium: 2rem;
+    --spacing-large: 2.5rem;
+    --spacing-xlarge: 4rem;
+    --spacing-xxlarge: 6rem;
+
     --toastify-color-info: var(--color-secondary);
     --toastify-color-success: var(--color-secondary);
     --toastify-color-warning: var(--color-secondary);
   }
 
   .Toastify__toast-body {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-family);
     color: var(--color-primary);
     font-weight: 700 !important;
   }
@@ -61,7 +91,7 @@ export const GlobalStyle = createGlobalStyle`
   input,
   textarea,
   button {
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-family);
     font-weight: 400;
   }
 

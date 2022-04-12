@@ -40,9 +40,9 @@ export interface Information {
 }
 
 export interface Testimonial {
+  id: number | string;
   text: string;
   author: string;
-  imageSrc: string;
-  nick?: string;
-  link?: string;
+  imageSrc?: string;
+  index?: number;
 }

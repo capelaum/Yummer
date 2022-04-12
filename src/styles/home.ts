@@ -13,8 +13,8 @@ export const BgContainer = styled.div`
     left: 0;
     top: 0;
     width: 100%;
-    border-top: 100px solid rgba(245, 245, 245, 0.8);
-    border-bottom: 100px solid rgba(245, 245, 245, 0.5);
+    height: 150px;
+    background: linear-gradient(var(--color-background), transparent);
   }
 
   position: relative;
