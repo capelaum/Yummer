@@ -10,7 +10,7 @@ export const Card = styled.div<CardProps>`
   align-items: left;
   justify-content: center;
 
-  border-radius: var(--medium-rounded);
+  border-radius: var(--border-medium);
 
   padding: var(--spacing-medium);
   margin: var(--spacing-medium) 1.2rem;
@@ -32,7 +32,7 @@ export const User = styled.div`
 export const Image = styled.img`
   width: 3rem;
   height: 3rem;
-  border-radius: 100%;
+  border-radius: var(--border-full);
 `;
 
 export const Name = styled.p`
@@ -42,12 +42,14 @@ export const Name = styled.p`
 `;
 
 export const Text = styled.blockquote<CardProps>`
+  position: relative;
   display: grid;
   justify-items: end;
+
   margin-top: var(--spacing-xsmall);
+
   font-size: var(--font-size-small);
   line-height: var(--font-size-small);
-  position: relative;
 
   input {
     opacity: 0;
@@ -64,29 +66,19 @@ export const Text = styled.blockquote<CardProps>`
   }
 
   > p {
-    padding-top: var(--spacing-small);
+    padding-top: var(--spacing-xxsmall);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  ${({ isOrange }) => css`
-    label {
-      cursor: pointer;
-      float: right;
-      font-weight: 600;
-      margin-top: var(--spacing-xxsmall);
-      color: ${isOrange ? "var(--color-primary)" : "var(--color-secondary)"};
-    }
-
-    &::before {
-      content: "“";
-      font-size: var(--font-size-xxlarge);
-      color: ${isOrange ? "var(--color-primary)" : "var(--color-secondary)"};
-      position: absolute;
-      top: var(--spacing-xsmall);
-      left: 0;
-    }
-  `}
+  label {
+    cursor: pointer;
+    float: right;
+    font-weight: 600;
+    margin-top: var(--spacing-small);
+    color: ${({ isOrange }) =>
+      isOrange ? "var(--color-primary)" : "var(--color-secondary)"};
+  }
 `;

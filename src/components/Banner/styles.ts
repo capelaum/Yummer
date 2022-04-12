@@ -32,7 +32,7 @@ export const BannerHeader = styled.div`
   animation: fade-in 2s both;
 
   .yummer_logo {
-    width: 400px;
+    width: 300px;
   }
 
   p {
@@ -45,7 +45,8 @@ export const BannerHeader = styled.div`
   }
 
   button {
-    margin: 0rem auto 8.75rem;
+    margin: 0rem auto;
+    margin-bottom: 7.5rem;
     padding: 1rem 4.5rem;
 
     background-color: var(--color-primary);
@@ -63,10 +64,6 @@ export const BannerHeader = styled.div`
   }
 
   @media (max-width: 768px) {
-    .yummer_logo {
-      width: 300px;
-    }
-
     p {
       font-size: 1.2rem;
       padding: 0 1rem;

@@ -4,12 +4,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background-image: url("./Menu/bg_menu.png");
+  background-repeat: repeat;
+  background-size: 250px;
 `;
 
 export const Header = styled.header`
   margin-top: 3rem;
 
-  width: 400px;
+  width: 300px;
 
   .yummer_logo {
     cursor: pointer;
@@ -33,10 +37,6 @@ export const Checkout = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background-image: url("./Menu/bg_menu.png");
-  background-repeat: repeat;
-  background-size: 250px;
 `;
 
 export const CartContainer = styled.div`

@@ -40,8 +40,9 @@ export const GlobalStyle = createGlobalStyle`
     --color-gray-700: #999;
     --color-gray-900: #333;
 
-    --full-rounded: 100%;
-    --medium-rounded: 20px;
+    --border-full: 100%;
+    --border-rounded: 50%;
+    --border-medium: 20px;
 
     --container-max-width: 1200px;
     --grid-gutter: 1200px;

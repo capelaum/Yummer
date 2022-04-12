@@ -1,35 +1,27 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-
-import Modal from "react-modal";
-
-import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import { IoMdHeart } from "react-icons/io";
-
-import { images } from "constants/images";
-
-import { showToast } from "utils/toasts";
-
-import { useCart } from "contexts/CartContext";
-
 import { CartDesktop } from "components/Cart/CartDesktop";
-import { CartMobile } from "components/Cart/CartMobile";
 import { CartFooter } from "components/Cart/CartFooter";
+import { CartMobile } from "components/Cart/CartMobile";
 import { Footer } from "components/Footer";
-
-import { ModalCheckout } from "components/Modals/ModalCheckout";
-import { ModalPix } from "components/Modals/ModalPix";
-
+import { ModalCheckout } from "components/Modal/ModalCheckout";
+import { ModalPix } from "components/Modal/ModalPix";
+import { images } from "constants/images";
+import { useCart } from "contexts/CartContext";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { IoMdHeart } from "react-icons/io";
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+import Modal from "react-modal";
+import { showToast } from "utils/toasts";
 import {
   CartContainer,
-  Container,
   Checkout,
+  Container,
   EmptyCart,
   Header,
-} from "styles/cart";
+} from "./styles";
 
 Modal.setAppElement("#__next");
 

@@ -10,7 +10,7 @@ export const Wrapper = styled.section`
   background-color: var(--color-primary);
   background-image: url("./bg_pattern.svg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   background-position: center;
 
   padding: var(--spacing-large) 1.5rem;
