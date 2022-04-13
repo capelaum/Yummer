@@ -1,15 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const MenuNavContainer = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 
-  width: 90%;
   max-width: 1200px;
+  width: 90%;
 
   background-color: var(--color-primary);
-  border-radius: 50px;
+  border-radius: var(--border-rounded);
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
@@ -41,25 +41,41 @@ export const MenuNavButton = styled.button<MenuNavButtonProps>`
   flex: 33%;
   border-radius: 50px;
 
-  height: 5rem;
+  height: 4rem;
   padding: 0 2.5rem;
 
   color: var(--color-background);
-  background-color: ${({ isActive }) =>
-    isActive ? "var(--color-secondary)" : "var(--color-primary)"};
 
   /* transition: all 0.3s; */
 
-  &:hover {
-    color: ${({ isActive }) =>
-      isActive ? "var(--color-background)" : "var(--color-secondary)"};
-  }
+  ${({ isActive }) => css`
+    background-color: ${isActive
+      ? "var(--color-secondary)"
+      : "var(--color-primary)"};
+
+    &:hover {
+      color: ${isActive ? "var(--color-white)" : "var(--color-secondary)"};
+
+      .MenuNavButtonIcon {
+        filter: ${isActive
+          ? "var(--color-white)"
+          : `invert(43%) sepia(40%) saturate(4271%) hue-rotate(355deg)
+          brightness(95%) contrast(94%)`};
+      }
+    }
+  `}
 
   span {
     padding-left: 0.7rem;
 
-    font-size: 2.25rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .MenuNavButtonIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (max-width: 768px) {

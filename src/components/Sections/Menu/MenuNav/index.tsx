@@ -1,6 +1,4 @@
 import { images } from "constants/images";
-import Image from "next/image";
-import { useState } from "react";
 import { ProductTypes } from "utils/types";
 import { MenuNavButton, MenuNavContainer } from "./styles";
 
@@ -10,36 +8,30 @@ interface MenuNavProps {
 }
 
 export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
-  const [isHovering, setIsHovering] = useState(false);
-  const [isHoveringType, setIsHoveringType] = useState<ProductTypes>("cookie");
-
   function renderMenuNavButton(type: ProductTypes) {
-    let icon: StaticImageData, name: string;
-
-    const isNotActive = !(activeItem === type);
-    const isHoveringOnThisType = isHovering && isHoveringType === type;
+    let icon: StaticImageData,
+      name: string,
+      width = 40,
+      height = 40;
 
     switch (type) {
       case "cookie":
-        icon =
-          isHoveringOnThisType && isNotActive
-            ? images.cookies_icon_orange
-            : images.cookies_icon;
+        icon = images.cookies_icon;
         name = "Cookies";
+        width = 35;
+        height = 35;
         break;
       case "toast":
-        icon =
-          isHoveringOnThisType && isNotActive
-            ? images.toasts_icon_orange
-            : images.toasts_icon;
+        icon = images.toasts_icon;
         name = "Rabanadas";
+        width = 50;
+        height = 35;
         break;
       case "juice":
-        icon =
-          isHoveringOnThisType && isNotActive
-            ? images.juice_icon_orange
-            : images.juice_icon;
+        icon = images.juice_icon;
         name = "Sucos";
+        width = 30;
+        height = 40;
         break;
 
       default:
@@ -51,18 +43,15 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
         title={name}
         isActive={activeItem === type}
         onClick={() => handleSetActiveItem(type)}
-        onMouseEnter={() => {
-          setIsHovering(true);
-          setIsHoveringType(type);
-        }}
-        onMouseLeave={() => {
-          setIsHovering(false);
-          setIsHoveringType(type);
-        }}
       >
-        <div className="MenuNavButtonIcon">
-          <Image src={icon} alt={`${name} icon`} className="icon" />
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`/Menu/Icons/${type}_icon_white.svg`}
+          alt={`${name} icon`}
+          className="MenuNavButtonIcon"
+          width={width}
+          height={height}
+        />
 
         <span>{name}</span>
       </MenuNavButton>

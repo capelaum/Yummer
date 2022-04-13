@@ -6,7 +6,7 @@ module.exports = {
   swcMinify: true,
   env: {
     url_local: "http://localhost:3000",
-    url_dev: "https://yummer.vercel.app",
+    url_dev: "http://localhost:3000",
     url_prod: "http://yummer.com.br",
   },
   images: {
