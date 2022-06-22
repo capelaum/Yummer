@@ -22,6 +22,7 @@ export function ProductImage({
   const [imageHeight, setImageHeight] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const { width } = useWindowDimensions();
+  const productImageSrc = `/Menu/${type}/${imageSrc}`;
 
   useEffect(() => {
     setImageSize();
@@ -108,7 +109,7 @@ export function ProductImage({
     <>
       <ImageContainer onClick={openOverlay}>
         <Image
-          src={`/${type}/${imageSrc}`}
+          src={productImageSrc}
           alt={name}
           width={imageWidth}
           height={imageHeight}
@@ -120,7 +121,7 @@ export function ProductImage({
 
       <ImageOverlay isOpen={isOpen} onClick={closeOverlay}>
         <Image
-          src={`/${type}/${imageSrc}`}
+          src={productImageSrc}
           alt={name}
           width={setOverlayImageSize(true)}
           height={setOverlayImageSize()}
