@@ -5,8 +5,8 @@ import * as S from "./styles";
 
 export function Card({ id, author, imageSrc, text, index }: Testimonial) {
   const testimonialImageSrc = imageSrc
-    ? `/Testimonials/${imageSrc}`
-    : "/Testimonials/reviewer.jpg";
+    ? `/Sections/Testimonials/${imageSrc}`
+    : "/Sections/Testimonials/reviewer.jpg";
 
   useEffect(() => {
     const texts = document.querySelectorAll("p.description");

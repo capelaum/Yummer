@@ -14,8 +14,8 @@ import cookies_icon from "@public/Menu/Icons/cookie_icon_white.svg";
 import juice_icon from "@public/Menu/Icons/juice_icon_white.svg";
 import toasts_icon from "@public/Menu/Icons/toast_icon_white.svg";
 
-import shape_left_video from "@public/Video/shape_left.svg";
-import shape_right_video from "@public/Video/shape_right.svg";
+import shape_left_video from "@public/Sections/Video/shape_left.svg";
+import shape_right_video from "@public/Sections/Video/shape_right.svg";
 
 export const images = {
   yummer_logo,
