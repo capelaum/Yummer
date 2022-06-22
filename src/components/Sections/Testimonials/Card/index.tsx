@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ResizeObserver from "resize-observer-polyfill";
 import { Testimonial } from "utils/types";
 import * as S from "./styles";
 
 export function Card({ id, author, imageSrc, text, index }: Testimonial) {
+  const testimonialImageSrc = imageSrc
+    ? `/Testimonials/${imageSrc}`
+    : "/Testimonials/reviewer.jpg";
+
   useEffect(() => {
     const texts = document.querySelectorAll("p.description");
 
@@ -23,15 +27,7 @@ export function Card({ id, author, imageSrc, text, index }: Testimonial) {
   return (
     <S.Card isOrange={index % 2 === 0}>
       <S.User>
-        <S.Image
-          src={
-            imageSrc
-              ? `/testimonials/${imageSrc}`
-              : "/testimonials/reviewer.jpg"
-          }
-          loading="lazy"
-          alt={author}
-        />
+        <S.Image src={testimonialImageSrc} loading="lazy" alt={author} />
         <S.Name>{author}</S.Name>
       </S.User>
       <S.Text isOrange={index % 2 === 0}>
