@@ -54,11 +54,11 @@ export function ModalPix({
           {customerName}
         </h1>
         <strong>Faça um PIX para</strong>
-        <strong>Luis Vinicius Capelletto</strong>
+        <strong>Luís Vinicius Capelletto</strong>
 
         <div className="qr_code">
           <Image
-            src="/PIX_QR_CODE.svg"
+            src="/QR_Code/PIX_QR_CODE_PLACEHOLDER.svg"
             alt="QR CODE do PIX da Yummer"
             width={200}
             height={200}

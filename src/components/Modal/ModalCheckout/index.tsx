@@ -62,7 +62,7 @@ export function ModalCheckout({
 
     message += "----------------------------------------------\n";
     message += `✅ *Total*: ${formatPrice(cartTotal)}\n\n`;
-    message += "🔑 *CHAVE PIX CNPJ*: 45.069.279/0001-06";
+    message += "🔑 *CHAVE PIX CNPJ*: xx.xxx.xxx/xxxx-xx";
 
     return message;
   }
