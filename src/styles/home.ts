@@ -22,7 +22,7 @@ export const BgContainer = styled.div`
   background-attachment: fixed;
 
   background-color: var(--color-background);
-  background-image: url("./Menu/bg_menu.png");
+  background-image: url("Sections/Menu/bg_menu.png");
   background-repeat: repeat;
   background-size: 300px;
   @media (max-width: 768px) {

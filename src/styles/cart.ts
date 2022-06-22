@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  background-image: url("./Menu/bg_menu.png");
+  background-image: url("Sections/Menu/bg_menu.png");
   background-repeat: repeat;
   background-size: 250px;
 `;
