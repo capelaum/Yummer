@@ -7,36 +7,30 @@ interface MenuNavProps {
   activeItem: ProductTypes;
 }
 
+const itemTypes = {
+  cookie: {
+    icon: images.cookies_icon,
+    name: "Cookies",
+    width: 35,
+    height: 35,
+  },
+  toast: {
+    icon: images.toasts_icon,
+    name: "Rabanadas",
+    width: 50,
+    height: 35,
+  },
+  juice: {
+    icon: images.juice_icon,
+    name: "Sucos",
+    width: 30,
+    height: 40,
+  },
+};
+
 export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
   function renderMenuNavButton(type: ProductTypes) {
-    let icon: StaticImageData,
-      name: string,
-      width = 40,
-      height = 40;
-
-    switch (type) {
-      case "cookie":
-        icon = images.cookies_icon;
-        name = "Cookies";
-        width = 35;
-        height = 35;
-        break;
-      case "toast":
-        icon = images.toasts_icon;
-        name = "Rabanadas";
-        width = 50;
-        height = 35;
-        break;
-      case "juice":
-        icon = images.juice_icon;
-        name = "Sucos";
-        width = 30;
-        height = 40;
-        break;
-
-      default:
-        break;
-    }
+    const { name, width, height } = itemTypes[type];
 
     return (
       <MenuNavButton
@@ -46,7 +40,7 @@ export function MenuNav({ handleSetActiveItem, activeItem }: MenuNavProps) {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`/Menu/Icons/${type}_icon_white.svg`}
+          src={`/Sections/Menu/Icons/${type}_icon_white.svg`}
           alt={`${name} icon`}
           className="MenuNavButtonIcon"
           width={width}

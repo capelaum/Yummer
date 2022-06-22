@@ -22,7 +22,7 @@ export function ProductImage({
   const [imageHeight, setImageHeight] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const { width } = useWindowDimensions();
-  const productImageSrc = `/Menu/${type}/${imageSrc}`;
+  const productImageSrc = `/Sections/Menu/${type}/${imageSrc}`;
 
   useEffect(() => {
     setImageSize();

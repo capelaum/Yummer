@@ -19,7 +19,7 @@ export const Container = styled.section`
     height: 100%;
 
     background-attachment: fixed;
-    background-image: url("Parallax/parallax_5.jpg");
+    background-image: url("Sections/Parallax/parallax_5.jpg");
     background-size: cover;
     background-position: center;
     z-index: -1;

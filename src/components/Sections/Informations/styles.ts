@@ -11,7 +11,7 @@ export const InfoContainer = styled.section`
 
   width: 100%;
 
-  background-image: url("./shared/bg_pattern.svg");
+  background-image: url("shared/bg_pattern.svg");
   background-repeat: no-repeat;
   background-size: 2000px;
   background-position: center;
