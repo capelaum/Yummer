@@ -1,15 +1,20 @@
 <div align="center">
   <h1>🧡Yummer🧡</h1>
   <h2>Aplicação web de pedidos de cookies, rabanadas e sucos da Yummer!</h2>
-  <img src=".github/yummer-cover.png" />
-
+  <h3>
+    Demo:
+    <a href="https://yummer.vercel.app">
+      https://yummer.vercel.app
+    </a>
+  </h3>
+  <img src=".github/yummer-cover.png" alt="Imagem de capa da Yummer" />
 </div>
 
-## Imagens PNG
+## Sobre
 
-- Cookies - 150x150
-- Rabanadas - 220x120
-- Sucos - 150x150
+Aplicação web que permite aos usuários adicionar produtos deliciosos ao carrinho e realizar pedidos pelo whatsapp para a doceria Yummer, residida em Brasília - DF.
+
+Infelizmente a Yummer está com suas operações pausadas por tempo indeterminado, porém o demo da aplicação segue online para o público 🧡
 
 ## Tecnologias
 
